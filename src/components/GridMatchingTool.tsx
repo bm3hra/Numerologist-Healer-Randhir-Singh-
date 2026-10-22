@@ -1,0 +1,285 @@
+import React, { useState } from 'react';
+import { Users, Heart, Briefcase, UserCheck, Sparkles, CheckCircle2, ArrowRight, ShieldAlert } from 'lucide-react';
+import { calculateNumerologyProfile, PLANETARY_ARCHETYPES } from '../data/numerologyData';
+import { Language } from '../types';
+
+interface GridMatchingToolProps {
+  lang: Language;
+  onBookMatchingSession: (type: string) => void;
+}
+
+export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
+  lang,
+  onBookMatchingSession
+}) => {
+  const [matchType, setMatchType] = useState<'marriage' | 'business' | 'employees'>('marriage');
+
+  // Person A
+  const [dayA, setDayA] = useState<number>(10);
+  const [monthA, setMonthA] = useState<number>(4);
+  const [yearA, setYearA] = useState<number>(1992);
+
+  // Person B
+  const [dayB, setDayB] = useState<number>(23);
+  const [monthB, setMonthB] = useState<number>(9);
+  const [yearB, setYearB] = useState<number>(1994);
+
+  const profileA = calculateNumerologyProfile(dayA, monthA, yearA, 'male');
+  const profileB = calculateNumerologyProfile(dayB, monthB, yearB, 'female');
+
+  // Synergy evaluation
+  const driverA = profileA.driverNumber;
+  const driverB = profileB.driverNumber;
+
+  const conductorA = profileA.conductorNumber;
+  const conductorB = profileB.conductorNumber;
+
+  let score = 65;
+  const synergyPoints: string[] = [];
+  const frictionPoints: string[] = [];
+
+  // Check driver harmony
+  if (PLANETARY_ARCHETYPES[driverA].friendly.includes(driverB)) {
+    score += 15;
+    synergyPoints.push(`Harmonious Driver Chemistry: Person A (Number ${driverA} - ${PLANETARY_ARCHETYPES[driverA].planet}) and Person B (Number ${driverB} - ${PLANETARY_ARCHETYPES[driverB].planet}) naturally support each other's core temperaments.`);
+  } else if (PLANETARY_ARCHETYPES[driverA].enemy.includes(driverB)) {
+    score -= 15;
+    frictionPoints.push(`Driver Opposition: Number ${driverA} and Number ${driverB} may experience clashes of ego and stubborn viewpoints if remedies are not implemented.`);
+  }
+
+  // Check conductor destiny harmony
+  if (PLANETARY_ARCHETYPES[conductorA].friendly.includes(conductorB)) {
+    score += 12;
+    synergyPoints.push(`Aligned Destiny Paths: Conductors ${conductorA} and ${conductorB} navigate life milestones in synchronicity.`);
+  }
+
+  // Check complementary grid numbers
+  const mutualCompletedNumbers = profileA.missingNumbers.filter((m) =>
+    profileB.presentNumbers.includes(m)
+  );
+
+  if (mutualCompletedNumbers.length > 0) {
+    score += mutualCompletedNumbers.length * 3;
+    synergyPoints.push(`Lo-Shu Mutual Grid Blessing: Person B fills missing numbers [${mutualCompletedNumbers.join(', ')}] in Person A's grid, creating psychological wholeness.`);
+  }
+
+  // Normalize score
+  score = Math.min(96, Math.max(48, score));
+
+  return (
+    <section id="grid-matching" className="py-12 sm:py-16 bg-[#faf7f0] border-b border-amber-200/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
+            <Users className="w-3.5 h-3.5 text-amber-700" />
+            <span>Service #10 · Lo-Shu Dual Matrix Matching</span>
+          </div>
+
+          <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+            GRID MATCHING &amp; COMPATIBILITY
+          </h2>
+          <p className="font-medium text-amber-900 text-sm sm:text-base mt-2">
+            For Marriage · Business Partners · Key Employees
+          </p>
+          <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto">
+            {lang === 'hi'
+              ? 'दो व्यक्तियों की जन्म तिथियों का पारस्परिक लो-शू ग्रिड मिलान यह सुनिश्चित करता है कि उनका संबंध दीर्घकालिक विश्वास, समृद्धि और पूरक ऊर्जा पर आधारित हो।'
+              : 'Cross-analyze two birth charts to evaluate emotional compatibility, financial honesty, and complementary elemental balance.'}
+          </p>
+        </div>
+
+        {/* Relationship Selector */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-stone-200/70 p-1 rounded-xl flex items-center gap-1 border border-stone-300">
+            {[
+              { id: 'marriage', label: '1. Marriage / Life Partner', icon: Heart },
+              { id: 'business', label: '2. Business Partners', icon: Briefcase },
+              { id: 'employees', label: '3. Employees & Hiring', icon: UserCheck }
+            ].map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setMatchType(tab.id as any)}
+                  className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all ${
+                    matchType === tab.id
+                      ? 'bg-amber-900 text-white shadow-sm'
+                      : 'text-stone-700 hover:text-stone-900'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Dual Input Form */}
+        <div className="bg-white rounded-2xl border-2 border-amber-300 p-6 sm:p-8 shadow-md max-w-4xl mx-auto mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-stone-200">
+            {/* Person A */}
+            <div className="space-y-4 md:pr-4">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-900">
+                <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center">A</span>
+                <span>{matchType === 'marriage' ? 'Partner 1 (दूल्हा / स्वयं)' : matchType === 'business' ? 'Partner 1 (Director A)' : 'Employer / Company Founder'}</span>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2">
+                <div>
+                  <label className="text-[11px] font-bold text-stone-600 block mb-1">Day</label>
+                  <select
+                    value={dayA}
+                    onChange={(e) => setDayA(parseInt(e.target.value, 10))}
+                    className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
+                  >
+                    {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
+                      <option key={d} value={d}>{d}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[11px] font-bold text-stone-600 block mb-1">Month</label>
+                  <select
+                    value={monthA}
+                    onChange={(e) => setMonthA(parseInt(e.target.value, 10))}
+                    className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
+                  >
+                    {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+                      <option key={m} value={m}>{m}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[11px] font-bold text-stone-600 block mb-1">Year</label>
+                  <input
+                    type="number"
+                    value={yearA}
+                    onChange={(e) => setYearA(parseInt(e.target.value, 10) || 1990)}
+                    className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
+                  />
+                </div>
+              </div>
+
+              <div className="p-3 bg-stone-50 rounded-lg text-xs text-stone-600">
+                <strong>Driver:</strong> {profileA.driverNumber} ({PLANETARY_ARCHETYPES[profileA.driverNumber].planet}) · <strong>Conductor:</strong> {profileA.conductorNumber}
+              </div>
+            </div>
+
+            {/* Person B */}
+            <div className="space-y-4 pt-6 md:pt-0 md:pl-8">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-900">
+                <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center">B</span>
+                <span>{matchType === 'marriage' ? 'Partner 2 (दुल्हन / जीवनसाथी)' : matchType === 'business' ? 'Partner 2 (Co-Founder)' : 'Key Candidate / Employee'}</span>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2">
+                <div>
+                  <label className="text-[11px] font-bold text-stone-600 block mb-1">Day</label>
+                  <select
+                    value={dayB}
+                    onChange={(e) => setDayB(parseInt(e.target.value, 10))}
+                    className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
+                  >
+                    {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
+                      <option key={d} value={d}>{d}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[11px] font-bold text-stone-600 block mb-1">Month</label>
+                  <select
+                    value={monthB}
+                    onChange={(e) => setMonthB(parseInt(e.target.value, 10))}
+                    className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
+                  >
+                    {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+                      <option key={m} value={m}>{m}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[11px] font-bold text-stone-600 block mb-1">Year</label>
+                  <input
+                    type="number"
+                    value={yearB}
+                    onChange={(e) => setYearB(parseInt(e.target.value, 10) || 1992)}
+                    className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
+                  />
+                </div>
+              </div>
+
+              <div className="p-3 bg-stone-50 rounded-lg text-xs text-stone-600">
+                <strong>Driver:</strong> {profileB.driverNumber} ({PLANETARY_ARCHETYPES[profileB.driverNumber].planet}) · <strong>Conductor:</strong> {profileB.conductorNumber}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Compatibility Output Card */}
+        <div className="bg-white rounded-2xl border-2 border-amber-300 p-6 sm:p-8 shadow-lg max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-200 pb-4 mb-6 gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
+                Mutual Compatibility Verdict
+              </span>
+              <h3 className="font-sacred text-xl sm:text-2xl font-bold text-stone-900 mt-0.5">
+                {score >= 80 ? 'Highly Auspicious Karmic Resonance' : score >= 65 ? 'Favorable Synergy with Minor Balancing' : 'Needs Conscious Remedy & Clear Boundaries'}
+              </h3>
+            </div>
+
+            <div className="text-left sm:text-right">
+              <span className="text-3xl font-black text-amber-900">
+                {score}%
+              </span>
+              <div className="text-[11px] text-stone-500 font-medium">Synergy Score</div>
+            </div>
+          </div>
+
+          <div className="space-y-4 mb-6">
+            <div className="space-y-2">
+              <span className="text-xs font-bold text-emerald-900 block flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                Key Harmonious Vibrations:
+              </span>
+              <ul className="text-xs text-stone-700 space-y-1.5 pl-5 list-disc">
+                {synergyPoints.map((pt, idx) => (
+                  <li key={idx} className="leading-relaxed">{pt}</li>
+                ))}
+              </ul>
+            </div>
+
+            {frictionPoints.length > 0 && (
+              <div className="bg-amber-100/70 p-3.5 rounded-lg border border-amber-300 space-y-1 text-xs text-amber-950">
+                <span className="font-bold flex items-center gap-1.5 text-amber-900">
+                  <ShieldAlert className="w-3.5 h-3.5 text-amber-700" />
+                  Areas Requiring Conscious Alignment:
+                </span>
+                <ul className="space-y-1 pl-5 list-disc">
+                  {frictionPoints.map((f, idx) => (
+                    <li key={idx}>{f}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <div className="pt-4 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span className="text-xs text-stone-600">
+              For complete Vedic Ashtakoot Guna Milan and business partnership equity structuring.
+            </span>
+            <button
+              onClick={() => onBookMatchingSession(`Grid Matching - ${matchType}`)}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 text-white font-bold py-2.5 px-5 rounded-lg text-xs shadow-sm transition-all"
+            >
+              <Users className="w-4 h-4 text-amber-300" />
+              <span>Book In-Depth Grid Matching Session</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

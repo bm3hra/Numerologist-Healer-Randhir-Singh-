@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" width="100%" height="100%">
+  <defs>
+    <linearGradient id="parchmentBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#fefcf8"/>
+      <stop offset="100%" stop-color="#faf5ea"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base Canvas -->
+  <rect x="0" y="0" width="1200" height="850" fill="#f8f5ee"/>
+  <rect x="25" y="25" width="1150" height="800" fill="url(#parchmentBg)" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Ornate Vintage Filigree Border -->
+  <rect x="50" y="50" width="1100" height="750" fill="none" stroke="#0f172a" stroke-width="2.5"/>
+  <rect x="62" y="62" width="1076" height="726" fill="none" stroke="#b45309" stroke-width="1.2"/>
+
+  <!-- Baroque Leaf & Scroll Ornaments around Corners -->
+  <g fill="#1e293b">
+    <!-- Top-Left Corner Scroll -->
+    <path d="M 65 65 C 110 75 145 95 160 140 C 145 130 115 110 85 105 C 75 135 65 155 65 180 C 62 140 60 100 65 65 Z"/>
+    <circle cx="115" cy="115" r="5" fill="#d97706"/>
+    <!-- Top-Right Corner Scroll -->
+    <path d="M 1135 65 C 1090 75 1055 95 1040 140 C 1055 130 1085 110 1115 105 C 1125 135 1135 155 1135 180 C 1138 140 1140 100 1135 65 Z"/>
+    <circle cx="1085" cy="115" r="5" fill="#d97706"/>
+    <!-- Bottom-Left Corner Scroll -->
+    <path d="M 65 735 C 110 725 145 705 160 660 C 145 670 115 690 85 695 C 75 665 65 645 65 620 C 62 660 60 700 65 735 Z"/>
+    <circle cx="115" cy="685" r="5" fill="#d97706"/>
+    <!-- Bottom-Right Corner Scroll -->
+    <path d="M 1135 735 C 1090 725 1055 705 1040 660 C 1055 670 1085 690 1115 695 C 1125 665 1135 645 1135 620 C 1138 660 1140 700 1135 735 Z"/>
+    <circle cx="1085" cy="685" r="5" fill="#d97706"/>
+  </g>
+
+  <!-- Top Metadata -->
+  <text x="210" y="115" font-family="'Cinzel', Georgia, serif" font-size="22" font-weight="bold" fill="#0f172a" letter-spacing="1">UDYAM-GJ-22-0158332</text>
+  <text x="960" y="115" font-family="'Cinzel', Georgia, serif" font-size="22" font-weight="bold" fill="#0f172a" letter-spacing="1" text-anchor="end">ISO-9001:2015</text>
+
+  <!-- Sacred Lord Ganesha Artwork Emblem (Top Right) -->
+  <g transform="translate(930, 160) scale(0.95)">
+    <!-- Ganesha Mukut & Face Line Art -->
+    <path d="M 50 15 C 30 20 20 45 28 70 C 35 88 52 105 65 125 C 72 135 75 145 70 155 C 60 168 40 160 32 140" fill="none" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M 52 35 Q 75 40 85 65 Q 92 85 85 105" fill="none" stroke="#0f172a" stroke-width="3.5"/>
+    <circle cx="55" cy="45" r="4.5" fill="#d97706"/>
+    <path d="M 45 60 Q 55 65 65 60" fill="none" stroke="#0f172a" stroke-width="3"/>
+  </g>
+
+  <!-- Main Certificate Title -->
+  <text x="600" y="215" font-family="'Cinzel', Georgia, serif" font-size="52" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="5">
+    CERTIFICATE
+  </text>
+  <text x="600" y="260" font-family="'Cinzel', Georgia, serif" font-size="24" font-weight="700" fill="#334155" text-anchor="middle" letter-spacing="6">
+    — OF ACHIEVEMENT —
+  </text>
+
+  <!-- Acknowledge and Honor -->
+  <text x="600" y="325" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="19" font-weight="bold" fill="#475569" text-anchor="middle" letter-spacing="3">
+    THIS IS TO ACKNOWLEDGE AND HONOR
+  </text>
+
+  <!-- Candidate Name -->
+  <text x="600" y="405" font-family="'Cinzel', Georgia, serif" font-size="46" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="4">
+    RANDHIR SINGH
+  </text>
+  <line x1="310" y1="425" x2="890" y2="425" stroke="#0f172a" stroke-width="2"/>
+
+  <!-- Course Congratulation Lines -->
+  <text x="600" y="495" font-family="'Plus Jakarta Sans', Georgia, sans-serif" font-size="26" font-weight="600" fill="#1e293b" text-anchor="middle">
+    Congratulations for Successfully Completing
+  </text>
+  <text x="600" y="540" font-family="'Cinzel', Georgia, serif" font-size="30" font-weight="bold" fill="#0f172a" text-anchor="middle" letter-spacing="1">
+    the Advanced Wrist Watch Course
+  </text>
+
+  <!-- Registration Number & Date (Bottom Left) -->
+  <g transform="translate(130, 700)">
+    <text x="0" y="0" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">REG NO: A-H 44</text>
+    <text x="0" y="30" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">Date: 24 NOV 2024</text>
+  </g>
+
+  <!-- Signature Box & Details (Bottom Right) -->
+  <g transform="translate(850, 680)">
+    <!-- Signature Line -->
+    <rect x="-30" y="-35" width="220" height="38" fill="#e2e8f0" opacity="0.6"/>
+    <path d="M -15 -12 C 15 -35 30 -5 55 -30 C 80 -55 105 5 130 -20 C 150 -35 170 -15 195 -25" fill="none" stroke="#0f172a" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="75" y="25" font-family="'Cinzel', Georgia, serif" font-size="21" font-weight="bold" fill="#0f172a" text-anchor="middle">DR. ROHIT GADKARI</text>
+    <text x="75" y="50" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="16" font-weight="600" fill="#334155" text-anchor="middle">(Ace Numerologer</text>
+    <text x="75" y="72" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="16" font-weight="600" fill="#334155" text-anchor="middle">PHD Gold Medalist)</text>
+  </g>
+</svg>

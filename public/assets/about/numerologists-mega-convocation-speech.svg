@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgStage" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#2e1065" />
+    </linearGradient>
+    <linearGradient id="sparkleCurtain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#db2777" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="podiumWood" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="50%" stop-color="#78350f" />
+      <stop offset="100%" stop-color="#451a03" />
+    </linearGradient>
+    <linearGradient id="goldPlate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="treeSun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <pattern id="curtainDots" x="0" y="0" width="16" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="12" r="2.5" fill="#67e8f9" opacity="0.8" />
+      <circle cx="4" cy="4" r="1.5" fill="#f472b6" opacity="0.7" />
+      <circle cx="12" cy="20" r="1.5" fill="#c084fc" opacity="0.9" />
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Stage Background -->
+  <rect width="1280" height="720" fill="url(#bgStage)" />
+
+  <!-- Left Backdrop: White Banner Wall with Student Portraits Grid -->
+  <g opacity="0.95">
+    <rect x="0" y="0" width="850" height="720" fill="#f8fafc" />
+    <!-- Tree illustration watermark on backdrop -->
+    <path d="M 0 0 L 850 0 L 850 720 L 0 720 Z" fill="#f1f5f9" opacity="0.4" />
+    
+    <!-- Header Text on Banner -->
+    <text x="425" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="28" fill="#14532d" text-anchor="middle" letter-spacing="2">
+      NUMBER OF NUMEROLOGISTS
+    </text>
+    <text x="425" y="86" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="34" fill="#9a3412" text-anchor="middle" letter-spacing="3">
+      TO EXPLORE THE WORLD.
+    </text>
+
+    <!-- Photo Collage tiles in backdrop (simulated portraits) -->
+    <g opacity="0.65" stroke="#cbd5e1" stroke-width="1.5">
+      <rect x="30" y="110" width="60" height="75" rx="4" fill="#64748b" />
+      <rect x="100" y="110" width="60" height="75" rx="4" fill="#475569" />
+      <rect x="170" y="110" width="60" height="75" rx="4" fill="#94a3b8" />
+      <rect x="240" y="110" width="60" height="75" rx="4" fill="#64748b" />
+      <rect x="310" y="110" width="60" height="75" rx="4" fill="#475569" />
+      <rect x="380" y="110" width="60" height="75" rx="4" fill="#64748b" />
+
+      <rect x="65" y="200" width="60" height="75" rx="4" fill="#475569" />
+      <rect x="135" y="200" width="60" height="75" rx="4" fill="#64748b" />
+      <rect x="205" y="200" width="60" height="75" rx="4" fill="#94a3b8" />
+      <rect x="275" y="200" width="60" height="75" rx="4" fill="#64748b" />
+      <rect x="345" y="200" width="60" height="75" rx="4" fill="#475569" />
+
+      <rect x="30" y="290" width="60" height="75" rx="4" fill="#64748b" />
+      <rect x="100" y="290" width="60" height="75" rx="4" fill="#475569" />
+      <rect x="170" y="290" width="60" height="75" rx="4" fill="#94a3b8" />
+      <rect x="240" y="290" width="60" height="75" rx="4" fill="#64748b" />
+
+      <rect x="65" y="380" width="60" height="75" rx="4" fill="#475569" />
+      <rect x="135" y="380" width="60" height="75" rx="4" fill="#64748b" />
+      <rect x="205" y="380" width="60" height="75" rx="4" fill="#94a3b8" />
+    </g>
+  </g>
+
+  <!-- Right Backdrop: Shimmering Sparkle Sequin LED Curtain -->
+  <g>
+    <rect x="850" y="0" width="430" height="720" fill="url(#sparkleCurtain)" />
+    <rect x="850" y="0" width="430" height="720" fill="url(#curtainDots)" />
+    <!-- Vertical Shimmer streaks -->
+    <line x1="920" y1="0" x2="920" y2="720" stroke="#a5f3fc" stroke-width="2" opacity="0.6" />
+    <line x1="1020" y1="0" x2="1020" y2="720" stroke="#fbcfe8" stroke-width="2.5" opacity="0.7" />
+    <line x1="1120" y1="0" x2="1120" y2="720" stroke="#c4b5fd" stroke-width="2" opacity="0.6" />
+    <line x1="1220" y1="0" x2="1220" y2="720" stroke="#67e8f9" stroke-width="1.5" opacity="0.5" />
+  </g>
+
+  <!-- Stage Red Carpet Floor -->
+  <polygon points="0,630 1280,630 1280,720 0,720" fill="#b91c1c" />
+  <line x1="0" y1="630" x2="1280" y2="630" stroke="#f59e0b" stroke-width="3" />
+
+  <!-- Stage Left: Female Dignitary / Host in Traditional Saree -->
+  <g id="host">
+    <ellipse cx="125" cy="570" rx="45" ry="90" fill="#1e1b4b" />
+    <!-- Saree with Gold Border -->
+    <path d="M 90 490 Q 125 560 110 650 L 160 650 Q 150 560 145 490 Z" fill="#0f172a" />
+    <path d="M 90 490 L 140 650" stroke="#d97706" stroke-width="4" fill="none" />
+    <circle cx="125" cy="535" r="22" fill="#d97706" opacity="0.4" />
+    <!-- Head -->
+    <circle cx="125" cy="450" r="22" fill="#d4a373" />
+    <path d="M 103 440 Q 125 418 147 440 Q 147 470 142 480 L 108 480 Z" fill="#09090b" />
+  </g>
+
+  <!-- Floral Decoration Left Corner -->
+  <g transform="translate(10, 480)">
+    <circle cx="20" cy="50" r="16" fill="#dc2626" />
+    <circle cx="45" cy="30" r="14" fill="#facc15" />
+    <circle cx="10" cy="20" r="12" fill="#ea580c" />
+    <circle cx="40" cy="65" r="15" fill="#ffffff" />
+    <path d="M 0 80 Q 25 50 35 120" stroke="#15803d" stroke-width="6" fill="none" />
+  </g>
+
+  <!-- Master Randhir Singh (Center Stage Speaker) -->
+  <g id="randhir_singh">
+    <!-- Body / Formal Suit -->
+    <path d="M 460 270 Q 535 220 625 270 L 670 450 L 410 450 Z" fill="#18181b" stroke="#27272a" stroke-width="2" />
+    
+    <!-- White Dress Shirt Collar -->
+    <polygon points="525,265 545,265 540,315 530,315" fill="#f8fafc" />
+    
+    <!-- Tie with Purple Geometric Pattern -->
+    <polygon points="530,285 540,285 548,375 535,395 522,375" fill="#6b21a8" />
+    <line x1="535" y1="285" x2="535" y2="395" stroke="#c084fc" stroke-width="1.5" />
+
+    <!-- Left Lapel Pocket with Patterned Silk Pocket Square -->
+    <polygon points="565,340 595,335 595,345 565,350" fill="#09090b" stroke="#3f3f46" stroke-width="1" />
+    <path d="M 570 338 L 575 328 L 582 338 L 588 326 L 594 338 Z" fill="#a855f7" />
+
+    <!-- Gold Lapel Pin -->
+    <circle cx="560" cy="355" r="4" fill="#fbbf24" stroke="#d97706" stroke-width="1" />
+
+    <!-- Hands resting on Podium Edge -->
+    <ellipse cx="495" cy="425" rx="18" ry="12" fill="#d4a373" />
+    <ellipse cx="510" cy="428" rx="16" ry="11" fill="#c68b59" />
+
+    <!-- Head & Portrait Features -->
+    <circle cx="535" cy="180" r="54" fill="#d4a373" />
+    <!-- Hair -->
+    <path d="M 480 170 Q 535 110 590 170 Q 585 130 535 125 Q 485 130 480 170 Z" fill="#1c1917" />
+    <!-- Ears -->
+    <ellipse cx="478" cy="185" rx="7" ry="14" fill="#c68b59" />
+    <ellipse cx="592" cy="185" rx="7" ry="14" fill="#c68b59" />
+    <!-- Eyes & Brows -->
+    <ellipse cx="512" cy="172" rx="4" ry="2.5" fill="#1c1917" />
+    <ellipse cx="558" cy="172" rx="4" ry="2.5" fill="#1c1917" />
+    <path d="M 502 165 Q 515 160 525 165" stroke="#1c1917" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    <path d="M 545 165 Q 555 160 568 165" stroke="#1c1917" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    <!-- Nose -->
+    <path d="M 535 170 L 533 192 L 538 192" stroke="#b45309" stroke-width="2" fill="none" />
+    <!-- Mustache (Distinguished Sign) -->
+    <path d="M 510 206 Q 535 198 560 206 Q 535 214 510 206 Z" fill="#1c1917" />
+    <!-- Warm smile line -->
+    <path d="M 522 216 Q 535 224 548 216" stroke="#854d0e" stroke-width="2" fill="none" stroke-linecap="round" />
+
+    <!-- Gooseneck Podium Microphone -->
+    <path d="M 545 250 Q 535 220 525 240 Q 520 250 518 290" stroke="#334155" stroke-width="4" fill="none" />
+    <ellipse cx="523" cy="235" rx="6" ry="10" fill="#0f172a" stroke="#64748b" stroke-width="1" />
+  </g>
+
+  <!-- Large Convocation Podium -->
+  <g id="podium">
+    <!-- Wooden Angled Top -->
+    <polygon points="310,445 680,445 660,490 330,490" fill="url(#podiumWood)" stroke="#92400e" stroke-width="2" />
+    
+    <!-- Fresh Floral Bouquet Along Top Edge -->
+    <g transform="translate(320, 430)">
+      <circle cx="20" cy="10" r="10" fill="#dc2626" />
+      <circle cx="40" cy="8" r="9" fill="#facc15" />
+      <circle cx="60" cy="11" r="10" fill="#ffffff" />
+      <circle cx="80" cy="8" r="9" fill="#ea580c" />
+      <circle cx="100" cy="12" r="10" fill="#dc2626" />
+      <circle cx="120" cy="8" r="9" fill="#facc15" />
+      <circle cx="140" cy="11" r="10" fill="#ffffff" />
+      <circle cx="160" cy="9" r="9" fill="#ea580c" />
+      <circle cx="180" cy="12" r="10" fill="#dc2626" />
+      <circle cx="200" cy="9" r="9" fill="#facc15" />
+      <circle cx="220" cy="11" r="10" fill="#ffffff" />
+      <circle cx="240" cy="8" r="9" fill="#ea580c" />
+      <circle cx="260" cy="11" r="10" fill="#dc2626" />
+      <circle cx="280" cy="8" r="9" fill="#facc15" />
+      <circle cx="300" cy="11" r="10" fill="#ffffff" />
+      <circle cx="320" cy="9" r="9" fill="#ea580c" />
+    </g>
+
+    <!-- Main Front Lectern Board with Official Banner -->
+    <rect x="330" y="475" width="330" height="245" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="3" />
+    
+    <!-- Inner Filigree Frame -->
+    <rect x="340" y="485" width="310" height="225" rx="4" fill="none" stroke="#15803d" stroke-width="1.5" stroke-dasharray="4,2" />
+
+    <!-- 2nd MEGA CONVOCATION Title on Lectern -->
+    <text x="495" y="520" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="28" fill="#14532d" text-anchor="middle" letter-spacing="1">
+      2nd MEGA
+    </text>
+    <text x="495" y="555" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="28" fill="#14532d" text-anchor="middle" letter-spacing="1">
+      CONVOCATION
+    </text>
+
+    <!-- Center Tree of Life Chakra Crest on Lectern -->
+    <g transform="translate(495, 605)">
+      <!-- Sun Glow Background -->
+      <circle cx="0" cy="0" r="34" fill="url(#treeSun)" stroke="#d97706" stroke-width="2" />
+      <!-- Tree Crown Foliage -->
+      <g fill="#15803d">
+        <circle cx="0" cy="-14" r="16" />
+        <circle cx="-12" cy="-9" r="12" />
+        <circle cx="12" cy="-9" r="12" />
+        <circle cx="-16" cy="3" r="9" />
+        <circle cx="16" cy="3" r="9" />
+      </g>
+      <!-- Golden Tree Trunk & Yogi in Center -->
+      <path d="M -4 -4 L 4 -4 L 6 18 L -6 18 Z" fill="#92400e" />
+      <!-- Yogi in Lotus pose -->
+      <circle cx="0" cy="4" r="4" fill="#fbbf24" />
+      <polygon points="-6,16 6,16 0,8" fill="#e11d48" />
+    </g>
+
+    <!-- Date & Venue Bottom Banner on Lectern -->
+    <text x="495" y="668" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="20" fill="#14532d" text-anchor="middle" letter-spacing="0.5">
+      16th June 2024
+    </text>
+    <text x="495" y="698" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="24" fill="#14532d" text-anchor="middle" letter-spacing="1">
+      RADISSON BLU
+    </text>
+  </g>
+
+  <!-- Official Badge Top Right Overlay -->
+  <g transform="translate(1030, 30)">
+    <rect width="220" height="55" rx="12" fill="#09090b" opacity="0.85" stroke="#f59e0b" stroke-width="2" />
+    <circle cx="30" cy="28" r="16" fill="#f59e0b" />
+    <text x="30" y="34" font-family="sans-serif" font-size="18" fill="#000" text-anchor="middle" font-weight="bold">★</text>
+    <text x="58" y="24" font-family="'Cinzel', serif" font-weight="bold" font-size="13" fill="#fef08a">LIVE STAGE ADDRESS</text>
+    <text x="58" y="44" font-family="sans-serif" font-size="11" fill="#e2e8f0">Master Randhir Singh</text>
+  </g>
+</svg>

@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #1c1917;
+    background-color: #fdfbf7;
+  }
+}
+
+.font-sacred {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+.font-heritage {
+  font-family: 'Rozha One', 'Cinzel', Georgia, serif;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #faf6ee;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4a34b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b88628;
+}
+
+/* Sacred Vedic Geometry & Horological Keyframes */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.8deg); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-0.8deg); }
+}
+
+@keyframes aura-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.06); }
+}
+
+@keyframes sweep-smooth {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes wave-ripple {
+  0% { transform: scale(0.92); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.25; }
+  100% { transform: scale(0.92); opacity: 0.8; }
+}
+
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-150%); }
+  100% { transform: translateX(150%); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 50s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 65s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-float-subtle {
+  animation: float-subtle 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-aura-pulse {
+  animation: aura-pulse 4.5s ease-in-out infinite;
+}
+
+.animate-sweep-smooth {
+  animation: sweep-smooth 12s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.animate-ripple {
+  animation: wave-ripple 4s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: scale(0.98); }
+  50% { opacity: 0.85; transform: scale(1.04); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes crystal-gleam {
+  0%, 100% { opacity: 0.4; filter: brightness(1) drop-shadow(0 0 4px rgba(217, 119, 6, 0.2)); }
+  50% { opacity: 1; filter: brightness(1.25) drop-shadow(0 0 16px rgba(245, 158, 11, 0.6)); }
+}
+
+.animate-crystal-gleam {
+  animation: crystal-gleam 4s ease-in-out infinite;
+}
+
+@keyframes audio-wave {
+  0%, 100% { height: 6px; }
+  50% { height: 26px; }
+}
+
+.animate-audio-wave-1 { animation: audio-wave 1.1s ease-in-out infinite; }
+.animate-audio-wave-2 { animation: audio-wave 0.8s ease-in-out infinite 0.2s; }
+.animate-audio-wave-3 { animation: audio-wave 1.4s ease-in-out infinite 0.4s; }
+.animate-audio-wave-4 { animation: audio-wave 0.9s ease-in-out infinite 0.1s; }
+.animate-audio-wave-5 { animation: audio-wave 1.2s ease-in-out infinite 0.3s; }
+
+@keyframes particle-drift {
+  0% { transform: translateY(0) scale(0.8); opacity: 0; }
+  30% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-70px) scale(1.2); opacity: 0; }
+}
+
+.animate-particle-drift {
+  animation: particle-drift 3.5s ease-in-out infinite;
+}
+
+@keyframes energy-stream {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-energy-stream {
+  stroke-dasharray: 8 6;
+  animation: energy-stream 2s linear infinite;
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer-sweep 3.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

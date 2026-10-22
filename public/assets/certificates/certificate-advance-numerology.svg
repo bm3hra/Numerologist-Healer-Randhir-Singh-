@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" width="100%" height="100%">
+  <defs>
+    <linearGradient id="paperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#fdfbf7"/>
+      <stop offset="100%" stop-color="#f8f4eb"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b45309"/>
+      <stop offset="25%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="75%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+    <pattern id="filigreePattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 0 30 Q 15 0 30 30 T 60 30" fill="none" stroke="#b45309" stroke-width="1.2" opacity="0.35"/>
+      <circle cx="30" cy="30" r="4" fill="#d97706" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- Outer Frame & Drop Shadow -->
+  <rect x="0" y="0" width="1200" height="850" fill="#f5f0e6"/>
+  <rect x="25" y="25" width="1150" height="800" fill="#ffffff" stroke="#b45309" stroke-width="3"/>
+
+  <!-- Ornate Maroon / Red Floral Outer Border -->
+  <rect x="45" y="45" width="1110" height="760" fill="url(#paperGrad)" stroke="#881337" stroke-width="8"/>
+  <rect x="58" y="58" width="1084" height="734" fill="none" stroke="#d97706" stroke-width="2"/>
+  <rect x="68" y="68" width="1064" height="714" fill="none" stroke="#881337" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- Corner Filigree Ornaments -->
+  <g fill="#881337">
+    <!-- Top Left -->
+    <path d="M 75 75 C 120 85 140 105 150 150 C 130 140 110 120 75 75 Z"/>
+    <circle cx="110" cy="110" r="6" fill="#d97706"/>
+    <!-- Top Right -->
+    <path d="M 1125 75 C 1080 85 1060 105 1050 150 C 1070 140 1090 120 1125 75 Z"/>
+    <circle cx="1090" cy="110" r="6" fill="#d97706"/>
+    <!-- Bottom Left -->
+    <path d="M 75 775 C 120 765 140 745 150 700 C 130 710 110 730 75 775 Z"/>
+    <circle cx="110" cy="740" r="6" fill="#d97706"/>
+    <!-- Bottom Right -->
+    <path d="M 1125 775 C 1080 765 1060 745 1050 700 C 1070 710 1090 730 1125 775 Z"/>
+    <circle cx="1090" cy="740" r="6" fill="#d97706"/>
+  </g>
+
+  <!-- Top Metadata Bar -->
+  <text x="120" y="115" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="19" font-weight="bold" fill="#0f172a" letter-spacing="1">UDYAM-GJ-22-0158332</text>
+  <text x="540" y="115" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b" letter-spacing="2">6 MONTHS COURSE</text>
+  <text x="910" y="115" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="19" font-weight="bold" fill="#0f172a" letter-spacing="1">ISO-9001: 2015</text>
+
+  <!-- Sacred Lord Ganesha Icon (Left) -->
+  <g transform="translate(140, 150) scale(0.9)">
+    <path d="M 50 10 C 25 15 15 40 25 65 C 32 80 48 95 60 110 C 65 116 70 125 65 135 C 55 145 35 140 30 120" fill="none" stroke="#be123c" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="55" cy="40" r="5" fill="#f59e0b"/>
+    <path d="M 52 50 Q 75 60 85 85" fill="none" stroke="#be123c" stroke-width="4"/>
+  </g>
+
+  <!-- Goddess Saraswati Emblem (Right) -->
+  <g transform="translate(940, 140) scale(0.8)">
+    <circle cx="65" cy="65" r="55" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="65" y="70" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#b45309" text-anchor="middle">卐</text>
+    <text x="65" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#881337" text-anchor="middle">MAA SARASWATI</text>
+  </g>
+
+  <!-- Main Certificate Header -->
+  <text x="600" y="210" font-family="'Rozha One', 'Cinzel', Georgia, serif" font-size="52" font-weight="bold" fill="#1c1917" text-anchor="middle" letter-spacing="2">
+    Certificate of Completion
+  </text>
+  <line x1="420" y1="230" x2="780" y2="230" stroke="#be123c" stroke-width="2"/>
+  <circle cx="600" cy="230" r="4" fill="#f59e0b"/>
+
+  <!-- Subtitle Text -->
+  <text x="600" y="275" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="24" font-weight="600" fill="#334155" text-anchor="middle" letter-spacing="1">
+    This is to certify that
+  </text>
+
+  <!-- Recipient Name (Underlined, Hand-Inscribed Style) -->
+  <text x="600" y="340" font-family="'Rozha One', 'Cinzel', Georgia, serif" font-size="42" font-weight="bold" fill="#0f172a" text-anchor="middle" letter-spacing="3">
+    Mr. / Ms. RANDHIR SINGH JI
+  </text>
+  <line x1="280" y1="355" x2="920" y2="355" stroke="#1e293b" stroke-width="2.5"/>
+
+  <!-- Citation Body -->
+  <text x="600" y="420" font-family="'Plus Jakarta Sans', Georgia, sans-serif" font-size="23" font-weight="600" fill="#1e293b" text-anchor="middle">
+    has undergone the Advance Numerology Course.
+  </text>
+  <text x="600" y="465" font-family="'Plus Jakarta Sans', Georgia, sans-serif" font-size="22" font-weight="500" fill="#334155" text-anchor="middle">
+    He/She has acquired adequate knowledge in the
+  </text>
+  <text x="600" y="510" font-family="'Plus Jakarta Sans', Georgia, sans-serif" font-size="22" font-weight="500" fill="#334155" text-anchor="middle">
+    subject and he/she may practice as a consultant.
+  </text>
+
+  <!-- Official Certified Stamp (Left) -->
+  <g transform="translate(140, 560)">
+    <rect x="0" y="0" width="130" height="42" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="5,3" rx="4"/>
+    <text x="65" y="27" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#94a3b8" text-anchor="middle" letter-spacing="2">CERTIFIED</text>
+  </g>
+
+  <!-- Registration Number (Bottom Left) -->
+  <g transform="translate(180, 680)">
+    <text x="80" y="0" font-family="'Cinzel', Georgia, serif" font-size="34" font-weight="bold" font-style="italic" fill="#0f172a" text-anchor="middle">G-65</text>
+    <line x1="10" y1="10" x2="160" y2="10" stroke="#0f172a" stroke-width="2"/>
+    <text x="85" y="32" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="16" font-weight="bold" fill="#334155" text-anchor="middle">Registration Number</text>
+  </g>
+
+  <!-- DD Consultants Gold Seal (Bottom Center) -->
+  <g transform="translate(600, 670)">
+    <circle cx="0" cy="0" r="50" fill="#fffbeb" stroke="#d97706" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="42" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <text x="0" y="-8" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="#881337" text-anchor="middle">DD</text>
+    <text x="0" y="14" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#b45309" text-anchor="middle" letter-spacing="1">Consultants</text>
+    <text x="0" y="32" font-family="Arial, sans-serif" font-size="16" fill="#881337" text-anchor="middle">★</text>
+  </g>
+
+  <!-- Dr. Rohit Gadkari Signature & Details (Bottom Right) -->
+  <g transform="translate(860, 670)">
+    <!-- Signature Line -->
+    <path d="M 0 -15 C 30 -40 45 -10 70 -35 C 95 -60 120 0 150 -25 C 170 -40 190 -20 220 -30" fill="none" stroke="#0f172a" stroke-width="2.8" stroke-linecap="round"/>
+    <text x="120" y="15" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="21" font-weight="bold" fill="#0f172a" text-anchor="middle">Dr. Rohit Gadkari</text>
+    <text x="120" y="40" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="14" font-weight="600" fill="#475569" text-anchor="middle">(Ace Numerologer, PHD Gold Medalist)</text>
+  </g>
+</svg>

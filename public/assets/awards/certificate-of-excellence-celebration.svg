@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+  <defs>
+    <linearGradient id="warmWall" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="50%" stop-color="#fef3c7" />
+      <stop offset="100%" stop-color="#fed7aa" />
+    </linearGradient>
+    <linearGradient id="goldFiligree" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#a16207" />
+    </linearGradient>
+    <radialGradient id="stageSpot" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#fef3c7" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Backdrop Wall with Celebration Glow -->
+  <rect width="1280" height="720" fill="url(#warmWall)" />
+  <rect width="1280" height="720" fill="url(#stageSpot)" />
+
+  <!-- Backdrop Decorative Warm Lights & Photo Wall -->
+  <g opacity="0.65">
+    <!-- Curved Decorative Swag Lines -->
+    <path d="M 0 100 Q 640 220 1280 100" stroke="#f59e0b" stroke-width="3" fill="none" opacity="0.5" />
+    <path d="M 0 140 Q 640 280 1280 140" stroke="#d97706" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.4" />
+    
+    <!-- String Lights -->
+    <g fill="#fbbf24">
+      <circle cx="100" cy="115" r="5" />
+      <circle cx="200" cy="135" r="6" />
+      <circle cx="300" cy="155" r="5" />
+      <circle cx="400" cy="170" r="6" />
+      <circle cx="500" cy="178" r="5" />
+      <circle cx="640" cy="180" r="7" />
+      <circle cx="780" cy="178" r="5" />
+      <circle cx="880" cy="170" r="6" />
+      <circle cx="980" cy="155" r="5" />
+      <circle cx="1080" cy="135" r="6" />
+      <circle cx="1180" cy="115" r="5" />
+    </g>
+
+    <!-- Student & Convocation Portraits in Background Grid -->
+    <g stroke="#e2e8f0" stroke-width="2">
+      <rect x="60" y="30" width="70" height="85" rx="6" fill="#94a3b8" />
+      <rect x="150" y="25" width="70" height="85" rx="6" fill="#64748b" />
+      <rect x="240" y="40" width="70" height="85" rx="6" fill="#475569" />
+      <rect x="330" y="25" width="70" height="85" rx="6" fill="#94a3b8" />
+      <rect x="420" y="45" width="70" height="85" rx="6" fill="#64748b" />
+      <rect x="790" y="45" width="70" height="85" rx="6" fill="#64748b" />
+      <rect x="880" y="25" width="70" height="85" rx="6" fill="#475569" />
+      <rect x="970" y="40" width="70" height="85" rx="6" fill="#94a3b8" />
+      <rect x="1060" y="25" width="70" height="85" rx="6" fill="#64748b" />
+      <rect x="1150" y="30" width="70" height="85" rx="6" fill="#475569" />
+
+      <!-- Side columns of photos -->
+      <rect x="60" y="140" width="70" height="85" rx="6" fill="#64748b" />
+      <rect x="60" y="250" width="70" height="85" rx="6" fill="#475569" />
+      <rect x="60" y="360" width="70" height="85" rx="6" fill="#94a3b8" />
+
+      <rect x="1150" y="140" width="70" height="85" rx="6" fill="#64748b" />
+      <rect x="1150" y="250" width="70" height="85" rx="6" fill="#475569" />
+      <rect x="1150" y="360" width="70" height="85" rx="6" fill="#94a3b8" />
+    </g>
+  </g>
+
+  <!-- Left & Right Stage Floral Displays -->
+  <g transform="translate(10, 260)">
+    <circle cx="25" cy="50" r="18" fill="#dc2626" />
+    <circle cx="45" cy="30" r="16" fill="#facc15" />
+    <circle cx="15" cy="20" r="14" fill="#ea580c" />
+    <circle cx="40" cy="75" r="16" fill="#ffffff" />
+    <circle cx="20" cy="95" r="15" fill="#e11d48" />
+    <circle cx="45" cy="115" r="14" fill="#f59e0b" />
+    <path d="M 0 120 Q 30 70 45 180" stroke="#16a34a" stroke-width="8" fill="none" />
+  </g>
+
+  <g transform="translate(1210, 260)">
+    <circle cx="25" cy="50" r="18" fill="#dc2626" />
+    <circle cx="45" cy="30" r="16" fill="#facc15" />
+    <circle cx="15" cy="20" r="14" fill="#ea580c" />
+    <circle cx="40" cy="75" r="16" fill="#ffffff" />
+    <circle cx="20" cy="95" r="15" fill="#e11d48" />
+    <circle cx="45" cy="115" r="14" fill="#f59e0b" />
+    <path d="M 20 120 Q 0 70 -15 180" stroke="#16a34a" stroke-width="8" fill="none" />
+  </g>
+
+  <!-- Stage Red Carpet Base -->
+  <polygon points="0,640 1280,640 1280,720 0,720" fill="#991b1b" />
+  <line x1="0" y1="640" x2="1280" y2="640" stroke="#fbbf24" stroke-width="3" />
+
+  <!-- Person 1 (Left): Young Graduate Practitioner with Eyeglasses & Green Blazer -->
+  <g id="certified_graduate">
+    <!-- Body / Suit -->
+    <path d="M 230 350 Q 340 310 440 350 L 480 720 L 190 720 Z" fill="#14532d" stroke="#0f3d20" stroke-width="2" />
+    <!-- White Collared Shirt -->
+    <polygon points="320,335 355,335 345,410 330,410" fill="#ffffff" />
+    <!-- Small Lapel Mic on Collar -->
+    <rect x="365" y="390" width="8" height="14" rx="2" fill="#09090b" />
+    <circle cx="369" cy="388" r="4" fill="#334155" />
+
+    <!-- Head & Neck -->
+    <polygon points="325,325 355,325 350,355 330,355" fill="#e5b88f" />
+    <circle cx="340" cy="235" r="62" fill="#e5b88f" />
+    <!-- Short Black Hair -->
+    <path d="M 275 220 Q 340 145 405 220 Q 400 160 340 165 Q 280 160 275 220 Z" fill="#09090b" />
+    <!-- Modern Eyeglasses -->
+    <rect x="295" y="215" width="38" height="26" rx="5" fill="none" stroke="#09090b" stroke-width="3" />
+    <rect x="345" y="215" width="38" height="26" rx="5" fill="none" stroke="#09090b" stroke-width="3" />
+    <line x1="333" y1="225" x2="345" y2="225" stroke="#09090b" stroke-width="3" />
+    <!-- Eyes -->
+    <circle cx="314" cy="227" r="4" fill="#09090b" />
+    <circle cx="364" cy="227" r="4" fill="#09090b" />
+    <!-- Confident Smile -->
+    <path d="M 320 265 Q 340 282 360 265" stroke="#78350f" stroke-width="3" fill="none" stroke-linecap="round" />
+
+    <!-- Left Hand Holding Certificate Frame -->
+    <ellipse cx="370" cy="570" rx="22" ry="15" fill="#e5b88f" />
+    <!-- Right Arm & Hand -->
+    <ellipse cx="230" cy="580" rx="24" ry="16" fill="#e5b88f" />
+  </g>
+
+  <!-- Person in Center Background (Student Smiling) -->
+  <g id="center_student" opacity="0.9">
+    <path d="M 460 410 Q 510 390 560 410 L 580 550 L 440 550 Z" fill="#1e293b" />
+    <circle cx="510" cy="350" r="44" fill="#e5b88f" />
+    <path d="M 465 340 Q 510 290 555 340 Z" fill="#09090b" />
+    <!-- Smile -->
+    <path d="M 498 370 Q 510 380 522 370" stroke="#78350f" stroke-width="2" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- Person 2 (Right): Master Randhir Singh (Renowned Numerologist & Healer) -->
+  <g id="master_randhir_singh">
+    <!-- Body / Dark Charcoal Formal 3-Piece Suit -->
+    <path d="M 640 330 Q 755 280 870 330 L 930 720 L 590 720 Z" fill="#18181b" stroke="#27272a" stroke-width="2" />
+    
+    <!-- White Shirt Collar & Purple Pattern Tie -->
+    <polygon points="735,325 765,325 755,395 745,395" fill="#ffffff" />
+    <polygon points="742,340 758,340 765,460 750,480 735,460" fill="#6b21a8" />
+    <line x1="750" y1="340" x2="750" y2="480" stroke="#c084fc" stroke-width="1.5" />
+
+    <!-- Silk Patterned Pocket Square -->
+    <polygon points="805,405 840,400 840,410 805,415" fill="#09090b" stroke="#3f3f46" stroke-width="1" />
+    <path d="M 812 402 L 818 392 L 826 402 L 832 390 L 838 402 Z" fill="#c084fc" />
+
+    <!-- Gold Lapel Pin Badge -->
+    <circle cx="795" cy="425" r="5" fill="#fbbf24" stroke="#d97706" stroke-width="1" />
+
+    <!-- Hands Holding Certificate Frame with Warmth and Pride -->
+    <ellipse cx="615" cy="550" rx="22" ry="16" fill="#d4a373" />
+    <ellipse cx="635" cy="565" rx="20" ry="14" fill="#c68b59" />
+
+    <!-- Master Randhir Singh Head & Portrait Details -->
+    <polygon points="730,310 770,310 765,340 735,340" fill="#d4a373" />
+    <circle cx="750" cy="230" r="64" fill="#d4a373" />
+    <!-- Hair -->
+    <path d="M 685 220 Q 750 145 815 220 Q 810 160 750 155 Q 690 160 685 220 Z" fill="#18181b" />
+    <!-- Ears -->
+    <ellipse cx="682" cy="235" rx="8" ry="16" fill="#c68b59" />
+    <ellipse cx="818" cy="235" rx="8" ry="16" fill="#c68b59" />
+    <!-- Eyes & Brows -->
+    <ellipse cx="722" cy="220" rx="4.5" ry="3" fill="#18181b" />
+    <ellipse cx="778" cy="220" rx="4.5" ry="3" fill="#18181b" />
+    <path d="M 710 210 Q 725 204 738 210" stroke="#18181b" stroke-width="3" fill="none" stroke-linecap="round" />
+    <path d="M 762 210 Q 775 204 790 210" stroke="#18181b" stroke-width="3" fill="none" stroke-linecap="round" />
+    <!-- Nose -->
+    <path d="M 750 216 L 747 242 L 755 242" stroke="#b45309" stroke-width="2.5" fill="none" />
+    <!-- Neat Full Mustache (Signature Feature) -->
+    <path d="M 718 258 Q 750 248 782 258 Q 750 268 718 258 Z" fill="#18181b" />
+    <!-- Warm Dignified Smile -->
+    <path d="M 732 270 Q 750 280 768 270" stroke="#78350f" stroke-width="2.5" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- Large Held Framed "Certificate of Excellence" in Center Forefront -->
+  <g id="certificate_in_hands" transform="translate(420, 360)">
+    <!-- White Paper with Gold Border -->
+    <rect x="0" y="0" width="340" height="240" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="3" filter="drop-shadow(0 15px 25px rgba(0,0,0,0.3))" />
+    
+    <!-- Elaborate Filigree Golden Border -->
+    <rect x="8" y="8" width="324" height="224" rx="4" fill="none" stroke="url(#goldFiligree)" stroke-width="3" />
+    <rect x="14" y="14" width="312" height="212" rx="3" fill="none" stroke="#d97706" stroke-width="1" stroke-dasharray="3,2" />
+
+    <!-- Corner Filigree Ornaments -->
+    <polygon points="14,14 34,14 14,34" fill="url(#goldFiligree)" />
+    <polygon points="326,14 306,14 326,34" fill="url(#goldFiligree)" />
+    <polygon points="14,226 34,226 14,206" fill="url(#goldFiligree)" />
+    <polygon points="326,226 306,226 326,206" fill="url(#goldFiligree)" />
+
+    <!-- Top Organization Logos -->
+    <circle cx="50" cy="40" r="14" fill="#fef08a" stroke="#ca8a04" stroke-width="1" />
+    <circle cx="290" cy="40" r="14" fill="#dbeafe" stroke="#2563eb" stroke-width="1" />
+
+    <!-- Certificate Title -->
+    <text x="170" y="70" font-family="'Cinzel', Georgia, serif" font-weight="900" font-size="20" fill="#854d0e" text-anchor="middle" letter-spacing="1">
+      Certificate of Excellence
+    </text>
+
+    <!-- Subtitle / Conferral statement -->
+    <text x="170" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b" text-anchor="middle">
+      In recognition of your outstanding performance,
+    </text>
+    <text x="170" y="106" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b" text-anchor="middle">
+      dedication and valuable contribution
+    </text>
+    <text x="170" y="120" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#64748b" text-anchor="middle">
+      to the success of our organization.
+    </text>
+
+    <!-- Golden Rosette Seal in Center Bottom -->
+    <g transform="translate(170, 160)">
+      <circle cx="0" cy="0" r="20" fill="url(#goldFiligree)" stroke="#b45309" stroke-width="2" />
+      <circle cx="0" cy="0" r="15" fill="#fef9c3" stroke="#d97706" stroke-width="1" />
+      <text x="0" y="4" font-family="sans-serif" font-size="12" fill="#78350f" text-anchor="middle" font-weight="bold">★</text>
+      <!-- Seal Ribbons -->
+      <polygon points="-8,18 -14,35 -4,32 0,22" fill="#d97706" />
+      <polygon points="8,18 14,35 4,32 0,22" fill="#d97706" />
+    </g>
+
+    <!-- Signatures -->
+    <g transform="translate(60, 190)">
+      <path d="M 0 0 Q 15 -10 30 0 T 55 -5" stroke="#1e293b" stroke-width="1.5" fill="none" />
+      <line x1="0" y1="6" x2="65" y2="6" stroke="#94a3b8" stroke-width="1" />
+      <text x="32" y="16" font-family="sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Director</text>
+    </g>
+
+    <g transform="translate(225, 190)">
+      <path d="M 0 0 Q 18 -12 35 0 T 60 -4" stroke="#1e293b" stroke-width="1.5" fill="none" />
+      <line x1="0" y1="6" x2="65" y2="6" stroke="#94a3b8" stroke-width="1" />
+      <text x="32" y="16" font-family="sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Chairman</text>
+    </g>
+  </g>
+
+  <!-- Title Badge Overlay Top Left -->
+  <g transform="translate(40, 40)">
+    <rect width="270" height="58" rx="12" fill="#09090b" opacity="0.88" stroke="#f59e0b" stroke-width="2" />
+    <circle cx="32" cy="29" r="16" fill="#f59e0b" />
+    <text x="32" y="35" font-family="sans-serif" font-size="18" fill="#000" text-anchor="middle" font-weight="bold">🏆</text>
+    <text x="62" y="24" font-family="'Cinzel', serif" font-weight="bold" font-size="13" fill="#fef08a">AWARD CEREMONY</text>
+    <text x="62" y="45" font-family="sans-serif" font-size="11" fill="#e2e8f0">Certificate of Excellence</text>
+  </g>
+</svg>

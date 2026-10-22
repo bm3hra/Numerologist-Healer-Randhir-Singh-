@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- 18K Yellow Gold Case Gradient -->
+    <linearGradient id="goldCase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="25%" stop-color="#eab308" />
+      <stop offset="50%" stop-color="#fde047" />
+      <stop offset="75%" stop-color="#ca8a04" />
+      <stop offset="100%" stop-color="#854d0e" />
+    </linearGradient>
+
+    <!-- 18K Gold Bracelet Gradient -->
+    <linearGradient id="goldBracelet" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="20%" stop-color="#fbbf24" />
+      <stop offset="50%" stop-color="#fef08a" />
+      <stop offset="80%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#92400e" />
+    </linearGradient>
+
+    <!-- Deep Royal Azure Ceramic Bezel -->
+    <radialGradient id="deepAzureBezel" cx="50%" cy="50%" r="50%">
+      <stop offset="70%" stop-color="#0f2b5c" />
+      <stop offset="95%" stop-color="#091b3a" />
+      <stop offset="100%" stop-color="#030b18" />
+    </radialGradient>
+
+    <!-- Sunburst Blue Dial Gradient -->
+    <radialGradient id="sunburstBlueDial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1d4ed8" />
+      <stop offset="60%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </radialGradient>
+
+    <!-- Subtle Dial Texture Lines -->
+    <pattern id="dialGroovesGold" width="100" height="6" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="3" x2="100" y2="3" stroke="#60a5fa" stroke-width="0.75" stroke-opacity="0.3" />
+    </pattern>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="shadowGold" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="15" stdDeviation="25" flood-color="#020617" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" fill="#030712" />
+
+  <!-- Ambient Gold Aura -->
+  <circle cx="400" cy="400" r="330" fill="#eab308" opacity="0.12" />
+
+  <!-- Top Bracelet Links -->
+  <g filter="url(#shadowGold)">
+    <rect x="290" y="20" width="220" height="50" rx="8" fill="url(#goldBracelet)" />
+    <rect x="330" y="20" width="140" height="50" fill="#fef08a" opacity="0.4" />
+    <line x1="290" y1="70" x2="510" y2="70" stroke="#78350f" stroke-width="2" />
+
+    <rect x="300" y="70" width="200" height="55" rx="6" fill="url(#goldBracelet)" />
+    <rect x="340" y="70" width="120" height="55" fill="#fde047" opacity="0.4" />
+    <line x1="300" y1="125" x2="500" y2="125" stroke="#78350f" stroke-width="2" />
+
+    <rect x="310" y="125" width="180" height="55" rx="6" fill="url(#goldBracelet)" />
+    <rect x="350" y="125" width="100" height="55" fill="#fef08a" opacity="0.5" />
+  </g>
+
+  <!-- Bottom Bracelet Links -->
+  <g filter="url(#shadowGold)">
+    <rect x="310" y="620" width="180" height="55" rx="6" fill="url(#goldBracelet)" />
+    <rect x="350" y="620" width="100" height="55" fill="#fef08a" opacity="0.5" />
+    <line x1="310" y1="675" x2="490" y2="675" stroke="#78350f" stroke-width="2" />
+
+    <rect x="300" y="675" width="200" height="55" rx="6" fill="url(#goldBracelet)" />
+    <rect x="340" y="675" width="120" height="55" fill="#fde047" opacity="0.4" />
+    <line x1="300" y1="730" x2="500" y2="730" stroke="#78350f" stroke-width="2" />
+
+    <rect x="290" y="730" width="220" height="50" rx="8" fill="url(#goldBracelet)" />
+    <rect x="330" y="730" width="140" height="50" fill="#fef08a" opacity="0.4" />
+  </g>
+
+  <!-- Watch Case and Lugs -->
+  <g filter="url(#shadowGold)">
+    <!-- Main Outer Lugs & Barrel in Solid 18K Gold -->
+    <path d="M 270 210 L 320 130 L 480 130 L 530 210 L 580 340 L 580 460 L 530 590 L 480 670 L 320 670 L 270 590 L 220 460 L 220 340 Z" fill="url(#goldCase)" stroke="#78350f" stroke-width="2" />
+
+    <!-- Crown and Protectors in Gold -->
+    <rect x="580" y="365" width="45" height="70" rx="6" fill="url(#goldCase)" stroke="#78350f" stroke-width="2" />
+    <line x1="590" y1="365" x2="590" y2="435" stroke="#92400e" stroke-width="2" />
+    <line x1="600" y1="365" x2="600" y2="435" stroke="#92400e" stroke-width="2" />
+    <line x1="610" y1="365" x2="610" y2="435" stroke="#92400e" stroke-width="2" />
+    <!-- Swiss Cross on Crown -->
+    <rect x="615" y="394" width="8" height="12" fill="#dc2626" rx="1" />
+    <polygon points="617,397 621,397 621,403 617,403" fill="#ffffff" />
+    <polygon points="616,399 622,399 622,401 616,401" fill="#ffffff" />
+
+    <!-- Outer Bezel Ring (Toothed Grip in Gold) -->
+    <circle cx="400" cy="400" r="235" fill="none" stroke="#d97706" stroke-width="6" stroke-dasharray="8 4" />
+    <circle cx="400" cy="400" r="230" fill="url(#goldCase)" />
+
+    <!-- Deep Blue Ceramic Bezel Insert -->
+    <circle cx="400" cy="400" r="218" fill="url(#deepAzureBezel)" stroke="#091b3a" stroke-width="3" />
+
+    <!-- Bezel Markers & Digits in Crisp White & Gold -->
+    <polygon points="400,192 388,212 412,212" fill="#ffffff" />
+    <circle cx="400" cy="204" r="3.5" fill="#fde047" />
+
+    <!-- 10, 20, 30, 40, 50 markers -->
+    <text x="548" y="278" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#ffffff" text-anchor="middle">10</text>
+    <text x="590" y="410" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#ffffff" text-anchor="middle">20</text>
+    <text x="548" y="542" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#ffffff" text-anchor="middle">30</text>
+    <text x="400" y="605" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#ffffff" text-anchor="middle">30</text>
+    <text x="252" y="542" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#ffffff" text-anchor="middle">40</text>
+    <text x="210" y="410" font-family="'Inter', sans-serif" font-weight="800" font-size="28" fill="#ffffff" text-anchor="middle">50</text>
+
+    <!-- Gold Rehaut Ring -->
+    <circle cx="400" cy="400" r="178" fill="none" stroke="#fde047" stroke-width="4" />
+    <circle cx="400" cy="400" r="174" fill="url(#sunburstBlueDial)" />
+    <!-- Texture Overlay -->
+    <circle cx="400" cy="400" r="174" fill="url(#dialGroovesGold)" />
+
+    <!-- Victorinox Shield Logo at 12 -->
+    <g transform="translate(382, 245) scale(0.9)">
+      <path d="M 0 0 L 40 0 L 40 22 C 40 38 20 48 20 48 C 20 48 0 38 0 22 Z" fill="#dc2626" stroke="#fde047" stroke-width="2" />
+      <rect x="15" y="8" width="10" height="24" fill="#ffffff" />
+      <rect x="8" y="15" width="24" height="10" fill="#ffffff" />
+    </g>
+
+    <!-- Brand Texts in Rich Gold & White -->
+    <text x="400" y="315" font-family="'Montserrat', sans-serif" font-weight="800" font-size="16" letter-spacing="3" fill="#ffffff" text-anchor="middle">VICTORINOX</text>
+    <text x="400" y="332" font-family="'Inter', sans-serif" font-weight="600" font-size="9" letter-spacing="2" fill="#fde047" text-anchor="middle">SWISS MADE · 18K GOLD EDITION</text>
+
+    <!-- Dial Numerals 1 to 12 in Radiant Gold Trim -->
+    <g font-family="'Inter', sans-serif" font-weight="700" font-size="24" fill="#ffffff" stroke="#eab308" stroke-width="0.5" text-anchor="middle">
+      <text x="465" y="278">1</text>
+      <text x="515" y="330">2</text>
+      <text x="532" y="407">3</text>
+      <text x="515" y="482">4</text>
+      <text x="465" y="534">5</text>
+      <!-- Date at 6 -->
+      <text x="335" y="534">7</text>
+      <text x="285" y="482">8</text>
+      <text x="268" y="407">9</text>
+      <text x="282" y="330">10</text>
+      <text x="335" y="278">11</text>
+      <text x="400" y="238">12</text>
+    </g>
+
+    <!-- Date Window at 6 o'clock (Showing Master Date 22) -->
+    <g transform="translate(378, 498)">
+      <rect x="0" y="0" width="44" height="32" rx="4" fill="#0f172a" stroke="#fde047" stroke-width="2" />
+      <text x="22" y="23" font-family="'Inter', sans-serif" font-weight="800" font-size="20" fill="#fde047" text-anchor="middle">22</text>
+    </g>
+
+    <text x="400" y="555" font-family="'Inter', sans-serif" font-weight="700" font-size="8" letter-spacing="1.5" fill="#fde047" text-anchor="middle">SWISS MADE</text>
+
+    <!-- Center Pin in Gold -->
+    <circle cx="400" cy="400" r="14" fill="#fde047" stroke="#78350f" stroke-width="2" />
+
+    <!-- Hour Hand in Solid Gold (pointing toward 10:10) -->
+    <g transform="rotate(-65 400 400)">
+      <polygon points="392,400 394,295 400,280 406,295 408,400 400,415" fill="#fef08a" stroke="#78350f" stroke-width="2" />
+      <line x1="400" y1="300" x2="400" y2="390" stroke="#ffffff" stroke-width="3" />
+    </g>
+
+    <!-- Minute Hand in Solid Gold (pointing toward 1:50) -->
+    <g transform="rotate(52 400 400)">
+      <polygon points="393,400 395,250 400,230 405,250 407,400 400,420" fill="#fef08a" stroke="#78350f" stroke-width="2" />
+      <line x1="400" y1="255" x2="400" y2="390" stroke="#ffffff" stroke-width="3" />
+    </g>
+
+    <!-- Radiant Gold Second Hand -->
+    <g transform="rotate(160 400 400)">
+      <line x1="400" y1="460" x2="400" y2="235" stroke="#fde047" stroke-width="2.5" />
+      <circle cx="400" cy="255" r="5" fill="#fde047" stroke="#ca8a04" />
+      <circle cx="400" cy="400" r="6" fill="#fde047" />
+      <rect x="398" y="440" width="4" height="20" fill="#fde047" rx="2" />
+    </g>
+
+    <!-- Crystal Sheen Reflection -->
+    <path d="M 260 260 Q 400 210 540 260 Q 520 300 400 270 Q 280 300 260 260 Z" fill="#ffffff" opacity="0.14" />
+  </g>
+</svg>
