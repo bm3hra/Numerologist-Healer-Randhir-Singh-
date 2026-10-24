@@ -18,14 +18,16 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
   const [dayA, setDayA] = useState<number>(10);
   const [monthA, setMonthA] = useState<number>(4);
   const [yearA, setYearA] = useState<number>(1992);
+  const [genderA, setGenderA] = useState<'male' | 'female'>('male');
 
   // Person B
   const [dayB, setDayB] = useState<number>(23);
   const [monthB, setMonthB] = useState<number>(9);
   const [yearB, setYearB] = useState<number>(1994);
+  const [genderB, setGenderB] = useState<'male' | 'female'>('female');
 
-  const profileA = calculateNumerologyProfile(dayA, monthA, yearA, 'male');
-  const profileB = calculateNumerologyProfile(dayB, monthB, yearB, 'female');
+  const profileA = calculateNumerologyProfile(dayA, monthA, yearA, genderA);
+  const profileB = calculateNumerologyProfile(dayB, monthB, yearB, genderB);
 
   // Synergy evaluation
   const driverA = profileA.driverNumber;
@@ -51,6 +53,18 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
   if (PLANETARY_ARCHETYPES[conductorA].friendly.includes(conductorB)) {
     score += 12;
     synergyPoints.push(`Aligned Destiny Paths: Conductors ${conductorA} and ${conductorB} navigate life milestones in synchronicity.`);
+  }
+
+  // Check Kua directional compatibility (East vs West Groups)
+  const isEastGroup = (k: number) => [1, 3, 4, 9].includes(k);
+  const sameKuaGroup =
+    (isEastGroup(profileA.kuaNumber) && isEastGroup(profileB.kuaNumber)) ||
+    (!isEastGroup(profileA.kuaNumber) && !isEastGroup(profileB.kuaNumber));
+  if (sameKuaGroup) {
+    score += 8;
+    synergyPoints.push(`Harmonious Kua Direction: Person A (Kua ${profileA.kuaNumber}) and Person B (Kua ${profileB.kuaNumber}) both resonate with the ${isEastGroup(profileA.kuaNumber) ? 'East' : 'West'} Group, blessing shared spaces and bedroom with natural Vastu peace.`);
+  } else {
+    frictionPoints.push(`Opposite Kua Directions: Kua ${profileA.kuaNumber} (${isEastGroup(profileA.kuaNumber) ? 'East Group' : 'West Group'}) and Kua ${profileB.kuaNumber} (${isEastGroup(profileB.kuaNumber) ? 'East Group' : 'West Group'}). Randhir Ji advises a directional remedy for bedroom headboard alignment.`);
   }
 
   // Check complementary grid numbers
@@ -135,7 +149,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                 <span>{matchType === 'marriage' ? 'Partner 1 (दूल्हा / स्वयं)' : matchType === 'business' ? 'Partner 1 (Director A)' : 'Employer / Company Founder'}</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-4 gap-2">
                 <div>
                   <label className="text-[11px] font-bold text-stone-600 block mb-1">Day</label>
                   <select
@@ -169,10 +183,21 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                     className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
                   />
                 </div>
+                <div>
+                  <label className="text-[11px] font-bold text-stone-600 block mb-1">Gender</label>
+                  <select
+                    value={genderA}
+                    onChange={(e) => setGenderA(e.target.value as any)}
+                    className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
+                  >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
               </div>
 
               <div className="p-3 bg-stone-50 rounded-lg text-xs text-stone-600">
-                <strong>Driver:</strong> {profileA.driverNumber} ({PLANETARY_ARCHETYPES[profileA.driverNumber].planet}) · <strong>Conductor:</strong> {profileA.conductorNumber}
+                <strong>Driver:</strong> {profileA.driverNumber} ({PLANETARY_ARCHETYPES[profileA.driverNumber].planet}) · <strong>Conductor:</strong> {profileA.conductorNumber} · <strong>Kua:</strong> {profileA.kuaNumber}
               </div>
             </div>
 
@@ -183,7 +208,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                 <span>{matchType === 'marriage' ? 'Partner 2 (दुल्हन / जीवनसाथी)' : matchType === 'business' ? 'Partner 2 (Co-Founder)' : 'Key Candidate / Employee'}</span>
               </div>
 
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-4 gap-2">
                 <div>
                   <label className="text-[11px] font-bold text-stone-600 block mb-1">Day</label>
                   <select
@@ -217,10 +242,21 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                     className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
                   />
                 </div>
+                <div>
+                  <label className="text-[11px] font-bold text-stone-600 block mb-1">Gender</label>
+                  <select
+                    value={genderB}
+                    onChange={(e) => setGenderB(e.target.value as any)}
+                    className="w-full text-xs p-2 rounded-lg border border-stone-300 bg-stone-50 font-medium"
+                  >
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                  </select>
+                </div>
               </div>
 
               <div className="p-3 bg-stone-50 rounded-lg text-xs text-stone-600">
-                <strong>Driver:</strong> {profileB.driverNumber} ({PLANETARY_ARCHETYPES[profileB.driverNumber].planet}) · <strong>Conductor:</strong> {profileB.conductorNumber}
+                <strong>Driver:</strong> {profileB.driverNumber} ({PLANETARY_ARCHETYPES[profileB.driverNumber].planet}) · <strong>Conductor:</strong> {profileB.conductorNumber} · <strong>Kua:</strong> {profileB.kuaNumber}
               </div>
             </div>
           </div>

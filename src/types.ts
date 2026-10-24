@@ -1,5 +1,26 @@
 export type Language = string;
 
+export interface KuaDetails {
+  kuaNumber: number;
+  solarYear: number;
+  isSolarYearAdjusted: boolean;
+  gender: 'male' | 'female';
+  lastTwoDigits: number;
+  lastTwoDigitsSum: number;
+  element: string;
+  elementHi: string;
+  trigram: string;
+  trigramHi: string;
+  direction: string;
+  directionHi: string;
+  group: 'East Group' | 'West Group';
+  groupHi: string;
+  formulaEn: string;
+  formulaHi: string;
+  favorableDirections: string[];
+  favorableDirectionsHi: string[];
+}
+
 export interface NumerologyProfile {
   day: number;
   month: number;
@@ -7,6 +28,7 @@ export interface NumerologyProfile {
   driverNumber: number; // Mulank (1-9)
   conductorNumber: number; // Bhagyank (1-9)
   kuaNumber: number;
+  kuaDetails?: KuaDetails;
   loShuCounts: Record<number, number>; // counts of 1-9 in the grid
   presentNumbers: number[];
   missingNumbers: number[];

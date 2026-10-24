@@ -79,7 +79,12 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
   const gridPts = Math.min(8, Math.max(3, totalMutualFills * 1.5));
 
   // 4. Kua Directional Energy (max 5 pts)
-  const kuaPts = (profileA.kuaNumber + profileB.kuaNumber) % 2 === 0 ? 5 : 3.5;
+  // East Group (1, 3, 4, 9) vs West Group (2, 6, 7, 8)
+  const isEastGroup = (k: number) => [1, 3, 4, 9].includes(k);
+  const sameKuaGroup =
+    (isEastGroup(profileA.kuaNumber) && isEastGroup(profileB.kuaNumber)) ||
+    (!isEastGroup(profileA.kuaNumber) && !isEastGroup(profileB.kuaNumber));
+  const kuaPts = sameKuaGroup ? 5 : 3.5;
 
   // 5. Emotional Plane (3-5-7) (max 5 pts)
   const emotionalCountA = (profileA.loShuCounts[3] || 0) + (profileA.loShuCounts[5] || 0) + (profileA.loShuCounts[7] || 0);

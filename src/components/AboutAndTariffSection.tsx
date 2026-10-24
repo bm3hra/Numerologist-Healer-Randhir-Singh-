@@ -93,7 +93,7 @@ export const SPECIALIZED_SERVICES_11: SpecializedHealingService[] = [
     categoryLabelHi: 'अंक ज्योतिष सुधार',
     name: 'Name Spelling & Numerology Correction',
     nameHi: 'नाम वर्तनी एवं अंक ज्योतिष सुधार (Chaldean)',
-    price: '₹1,100',
+    price: '₹11,000',
     duration: 'Detailed Analysis',
     durationHi: 'विस्तृत विश्लेषण',
     description: 'Comprehensive study of name syllables and compound vibrations to synchronize your name frequency with your Mulank and Bhagyank destiny rulers.',

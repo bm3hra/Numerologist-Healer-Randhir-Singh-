@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Compass, Sparkles, CheckCircle2, AlertCircle, Share2, MessageCircle, RefreshCw, Star } from 'lucide-react';
+import { Calendar, Compass, Sparkles, CheckCircle2, AlertCircle, Share2, MessageCircle, RefreshCw, Star, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import { calculateNumerologyProfile, LOSHU_PLANES_INFO, MISSING_NUMBER_REMEDIES, PLANETARY_ARCHETYPES } from '../data/numerologyData';
 import { Language, NumerologyProfile } from '../types';
 
@@ -17,6 +17,7 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
   const [year, setYear] = useState<number>(1972);
   const [gender, setGender] = useState<'male' | 'female'>('male');
   const [includeKua, setIncludeKua] = useState<boolean>(false);
+  const [showKuaGuide, setShowKuaGuide] = useState<boolean>(false);
 
   const [profile, setProfile] = useState<NumerologyProfile>(() =>
     calculateNumerologyProfile(14, 9, 1972, 'male', false)
@@ -78,6 +79,141 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
               ? 'अपनी जन्म तिथि दर्ज करें और तुरंत अपना मूलांक (Driver), भाग्यांक (Conductor), कुआ अंक एवं 3x3 लो-शू ग्रिड की ऊर्जा का संपूर्ण विश्लेषण प्राप्त करें।'
               : 'Enter your exact date of birth to reveal your Driver (Mulank), Conductor (Bhagyank), Kua Number, 8 Planes of Destiny, and Missing Number remedies.'}
           </p>
+
+          <div className="mt-4 flex items-center justify-center">
+            <button
+              type="button"
+              onClick={() => setShowKuaGuide(!showKuaGuide)}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-100 text-amber-950 hover:bg-amber-200 border border-amber-300 shadow-2xs transition-all cursor-pointer"
+            >
+              <Compass className="w-3.5 h-3.5 text-amber-800" />
+              <span>
+                {lang === 'hi'
+                  ? 'कुआ अंक (Kua Number) गणना विधि एवं १९६७ का उदाहरण देखें'
+                  : 'View Kua Number Calculation Algorithm & 1967 Example'}
+              </span>
+              {showKuaGuide ? <ChevronUp className="w-3.5 h-3.5 text-amber-800" /> : <ChevronDown className="w-3.5 h-3.5 text-amber-800" />}
+            </button>
+          </div>
+
+          {showKuaGuide && (
+            <div className="mt-4 max-w-3xl mx-auto bg-amber-50/95 border-2 border-amber-300 rounded-2xl p-5 sm:p-6 text-left shadow-md space-y-4">
+              <div className="flex items-start justify-between gap-3 border-b border-amber-200 pb-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-amber-800 text-white flex items-center justify-center font-bold font-sacred text-base">
+                    🧭
+                  </div>
+                  <div>
+                    <h4 className="font-sacred font-bold text-stone-900 text-base">
+                      {lang === 'hi' ? 'कुआ अंक (Kua Number) की प्रामाणिक वैदिक एवं फेंगशुई गणना' : 'Authentic Kua Number Calculation Rules & Matrix'}
+                    </h4>
+                    <p className="text-[11px] text-stone-600">
+                      {lang === 'hi' ? 'जन्म-वर्ष के अंतिम दो अंकों और लिंग (Gender) पर आधारित दिशात्मक ऊर्जा' : 'Directional energy calculated from the last two digits of the birth year and gender.'}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowKuaGuide(false)}
+                  className="text-stone-400 hover:text-stone-700 text-xs px-2 py-1 rounded bg-white/80 border border-amber-200 cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Step by Step Algorithm */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-stone-800">
+                <div className="bg-white p-3.5 rounded-xl border border-amber-200 space-y-2">
+                  <span className="font-bold text-amber-900 text-xs uppercase tracking-wider block">
+                    {lang === 'hi' ? '१. सामान्य नियम (१९००-१९९९)' : '1. 20th Century Formula (1900-1999)'}
+                  </span>
+                  <p className="text-[11px] text-stone-600 leading-relaxed">
+                    {lang === 'hi'
+                      ? 'जन्म-वर्ष के अंतिम दो अंकों को जोड़कर एकल अंक (१-९) में बदलें।'
+                      : 'Sum the last two digits of your birth year and reduce to a single digit (1-9).'}
+                  </p>
+                  <ul className="space-y-1 text-[11px] font-sans">
+                    <li className="flex items-center gap-1.5 text-stone-800">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-700"></span>
+                      <strong>{lang === 'hi' ? 'पुरुष (Male):' : 'Male:'}</strong>{' '}
+                      <span className="font-mono bg-amber-50 px-1 py-0.5 rounded border border-amber-200 font-bold">10 - योग</span>
+                    </li>
+                    <li className="flex items-center gap-1.5 text-stone-800">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-700"></span>
+                      <strong>{lang === 'hi' ? 'महिला (Female):' : 'Female:'}</strong>{' '}
+                      <span className="font-mono bg-amber-50 px-1 py-0.5 rounded border border-amber-200 font-bold">5 + योग</span>
+                    </li>
+                  </ul>
+                  <div className="pt-2 border-t border-stone-150 text-[10.5px] text-stone-500">
+                    <strong>{lang === 'hi' ? '२००० के बाद का नियम:' : '2000+ Formula:'}</strong>{' '}
+                    {lang === 'hi' ? 'पुरुष = ९ - योग | महिला = ६ + योग' : 'Male = 9 - sum | Female = 6 + sum'}
+                  </div>
+                </div>
+
+                <div className="bg-white p-3.5 rounded-xl border border-amber-200 space-y-2">
+                  <span className="font-bold text-amber-900 text-xs uppercase tracking-wider block">
+                    {lang === 'hi' ? '२. उदाहरण: जन्म वर्ष १९६७' : '2. Exact Example: Year 1967'}
+                  </span>
+                  <p className="text-[11px] text-stone-700 leading-relaxed font-sans">
+                    {lang === 'hi' ? (
+                      <>
+                        जन्म-वर्ष के अंतिम दो अंक: <strong className="font-mono">6 + 7 = 13</strong>, फिर <strong className="font-mono">1 + 3 = 4</strong>।
+                      </>
+                    ) : (
+                      <>
+                        Last two digits: <strong className="font-mono">6 + 7 = 13</strong>, then <strong className="font-mono">1 + 3 = 4</strong>.
+                      </>
+                    )}
+                  </p>
+                  <div className="space-y-1 text-[11px]">
+                    <div className="p-1.5 bg-amber-50 rounded border border-amber-200 font-sans">
+                      • <strong>{lang === 'hi' ? 'पुरुष (Male):' : 'Male:'}</strong>{' '}
+                      <span className="font-mono">10 - 4 = 6</span> → <strong>Kua 6</strong> ({lang === 'hi' ? 'उत्तर-पश्चिम / धातु' : 'NW / Metal'})
+                    </div>
+                    <div className="p-1.5 bg-amber-50 rounded border border-amber-200 font-sans">
+                      • <strong>{lang === 'hi' ? 'महिला (Female):' : 'Female:'}</strong>{' '}
+                      <span className="font-mono">5 + 4 = 9</span> → <strong>Kua 9</strong> ({lang === 'hi' ? 'दक्षिण / अग्नि' : 'South / Fire'})
+                    </div>
+                  </div>
+
+                  <table className="w-full text-center text-[10.5px] border border-amber-200 mt-1 bg-amber-50/50 rounded">
+                    <thead>
+                      <tr className="bg-amber-200/60 font-bold text-amber-950">
+                        <th className="p-1 border-r border-amber-200">{lang === 'hi' ? 'जन्म वर्ष' : 'Year'}</th>
+                        <th className="p-1 border-r border-amber-200">{lang === 'hi' ? 'पुरुष' : 'Male'}</th>
+                        <th className="p-1">{lang === 'hi' ? 'महिला' : 'Female'}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="font-bold text-stone-800">
+                        <td className="p-1 border-r border-amber-200 font-mono">1967</td>
+                        <td className="p-1 border-r border-amber-200 text-amber-900 font-mono">6</td>
+                        <td className="p-1 text-amber-900 font-mono">9</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Crucial Solar Year Note */}
+              <div className="p-3 bg-amber-100/70 border border-amber-300 rounded-xl text-[11px] leading-relaxed text-amber-950">
+                <span className="font-bold flex items-center gap-1 mb-0.5">
+                  <AlertCircle className="w-3.5 h-3.5 text-amber-800 shrink-0" />
+                  <span>{lang === 'hi' ? 'विशेष ध्यान दें (सौर नववर्ष Li Chun नियम):' : 'Important Note (Solar New Year Li Chun Rule):'}</span>
+                </span>
+                <p>
+                  {lang === 'hi'
+                    ? 'यदि जन्म जनवरी या फरवरी की शुरुआत (४ फरवरी से पहले) में हुआ है, तो सही Kua Number के लिए पूरी जन्म-तारीख आवश्यक होती है। सौर वर्ष (Solar Year) ४ फरवरी से प्रारंभ होता है; अतः ४ फरवरी से पूर्व जन्मे जातकों के लिए पिछला वर्ष (Year - 1) प्रयुक्त होता है। हमारा कैलकुलेटर इसे पूरी जन्म-तारीख से स्वतः प्रमाणित करता है।'
+                    : 'If born in January or early February (before February 4), the full birth date is essential. The Chinese solar year begins on February 4 (Li Chun); births prior to Feb 4 take the preceding solar year (Year - 1). Our calculator automatically factors this in.'}
+                </p>
+                <div className="mt-1 text-[10px] text-stone-600 font-medium">
+                  {lang === 'hi'
+                    ? 'अंक ५ का विशेष नियम: कुआं ५ का कोई स्वतंत्र कोण नहीं होता। अतः पुरुष के लिए ५ बदलकर २ (कुन) और महिला के लिए ५ बदलकर ८ (गेन) हो जाता है।'
+                    : 'Rule of 5: As Kua 5 has no Bagua direction, Male 5 shifts to 2 (Kun) and Female 5 shifts to 8 (Gen).'}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Input Form Card */}
@@ -205,23 +341,68 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
             </div>
 
             {/* Kua Number */}
-            <div className="bg-white rounded-xl p-6 border-2 border-amber-300/80 shadow-md flex items-center gap-5">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-700 to-amber-900 text-white flex items-center justify-center text-3xl font-black font-sacred shadow-sm shrink-0">
-                {profile.kuaNumber}
+            <div className="bg-white rounded-xl p-5 border-2 border-amber-300/80 shadow-md flex flex-col justify-between">
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-700 to-amber-900 text-white flex items-center justify-center text-3xl font-black font-sacred shadow-sm shrink-0">
+                  {profile.kuaNumber}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-1.5 mb-1">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-900 bg-amber-100/90 px-2 py-0.5 rounded border border-amber-300">
+                      {lang === 'hi' ? 'कुआ अंक (Kua)' : 'Kua Number'}
+                    </span>
+                    {profile.kuaDetails && (
+                      <>
+                        <span className="text-[10px] font-semibold text-stone-700 bg-stone-100 px-1.5 py-0.5 rounded border border-stone-200">
+                          {lang === 'hi' ? profile.kuaDetails.groupHi : profile.kuaDetails.group}
+                        </span>
+                        <span className="text-[10px] font-semibold text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
+                          {lang === 'hi' ? profile.kuaDetails.elementHi : profile.kuaDetails.element}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                  <h3 className="font-sacred font-bold text-stone-900 text-base">
+                    {profile.kuaDetails
+                      ? (lang === 'hi'
+                          ? `${profile.kuaDetails.directionHi} (${profile.kuaDetails.trigramHi})`
+                          : `${profile.kuaDetails.direction} (${profile.kuaDetails.trigram})`)
+                      : (lang === 'hi' ? 'दिशात्मक ऊर्जा आधार' : 'Directional Energy Pillar')}
+                  </h3>
+                  <p className="text-[11px] text-stone-600 mt-0.5 leading-snug">
+                    {lang === 'hi'
+                      ? 'सोने का सिरहाना, अध्ययन कक्ष एवं कार्यस्थल वास्तु का सर्वश्रेष्ठ दिशात्मक कोण।'
+                      : 'Guides optimal head direction for deep sleep, study desk facing, and workspace Vastu.'}
+                  </p>
+                </div>
               </div>
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                  {lang === 'hi' ? 'कुआ अंक (Kua Number)' : 'Kua Number (कुआ अंक)'}
-                </span>
-                <h3 className="font-sacred font-bold text-stone-900 text-lg mt-1">
-                  {lang === 'hi' ? 'दिशात्मक ऊर्जा आधार' : 'Directional Energy Pillar'}
-                </h3>
-                <p className="text-xs text-stone-600 mt-1">
-                  {lang === 'hi'
-                    ? 'सोने की सिरहाना दिशा, अध्ययन कक्ष और कार्यालय वास्तु का मार्गदर्शन करता है।'
-                    : 'Guides ideal sleeping head direction, study facing, and office desk Vastu.'}
-                </p>
-              </div>
+
+              {profile.kuaDetails && (
+                <div className="mt-3 pt-2.5 border-t border-amber-100 text-[10px] space-y-1">
+                  <div className="text-amber-950 font-medium">
+                    <span className="text-stone-500 font-normal">
+                      {lang === 'hi' ? 'गणना सूत्र:' : 'Formula:'}
+                    </span>{' '}
+                    <span className="font-mono font-semibold">
+                      {lang === 'hi' ? profile.kuaDetails.formulaHi : profile.kuaDetails.formulaEn}
+                    </span>
+                  </div>
+
+                  {profile.kuaDetails.isSolarYearAdjusted && (
+                    <div className="p-1.5 bg-amber-50 border border-amber-200 rounded text-amber-900 text-[10px] leading-tight">
+                      <strong>{lang === 'hi' ? '☀️ सौर नववर्ष (Li Chun):' : '☀️ Solar Year Rule (Li Chun):'}</strong>{' '}
+                      {lang === 'hi'
+                        ? `चीनी सौर कैलेंडर ४ फरवरी से प्रारंभ होता है। ४ फरवरी से पूर्व जन्म होने के कारण कुआ अंक की गणना सौर वर्ष ${profile.kuaDetails.solarYear} से की गई है।`
+                        : `Solar year begins Feb 4. Born before Feb 4, hence calculated using Solar Year ${profile.kuaDetails.solarYear}.`}
+                    </div>
+                  )}
+
+                  <div className="text-stone-600 truncate">
+                    <span className="font-semibold text-stone-700">{lang === 'hi' ? 'शुभ दिशाएं:' : 'Auspicious:'}</span>{' '}
+                    {(lang === 'hi' ? profile.kuaDetails.favorableDirectionsHi : profile.kuaDetails.favorableDirections).slice(0, 2).join(' · ')}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -367,19 +548,42 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                   </div>
                   <div>
                     <span className="text-stone-500">{lang === 'hi' ? '• कुआ अंक (Kua):' : '• Kua Direction:'}</span>{' '}
-                    <strong className="text-amber-900">{profile.kuaNumber}</strong>
+                    <strong className="text-amber-900">{profile.kuaNumber}</strong>{' '}
+                    <span className="text-[10px] text-stone-600">
+                      ({lang === 'hi' ? profile.kuaDetails?.directionHi : profile.kuaDetails?.direction} · {lang === 'hi' ? profile.kuaDetails?.groupHi : profile.kuaDetails?.group})
+                    </span>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-amber-200/80 text-[11px] leading-relaxed text-amber-950">
-                  {lang === 'hi' ? (
-                    <span>
-                      ✓ <strong>मूलांक {profile.driverNumber} सत्यापन:</strong> आपकी जन्म तारीख {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}) के अनुसार आपका मूलांक <strong>{profile.driverNumber}</strong> है। यह अंक 3×3 लो-शू ग्रिड में <strong>सक्रिय (Active)</strong> स्थान प्राप्त करता है और <strong>अनुपस्थित (Missing) नहीं</strong> है।
-                    </span>
-                  ) : (
-                    <span>
-                      ✓ <strong>Driver {profile.driverNumber} Verified:</strong> For Day {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}), your Driver (Mulank) is <strong>{profile.driverNumber}</strong>. It is placed directly in your 3×3 Lo-Shu Grid as an <strong>Active</strong> soul frequency, so <strong>{profile.driverNumber} is NOT missing</strong>!
-                    </span>
+                <div className="pt-2 border-t border-amber-200/80 text-[11px] leading-relaxed text-amber-950 space-y-1.5">
+                  <div>
+                    {lang === 'hi' ? (
+                      <span>
+                        ✓ <strong>मूलांक {profile.driverNumber} सत्यापन:</strong> आपकी जन्म तारीख {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}) के अनुसार आपका मूलांक <strong>{profile.driverNumber}</strong> है। यह अंक 3×3 लो-शू ग्रिड में <strong>सक्रिय (Active)</strong> स्थान प्राप्त करता है और <strong>अनुपस्थित (Missing) नहीं</strong> है।
+                      </span>
+                    ) : (
+                      <span>
+                        ✓ <strong>Driver {profile.driverNumber} Verified:</strong> For Day {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}), your Driver (Mulank) is <strong>{profile.driverNumber}</strong>. It is placed directly in your 3×3 Lo-Shu Grid as an <strong>Active</strong> soul frequency, so <strong>{profile.driverNumber} is NOT missing</strong>!
+                      </span>
+                    )}
+                  </div>
+
+                  {profile.kuaDetails && (
+                    <div className="bg-amber-100/60 p-2 rounded-lg border border-amber-300/70 text-[10.5px]">
+                      <div className="font-bold text-amber-950 flex items-center gap-1">
+                        <span>🧭 {lang === 'hi' ? 'कुआ अंक प्रामाणिक सूत्र:' : 'Authentic Kua Formula:'}</span>
+                      </div>
+                      <div className="font-mono text-stone-800 mt-0.5">
+                        {lang === 'hi' ? profile.kuaDetails.formulaHi : profile.kuaDetails.formulaEn}
+                      </div>
+                      {profile.kuaDetails.isSolarYearAdjusted && (
+                        <div className="text-amber-900 text-[10px] mt-1 font-sans">
+                          {lang === 'hi'
+                            ? `☀️ सौर वर्ष नियम (Li Chun): ४ फरवरी से पूर्व जन्म के कारण सौर वर्ष ${profile.kuaDetails.solarYear} से गणना की गई है।`
+                            : `☀️ Solar Year (Li Chun): Born before Feb 4, calculated from solar year ${profile.kuaDetails.solarYear}.`}
+                        </div>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>

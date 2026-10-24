@@ -1,4 +1,4 @@
-import { NumerologyProfile } from '../types';
+import { NumerologyProfile, KuaDetails } from '../types';
 
 // Chaldean Numerology Letter Values
 export const CHALDEAN_MAP: Record<string, number> = {
@@ -281,6 +281,325 @@ export const MISSING_NUMBER_REMEDIES: Record<number, { title: string; remedies: 
   }
 };
 
+export interface KuaArchetype {
+  element: string;
+  elementHi: string;
+  trigram: string;
+  trigramHi: string;
+  direction: string;
+  directionHi: string;
+  group: 'East Group' | 'West Group';
+  groupHi: string;
+  favorableDirections: string[];
+  favorableDirectionsHi: string[];
+}
+
+export const KUA_ARCHETYPES: Record<number, KuaArchetype> = {
+  1: {
+    element: 'Water',
+    elementHi: 'जल तत्व',
+    trigram: 'Kan (कन)',
+    trigramHi: 'कन (Kan)',
+    direction: 'North',
+    directionHi: 'उत्तर दिशा',
+    group: 'East Group',
+    groupHi: 'पूर्व समूह',
+    favorableDirections: [
+      'North (Fu Wei - Personal Growth & Stability)',
+      'South (Yan Nian - Relationships & Harmony)',
+      'East (Tien Yi - Health & Longevity)',
+      'South-East (Sheng Chi - Wealth & Success)'
+    ],
+    favorableDirectionsHi: [
+      'उत्तर (व्यक्तिगत स्थिरता व विकास)',
+      'दक्षिण (मधुर संबंध व सौहार्द्र)',
+      'पूर्व (आरोग्य एवं दीर्घायु)',
+      'दक्षिण-पूर्व (समृद्धि व सफलता)'
+    ]
+  },
+  2: {
+    element: 'Earth',
+    elementHi: 'पृथ्वी तत्व',
+    trigram: 'Kun (कुन)',
+    trigramHi: 'कुन (Kun)',
+    direction: 'South-West',
+    directionHi: 'दक्षिण-पश्चिम दिशा',
+    group: 'West Group',
+    groupHi: 'पश्चिम समूह',
+    favorableDirections: [
+      'North-East (Sheng Chi - Success & Wealth)',
+      'West (Yan Nian - Love & Harmony)',
+      'North-West (Tien Yi - Health & Peace)',
+      'South-West (Fu Wei - Stability & Grounding)'
+    ],
+    favorableDirectionsHi: [
+      'उत्तर-पूर्व (सफलता व धन प्रवाह)',
+      'पश्चिम (प्रेम व पारिवारिक सौहार्द्र)',
+      'उत्तर-पश्चिम (आरोग्य व मानसिक शांति)',
+      'दक्षिण-पश्चिम (स्थिरता व सुरक्षा)'
+    ]
+  },
+  3: {
+    element: 'Wood',
+    elementHi: 'काष्ठ (लकड़ी) तत्व',
+    trigram: 'Zhen (झेन)',
+    trigramHi: 'झेन (Zhen)',
+    direction: 'East',
+    directionHi: 'पूर्व दिशा',
+    group: 'East Group',
+    groupHi: 'पूर्व समूह',
+    favorableDirections: [
+      'South (Sheng Chi - Fame & Recognition)',
+      'North (Tien Yi - Health & Vitality)',
+      'South-East (Yan Nian - Relationships)',
+      'East (Fu Wei - Personal Growth & Ambition)'
+    ],
+    favorableDirectionsHi: [
+      'दक्षिण (यश, कीर्ति व सफलता)',
+      'उत्तर (आरोग्य व ऊर्जा)',
+      'दक्षिण-पूर्व (प्रेम संबंध व मेलजोल)',
+      'पूर्व (व्यक्तिगत प्रगति व संकल्प शक्ति)'
+    ]
+  },
+  4: {
+    element: 'Wood',
+    elementHi: 'काष्ठ (वायु/लचीला काष्ठ) तत्व',
+    trigram: 'Xun (शुन)',
+    trigramHi: 'शुन (Xun)',
+    direction: 'South-East',
+    directionHi: 'दक्षिण-पूर्व दिशा',
+    group: 'East Group',
+    groupHi: 'पूर्व समूह',
+    favorableDirections: [
+      'North (Sheng Chi - Wealth & Abundance)',
+      'South (Tien Yi - Health & Wellness)',
+      'East (Yan Nian - Matrimony & Peace)',
+      'South-East (Fu Wei - Wisdom & Expansion)'
+    ],
+    favorableDirectionsHi: [
+      'उत्तर (धन लाभ व प्रचुरता)',
+      'दक्षिण (स्वास्थ्य व ऊर्जा)',
+      'पूर्व (वैवाहिक शांति व सौहार्द्र)',
+      'दक्षिण-पूर्व (ज्ञान व आध्यात्मिक उन्नति)'
+    ]
+  },
+  6: {
+    element: 'Hard Metal',
+    elementHi: 'कठोर धातु (स्वर्ण/स्टील) तत्व',
+    trigram: 'Qian (चियान)',
+    trigramHi: 'चियान (Qian)',
+    direction: 'North-West',
+    directionHi: 'उत्तर-पश्चिम दिशा',
+    group: 'West Group',
+    groupHi: 'पश्चिम समूह',
+    favorableDirections: [
+      'West (Sheng Chi - Business & Authority)',
+      'North-East (Tien Yi - Health & Longevity)',
+      'South-West (Yan Nian - Harmony & Alliances)',
+      'North-West (Fu Wei - Leadership & Dignity)'
+    ],
+    favorableDirectionsHi: [
+      'पश्चिम (व्यापार, अधिकार व समृद्धि)',
+      'उत्तर-पूर्व (आरोग्य व दीर्घायु)',
+      'दक्षिण-पश्चिम (पारिवारिक व व्यावसायिक सौहार्द्र)',
+      'उत्तर-पश्चिम (नेतृत्व, गरिमा व मार्गदर्शन)'
+    ]
+  },
+  7: {
+    element: 'Soft Metal',
+    elementHi: 'कोमल धातु (रजत/चांदी) तत्व',
+    trigram: 'Dui (दुई)',
+    trigramHi: 'दुई (Dui)',
+    direction: 'West',
+    directionHi: 'पश्चिम दिशा',
+    group: 'West Group',
+    groupHi: 'पश्चिम समूह',
+    favorableDirections: [
+      'North-West (Sheng Chi - Prosperity & Opportunities)',
+      'South-West (Tien Yi - Physical Vitality)',
+      'North-East (Yan Nian - Romantic & Family Bliss)',
+      'West (Fu Wei - Joy, Creativity & Eloquence)'
+    ],
+    favorableDirectionsHi: [
+      'उत्तर-पश्चिम (समृद्धि व नए अवसर)',
+      'दक्षिण-पश्चिम (शारीरिक ऊर्जा व आरोग्य)',
+      'उत्तर-पूर्व (वैवाहिक सुख व पारिवारिक शांति)',
+      'पश्चिम (प्रसन्नता, रचनात्मकता व वाणी प्रभाव)'
+    ]
+  },
+  8: {
+    element: 'Earth',
+    elementHi: 'पृथ्वी (पर्वत/स्थिर पृथ्वी) तत्व',
+    trigram: 'Gen (गेन)',
+    trigramHi: 'गेन (Gen)',
+    direction: 'North-East',
+    directionHi: 'उत्तर-पूर्व (ईशान) दिशा',
+    group: 'West Group',
+    groupHi: 'पश्चिम समूह',
+    favorableDirections: [
+      'South-West (Sheng Chi - Massive Wealth & Assets)',
+      'North-West (Tien Yi - Good Health & Focus)',
+      'West (Yan Nian - Loyal Relationships)',
+      'North-East (Fu Wei - Knowledge, Meditation & Stillness)'
+    ],
+    favorableDirectionsHi: [
+      'दक्षिण-पश्चिम (अचल संपत्ति व धन संचय)',
+      'उत्तर-पश्चिम (उत्तम स्वास्थ्य व एकाग्रता)',
+      'पश्चिम (सच्चे मित्र व निष्ठावान संबंध)',
+      'उत्तर-पूर्व (विद्या, ध्यान व अंतःशांति)'
+    ]
+  },
+  9: {
+    element: 'Fire',
+    elementHi: 'अग्नि तत्व',
+    trigram: 'Li (ली)',
+    trigramHi: 'ली (Li)',
+    direction: 'South',
+    directionHi: 'दक्षिण दिशा',
+    group: 'East Group',
+    groupHi: 'पूर्व समूह',
+    favorableDirections: [
+      'East (Sheng Chi - High Fame & Recognition)',
+      'South-East (Tien Yi - Health & Vital Glow)',
+      'North (Yan Nian - Harmonious Social Network)',
+      'South (Fu Wei - Inspiration, Passion & Brilliance)'
+    ],
+    favorableDirectionsHi: [
+      'पूर्व (उच्च मान-सम्मान व प्रसिद्धि)',
+      'दक्षिण-पूर्व (आरोग्य व ओजस्वी कांति)',
+      'उत्तर (सामाजिक सामंजस्य व सहयोग)',
+      'दक्षिण (प्रेरणा, उत्साह व आंतरिक तेज)'
+    ]
+  }
+};
+
+/**
+ * Authentic Kua Number Calculation
+ * Based on Classical Feng Shui / Lo Shu Numerology:
+ * 1. Takes full DOB (Day, Month, Year) & Gender.
+ * 2. Determines Solar Year (Li Chun / वसंत ऋतु आगमन - begins Feb 4).
+ *    If birth is Jan 1 - Feb 3, the solar birth year is `year - 1`.
+ * 3. Takes the LAST TWO DIGITS of the solar year, sums them and reduces to single digit.
+ *    (e.g., 1967 -> 67 -> 6+7=13 -> 1+3=4).
+ * 4. Formula:
+ *    - Before 2000:
+ *      Male: 10 - lastTwoDigitsSum. (1967 Male: 10 - 4 = 6).
+ *      Female: 5 + lastTwoDigitsSum. (1967 Female: 5 + 4 = 9).
+ *    - 2000 Onwards:
+ *      Male: 9 - lastTwoDigitsSum.
+ *      Female: 6 + lastTwoDigitsSum.
+ * 5. Special Rule for 5:
+ *    The central palace (5) has no Bagua trigram.
+ *    Male 5 shifts to 2 (Kun / Earth).
+ *    Female 5 shifts to 8 (Gen / Earth).
+ */
+export function calculateKuaNumber(
+  day: number,
+  month: number,
+  year: number,
+  gender: 'male' | 'female' = 'male'
+): KuaDetails {
+  // Chinese Solar Year (Li Chun / सौर वर्ष) begins on February 4
+  const isSolarYearAdjusted = month === 1 || (month === 2 && day < 4);
+  const solarYear = isSolarYearAdjusted ? year - 1 : year;
+
+  // Last two digits of the solar year
+  const lastTwoDigits = Math.abs(solarYear) % 100;
+  const tens = Math.floor(lastTwoDigits / 10);
+  const units = lastTwoDigits % 10;
+  let lastTwoDigitsSum = tens + units;
+  while (lastTwoDigitsSum > 9) {
+    lastTwoDigitsSum = lastTwoDigitsSum
+      .toString()
+      .split('')
+      .reduce((acc, c) => acc + parseInt(c, 10), 0);
+  }
+
+  let kuaNumber: number;
+  let formulaEn = '';
+  let formulaHi = '';
+
+  if (solarYear < 2000) {
+    if (gender === 'male') {
+      let raw = 10 - lastTwoDigitsSum;
+      if (raw <= 0) raw += 9;
+      raw = reduceToSingleDigit(raw);
+      if (raw === 5) {
+        kuaNumber = 2; // For male, 5 becomes 2 (Kun / Earth)
+        formulaEn = `Solar Year ${solarYear} last 2 digits: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}. Male formula: 10 - ${lastTwoDigitsSum} = 5. (As Kua 5 has no Bagua palace, Male 5 shifts to 2 - Kun Earth).`;
+        formulaHi = `सौर वर्ष ${solarYear} के अंतिम दो अंक: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}। पुरुष सूत्र: 10 - ${lastTwoDigitsSum} = 5। (कुआं 5 का कोई स्वतंत्र कोण नहीं होता, अतः पुरुष के लिए 5 बदलकर 2 बन जाता है)।`;
+      } else {
+        kuaNumber = raw;
+        formulaEn = `Solar Year ${solarYear} last 2 digits: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}. Male formula: 10 - ${lastTwoDigitsSum} = ${kuaNumber}.`;
+        formulaHi = `सौर वर्ष ${solarYear} के अंतिम दो अंक: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}। पुरुष सूत्र: 10 - ${lastTwoDigitsSum} = ${kuaNumber}।`;
+      }
+    } else {
+      let raw = 5 + lastTwoDigitsSum;
+      raw = reduceToSingleDigit(raw);
+      if (raw === 5) {
+        kuaNumber = 8; // For female, 5 becomes 8 (Gen / Earth)
+        formulaEn = `Solar Year ${solarYear} last 2 digits: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}. Female formula: 5 + ${lastTwoDigitsSum} = 5. (As Kua 5 has no Bagua palace, Female 5 shifts to 8 - Gen Earth).`;
+        formulaHi = `सौर वर्ष ${solarYear} के अंतिम दो अंक: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}। महिला सूत्र: 5 + ${lastTwoDigitsSum} = 5। (कुआं 5 का कोई स्वतंत्र कोण नहीं होता, अतः महिला के लिए 5 बदलकर 8 बन जाता है)।`;
+      } else {
+        kuaNumber = raw;
+        formulaEn = `Solar Year ${solarYear} last 2 digits: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}. Female formula: 5 + ${lastTwoDigitsSum} = ${5 + lastTwoDigitsSum}${5 + lastTwoDigitsSum > 9 ? ` -> ${kuaNumber}` : ''}.`;
+        formulaHi = `सौर वर्ष ${solarYear} के अंतिम दो अंक: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}। महिला सूत्र: 5 + ${lastTwoDigitsSum} = ${5 + lastTwoDigitsSum}${5 + lastTwoDigitsSum > 9 ? ` -> ${kuaNumber}` : ''}।`;
+      }
+    }
+  } else {
+    // 2000 onwards
+    if (gender === 'male') {
+      let raw = 9 - lastTwoDigitsSum;
+      if (raw <= 0) raw += 9;
+      raw = reduceToSingleDigit(raw);
+      if (raw === 5) {
+        kuaNumber = 2;
+        formulaEn = `Solar Year ${solarYear} (2000+) last 2 digits: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}. Male formula: 9 - ${lastTwoDigitsSum} = 5 -> shifts to 2 (Kun).`;
+        formulaHi = `सौर वर्ष ${solarYear} (२०००+) के अंतिम दो अंक: ${tens}+${units} = ${tens + units}। पुरुष सूत्र: 9 - ${lastTwoDigitsSum} = 5 -> बदलकर 2 (कुन)।`;
+      } else {
+        kuaNumber = raw;
+        formulaEn = `Solar Year ${solarYear} (2000+) last 2 digits: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}. Male formula: 9 - ${lastTwoDigitsSum} = ${kuaNumber}.`;
+        formulaHi = `सौर वर्ष ${solarYear} (२०००+) के अंतिम दो अंक: ${tens}+${units} = ${tens + units}। पुरुष सूत्र: 9 - ${lastTwoDigitsSum} = ${kuaNumber}।`;
+      }
+    } else {
+      let raw = 6 + lastTwoDigitsSum;
+      raw = reduceToSingleDigit(raw);
+      if (raw === 5) {
+        kuaNumber = 8;
+        formulaEn = `Solar Year ${solarYear} (2000+) last 2 digits: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}. Female formula: 6 + ${lastTwoDigitsSum} = 5 -> shifts to 8 (Gen).`;
+        formulaHi = `सौर वर्ष ${solarYear} (२०००+) के अंतिम दो अंक: ${tens}+${units} = ${tens + units}। महिला सूत्र: 6 + ${lastTwoDigitsSum} = 5 -> बदलकर 8 (गेन)।`;
+      } else {
+        kuaNumber = raw;
+        formulaEn = `Solar Year ${solarYear} (2000+) last 2 digits: ${tens}+${units} = ${tens + units}${tens + units > 9 ? ` -> ${lastTwoDigitsSum}` : ''}. Female formula: 6 + ${lastTwoDigitsSum} = ${6 + lastTwoDigitsSum}${6 + lastTwoDigitsSum > 9 ? ` -> ${kuaNumber}` : ''}.`;
+        formulaHi = `सौर वर्ष ${solarYear} (२०००+) के अंतिम दो अंक: ${tens}+${units} = ${tens + units}। महिला सूत्र: 6 + ${lastTwoDigitsSum} = ${6 + lastTwoDigitsSum}${6 + lastTwoDigitsSum > 9 ? ` -> ${kuaNumber}` : ''}।`;
+      }
+    }
+  }
+
+  const archetype = KUA_ARCHETYPES[kuaNumber] || KUA_ARCHETYPES[1];
+
+  return {
+    kuaNumber,
+    solarYear,
+    isSolarYearAdjusted,
+    gender,
+    lastTwoDigits,
+    lastTwoDigitsSum,
+    element: archetype.element,
+    elementHi: archetype.elementHi,
+    trigram: archetype.trigram,
+    trigramHi: archetype.trigramHi,
+    direction: archetype.direction,
+    directionHi: archetype.directionHi,
+    group: archetype.group,
+    groupHi: archetype.groupHi,
+    formulaEn,
+    formulaHi,
+    favorableDirections: archetype.favorableDirections,
+    favorableDirectionsHi: archetype.favorableDirectionsHi
+  };
+}
+
 // Calculate Full Numerology Profile from Date of Birth
 export function calculateNumerologyProfile(
   day: number,
@@ -299,25 +618,9 @@ export function calculateNumerologyProfile(
     .reduce((acc, ch) => acc + parseInt(ch, 10), 0);
   const conductorNumber = reduceToSingleDigit(sumAll);
 
-  // Kua Number calculation
-  // Year reduced to single digit
-  const yearSum = reduceToSingleDigit(
-    year.toString().split('').reduce((acc, ch) => acc + parseInt(ch, 10), 0)
-  );
-  let kuaNumber: number;
-  if (gender === 'male') {
-    // Male: 11 - yearSum (for 2000+: 9 - yearSum or 10 - yearSum depending on system, standard Vedic/Fengshui is:
-    // Before 2000: 10 - yearSum. 2000 onwards: 9 - yearSum)
-    kuaNumber = year >= 2000 ? 9 - yearSum : 10 - yearSum;
-    if (kuaNumber <= 0) kuaNumber += 9;
-    kuaNumber = reduceToSingleDigit(kuaNumber);
-    if (kuaNumber === 5) kuaNumber = 2; // For male, 5 becomes 2
-  } else {
-    // Female: Before 2000: yearSum + 5. 2000 onwards: yearSum + 6
-    kuaNumber = year >= 2000 ? yearSum + 6 : yearSum + 5;
-    kuaNumber = reduceToSingleDigit(kuaNumber);
-    if (kuaNumber === 5) kuaNumber = 8; // For female, 5 becomes 8
-  }
+  // Kua Number calculation (accurate last two digits + Chinese solar year cut-off algorithm)
+  const kuaDetails = calculateKuaNumber(day, month, year, gender);
+  const kuaNumber = kuaDetails.kuaNumber;
 
   // Lo-Shu Grid Counts
   // In authentic Vedic & Classical Lo-Shu numerology:
@@ -438,6 +741,7 @@ export function calculateNumerologyProfile(
     driverNumber,
     conductorNumber,
     kuaNumber,
+    kuaDetails,
     includeKua,
     digitSources,
     loShuCounts,
