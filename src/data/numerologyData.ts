@@ -282,7 +282,13 @@ export const MISSING_NUMBER_REMEDIES: Record<number, { title: string; remedies: 
 };
 
 // Calculate Full Numerology Profile from Date of Birth
-export function calculateNumerologyProfile(day: number, month: number, year: number, gender: 'male' | 'female' = 'male'): NumerologyProfile {
+export function calculateNumerologyProfile(
+  day: number,
+  month: number,
+  year: number,
+  gender: 'male' | 'female' = 'male',
+  includeKua: boolean = false
+): NumerologyProfile {
   // Mulank (Driver): day reduced to 1-9
   const driverNumber = reduceToSingleDigit(day);
 
@@ -314,28 +320,72 @@ export function calculateNumerologyProfile(day: number, month: number, year: num
   }
 
   // Lo-Shu Grid Counts
-  // Standard Lo-Shu takes digits of: Day + Month + Year + Kua (optional) + Driver + Conductor
-  // Pure Classical Loshu: Day digits, Month digits, Year digits + Conductor
+  // In authentic Vedic & Classical Lo-Shu numerology:
+  // 1. All non-zero digits of Date of Birth (Day, Month, Full Year)
+  // 2. Driver Number (Mulank) — essential soul vibration.
+  //    - If day is compound (11-31), day digits are entered AND reduced Driver is entered (e.g. 14 -> 1, 4 + Driver 5).
+  //    - If day is single-digit (1-9) or 10/20/30, the single digit already embodies the Driver.
+  // 3. Conductor Number (Bhagyank) — life path destiny vibration, always entered.
+  // 4. Optionally Kua Number — directional energy pillar.
   const loshuDigits: number[] = [];
+  const digitSources: Record<number, string[]> = {
+    1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: []
+  };
 
   // Add day digits
-  day.toString().split('').forEach(d => {
-    const val = parseInt(d, 10);
-    if (val > 0) loshuDigits.push(val);
-  });
+  if (day > 9) {
+    day.toString().split('').forEach(d => {
+      const val = parseInt(d, 10);
+      if (val > 0) {
+        loshuDigits.push(val);
+        digitSources[val].push(`Day (${day})`);
+      }
+    });
+
+    // Add Driver / Mulank for compound dates (e.g., 14 -> 5, 23 -> 5, 15 -> 6)
+    // For 10, 20, 30, the single non-zero digit already entered is the Driver.
+    if (day !== 10 && day !== 20 && day !== 30 && driverNumber > 0) {
+      loshuDigits.push(driverNumber);
+      digitSources[driverNumber].push(`Driver / Mulank (${driverNumber})`);
+    } else if (driverNumber > 0) {
+      digitSources[driverNumber].push(`Driver / Mulank (${driverNumber})`);
+    }
+  } else {
+    // Single-digit birth day (1-9): Day itself embodies the Driver / Mulank
+    if (driverNumber > 0) {
+      loshuDigits.push(driverNumber);
+      digitSources[driverNumber].push(`Day & Driver (${driverNumber})`);
+    }
+  }
+
   // Add month digits
   month.toString().split('').forEach(d => {
     const val = parseInt(d, 10);
-    if (val > 0) loshuDigits.push(val);
+    if (val > 0) {
+      loshuDigits.push(val);
+      digitSources[val].push(`Month (${month})`);
+    }
   });
+
   // Add year digits
   year.toString().split('').forEach(d => {
     const val = parseInt(d, 10);
-    if (val > 0) loshuDigits.push(val);
+    if (val > 0) {
+      loshuDigits.push(val);
+      digitSources[val].push(`Year (${year})`);
+    }
   });
+
   // Add Conductor (Bhagyank)
   if (conductorNumber > 0) {
     loshuDigits.push(conductorNumber);
+    digitSources[conductorNumber].push(`Conductor / Bhagyank (${conductorNumber})`);
+  }
+
+  // Add Kua Number if option enabled
+  if (includeKua && kuaNumber > 0) {
+    loshuDigits.push(kuaNumber);
+    digitSources[kuaNumber].push(`Kua Number (${kuaNumber})`);
   }
 
   const loShuCounts: Record<number, number> = {
@@ -388,6 +438,8 @@ export function calculateNumerologyProfile(day: number, month: number, year: num
     driverNumber,
     conductorNumber,
     kuaNumber,
+    includeKua,
+    digitSources,
     loShuCounts,
     presentNumbers,
     missingNumbers,

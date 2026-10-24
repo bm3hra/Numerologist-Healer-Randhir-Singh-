@@ -445,18 +445,23 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
               <span className="text-xs font-bold text-amber-950 block mb-3">
                 {nameA}’s Grid
               </span>
-              <div className="grid grid-cols-3 gap-2 max-w-[200px] mx-auto">
+              <div className="grid grid-cols-3 gap-2 max-w-[210px] mx-auto">
                 {loshuPositions.map((row, rIdx) =>
                   row.map((num) => {
                     const cnt = profileA.loShuCounts[num] || 0;
+                    const isDriver = num === profileA.driverNumber;
+                    const isConductor = num === profileA.conductorNumber;
                     return (
                       <div
                         key={num}
-                        className={`aspect-square rounded-lg flex items-center justify-center font-mono font-bold text-sm ${
-                          cnt > 0 ? 'bg-amber-800 text-white' : 'bg-stone-200 text-stone-400 border border-dashed border-stone-300'
+                        className={`aspect-square rounded-lg flex flex-col items-center justify-center p-1 font-mono font-bold text-xs ${
+                          cnt > 0 ? 'bg-amber-800 text-white shadow-2xs' : 'bg-stone-200 text-stone-400 border border-dashed border-stone-300'
                         }`}
                       >
-                        {cnt > 0 ? num : '-'}
+                        <span className="text-[9px] opacity-75">P{num}</span>
+                        <span className="text-sm font-black">{cnt > 0 ? Array.from({ length: cnt }, () => num).join('') : '-'}</span>
+                        {isDriver && <span className="text-[7px] text-amber-200 leading-none">Driver</span>}
+                        {isConductor && !isDriver && <span className="text-[7px] text-amber-200 leading-none">Cond</span>}
                       </div>
                     );
                   })
@@ -469,18 +474,23 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
               <span className="text-xs font-bold text-amber-950 block mb-3">
                 {nameB}’s Grid
               </span>
-              <div className="grid grid-cols-3 gap-2 max-w-[200px] mx-auto">
+              <div className="grid grid-cols-3 gap-2 max-w-[210px] mx-auto">
                 {loshuPositions.map((row, rIdx) =>
                   row.map((num) => {
                     const cnt = profileB.loShuCounts[num] || 0;
+                    const isDriver = num === profileB.driverNumber;
+                    const isConductor = num === profileB.conductorNumber;
                     return (
                       <div
                         key={num}
-                        className={`aspect-square rounded-lg flex items-center justify-center font-mono font-bold text-sm ${
-                          cnt > 0 ? 'bg-amber-800 text-white' : 'bg-stone-200 text-stone-400 border border-dashed border-stone-300'
+                        className={`aspect-square rounded-lg flex flex-col items-center justify-center p-1 font-mono font-bold text-xs ${
+                          cnt > 0 ? 'bg-stone-900 text-white shadow-2xs' : 'bg-stone-200 text-stone-400 border border-dashed border-stone-300'
                         }`}
                       >
-                        {cnt > 0 ? num : '-'}
+                        <span className="text-[9px] opacity-75">P{num}</span>
+                        <span className="text-sm font-black">{cnt > 0 ? Array.from({ length: cnt }, () => num).join('') : '-'}</span>
+                        {isDriver && <span className="text-[7px] text-amber-300 leading-none">Driver</span>}
+                        {isConductor && !isDriver && <span className="text-[7px] text-amber-300 leading-none">Cond</span>}
                       </div>
                     );
                   })

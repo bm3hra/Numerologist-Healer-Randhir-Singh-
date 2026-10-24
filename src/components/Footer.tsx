@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
             <span>卐</span>
           </div>
           <p className="text-xs text-stone-400 font-serif italic mt-1">
-            “Discover Your Path. Transform Your Life.”
+            {lang === 'hi' ? '“अपनी राह पहचानें। अपना जीवन रूपांतरित करें।”' : '“Discover Your Path. Transform Your Life.”'}
           </p>
         </div>
 
@@ -36,13 +36,13 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                 <Compass className="w-5 h-5" />
               </div>
               <span className="font-sacred text-lg font-bold text-white tracking-wide">
-                {lang === 'hi' ? 'न्यूमेरोलॉजी विद रणधीर सिंह' : 'Numerology With Randhir Singh'}
+                {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}
               </span>
             </div>
             <p className="text-xs text-stone-400 leading-relaxed">
               {lang === 'hi'
-                ? 'रणधीर सिंह जी का आधिकारिक डिजिटल मंच — जयपुर (राजस्थान) के प्रसिद्ध वैदिक अंक ज्योतिषी एवं हीलर। जन्म तिथि विश्लेषण, वॉच एनालिसिस, सॉल्ट थेरेपी एवं प्रामाणिक वैदिक उपाय।'
-                : 'Official digital sanctuary for Randhir Singh — Renowned Numerologist & Healer based in Jaipur, Rajasthan. Decoding dates of birth, watch analysis, salt therapy, and sacred remedies for seekers worldwide.'}
+                ? 'रणधीर सिंह जी का आधिकारिक डिजिटल मंच — अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर। अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।'
+                : 'Official digital platform for Randhir Singh — Numerologist & Healer · Randhir Singh | Jaipur. DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.'}
             </p>
             <div className="text-xs text-amber-400 font-medium">
               {lang === 'hi'
@@ -72,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   onClick={(e) => { e.preventDefault(); onNavigate('watch'); }}
                   className="hover:text-amber-300 transition-colors block"
                 >
-                  {lang === 'hi' ? 'वॉच एनालिसिस एवं थेरेपी वॉचेस' : 'Watch Analysis & Therapy Watches'}
+                  {lang === 'hi' ? 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श' : 'Watch Analysis & Therapeutic Watch Consultation'}
                 </a>
               </li>
               <li>
@@ -81,7 +81,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   onClick={(e) => { e.preventDefault(); onNavigate('salt'); }}
                   className="hover:text-amber-300 transition-colors block"
                 >
-                  {lang === 'hi' ? 'नकारात्मकता निवारण (सॉल्ट थेरेपी)' : 'Negativity Removal (Salt Therapy)'}
+                  {lang === 'hi' ? 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)' : 'Negativity Removal & Salt Therapy'}
                 </a>
               </li>
               <li>
@@ -90,7 +90,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   onClick={(e) => { e.preventDefault(); onNavigate('crystal'); }}
                   className="hover:text-amber-300 transition-colors block"
                 >
-                  {lang === 'hi' ? 'व्यवसाय हेतु क्रिस्टल गाइडेंस' : 'Crystal Guidance for Profession'}
+                  {lang === 'hi' ? 'व्यवसाय हेतु क्रिस्टल थेरेपी एवं मार्गदर्शन' : 'Crystal Guidance for Profession'}
                 </a>
               </li>
               <li>
@@ -117,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   onClick={(e) => { e.preventDefault(); onNavigate('remedies'); }}
                   className="hover:text-amber-300 transition-colors block"
                 >
-                  {lang === 'hi' ? 'संख्यात्मक यंत्र व हीलिंग कोड्स' : 'Numerical Yantras & Healing Codes'}
+                  {lang === 'hi' ? 'यंत्र, हीलिंग कोड एवं स्विचवर्ड्स' : 'Yantras, Healing Codes & Switchwords'}
                 </a>
               </li>
               <li>
@@ -126,7 +126,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
                   className="hover:text-amber-300 transition-colors block"
                 >
-                  {lang === 'hi' ? 'सभी 16 पावन सेवाएँ' : 'All 16 Sacred Services'}
+                  {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'All 16 Sacred Services'}
                 </a>
               </li>
               <li>
@@ -144,7 +144,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   onClick={(e) => { e.preventDefault(); onNavigate('assets'); }}
                   className="hover:text-amber-300 transition-colors block"
                 >
-                  {lang === 'hi' ? 'आधिकारिक प्रमाण-पत्र एसेट्स' : 'Official Certificates & Assets'}
+                  {lang === 'hi' ? 'आधिकारिक प्रमाण-पत्र एवं सम्मान' : 'Official Certificates & Assets'}
                 </a>
               </li>
               <li>

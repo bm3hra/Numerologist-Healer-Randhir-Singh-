@@ -192,14 +192,14 @@ export const DobYantrasPage: React.FC<DobYantrasPageProps> = ({
   onNavigateToPage,
   onOpenBooking
 }) => {
-  const [day, setDay] = useState<number>(15);
-  const [month, setMonth] = useState<number>(8);
-  const [year, setYear] = useState<number>(1995);
+  const [day, setDay] = useState<number>(14);
+  const [month, setMonth] = useState<number>(9);
+  const [year, setYear] = useState<number>(1972);
   const [gender, setGender] = useState<'male' | 'female'>('male');
   const [fullName, setFullName] = useState<string>('Randhir Singh');
 
   const [profile, setProfile] = useState(() =>
-    calculateNumerologyProfile(day, month, year, gender)
+    calculateNumerologyProfile(14, 9, 1972, 'male')
   );
 
   const handleRecalculate = (e?: React.FormEvent) => {
@@ -211,6 +211,12 @@ export const DobYantrasPage: React.FC<DobYantrasPageProps> = ({
   const conductorNumber = profile.conductorNumber;
   const yantraData = PLANETARY_DOB_MATRICES[driverNumber] || PLANETARY_DOB_MATRICES[1];
   const conductorData = PLANETARY_DOB_MATRICES[conductorNumber] || PLANETARY_DOB_MATRICES[1];
+
+  const loshuPositions = [
+    [4, 9, 2],
+    [3, 5, 7],
+    [8, 1, 6]
+  ];
 
   return (
     <div className="min-h-screen bg-[#faf6ee] text-stone-900 pb-20">
@@ -453,23 +459,64 @@ export const DobYantrasPage: React.FC<DobYantrasPageProps> = ({
               </div>
             </div>
 
-            {/* Missing Numbers in Your Lo-Shu Grid */}
-            <div className="bg-white rounded-3xl p-6 border-2 border-amber-300 shadow-md">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-800 block mb-2">
-                Missing Numbers Requiring Yantric Activation:
-              </span>
-              <p className="text-xs text-stone-600 mb-3">
-                Your birth date lacks numbers: <strong>[{profile.missingNumbers.join(', ')}]</strong>. Master Randhir Singh consecrates specific yantras to fill these psychological energy gaps.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {profile.missingNumbers.map((num) => (
-                  <span
-                    key={num}
-                    className="w-8 h-8 rounded-lg bg-stone-100 text-stone-700 font-black font-mono flex items-center justify-center border border-stone-300 text-sm"
-                  >
-                    {num}
-                  </span>
-                ))}
+            {/* Missing Numbers & 3x3 Lo-Shu Grid Visual */}
+            <div className="bg-white rounded-3xl p-6 border-2 border-amber-300 shadow-md space-y-4">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-800 block mb-1">
+                  Your 3×3 Lo-Shu Grid Status:
+                </span>
+                <p className="text-[11px] text-stone-500 mb-3">
+                  Populated from DOB ({day}/{month}/{year}) with Driver {driverNumber} &amp; Conductor {conductorNumber}.
+                </p>
+
+                {/* Mini 3x3 Lo-Shu Grid */}
+                <div className="grid grid-cols-3 gap-2 max-w-[210px] mx-auto p-2.5 bg-amber-50/60 rounded-xl border border-amber-300 shadow-inner">
+                  {loshuPositions.map((row) =>
+                    row.map((num) => {
+                      const count = profile.loShuCounts[num] || 0;
+                      const isDriver = num === profile.driverNumber;
+                      const isConductor = num === profile.conductorNumber;
+                      const isPresent = count > 0;
+
+                      return (
+                        <div
+                          key={num}
+                          className={`aspect-square rounded-lg flex flex-col items-center justify-center p-1 font-mono text-xs font-bold transition-all ${
+                            isPresent
+                              ? 'bg-amber-800 text-white shadow-2xs'
+                              : 'bg-stone-200 text-stone-400 border border-dashed border-stone-300'
+                          }`}
+                        >
+                          <span className="text-[8px] opacity-75">P{num}</span>
+                          <span className="text-sm font-black">
+                            {isPresent ? Array.from({ length: count }, () => num).join('') : '-'}
+                          </span>
+                          {isDriver && <span className="text-[7px] text-amber-200 leading-none">Driver</span>}
+                          {isConductor && !isDriver && <span className="text-[7px] text-amber-200 leading-none">Cond</span>}
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-stone-200">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-800 block mb-2">
+                  Missing Numbers Requiring Yantric Activation:
+                </span>
+                <p className="text-xs text-stone-600 mb-3">
+                  Your birth grid lacks numbers: <strong>[{profile.missingNumbers.join(', ')}]</strong>. Master Randhir Singh consecrates specific yantras to fill these psychological energy gaps.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {profile.missingNumbers.map((num) => (
+                    <span
+                      key={num}
+                      className="w-8 h-8 rounded-lg bg-stone-100 text-stone-700 font-black font-mono flex items-center justify-center border border-stone-300 text-sm shadow-2xs"
+                    >
+                      {num}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

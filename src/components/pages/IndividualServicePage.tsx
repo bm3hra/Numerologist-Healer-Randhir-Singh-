@@ -151,7 +151,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
               }}
               className="font-medium text-stone-600 hover:text-amber-900"
             >
-              {lang === 'hi' ? '16 पावन सेवाएं' : 'All 16 Services'}
+              {lang === 'hi' ? '16 पवित्र सेवाएँ' : 'All 16 Sacred Services'}
             </button>
             <span className="text-stone-300">/</span>
             <span className="font-bold text-stone-900 truncate max-w-[150px] sm:max-w-xs">
@@ -698,7 +698,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
                     Master Randhir Singh
                   </h4>
                   <p className="text-[11px] text-amber-800 font-semibold">
-                    A Numerologist &amp; Healer · Jaipur
+                    {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · जयपुर' : 'Numerologist & Healer · Jaipur'}
                   </p>
                   <span className="text-[10px] text-stone-500 block">
                     Royal Skills Academy Regd. 10115
@@ -716,7 +716,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
             <div className="bg-white rounded-3xl p-5 border border-stone-200 shadow-sm space-y-3">
               <div className="flex items-center justify-between">
                 <h4 className="font-sacred font-bold text-stone-900 text-xs uppercase tracking-wider">
-                  {lang === 'hi' ? 'सभी 16 पावन सेवाएं' : 'All 16 Sacred Services'}
+                  {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'All 16 Sacred Services'}
                 </h4>
                 <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">
                   16 Pages

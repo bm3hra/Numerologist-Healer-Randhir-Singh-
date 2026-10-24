@@ -44,8 +44,8 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     categoryLabelEn: 'Visiting Card',
     categoryLabelHi: 'विजिटिंग कार्ड',
     imageUrl: '/assets/aistudio/Card-Back_682c94ca.jpg',
-    captionEn: 'Authentic visiting card specifying all 16 sacred services: Numerology Consultation, Watch Analysis, Date of Birth Analysis, Therapy Watches, Child Birth Dates, Mobile Number Analysis, Cleansing Salt Therapy, Name Corrections, Marriage & Health Remedies, Grid Matching, Health Switch Words, Spiritual & Pranic Healings, Sacred Healing Codes, DOB Yantras, Special Business/Job Yantras, and Growth Crystals.',
-    captionHi: 'मास्टर रणधीर सिंह का अधिकृत विजिटिंग कार्ड जिसमें अंक ज्योतिष, वॉच एनालिसिस, थेरेपी वॉचेस, सॉल्ट थेरेपी, यंत्र एवं हीलिंग कोड्स सहित सभी 16 प्रमुख सेवाओं का संपूर्ण विवरण अंकित है।',
+    captionEn: 'Authentic visiting card specifying all 16 sacred services: Numerology Consultation, Watch Analysis, Date of Birth Analysis, Therapy Watches, Child Birth Dates, Mobile Number Analysis, Negativity Removal & Salt Therapy, Name Corrections, Marriage & Health Remedies, Grid Matching, Health Switch Words, Spiritual & Pranic Healings, Sacred Healing Codes, DOB Yantras, Special Business/Job Yantras, and Growth Crystals.',
+    captionHi: 'मास्टर रणधीर सिंह का अधिकृत विजिटिंग कार्ड जिसमें अंक ज्योतिष, वॉच एनालिसिस, थेरेपी वॉचेस, नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी), यंत्र एवं हीलिंग कोड्स सहित सभी 16 प्रमुख सेवाओं का संपूर्ण विवरण अंकित है।',
     tags: ['Visiting Card', '16 Sacred Services', 'Om Shri Ganeshay Namh', 'Remedies']
   },
 
@@ -297,7 +297,7 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-300 text-amber-900 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-3 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-amber-700" />
-            <span>{lang === 'hi' ? 'वैदिक अंक ज्योतिषी एवं हीलर' : 'A Numerologist & Healer'}</span>
+            <span>{lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}</span>
           </div>
 
           <h2 className="font-sacred text-3xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
@@ -306,8 +306,8 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
 
           <p className="font-sacred text-amber-900 font-semibold text-base sm:text-lg mt-2">
             {lang === 'hi'
-              ? '“अपनी जन्म तिथि को डिकोड करें। अपना जीवन एवं भाग्य बदलें।”'
-              : '“Decode Your Date of Birth. Change Your Life and Destiny.”'}
+              ? '“अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।”'
+              : '“DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.”'}
           </p>
 
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
@@ -354,7 +354,9 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
                 />
                 <div className="absolute bottom-3 inset-x-3 bg-stone-950/85 backdrop-blur-xs border border-amber-400/50 p-2 rounded-lg text-center">
                   <span className="text-xs font-bold text-amber-200 block">Master Randhir Singh</span>
-                  <span className="text-[10px] text-stone-300">A Numerologist &amp; Healer · Jaipur</span>
+                  <span className="text-[10px] text-stone-300">
+                    {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · जयपुर' : 'Numerologist & Healer · Jaipur'}
+                  </span>
                 </div>
               </div>
             </div>

@@ -189,12 +189,12 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
           {/* Quick Category Navigation */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
             {[
-              { id: 'all', label: 'All Remedies' },
-              { id: 'switchwords', label: 'Switchwords Catalog' },
-              { id: 'grabovoi', label: 'Divine Healing Codes' },
-              { id: 'salt', label: 'Himalayan Salt Therapy' },
-              { id: 'rudraksha', label: 'Certified Rudraksha Combinations' },
-              { id: 'pyramids', label: 'Copper Vastu Pyramids' }
+              { id: 'all', labelEn: 'All Remedies', labelHi: 'सभी वैदिक उपाय' },
+              { id: 'switchwords', labelEn: 'Switchwords Catalog', labelHi: 'स्विचवर्ड्स संग्रह' },
+              { id: 'grabovoi', labelEn: 'Divine Healing Codes', labelHi: 'दिव्य हीलिंग कोड्स' },
+              { id: 'salt', labelEn: 'Negativity Removal & Salt Therapy', labelHi: 'नमक चिकित्सा (सॉल्ट थेरेपी)' },
+              { id: 'rudraksha', labelEn: 'Certified Rudraksha Combinations', labelHi: 'प्रामाणिक रुद्राक्ष संयोजन' },
+              { id: 'pyramids', labelEn: 'Copper Vastu Pyramids', labelHi: 'ताम्र वास्तु पिरामिड' }
             ].map((cat) => (
               <button
                 key={cat.id}
@@ -205,7 +205,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
                     : 'bg-white hover:bg-amber-50 text-stone-700 border border-stone-200'
                 }`}
               >
-                {cat.label}
+                {lang === 'hi' ? cat.labelHi : cat.labelEn}
               </button>
             ))}
           </div>
@@ -220,20 +220,22 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-amber-100 pb-5 mb-6">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                  Quantum Numeric Resonance
+                  {lang === 'hi' ? 'क्वांटम अंक ऊर्जा तरंगें' : 'Quantum Numeric Resonance'}
                 </span>
                 <h2 className="font-sacred text-2xl font-bold text-stone-900 mt-1">
-                  Sacred Divine Healing Numbers &amp; Codes
+                  {lang === 'hi' ? 'दिव्य हीलिंग कोड्स एवं चमत्कारी अंक' : 'Sacred Divine Healing Numbers & Codes'}
                 </h2>
                 <p className="text-xs text-stone-600 mt-1">
-                  Direct frequency bypass codes to shift physical reality and eliminate financial/emotional blocks.
+                  {lang === 'hi'
+                    ? 'वित्तीय, शारीरिक एवं मानसिक अवरोधों को दूर कर जीवन में शुभता आकर्षित करने वाले ऊर्जा कोड।'
+                    : 'Direct frequency bypass codes to shift physical reality and eliminate financial/emotional blocks.'}
                 </p>
               </div>
               <button
                 onClick={() => onOpenBooking('Personalized Healing Codes Prescription', '₹1,500')}
                 className="inline-flex items-center gap-2 bg-amber-800 hover:bg-amber-900 text-white font-bold px-4 py-2 rounded-xl text-xs shrink-0 transition-colors"
               >
-                <span>Request Custom Codes</span>
+                <span>{lang === 'hi' ? 'व्यक्तिगत कोड का निवेदन करें' : 'Request Custom Codes'}</span>
               </button>
             </div>
 
@@ -267,7 +269,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
                     </div>
 
                     <p className="text-xs text-stone-600 leading-relaxed">
-                      <strong>How to Use:</strong> {item.instruction}
+                      <strong>{lang === 'hi' ? 'प्रयोग विधि:' : 'How to Use:'}</strong> {item.instruction}
                     </p>
                   </div>
                 </div>
@@ -282,13 +284,15 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-amber-100 pb-5 mb-6">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                  Subconscious Quantum Triggers
+                  {lang === 'hi' ? 'अवचेतन मन के सकारात्मक शब्द' : 'Subconscious Quantum Triggers'}
                 </span>
                 <h2 className="font-sacred text-2xl font-bold text-stone-900 mt-1">
-                  Master Switchwords Catalog
+                  {lang === 'hi' ? 'प्रमुख स्विचवर्ड्स संग्रह' : 'Master Switchwords Catalog'}
                 </h2>
                 <p className="text-xs text-stone-600 mt-1">
-                  Universal vocal triggers that bypass rational resistance to program immediate luck, courage, and vitality.
+                  {lang === 'hi'
+                    ? 'अवचेतन मन को तुरंत सकारात्मक ऊर्जा, आत्मविश्वास और सफलता के प्रति जागृत करने वाले पावन शब्द।'
+                    : 'Universal vocal triggers that bypass rational resistance to program immediate luck, courage, and vitality.'}
                 </p>
               </div>
 
@@ -299,7 +303,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search switchword..."
+                  placeholder={lang === 'hi' ? 'स्विचवर्ड खोजें...' : 'Search switchword...'}
                   className="w-full pl-9 pr-3 py-2 rounded-xl border border-stone-300 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </div>
@@ -320,7 +324,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
                     </p>
                     {sw.healingCode && (
                       <span className="inline-block mt-1.5 text-[11px] font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                        Code: {sw.healingCode}
+                        {lang === 'hi' ? 'कोड: ' : 'Code: '}{sw.healingCode}
                       </span>
                     )}
                   </div>
@@ -328,7 +332,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
                   <button
                     onClick={() => handleCopy(sw.id, `${sw.switchword} ${sw.healingCode || ''}`)}
                     className="p-1.5 text-stone-400 hover:text-amber-800 shrink-0"
-                    title="Copy Switchword"
+                    title={lang === 'hi' ? 'स्विचवर्ड कॉपी करें' : 'Copy Switchword'}
                   >
                     {copiedId === sw.id ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                   </button>
@@ -343,35 +347,37 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
           <section className="bg-white rounded-3xl border-2 border-amber-300 p-6 sm:p-8 shadow-xl">
             <div className="border-b border-amber-100 pb-5 mb-6">
               <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                Sacred Botanical Bio-Energy
+                {lang === 'hi' ? 'पवित्र वानस्पतिक प्राण-ऊर्जा' : 'Sacred Botanical Bio-Energy'}
               </span>
               <h2 className="font-sacred text-2xl font-bold text-stone-900 mt-1">
-                Authentic Certified Rudraksha Combinations
+                {lang === 'hi' ? 'प्रामाणिक एवं सिद्ध रुद्राक्ष संयोजन' : 'Authentic Certified Rudraksha Combinations'}
               </h2>
               <p className="text-xs text-stone-600 mt-1">
-                Each bead tested with silver-thread dielectric test, energized in Shiva temple, and customized to your planetary dosha.
+                {lang === 'hi'
+                  ? 'प्रत्येक मनका पूर्णतः प्रामाणिक, प्राण-प्रतिष्ठित एवं आपके ग्रह दोषों व जन्मतिथि के अनुसार निर्धारित।'
+                  : 'Each bead tested with silver-thread dielectric test, energized in Shiva temple, and customized to your planetary dosha.'}
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {[
                 {
-                  title: '1 Mukhi to 7 Mukhi Sarva Siddhi Mala',
-                  benefits: 'Complete aura shield, pacifies Surya (1 Mukhi) to Shani (7 Mukhi) doshas, brings mental serenity.',
-                  rulingNos: 'Numbers 1, 2, 3, 4, 5, 6, 7',
-                  idealFor: 'Government officials, corporate directors, physicians'
+                  title: lang === 'hi' ? '१ मुखी से ७ मुखी सर्व सिद्धि माला' : '1 Mukhi to 7 Mukhi Sarva Siddhi Mala',
+                  benefits: lang === 'hi' ? 'आभामंडल का संपूर्ण रक्षा कवच, सूर्य से शनि तक के ग्रह दोषों का शमन एवं गहन मानसिक शांति।' : 'Complete aura shield, pacifies Surya (1 Mukhi) to Shani (7 Mukhi) doshas, brings mental serenity.',
+                  rulingNos: lang === 'hi' ? 'अंक १, २, ३, ४, ५, ६, ७' : 'Numbers 1, 2, 3, 4, 5, 6, 7',
+                  idealFor: lang === 'hi' ? 'प्रशासनिक अधिकारी, कॉर्पोरेट निदेशक, चिकित्सक' : 'Government officials, corporate directors, physicians'
                 },
                 {
-                  title: 'Gauri Shankar + 10 Mukhi Krishna Kavach',
-                  benefits: 'Heals severe relationship rifts, blesses delayed marriages, and protects from jealousy and legal sabotage.',
-                  rulingNos: 'Numbers 2, 6, 8',
-                  idealFor: 'Couples, young women seeking matrimonial joy'
+                  title: lang === 'hi' ? 'गौरी शंकर + १० मुखी कृष्ण कवच' : 'Gauri Shankar + 10 Mukhi Krishna Kavach',
+                  benefits: lang === 'hi' ? 'संबंधों में कलह निवारण, विवाह में विलंब की शांति एवं बुरी नजर व ईर्ष्या से सुरक्षा।' : 'Heals severe relationship rifts, blesses delayed marriages, and protects from jealousy and legal sabotage.',
+                  rulingNos: lang === 'hi' ? 'अंक २, ६, ८' : 'Numbers 2, 6, 8',
+                  idealFor: lang === 'hi' ? 'दंपत्ति, वैवाहिक सुख चाहने वाले साधक' : 'Couples, young women seeking matrimonial joy'
                 },
                 {
-                  title: '12 Mukhi Surya + 14 Mukhi Devamani',
-                  benefits: 'Highest administrative authority, cures chronic fatigue, commands deep respect from adversaries.',
-                  rulingNos: 'Numbers 1, 9',
-                  idealFor: 'Industrialists, politicians, civil service aspirants'
+                  title: lang === 'hi' ? '१२ मुखी सूर्य + १४ मुखी देवमणि' : '12 Mukhi Surya + 14 Mukhi Devamani',
+                  benefits: lang === 'hi' ? 'सर्वोच्च नेतृत्व क्षमता, आत्मविश्वास, मानसिक थकान से मुक्ति एवं सम्मान वृद्धि।' : 'Highest administrative authority, cures chronic fatigue, commands deep respect from adversaries.',
+                  rulingNos: lang === 'hi' ? 'अंक १, ९' : 'Numbers 1, 9',
+                  idealFor: lang === 'hi' ? 'उद्योगपति, राजनेता, सिविल सेवा अभ्यर्थी' : 'Industrialists, politicians, civil service aspirants'
                 }
               ].map((rud, i) => (
                 <div key={i} className="bg-[#fcfaf5] p-5 rounded-2xl border border-amber-200 flex flex-col justify-between">
@@ -386,7 +392,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
                       {rud.benefits}
                     </p>
                     <div className="text-[11px] text-amber-900 font-semibold bg-amber-50 p-2 rounded-lg border border-amber-200">
-                      <strong>Best For:</strong> {rud.idealFor}
+                      <strong>{lang === 'hi' ? 'अनुकूल:' : 'Best For:'}</strong> {rud.idealFor}
                     </div>
                   </div>
 
@@ -394,7 +400,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
                     onClick={() => onOpenBooking(`Certified Rudraksha Consultation: ${rud.title}`, '₹3,100')}
                     className="mt-4 w-full bg-amber-800 hover:bg-amber-900 text-white font-bold py-2 rounded-lg text-xs transition-colors"
                   >
-                    Check Suitability &amp; Price
+                    {lang === 'hi' ? 'अनुकूलता एवं परामर्श' : 'Check Suitability & Price'}
                   </button>
                 </div>
               ))}
@@ -407,13 +413,15 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
           <section className="bg-gradient-to-br from-stone-900 via-amber-950 to-stone-900 text-amber-100 rounded-3xl p-6 sm:p-10 shadow-2xl border border-amber-500/40">
             <div className="max-w-3xl">
               <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
-                Space Harmonization &amp; Geopathic Shield
+                {lang === 'hi' ? 'वास्तु शुद्धि एवं ऊर्जा रक्षा कवच' : 'Space Harmonization & Geopathic Shield'}
               </span>
               <h2 className="font-sacred text-2xl sm:text-3xl font-black text-white mt-1">
-                Pure Copper Vastu Pyramids &amp; Aura Salt Detox
+                {lang === 'hi' ? 'शुद्ध ताम्र वास्तु पिरामिड एवं आभामंडल लवण शुद्धि' : 'Pure Copper Vastu Pyramids & Aura Salt Detox'}
               </h2>
               <p className="text-xs sm:text-sm text-stone-300 mt-2 leading-relaxed">
-                Pyramidal geometry naturally generates a bio-positive ionic field that cancels geopathic stress, WiFi electromagnetic smog, and stubborn domestic tensions. Combined with Master Randhir Singh's energized Himalayan rock salt foot soaks, your home and personal aura stay completely unburdened.
+                {lang === 'hi'
+                  ? 'पिरामिड ज्यामिति स्वाभाविक रूप से एक जैव-सकारात्मक ऊर्जा क्षेत्र उत्पन्न करती है जो वास्तु दोष, विद्युत-चुंबकीय विकिरण (WiFi/मोबाइल) और पारिवारिक तनाव को शांत करती है। इसके साथ सिद्ध हिमालयन रॉक सॉल्ट का प्रयोग आपके घर व आभामंडल को पूर्णतः शुद्ध रखता है।'
+                  : "Pyramidal geometry naturally generates a bio-positive ionic field that cancels geopathic stress, WiFi electromagnetic smog, and stubborn domestic tensions. Combined with Master Randhir Singh's energized Himalayan rock salt foot soaks, your home and personal aura stay completely unburdened."}
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-3 mt-6">
@@ -421,14 +429,14 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
                   onClick={() => onOpenBooking('Copper Vastu Pyramid Energy Audit', '₹5,100')}
                   className="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-md transition-colors"
                 >
-                  Order Energized Copper Pyramids
+                  {lang === 'hi' ? 'सिद्ध ताम्र पिरामिड का निवेदन करें' : 'Order Energized Copper Pyramids'}
                 </button>
 
                 <button
                   onClick={onNavigateHome}
                   className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-amber-100 font-bold px-6 py-3 rounded-xl text-xs border border-amber-400/40 transition-colors"
                 >
-                  ← Back to Main Home
+                  {lang === 'hi' ? '← मुख्य पृष्ठ पर वापस जाएं' : '← Back to Main Home'}
                 </button>
               </div>
             </div>

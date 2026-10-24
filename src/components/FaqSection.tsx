@@ -109,11 +109,11 @@ export const FAQ_ITEMS: FaqItem[] = [
     answerHi: 'बिल्कुल नहीं! आपको सरकारी दस्तावेजों या पासपोर्ट में कानूनी बदलाव की आवश्यकता नहीं है। सुधरे हुए नाम का उपयोग केवल दैनिक हस्ताक्षर, सोशल मीडिया, विजिटिंग कार्ड और अभ्यास डायरी में 21 से 45 दिन करने से ही अवचेतन मन उस सकारात्मक आवृत्ति को ग्रहण कर लेता है।'
   },
 
-  // Watch Analysis & Therapy Watches
+  // Watch Analysis & Therapeutic Watch Consultation
   {
     id: 'w1',
     category: 'watch',
-    categoryLabel: 'Watch Analysis & Therapy Watches',
+    categoryLabel: 'Watch Analysis & Therapeutic Watch Consultation',
     questionEn: 'How does a wristwatch influence my subconscious mind, career, and finances?',
     questionHi: 'कलाई घड़ी मेरे अवचेतन मन, करियर और धन प्रवाह को कैसे प्रभावित करती है?',
     answerEn: 'Your watch rests directly over the radial artery and wrist pulse points—the primary physiological and energetic pathway communicating continuous rhythmic micro-vibrations to the heart meridian and nervous system. The dial geometry (round, square, octagonal), metallic conductive properties, dial color frequency, and ticking tempo subtly imprint your subconscious perception of deadlines, opportunities, and financial punctuality 24 hours a day.',
@@ -122,7 +122,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: 'w2',
     category: 'watch',
-    categoryLabel: 'Watch Analysis & Therapy Watches',
+    categoryLabel: 'Watch Analysis & Therapeutic Watch Consultation',
     questionEn: 'Can I keep wearing my existing watch, or do I necessarily need a new Therapy Watch?',
     questionHi: 'क्या मैं अपनी पुरानी घड़ी पहन सकता हूँ या नई थेरेपी वॉच लेना जरूरी है?',
     answerEn: 'During a Watch Analysis session, Randhir Singh Ji first audits your existing watches. If your current watch’s shape, color, and metal already align with your birth grid and goals, he will simply advise minor adjustments (such as switching the wrist from left to right, replacing a worn leather strap with a metallic mesh, or activating it during an auspicious planetary Hora). A new Therapy Watch is only prescribed if your existing watch exhibits severe negative energetic friction or stops intermittently.',
@@ -134,8 +134,8 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 's1',
     category: 'salt_crystal',
     categoryLabel: 'Salt Therapy & Crystals',
-    questionEn: 'How does traditional Salt Therapy (Negativity Removal) work and can I do it at home?',
-    questionHi: 'नमक शुद्धि (सॉल्ट थेरेपी) कैसे कार्य करती है और क्या इसे घर पर किया जा सकता है?',
+    questionEn: 'How does Negativity Removal & Salt Therapy work and can I do it at home?',
+    questionHi: 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी) कैसे कार्य करती है और क्या इसे घर पर किया जा सकता है?',
     answerEn: 'Unprocessed Himalayan Rock Salt (Sendha Namak) and sea salt have been revered in Vedic Vastu and esoteric healing as unmatched bio-energetic absorbers of heavy atmospheric static, astral fatigue, and envy (Nazar). Yes, our DIY home rituals—such as the Himalayan Rock Salt Foot Soak and Doorway Threshold Bowls—are simple, safe, and can be done at home. For stubborn chronic disputes or heavy emotional fatigue, Master Randhir also prepares specially consecrated herbal salt blends.',
     answerHi: 'सेंधा नमक और समुद्री नमक नकारात्मक ऊर्जा और नजर दोष को सोखने का सबसे प्राकृतिक माध्यम हैं। हमारे बताए गए रॉक सॉल्ट फुट सोक और चौखट शुद्धिकरण को आप आसानी से घर पर कर सकते हैं। अधिक पुरानी परेशानियों के लिए विशेष रूप से अभिमंत्रित लवण मिश्रण भी उपलब्ध कराया जाता है।'
   },
@@ -245,7 +245,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
               { id: 'all', label: 'All FAQs' },
               { id: 'booking', label: 'Booking & Sunday Free' },
               { id: 'numerology', label: 'Numerology & DOB' },
-              { id: 'watch', label: 'Watch Analysis' },
+              { id: 'watch', label: 'Watch Analysis & Consultation' },
               { id: 'salt_crystal', label: 'Salt & Crystals' },
               { id: 'ethics', label: 'Trust & Ethics' }
             ].map((tab) => (

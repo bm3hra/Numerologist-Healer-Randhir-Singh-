@@ -36,55 +36,55 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Primary navigation tabs shown on 1024px+ screens
   const primaryNavLinks = [
-    { id: 'home', labelEn: 'Home', labelHi: 'होम' },
+    { id: 'home', labelEn: 'Home', labelHi: 'मुख्य पृष्ठ' },
     { id: 'about-randhir', labelEn: 'About Randhir Singh', labelHi: 'रणधीर सिंह जी' },
     { id: 'dob', labelEn: 'DOB & Lo-Shu', labelHi: 'जन्म तिथि व ग्रिड' },
-    { id: 'watch', labelEn: 'Watch Analysis', labelHi: 'वॉच एनालिसिस' },
+    { id: 'watch', labelEn: 'Watch Analysis', labelHi: 'घड़ी का विश्लेषण' },
     { id: 'awards', labelEn: 'Honors & Awards', labelHi: 'पुरस्कार व सम्मान' },
-    { id: 'salt', labelEn: 'Salt & Crystals', labelHi: 'सॉल्ट व क्रिस्टल', hideOnLg: true },
+    { id: 'salt', labelEn: 'Salt & Crystals', labelHi: 'नमक शुद्धि व क्रिस्टल', hideOnLg: true },
     { id: 'services', labelEn: 'All Services', labelHi: 'सभी सेवाएँ', hideOnLg: true },
   ];
 
   // Secondary navigation tabs placed in "More" dropdown on desktop
   const secondaryNavLinks = [
     { id: 'about-randhir', labelEn: '★ About Master Randhir Singh (18 Photos)', labelHi: '★ मास्टर रणधीर सिंह परिचय (18 फ़ोटो)' },
-    { id: 'services', labelEn: '★ All 16 Sacred Services (Individual Pages)', labelHi: '★ सभी 16 पावन सेवाएं (व्यक्तिगत पृष्ठ)' },
+    { id: 'services', labelEn: '★ All 16 Sacred Services (Individual Pages)', labelHi: '★ सभी 16 पवित्र सेवाएँ (व्यक्तिगत पृष्ठ)' },
     { id: 'yantra-healings', labelEn: '★ Yantra Healings (Detailed Page)', labelHi: '★ यंत्र हीलिंग विज्ञान (विस्तृत पृष्ठ)' },
     { id: 'special-yantras', labelEn: '★ Special Yantras (Business, Job, Desires)', labelHi: '★ विशेष यंत्र (व्यापार, नौकरी, मनोरथ)' },
     { id: 'dob-yantras', labelEn: '★ Yantras as per Date of Birth', labelHi: '★ जन्मतिथि अनुसार यंत्र विधान' },
     { id: 'kundli-milan', labelEn: '★ Kundli Milan as per Numerology', labelHi: '★ अंक ज्योतिष कुंडली मिलान' },
-    { id: 'and-more', labelEn: '★ And More.... (Remedies Vault)', labelHi: '★ और भी... (रेमेडीज एवं हीलिंग वॉल्ट)' },
-    { id: 'salt', labelEn: 'Salt Therapy & Aura Cleansing', labelHi: 'सॉल्ट थेरेपी व औरा शुद्धि' },
-    { id: 'services', labelEn: 'All 16 Spiritual Services', labelHi: 'सभी 16 वैदिक सेवाएँ', showOnLgOnly: true },
+    { id: 'and-more', labelEn: '★ And More.... (Remedies Vault)', labelHi: '★ और भी... (वैदिक उपाय एवं हीलिंग)' },
+    { id: 'salt', labelEn: 'Negativity Removal & Salt Therapy', labelHi: 'नमक चिकित्सा (सॉल्ट थेरेपी)' },
+    { id: 'services', labelEn: 'All 16 Sacred Services', labelHi: 'सभी 16 पवित्र सेवाएँ', showOnLgOnly: true },
     { id: 'lunar', labelEn: 'Lunar Energy & Numerology', labelHi: 'चंद्र व अंक ज्योतिष' },
     { id: 'crystal', labelEn: 'Crystal Therapy Guidance', labelHi: 'क्रिस्टल थेरेपी' },
     { id: 'mobile_name', labelEn: 'Lucky Mobile & Name Correction', labelHi: 'मोबाइल व नाम सुधार' },
     { id: 'compatibility', labelEn: '3x3 Grid Compatibility', labelHi: 'ग्रिड मिलान' },
-    { id: 'remedies', labelEn: 'Sacred Yantras & Healing Codes', labelHi: 'यंत्र व हीलिंग कोड' },
-    { id: 'assets', labelEn: 'Official Certificates & Assets Vault', labelHi: 'प्रमाण-पत्र एसेट्स' },
+    { id: 'remedies', labelEn: 'Yantras, Codes & Switchwords', labelHi: 'यंत्र, हीलिंग कोड एवं स्विचवर्ड्स' },
+    { id: 'assets', labelEn: 'Official Certificates & Assets Vault', labelHi: 'प्रमाण-पत्र एवं सम्मान' },
     { id: 'media', labelEn: 'Photos & Video Masterclasses', labelHi: 'फ़ोटो व वीडियो' },
     { id: 'faq', labelEn: 'Frequently Asked Questions', labelHi: 'अक्सर पूछे जाने वाले सवाल' },
   ];
 
   // All links combined for the full mobile menu
   const allNavLinks = [
-    { id: 'home', labelEn: 'Home', labelHi: 'होम' },
+    { id: 'home', labelEn: 'Home', labelHi: 'मुख्य पृष्ठ' },
     { id: 'about-randhir', labelEn: 'About Randhir Singh (18 Photos)', labelHi: 'रणधीर सिंह परिचय (18 फ़ोटो)' },
     { id: 'dob', labelEn: 'DOB & Lo-Shu', labelHi: 'जन्म तिथि व ग्रिड' },
     { id: 'yantra-healings', labelEn: 'Yantra Healings Page', labelHi: 'यंत्र हीलिंग पृष्ठ' },
     { id: 'special-yantras', labelEn: 'Special Yantras (Business/Job)', labelHi: 'विशेष यंत्र (व्यापार/नौकरी)' },
     { id: 'dob-yantras', labelEn: 'Yantras as per DOB', labelHi: 'जन्मतिथि अनुसार यंत्र' },
     { id: 'kundli-milan', labelEn: 'Kundli Milan (36 Guna)', labelHi: 'कुंडली मिलान' },
-    { id: 'and-more', labelEn: 'And More.... (Remedies)', labelHi: 'और भी... (रेमेडीज)' },
-    { id: 'watch', labelEn: 'Watch Analysis', labelHi: 'वॉच एनालिसिस' },
-    { id: 'salt', labelEn: 'Salt Therapy', labelHi: 'सॉल्ट थेरेपी' },
+    { id: 'and-more', labelEn: 'And More.... (Remedies)', labelHi: 'और भी... (वैदिक उपाय)' },
+    { id: 'watch', labelEn: 'Watch Analysis & Consultation', labelHi: 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श' },
+    { id: 'salt', labelEn: 'Negativity Removal & Salt Therapy', labelHi: 'नमक चिकित्सा (सॉल्ट थेरेपी)' },
     { id: 'crystal', labelEn: 'Crystal Guidance', labelHi: 'क्रिस्टल थेरेपी' },
     { id: 'mobile_name', labelEn: 'Mobile & Name', labelHi: 'मोबाइल व नाम' },
     { id: 'compatibility', labelEn: 'Grid Matching', labelHi: 'ग्रिड मिलान' },
-    { id: 'remedies', labelEn: 'Yantras & Codes', labelHi: 'यंत्र व हीलिंग' },
+    { id: 'remedies', labelEn: 'Yantras, Codes & Switchwords', labelHi: 'यंत्र, हीलिंग कोड एवं स्विचवर्ड्स' },
     { id: 'awards', labelEn: 'Honors & Awards', labelHi: 'पुरस्कार व सम्मान' },
     { id: 'assets', labelEn: 'Certificates & Assets', labelHi: 'प्रमाण-पत्र' },
-    { id: 'services', labelEn: 'All 16 Services', labelHi: 'सभी 16 सेवाएँ' },
+    { id: 'services', labelEn: 'All 16 Sacred Services', labelHi: 'सभी 16 पवित्र सेवाएँ' },
     { id: 'faq', labelEn: 'FAQs', labelHi: 'प्रश्नोत्तरी' },
   ];
 
@@ -111,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </span>
             <span className="hidden md:inline text-amber-200/70">·</span>
             <span className="hidden md:inline text-amber-200/90 font-medium text-xs truncate">
-              {lang === 'hi' ? 'वैदिक अंक ज्योतिषी एवं हीलर · रणधीर सिंह (जयपुर)' : 'A Numerologist & Healer · Randhir Singh (Jaipur)'}
+              {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}
             </span>
           </div>
 
@@ -171,10 +171,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div className="min-w-0">
               <div className="font-sacred text-xs sm:text-base lg:text-lg font-bold tracking-tight text-amber-950 group-hover:text-amber-800 transition-colors truncate">
-                {lang === 'hi' ? 'न्यूमेरोलॉजी · रणधीर सिंह' : 'Numerology · Randhir Singh'}
+                {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}
               </div>
               <p className="text-[10px] sm:text-[11px] text-amber-800/80 font-medium tracking-wide truncate hidden md:block">
-                {lang === 'hi' ? 'अपने अंकों को जानें · अपना मार्ग पहचानें · जयपुर' : 'Decode Your Numbers · Discover Your Path · Jaipur'}
+                {lang === 'hi' ? 'अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।' : 'DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.'}
               </p>
             </div>
           </a>

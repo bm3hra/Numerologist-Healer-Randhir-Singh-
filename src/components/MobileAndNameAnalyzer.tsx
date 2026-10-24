@@ -16,6 +16,7 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
 
   // Mobile state
   const [mobileNumber, setMobileNumber] = useState<string>('9509593150'); // Default to Randhir Ji's number!
+  const [userDriver, setUserDriver] = useState<number>(5); // Default to 5 (Mercury)
 
   // Name state
   const [nameInput, setNameInput] = useState<string>('RANDHIR SINGH');
@@ -26,6 +27,12 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
   const digits = cleanPhone.split('').map((d) => parseInt(d, 10));
   const mobileSum = digits.reduce((acc, curr) => acc + curr, 0);
   const mobileRoot = cleanPhone.length > 0 ? reduceToSingleDigit(mobileSum) : 0;
+
+  // Driver compatibility
+  const driverPlanet = PLANETARY_ARCHETYPES[userDriver] || PLANETARY_ARCHETYPES[5];
+  const isMobileFriendly = driverPlanet.friendly.includes(mobileRoot) || userDriver === mobileRoot;
+  const isMobileEnemy = driverPlanet.enemy.includes(mobileRoot);
+  const isMobileNeutral = driverPlanet.neutral.includes(mobileRoot);
 
   // Digit occurrences in phone
   const digitCounts: Record<number, number> = {};
@@ -43,6 +50,8 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
     return { char, val };
   });
   const chaldeanSingle = chaldeanCompound > 0 ? reduceToSingleDigit(chaldeanCompound) : 0;
+  const isNameFriendly = driverPlanet.friendly.includes(chaldeanSingle) || userDriver === chaldeanSingle;
+  const isNameEnemy = driverPlanet.enemy.includes(chaldeanSingle);
 
   let pythagoreanCompound = 0;
   const pythagoreanBreakdown = cleanName.split('').map((char) => {
@@ -121,6 +130,29 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
               {/* Left Input */}
               <div className="md:col-span-6 space-y-4">
+                {/* Driver / Mulank Selector */}
+                <div className="bg-amber-50/80 p-3 rounded-xl border border-amber-300 flex items-center justify-between gap-3">
+                  <div>
+                    <label className="text-xs font-bold uppercase tracking-wider text-amber-950 block">
+                      Your Driver / Mulank (मूलांक):
+                    </label>
+                    <span className="text-[11px] text-stone-600">
+                      {driverPlanet.planet}
+                    </span>
+                  </div>
+                  <select
+                    value={userDriver}
+                    onChange={(e) => setUserDriver(parseInt(e.target.value, 10))}
+                    className="p-1.5 px-3 rounded-lg border border-amber-400 bg-white text-stone-900 font-bold text-sm shadow-2xs focus:ring-2 focus:ring-amber-500"
+                  >
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+                      <option key={n} value={n}>
+                        Mulank {n} ({PLANETARY_ARCHETYPES[n].planet.split(' ')[0]})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
                     Enter 10-Digit Mobile Number (मोबाइल नंबर)
@@ -198,10 +230,32 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
                     </p>
                   </div>
 
-                  <div className="p-3.5 bg-white rounded-lg border border-amber-200 text-xs text-stone-700 space-y-1 mb-4">
-                    <strong className="text-stone-900 block">Is this number lucky for you?</strong>
-                    <p>
-                      A mobile number must synchronize with your Driver (Mulank) and Conductor (Bhagyank). If your driver is 1, a phone totaling 5 or 6 multiplies your incoming inquiries tenfold.
+                  {/* Personal Harmony with Driver */}
+                  <div className={`p-3.5 rounded-xl border text-xs space-y-1.5 mb-4 ${
+                    isMobileFriendly
+                      ? 'bg-emerald-50 border-emerald-300 text-emerald-950'
+                      : isMobileEnemy
+                      ? 'bg-rose-50 border-rose-300 text-rose-950'
+                      : 'bg-amber-50 border-amber-300 text-amber-950'
+                  }`}>
+                    <strong className="block font-bold flex items-center gap-1.5">
+                      {isMobileFriendly ? (
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      ) : isMobileEnemy ? (
+                        <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0" />
+                      ) : (
+                        <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+                      )}
+                      <span>
+                        Compatibility with Driver {userDriver} ({driverPlanet.planet.split(' ')[0]}):
+                      </span>
+                    </strong>
+                    <p className="leading-relaxed">
+                      {isMobileFriendly
+                        ? `✓ Highly Harmonious! Root ${mobileRoot} naturally complements your Driver ${userDriver}, multiplying business inquiries, client trust, and smooth communication.`
+                        : isMobileEnemy
+                        ? `⚠ Inimical Vibration. Root ${mobileRoot} is in natural friction with Driver ${userDriver}. Master Randhir Singh advises selecting a mobile number totaling 5, 6, or 1.`
+                        : `Neutral Vibration. Root ${mobileRoot} provides balanced steady flow without dramatic planetary friction.`}
                     </p>
                   </div>
                 </div>
@@ -319,6 +373,33 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
                     <p>• <strong>14 &amp; 23 (Root 5)</strong>: Mercury magnetic fortune, mass popularity, financial expansion.</p>
                     <p>• <strong>24 &amp; 33 (Root 6)</strong>: Venus elegance, protection by elder mentors, social prestige.</p>
                     <p>• <strong>19 &amp; 37 (Root 1)</strong>: Solar royal success, leadership, unshakeable triumph.</p>
+                  </div>
+
+                  {/* Personal Name Harmony with Driver */}
+                  <div className={`p-3.5 rounded-xl border text-xs space-y-1.5 mb-4 ${
+                    isNameFriendly
+                      ? 'bg-emerald-50 border-emerald-300 text-emerald-950'
+                      : isNameEnemy
+                      ? 'bg-rose-50 border-rose-300 text-rose-950'
+                      : 'bg-amber-50 border-amber-300 text-amber-950'
+                  }`}>
+                    <strong className="block font-bold flex items-center gap-1.5">
+                      {isNameFriendly ? (
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      ) : (
+                        <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+                      )}
+                      <span>
+                        Name Harmony with Driver {userDriver} ({driverPlanet.planet.split(' ')[0]}):
+                      </span>
+                    </strong>
+                    <p className="leading-relaxed">
+                      {isNameFriendly
+                        ? `✓ Divine Phonetic Alignment! Chaldean root ${chaldeanSingle} is in perfect friendship with your Driver ${userDriver}, empowering your aura and public goodwill.`
+                        : isNameEnemy
+                        ? `⚠ Karmic Friction Detected. Root ${chaldeanSingle} opposes Driver ${userDriver}. Master Randhir Singh can calibrate an auspicious spelling suffix to unlock effortless growth.`
+                        : `Neutral Phonetic Balance. Root ${chaldeanSingle} operates peacefully with Driver ${userDriver}.`}
+                    </p>
                   </div>
                 </div>
 

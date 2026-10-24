@@ -12,18 +12,19 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
   lang,
   onBookPersonalizedReading
 }) => {
-  const [day, setDay] = useState<number>(15);
-  const [month, setMonth] = useState<number>(8);
-  const [year, setYear] = useState<number>(1995);
+  const [day, setDay] = useState<number>(14);
+  const [month, setMonth] = useState<number>(9);
+  const [year, setYear] = useState<number>(1972);
   const [gender, setGender] = useState<'male' | 'female'>('male');
+  const [includeKua, setIncludeKua] = useState<boolean>(false);
 
   const [profile, setProfile] = useState<NumerologyProfile>(() =>
-    calculateNumerologyProfile(day, month, year, gender)
+    calculateNumerologyProfile(14, 9, 1972, 'male', false)
   );
 
   const handleCalculate = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    const result = calculateNumerologyProfile(day, month, year, gender);
+    const result = calculateNumerologyProfile(day, month, year, gender, includeKua);
     setProfile(result);
   };
 
@@ -67,10 +68,10 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            {lang === 'hi' ? 'अपनी जन्म तिथि का रहस्य जानें' : 'DECODE YOUR DATE OF BIRTH'}
+            {lang === 'hi' ? 'अपनी जन्मतिथि के रहस्यों को जानें' : 'DECODE YOUR DATE OF BIRTH'}
           </h2>
-          <p className="font-medium text-amber-900 text-sm sm:text-base mt-2">
-            {lang === 'hi' ? 'पवित्र अंकों के माध्यम से अपना जीवन और भाग्य बदलें' : 'Change Your Life and Destiny Through Sacred Numbers'}
+          <p className="font-medium text-amber-900 text-sm sm:text-base mt-2 font-sacred font-bold">
+            {lang === 'hi' ? 'अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।' : 'CHANGE YOUR LIFE AND DESTINY.'}
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto">
             {lang === 'hi'
@@ -243,24 +244,28 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
               </div>
 
               {/* 3x3 Grid Box */}
-              <div className="grid grid-cols-3 gap-3 p-3 bg-amber-50/60 rounded-xl border-2 border-amber-400 max-w-sm mx-auto shadow-inner">
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-3 p-3 bg-amber-50/60 rounded-xl border-2 border-amber-400 max-w-sm mx-auto shadow-inner">
                 {loshuPositions.map((row, rowIdx) =>
                   row.map((cellNum) => {
                     const count = profile.loShuCounts[cellNum] || 0;
                     const isPresent = count > 0;
+                    const isDriver = cellNum === profile.driverNumber;
+                    const isConductor = cellNum === profile.conductorNumber;
+                    const isKua = Boolean(includeKua && cellNum === profile.kuaNumber);
+
                     return (
                       <div
                         key={cellNum}
-                        className={`aspect-square rounded-xl flex flex-col items-center justify-center p-2 text-center transition-all ${
+                        className={`aspect-square rounded-xl flex flex-col items-center justify-center p-1.5 sm:p-2 text-center transition-all relative overflow-hidden ${
                           isPresent
                             ? 'bg-gradient-to-br from-amber-600 via-amber-700 to-amber-900 text-white shadow-md scale-[1.02] border border-amber-400'
                             : 'bg-stone-100/80 text-stone-400 border border-dashed border-stone-300'
                         }`}
                       >
-                        <span className="text-xs text-amber-200/90 font-mono font-medium">
-                          Pos {cellNum}
+                        <span className="text-[10px] sm:text-xs text-amber-200/90 font-mono font-medium">
+                          {lang === 'hi' ? `स्थान ${cellNum}` : `Pos ${cellNum}`}
                         </span>
-                        <div className="text-2xl sm:text-3xl font-black font-sacred my-0.5">
+                        <div className="text-2xl sm:text-3xl font-black font-sacred my-0.5 leading-none">
                           {isPresent ? (
                             <span>
                               {Array.from({ length: count }, () => cellNum).join('')}
@@ -269,11 +274,34 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                             <span className="text-stone-300 text-lg">-</span>
                           )}
                         </div>
-                        <span className="text-[10px] uppercase font-bold tracking-tight opacity-90 truncate max-w-full">
+                        <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-tight opacity-90 truncate max-w-full">
                           {isPresent 
                             ? (lang === 'hi' ? `${count} बार सक्रिय` : `${count}x Active`)
                             : (lang === 'hi' ? 'अनुपस्थित' : 'Missing')}
                         </span>
+
+                        {/* Special Role Badges */}
+                        {isPresent && (
+                          <div className="flex flex-wrap items-center justify-center gap-0.5 mt-1">
+                            {isDriver && isConductor ? (
+                              <span className="text-[8px] font-bold bg-amber-300 text-amber-950 px-1 py-0.2 rounded-full leading-none shadow-2xs">
+                                ★ {lang === 'hi' ? 'मूलांक व भाग्यांक' : 'Driver & Conductor'}
+                              </span>
+                            ) : isDriver ? (
+                              <span className="text-[8px] font-bold bg-amber-300 text-amber-950 px-1 py-0.2 rounded-full leading-none shadow-2xs">
+                                ★ {lang === 'hi' ? 'मूलांक' : 'Driver (मूलांक)'}
+                              </span>
+                            ) : isConductor ? (
+                              <span className="text-[8px] font-bold bg-stone-900/80 text-amber-200 px-1 py-0.2 rounded-full leading-none border border-amber-400/40">
+                                ✦ {lang === 'hi' ? 'भाग्यांक' : 'Conductor'}
+                              </span>
+                            ) : isKua ? (
+                              <span className="text-[8px] font-bold bg-amber-800 text-amber-100 px-1 py-0.2 rounded-full leading-none">
+                                ▲ {lang === 'hi' ? 'कुआ अंक' : 'Kua'}
+                              </span>
+                            ) : null}
+                          </div>
+                        )}
                       </div>
                     );
                   })
@@ -281,7 +309,7 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
               </div>
 
               {/* Grid Legend */}
-              <div className="mt-6 pt-4 border-t border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs text-stone-600">
+              <div className="mt-5 pt-3 border-t border-stone-200 flex flex-wrap items-center justify-between gap-2 text-xs text-stone-600">
                 <span className="flex items-center gap-1.5 font-medium">
                   <span className="w-3 h-3 rounded bg-amber-700 inline-block" />
                   {lang === 'hi' ? 'उपस्थित अंक: ' : 'Present Numbers: '}{profile.presentNumbers.join(', ')}
@@ -290,6 +318,70 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                   <span className="w-3 h-3 rounded bg-stone-200 border border-dashed border-stone-400 inline-block" />
                   {lang === 'hi' ? 'अनुपस्थित अंक: ' : 'Missing Numbers: '}{profile.missingNumbers.join(', ')}
                 </span>
+              </div>
+
+              {/* Optional Kua Toggle */}
+              <div className="mt-4 p-2.5 bg-stone-50 rounded-lg border border-stone-200 flex items-center justify-between text-xs">
+                <label className="flex items-center gap-2 cursor-pointer font-medium text-stone-700 select-none">
+                  <input
+                    type="checkbox"
+                    checked={includeKua}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      setIncludeKua(checked);
+                      setProfile(calculateNumerologyProfile(day, month, year, gender, checked));
+                    }}
+                    className="rounded text-amber-700 focus:ring-amber-500 w-4 h-4 cursor-pointer"
+                  />
+                  <span>
+                    {lang === 'hi'
+                      ? `कुआ अंक (${profile.kuaNumber}) को 3×3 ग्रिड में शामिल करें`
+                      : `Include Kua Number (${profile.kuaNumber}) in 3x3 Grid Matrix`}
+                  </span>
+                </label>
+                <span className="text-[10px] text-stone-500 hidden sm:inline">
+                  {lang === 'hi' ? 'वास्तु दिशा स्तंभ' : 'Vastu Energy Pillar'}
+                </span>
+              </div>
+
+              {/* Vedic Grid Energy Composition Breakdown */}
+              <div className="mt-4 p-3.5 bg-amber-50/90 rounded-xl border border-amber-300 text-xs text-stone-700 space-y-2">
+                <div className="font-bold text-amber-950 flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>
+                    {lang === 'hi' ? 'वैदिक ग्रिड संयोजन एवं मूलांक सत्यापन:' : 'Vedic Grid Energy Origin & Verification:'}
+                  </span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1 text-[11px] font-sans">
+                  <div>
+                    <span className="text-stone-500">{lang === 'hi' ? '• जन्मतिथि अंक:' : '• DOB Digits:'}</span>{' '}
+                    <strong className="text-stone-800">{day}/{month}/{year}</strong>
+                  </div>
+                  <div>
+                    <span className="text-stone-500">{lang === 'hi' ? '• मूलांक (Driver):' : '• Driver (Mulank):'}</span>{' '}
+                    <strong className="text-amber-900 font-bold">{profile.driverNumber} ({PLANETARY_ARCHETYPES[profile.driverNumber].planet.split(' ')[0]})</strong>
+                  </div>
+                  <div>
+                    <span className="text-stone-500">{lang === 'hi' ? '• भाग्यांक (Conductor):' : '• Conductor (Bhagyank):'}</span>{' '}
+                    <strong className="text-amber-900 font-bold">{profile.conductorNumber} ({PLANETARY_ARCHETYPES[profile.conductorNumber].planet.split(' ')[0]})</strong>
+                  </div>
+                  <div>
+                    <span className="text-stone-500">{lang === 'hi' ? '• कुआ अंक (Kua):' : '• Kua Direction:'}</span>{' '}
+                    <strong className="text-amber-900">{profile.kuaNumber}</strong>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-amber-200/80 text-[11px] leading-relaxed text-amber-950">
+                  {lang === 'hi' ? (
+                    <span>
+                      ✓ <strong>मूलांक {profile.driverNumber} सत्यापन:</strong> आपकी जन्म तारीख {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}) के अनुसार आपका मूलांक <strong>{profile.driverNumber}</strong> है। यह अंक 3×3 लो-शू ग्रिड में <strong>सक्रिय (Active)</strong> स्थान प्राप्त करता है और <strong>अनुपस्थित (Missing) नहीं</strong> है।
+                    </span>
+                  ) : (
+                    <span>
+                      ✓ <strong>Driver {profile.driverNumber} Verified:</strong> For Day {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}), your Driver (Mulank) is <strong>{profile.driverNumber}</strong>. It is placed directly in your 3×3 Lo-Shu Grid as an <strong>Active</strong> soul frequency, so <strong>{profile.driverNumber} is NOT missing</strong>!
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -333,7 +425,9 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                               : 'bg-stone-100 text-stone-500'
                           }`}
                         >
-                          {status.percentage}% Strength ({status.presentCount}/{plane.numbers.length})
+                          {lang === 'hi'
+                            ? `${status.percentage}% पूर्णता (${status.presentCount}/${plane.numbers.length})`
+                            : `${status.percentage}% Strength (${status.presentCount}/${plane.numbers.length})`}
                         </span>
                       </div>
                       <p className="text-xs text-stone-600">{plane.description}</p>
@@ -349,20 +443,22 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
             <div className="border-b border-amber-100 pb-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                  Vedic &amp; Practical Remedies
+                  {lang === 'hi' ? 'वैदिक एवं व्यावहारिक समाधान' : 'Vedic & Practical Remedies'}
                 </span>
                 <h3 className="font-sacred text-xl sm:text-2xl font-bold text-stone-900">
-                  Targeted Remedies for Missing Numbers
+                  {lang === 'hi' ? 'अनुपस्थित अंकों के प्रभावी वैदिक उपाय' : 'Targeted Remedies for Missing Numbers'}
                 </h3>
               </div>
               <span className="text-xs text-amber-900 bg-amber-50 px-3 py-1 rounded-md border border-amber-200 font-medium">
-                Prescribed by Randhir Singh
+                {lang === 'hi' ? 'रणधीर सिंह जी द्वारा अनुशंसित' : 'Prescribed by Randhir Singh'}
               </span>
             </div>
 
             {profile.missingNumbers.length === 0 ? (
               <div className="bg-emerald-50 text-emerald-900 p-4 rounded-xl border border-emerald-200 text-xs">
-                Congratulations! All 9 numbers are present in your date of birth, forming a complete energetic circuit. Regular spiritual grounding and watch therapy will sustain your prosperity.
+                {lang === 'hi'
+                  ? 'हार्दिक बधाई! आपकी जन्म तिथि में सभी 9 अंक उपस्थित हैं, जो एक पूर्ण ऊर्जा परिपथ बनाते हैं। नियमित साधना व अनुकूल घड़ी इसे स्थायी बनाए रखेगी।'
+                  : 'Congratulations! All 9 numbers are present in your date of birth, forming a complete energetic circuit. Regular spiritual grounding and watch therapy will sustain your prosperity.'}
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -398,8 +494,8 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
             {/* Quick Actions Bar */}
             <div className="mt-8 pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-xs text-stone-600">
-                <strong>Lucky Days:</strong> {profile.luckyDays.join(', ')} ·{' '}
-                <strong>Lucky Colors:</strong> {profile.luckyColors.join(' / ')}
+                <strong>{lang === 'hi' ? 'शुभ दिन:' : 'Lucky Days:'}</strong> {profile.luckyDays.join(', ')} ·{' '}
+                <strong>{lang === 'hi' ? 'शुभ रंग:' : 'Lucky Colors:'}</strong> {profile.luckyColors.join(' / ')}
               </div>
 
               <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
@@ -408,7 +504,7 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2.5 px-4 rounded-lg text-xs shadow-xs transition-colors"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-200" />
-                  <span>Send Chart to Randhir Ji on WhatsApp</span>
+                  <span>{lang === 'hi' ? 'रणधीर सिंह जी को चार्ट भेजें' : 'Send Chart to Randhir Ji on WhatsApp'}</span>
                 </button>
 
                 <button
@@ -416,7 +512,7 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 text-white font-bold py-2.5 px-4 rounded-lg text-xs shadow-xs transition-colors"
                 >
                   <Sparkles className="w-4 h-4 text-amber-300" />
-                  <span>Book Detailed 1-on-1 Consultation</span>
+                  <span>{lang === 'hi' ? 'व्यक्तिगत 1-on-1 परामर्श बुक करें' : 'Book Detailed 1-on-1 Consultation'}</span>
                 </button>
               </div>
             </div>

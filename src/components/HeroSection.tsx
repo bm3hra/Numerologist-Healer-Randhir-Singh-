@@ -163,7 +163,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-900 mt-3">
-            {lang === 'hi' ? 'अंक ज्योतिषी एवं हीलर · रणधीर सिंह (जयपुर)' : 'A Numerologist and Healer · Randhir Singh'}
+            {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}
           </h2>
         </div>
 
@@ -175,7 +175,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           <p className="font-sacred text-base sm:text-xl font-bold text-amber-900 mt-3 tracking-wide">
             {lang === 'hi' 
-              ? 'अपनी जन्म तिथि को डिकोड करें। अपना जीवन एवं भाग्य बदलें।' 
+              ? 'अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।' 
               : 'DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.'}
           </p>
 
@@ -187,7 +187,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-4 mt-6 text-xs text-stone-700 font-medium">
             <span className="flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-amber-700" />
-              <span>{lang === 'hi' ? 'जयपुर, राजस्थान · विश्वभर में ऑनलाइन' : 'Jaipur, Rajasthan · Worldwide Online'}</span>
+              <span>{lang === 'hi' ? 'जयपुर, राजस्थान · विश्वभर में ऑनलाइन सेवाएँ' : 'Jaipur, Rajasthan · Worldwide Online'}</span>
             </span>
             <span className="hidden sm:inline text-stone-300">·</span>
             <span className="flex items-center gap-1.5">
@@ -236,12 +236,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {lang === 'hi' ? 'विशेषज्ञ सेवा' : 'Signature Service'}
             </span>
             <h3 className="font-sacred font-bold text-stone-900 text-base mt-2 group-hover:text-amber-900">
-              {lang === 'hi' ? 'वॉच एनालिसिस एवं थेरेपी वॉचेस' : 'Watch Analysis & Therapy Watches'}
+              {lang === 'hi' ? 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श' : 'Watch Analysis & Therapeutic Watch Consultation'}
             </h3>
             <p className="text-xs text-stone-600 mt-1 line-clamp-2">
               {lang === 'hi' 
-                ? 'आपकी कलाई घड़ी का डायल, रंग और धातु आपकी नब्ज व भाग्य को कैसे प्रभावित करते हैं।' 
-                : 'How your dial shape, color, and metal vibrate with your pulse meridian.'}
+                ? 'आपकी कलाई पर पहनी जाने वाली घड़ी की बनावट, आकार और समय-अंकों के प्रतीकात्मक अर्थों का आपकी व्यक्तिगत ऊर्जा और जीवन की दिशा से संबंध।' 
+                : 'Your wristwatch sits near the radial artery. Explore how design, shape, and time-display patterns connect to personal energy and your life path.'}
             </p>
             <div className="mt-3 text-xs font-semibold text-amber-800 flex items-center gap-1">
               <span>{lang === 'hi' ? 'घड़ी का परीक्षण करें →' : 'Diagnose Watch →'}</span>
@@ -260,7 +260,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {lang === 'hi' ? 'प्राचीन उपाय' : 'Holistic Cleansing'}
             </span>
             <h3 className="font-sacred font-bold text-stone-900 text-base mt-2 group-hover:text-amber-900">
-              {lang === 'hi' ? 'नकारात्मकता निवारण व सॉल्ट थेरेपी' : 'Negativity Removal & Salt Therapy'}
+              {lang === 'hi' ? 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)' : 'Negativity Removal & Salt Therapy'}
             </h3>
             <p className="text-xs text-stone-600 mt-1 line-clamp-2">
               {lang === 'hi'

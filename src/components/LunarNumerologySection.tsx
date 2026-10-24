@@ -16,7 +16,7 @@ export const LunarNumerologySection: React.FC<LunarNumerologySectionProps> = ({
   // Real-time calculation for today
   const [todayLunar] = useState(() => getMoonPhaseDetails(new Date()));
   const [selectedPhase, setSelectedPhase] = useState<MoonPhaseInfo>(todayLunar.currentPhase);
-  const [selectedMulank, setSelectedMulank] = useState<number>(1);
+  const [selectedMulank, setSelectedMulank] = useState<number>(5);
 
   const mulankData = MULANK_LUNAR_SYNERGY[selectedMulank];
   const planetInfo = PLANETARY_ARCHETYPES[selectedMulank];

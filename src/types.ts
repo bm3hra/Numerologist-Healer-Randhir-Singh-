@@ -19,6 +19,8 @@ export interface NumerologyProfile {
   friendlyNumbers: number[];
   enemyNumbers: number[];
   neutralNumbers: number[];
+  digitSources?: Record<number, string[]>; // origins of each number in the grid (e.g. Day, Driver, Conductor, Kua)
+  includeKua?: boolean;
 }
 
 export interface WatchAnalysisInput {

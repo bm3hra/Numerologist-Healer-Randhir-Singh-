@@ -1,6 +1,6 @@
 {
   "name": "DecodeYourDestiny",
-  "description": "Official platform for Randhir Singh — Renowned Numerologist & Healer in Jaipur. Decode your date of birth, Loshu grid, name vibration, watch therapy, sacred yantras, switchwords, and remedies.",
+  "description": "अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर -- Numerologist & Healer · Randhir Singh | Jaipur. अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें। DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

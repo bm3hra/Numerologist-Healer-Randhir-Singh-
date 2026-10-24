@@ -139,8 +139,8 @@ Please confirm my appointment and let me know the available time slot.`;
             >
               <option value="Sunday Free Consultation">Sunday Free Consultation (First 5 Slots)</option>
               <option value="Vedic Numerology & Lo-Shu Blueprint">Comprehensive Vedic Numerology &amp; Lo-Shu Grid</option>
-              <option value="Signature Watch Analysis & Therapy Watch">Watch Analysis &amp; Therapy Watches</option>
-              <option value="Negativity Removal & Salt Therapy">Negativity Removal &amp; Salt Therapy</option>
+              <option value="Watch Analysis & Therapeutic Watch Consultation">Watch Analysis &amp; Therapeutic Watch Consultation (घड़ी का विश्लेषण एवं चिकित्सीय परामर्श)</option>
+              <option value="Negativity Removal & Salt Therapy">Negativity Removal &amp; Salt Therapy (नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा)</option>
               <option value="Personalized Crystal Guidance">Crystal Therapy for Profession &amp; Growth</option>
               <option value="Lucky Mobile Number Analysis">Mobile Number Analysis &amp; Selection</option>
               <option value="Chaldean Name Correction">Name Analysis &amp; Chaldean Correction</option>

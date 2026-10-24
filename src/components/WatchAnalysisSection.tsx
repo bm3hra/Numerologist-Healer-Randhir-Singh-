@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Watch, Clock, CheckCircle2, AlertTriangle, Sparkles, ArrowRight, Compass, Shield, Zap, Crown, Award } from 'lucide-react';
 import { WATCH_SHAPES, WATCH_DIAL_COLORS, WATCH_PRINCIPLES, diagnoseWatch } from '../data/watchTherapyData';
+import { PLANETARY_ARCHETYPES } from '../data/numerologyData';
 import { WatchAnalysisInput, Language } from '../types';
 
 interface WatchAnalysisSectionProps {
@@ -12,6 +13,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
   lang,
   onBookWatchConsultation
 }) => {
+  const [userDriver, setUserDriver] = useState<number>(5);
   const [formData, setFormData] = useState<WatchAnalysisInput>({
     dialShape: 'round',
     dialColor: 'white',
@@ -43,12 +45,12 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            {lang === 'hi' ? 'वॉच एनालिसिस एवं थेरेपी वॉचेस' : 'Watch Analysis & Therapy Watches'}
+            {lang === 'hi' ? 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श' : 'Watch Analysis & Therapeutic Watch Consultation'}
           </h2>
           <p className="text-sm sm:text-base text-stone-600 mt-3 font-normal leading-relaxed">
             {lang === 'hi'
-              ? 'आपकी कलाई पर बंधी घड़ी केवल समय नहीं बताती, बल्कि आपकी नब्ज (रेडियल पल्स) और अवचेतन मन के साथ 24 घंटे ऊर्जा का आदान-प्रदान करती है। जानिए आपकी घड़ी आपकी प्रगति में सहायक है या बाधा।'
-              : 'Your wristwatch rests on the radial artery pulse meridian, continuously broadcasting geometric and electromagnetic frequencies to your subconscious mind and destiny path.'}
+              ? 'आपकी कलाई पर पहनी जाने वाली घड़ी केवल समय बताने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद और व्यक्तित्व का भी प्रतीक है। इस विशेष पद्धति में घड़ी की बनावट, आकार, डिज़ाइन और समय-अंकों की संरचना का विश्लेषण किया जाता है, ताकि इनके प्रतीकात्मक अर्थों तथा आपकी मानसिक धारणाओं, व्यक्तिगत ऊर्जा और जीवन की दिशा से इनके संभावित संबंधों को समझा जा सके।'
+              : 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path.'}
           </p>
         </div>
 
@@ -284,10 +286,44 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
           <div className="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left Controls: Input Selectors */}
             <div className="lg:col-span-7 space-y-6">
+              {/* Step 0: Driver / Mulank Selection */}
+              <div className="bg-amber-50/80 p-3.5 rounded-xl border border-amber-300">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                  <label className="text-xs font-bold uppercase tracking-wider text-amber-950 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+                    <span>{lang === 'hi' ? '०. आपका मूलांक (ड्राइवर अंक):' : '0. Your Driver / Mulank (मूलांक):'}</span>
+                  </label>
+                  <span className="text-[11px] font-bold text-amber-900 bg-amber-200/70 px-2 py-0.5 rounded">
+                    {PLANETARY_ARCHETYPES[userDriver]?.planet || ''}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+                    <button
+                      key={n}
+                      type="button"
+                      onClick={() => setUserDriver(n)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                        userDriver === n
+                          ? 'bg-amber-900 text-white shadow-xs scale-105'
+                          : 'bg-white text-stone-700 border border-stone-300 hover:border-amber-400'
+                      }`}
+                    >
+                      {n}
+                    </button>
+                  ))}
+                </div>
+                <p className="text-[10px] text-stone-600 mt-2">
+                  {lang === 'hi'
+                    ? 'आपके मूलांक एवं ग्रह स्वामी के अनुकूल डायल आकार, धातु व रंगों का सटीक निर्धारण।'
+                    : 'Personalizes dial geometry, metal resonance, and color frequencies specifically to your birth ruler.'}
+                </p>
+              </div>
+
               {/* Dial Shape */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
-                  1. Dial Shape (डायल का आकार)
+                  {lang === 'hi' ? '१. डायल का आकार (Dial Shape)' : '1. Dial Shape (डायल का आकार)'}
                 </label>
                 <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                   {WATCH_SHAPES.map((item) => (
@@ -313,7 +349,21 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                           <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[18px] border-b-current" />
                         )}
                       </div>
-                      <span className="text-[11px] capitalize">{item.shape}</span>
+                      <span className="text-[11px] capitalize">
+                        {lang === 'hi'
+                          ? item.shape === 'round'
+                            ? 'गोल'
+                            : item.shape === 'square'
+                            ? 'चौकोर'
+                            : item.shape === 'rectangle'
+                            ? 'आयताकार'
+                            : item.shape === 'octagonal'
+                            ? 'अष्टकोणीय'
+                            : item.shape === 'oval'
+                            ? 'अंडाकार'
+                            : 'त्रिकोणीय'
+                          : item.shape}
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -322,16 +372,16 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
               {/* Dial Color */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
-                  2. Dial Face Color (डायल का रंग)
+                  {lang === 'hi' ? '२. डायल का रंग (Face Color)' : '2. Dial Face Color (डायल का रंग)'}
                 </label>
                 <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                   {[
-                    { id: 'white', label: 'White / Silver', hex: '#f8fafc' },
-                    { id: 'gold', label: 'Gold / Champagne', hex: '#fef08a' },
-                    { id: 'blue', label: 'Navy / Blue', hex: '#1e3a8a' },
-                    { id: 'green', label: 'Emerald Green', hex: '#166534' },
-                    { id: 'black', label: 'Jet Black', hex: '#0f172a' },
-                    { id: 'brown', label: 'Warm Brown', hex: '#78350f' }
+                    { id: 'white', labelEn: 'White / Silver', labelHi: 'श्वेत / सिल्वर', hex: '#f8fafc' },
+                    { id: 'gold', labelEn: 'Gold / Champagne', labelHi: 'स्वर्ण / शैंपेन', hex: '#fef08a' },
+                    { id: 'blue', labelEn: 'Navy / Blue', labelHi: 'गहरा नीला / नेवी', hex: '#1e3a8a' },
+                    { id: 'green', labelEn: 'Emerald Green', labelHi: 'पन्ना हरा', hex: '#166534' },
+                    { id: 'black', labelEn: 'Jet Black', labelHi: 'गहरा काला', hex: '#0f172a' },
+                    { id: 'brown', labelEn: 'Warm Brown', labelHi: 'कत्थई / भूरा', hex: '#78350f' }
                   ].map((color) => (
                     <button
                       key={color.id}
@@ -347,7 +397,9 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                         className="w-4 h-4 rounded-full border border-stone-300 shrink-0"
                         style={{ backgroundColor: color.hex }}
                       />
-                      <span className="text-[11px] truncate">{color.label}</span>
+                      <span className="text-[11px] truncate">
+                        {lang === 'hi' ? color.labelHi : color.labelEn}
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -356,16 +408,16 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
               {/* Strap Material */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
-                  3. Strap / Bracelet Material (पट्टा या ब्रेसलेट)
+                  {lang === 'hi' ? '३. पट्टा या ब्रेसलेट धातु (Strap Material)' : '3. Strap / Bracelet Material (पट्टा या ब्रेसलेट)'}
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {[
-                    { id: 'gold_metal', label: 'Golden Metal Links' },
-                    { id: 'silver_metal', label: 'Stainless Steel / Silver' },
-                    { id: 'brown_leather', label: 'Brown / Tan Leather' },
-                    { id: 'black_leather', label: 'Black Leather' },
-                    { id: 'black_metal', label: 'Black PVD Metal' },
-                    { id: 'silicone_rubber', label: 'Silicone / Rubber Strap' }
+                    { id: 'gold_metal', labelEn: 'Golden Metal Links', labelHi: 'स्वर्ण धातु लिंक्स' },
+                    { id: 'silver_metal', labelEn: 'Stainless Steel / Silver', labelHi: 'स्टेनलेस स्टील / सिल्वर' },
+                    { id: 'brown_leather', labelEn: 'Brown / Tan Leather', labelHi: 'भूरा चमड़ा (लेदर)' },
+                    { id: 'black_leather', labelEn: 'Black Leather', labelHi: 'काला चमड़ा (लेदर)' },
+                    { id: 'black_metal', labelEn: 'Black PVD Metal', labelHi: 'ब्लैक मेटल (PVD)' },
+                    { id: 'silicone_rubber', labelEn: 'Silicone / Rubber Strap', labelHi: 'सिलिकॉन / रबर' }
                   ].map((strap) => (
                     <button
                       key={strap.id}
@@ -377,7 +429,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                           : 'border-stone-200 bg-stone-50/50 hover:bg-stone-100 text-stone-700'
                       }`}
                     >
-                      {strap.label}
+                      {lang === 'hi' ? strap.labelHi : strap.labelEn}
                     </button>
                   ))}
                 </div>
@@ -387,7 +439,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
-                    4. Hand Worn On (किस हाथ पर पहनते हैं)
+                    {lang === 'hi' ? '४. किस हाथ पर पहनते हैं (Hand Worn On)' : '4. Hand Worn On (किस हाथ पर पहनते हैं)'}
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     <button
@@ -399,7 +451,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                           : 'border-stone-200 bg-stone-50'
                       }`}
                     >
-                      Right (Active / Sun)
+                      {lang === 'hi' ? 'दायाँ हाथ (सूर्य / सक्रिय)' : 'Right (Active / Sun)'}
                     </button>
                     <button
                       type="button"
@@ -410,24 +462,24 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                           : 'border-stone-200 bg-stone-50'
                       }`}
                     >
-                      Left (Receptive / Moon)
+                      {lang === 'hi' ? 'बायाँ हाथ (चंद्र / ग्रहणशील)' : 'Left (Receptive / Moon)'}
                     </button>
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
-                    5. Physical Condition (घड़ी की स्थिति)
+                    {lang === 'hi' ? '५. घड़ी की स्थिति (Condition)' : '5. Physical Condition (घड़ी की स्थिति)'}
                   </label>
                   <select
                     value={formData.condition}
                     onChange={(e) => handleUpdate({ condition: e.target.value as any })}
                     className="w-full text-xs p-2.5 rounded-lg border border-stone-300 bg-white focus:outline-none focus:ring-1 focus:ring-amber-500"
                   >
-                    <option value="perfect">Pristine / Excellent condition</option>
-                    <option value="scratched">Scratched glass or worn case</option>
-                    <option value="stopped_sometimes">Stops sometimes / Delay in time</option>
-                    <option value="loose_fit">Very loose or unstable fit</option>
+                    <option value="perfect">{lang === 'hi' ? 'एकदम सही / नई जैसी स्थिति' : 'Pristine / Excellent condition'}</option>
+                    <option value="scratched">{lang === 'hi' ? 'खरोंच युक्त शीशा या पुराना केस' : 'Scratched glass or worn case'}</option>
+                    <option value="stopped_sometimes">{lang === 'hi' ? 'कभी-कभी रुकती है / समय पीछे रहता है' : 'Stops sometimes / Delay in time'}</option>
+                    <option value="loose_fit">{lang === 'hi' ? 'कलाई पर बहुत ढीली या असंतुलित' : 'Very loose or unstable fit'}</option>
                   </select>
                 </div>
               </div>
@@ -435,14 +487,14 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
               {/* Primary Life Goal */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">
-                  6. Your Primary Goal (वर्तमान मुख्य लक्ष्य)
+                  {lang === 'hi' ? '६. वर्तमान मुख्य लक्ष्य (Primary Goal)' : '6. Your Primary Goal (वर्तमान मुख्य लक्ष्य)'}
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {[
-                    { id: 'career_growth', label: 'Career Growth' },
-                    { id: 'wealth_flow', label: 'Wealth Inflow' },
-                    { id: 'mental_peace', label: 'Mental Peace' },
-                    { id: 'relationship_harmony', label: 'Relationships' }
+                    { id: 'career_growth', labelEn: 'Career Growth', labelHi: 'करियर वृद्धि' },
+                    { id: 'wealth_flow', labelEn: 'Wealth Inflow', labelHi: 'धन प्रवाह व समृद्धि' },
+                    { id: 'mental_peace', labelEn: 'Mental Peace', labelHi: 'मानसिक शांति' },
+                    { id: 'relationship_harmony', labelEn: 'Relationships', labelHi: 'पारिवारिक संबंध' }
                   ].map((goal) => (
                     <button
                       key={goal.id}
@@ -454,7 +506,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                           : 'border-stone-200 bg-stone-50 text-stone-700'
                       }`}
                     >
-                      {goal.label}
+                      {lang === 'hi' ? goal.labelHi : goal.labelEn}
                     </button>
                   ))}
                 </div>
@@ -467,7 +519,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                 <div className="flex items-center justify-between border-b border-amber-200/80 pb-4 mb-4">
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-amber-800 font-bold">
-                      Diagnostic Result
+                      {lang === 'hi' ? 'ऊर्जा निदान परिणाम' : 'Diagnostic Result'}
                     </span>
                     <h4 className="font-sacred text-lg font-bold text-stone-900">
                       {diagnosis.energyAssessment}
@@ -478,7 +530,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                       {diagnosis.vibrationScore}
                       <span className="text-xs text-stone-500 font-normal">/100</span>
                     </span>
-                    <div className="text-[10px] text-stone-500">Vibration Index</div>
+                    <div className="text-[10px] text-stone-500">{lang === 'hi' ? 'ऊर्जा सूचकांक' : 'Vibration Index'}</div>
                   </div>
                 </div>
 
@@ -490,7 +542,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                   <div className="flex items-center justify-between text-[11px] font-mono text-amber-300/80 mb-2 pb-1 border-b border-amber-800/60">
                     <span className="flex items-center gap-1">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                      <span>LIVE MERIDIAN SIMULATION</span>
+                      <span>{lang === 'hi' ? 'नाड़ी एवं कलाई ऊर्जा तरंग' : 'LIVE MERIDIAN SIMULATION'}</span>
                     </span>
                     <span className="uppercase text-amber-400 font-bold">{formData.dialShape} · {formData.dialColor}</span>
                   </div>
@@ -567,10 +619,24 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                     {/* Pulse Frequency & Meridian Biofeedback */}
                     <div className="flex-1 space-y-1.5 text-center sm:text-left">
                       <div className="text-[11px] font-bold text-amber-200">
-                        Radial Artery Pulse Resonance
+                        {lang === 'hi' ? 'रेडियल नाड़ी स्पंदन एवं ऊर्जा अनुनाद' : 'Radial Artery Pulse Resonance'}
                       </div>
                       <p className="text-[10px] text-stone-300 leading-tight">
-                        Worn on <strong>{formData.wornWrist === 'right' ? 'Right (Surya / Active)' : 'Left (Chandra / Receptive)'}</strong> wrist · Energy flow: <strong>{diagnosis.energyAssessment}</strong>
+                        {lang === 'hi' ? (
+                          <span>
+                            कलाई:{' '}
+                            <strong>
+                              {formData.wornWrist === 'right' ? 'दायाँ हाथ (सूर्य / सक्रिय ऊर्जा)' : 'बायाँ हाथ (चंद्र / ग्रहणशील ऊर्जा)'}
+                            </strong>{' '}
+                            · ऊर्जा प्रवाह: <strong>{diagnosis.energyAssessment}</strong>
+                          </span>
+                        ) : (
+                          <span>
+                            Worn on{' '}
+                            <strong>{formData.wornWrist === 'right' ? 'Right (Surya / Active)' : 'Left (Chandra / Receptive)'}</strong>{' '}
+                            wrist · Energy flow: <strong>{diagnosis.energyAssessment}</strong>
+                          </span>
+                        )}
                       </p>
 
                       {/* Animated Pulse Waveform Graphic */}
@@ -599,7 +665,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                 <div className="space-y-3 mb-4">
                   <span className="text-xs font-bold text-emerald-800 flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    Observed Energetic Alignments:
+                    {lang === 'hi' ? 'घड़ी से जुड़े सकारात्मक ऊर्जा प्रभाव:' : 'Observed Energetic Alignments:'}
                   </span>
                   <ul className="space-y-1.5 text-xs text-stone-700 pl-5 list-disc">
                     {diagnosis.keyStrengths.map((s, idx) => (
@@ -613,7 +679,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                   <div className="bg-amber-100/70 border border-amber-300/80 rounded-lg p-3.5 mb-4 space-y-1.5">
                     <span className="text-xs font-bold text-amber-950 flex items-center gap-1.5">
                       <AlertTriangle className="w-3.5 h-3.5 text-amber-700" />
-                      Key Watch Remedy Alert:
+                      {lang === 'hi' ? 'घड़ी से जुड़ी सुधारात्मक चेतावनी:' : 'Key Watch Remedy Alert:'}
                     </span>
                     <ul className="text-xs text-amber-900 space-y-1 pl-4 list-disc">
                       {diagnosis.cautionPoints.map((c, idx) => (
@@ -625,27 +691,78 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
 
                 {/* Subconscious Impact */}
                 <div className="bg-white/80 rounded-lg p-3.5 border border-stone-200 mb-4 text-xs text-stone-600 space-y-1">
-                  <span className="font-bold text-stone-800 block">Subconscious Pulse Polarity:</span>
+                  <span className="font-bold text-stone-800 block">
+                    {lang === 'hi' ? 'अवचेतन मन पर प्रभाव:' : 'Subconscious Pulse Polarity:'}
+                  </span>
                   {diagnosis.impactOnSubconscious.map((imp, idx) => (
                     <p key={idx}>{imp}</p>
                   ))}
+                </div>
+
+                {/* Driver Specific Watch Prescription */}
+                <div className="bg-amber-50 rounded-xl p-3.5 border border-amber-300 text-xs text-amber-950 mb-4 space-y-1">
+                  <div className="font-bold flex items-center gap-1.5 text-amber-900">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>
+                      {lang === 'hi'
+                        ? `मास्टर रणधीर सिंह जी द्वारा मूलांक ${userDriver} (${PLANETARY_ARCHETYPES[userDriver].planet.split(' ')[0]}) हेतु अनुकूल घड़ी निर्देश:`
+                        : `Master Randhir Singh’s Driver ${userDriver} (${PLANETARY_ARCHETYPES[userDriver].planet.split(' ')[0]}) Watch Calibration:`}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-stone-700 leading-relaxed">
+                    {lang === 'hi'
+                      ? userDriver === 1
+                        ? 'सूर्य (Surya): गोल स्वर्ण डायल, स्टेनलेस स्टील केसिंग एवं सक्रिय सेकंड हैंड, जो नेतृत्व क्षमता, प्रशासनिक अधिकार एवं प्रतिष्ठा को सुदृढ़ करते हैं।'
+                        : userDriver === 2
+                        ? 'चंद्र (Chandra): गोल रजत (सिल्वर) घड़ी, मोती श्वेत या चमकदार सिल्वर डायल, जो भावनात्मक चंचलता को शांत कर रचनात्मकता बढ़ाते हैं।'
+                        : userDriver === 3
+                        ? 'गुरु (Guru): गोल स्वर्ण-युक्त घड़ी, पीला, सुनहरा या क्रीम डायल, जो ज्ञान, गुरु-कृपा एवं स्थाई समृद्धि का विस्तार करते हैं।'
+                        : userDriver === 4
+                        ? 'राहु (Rahu): अष्टकोणीय या संतुलित चौकोर डायल, स्लेटी या नेवी ब्लू रंग; अनियमित ज़िगज़ैग डायल से बचें ताकि करियर में स्थिरता बनी रहे।'
+                        : userDriver === 5
+                        ? 'बुध (Budh): संतुलित चौकोर अथवा गोल डायल, पन्ना हरा, फ़िरोज़ी या स्वच्छ श्वेत रंग, जो व्यापारिक लेन-देन व विक्रय क्षमता को गति देते हैं।'
+                        : userDriver === 6
+                        ? 'शुक्र (Shukra): पॉलिश की हुई सिल्वर या रोज़-गोल्ड लक्ज़री घड़ी, डायमंड-कट बेज़ल एवं पेस्टल डायल, जो दांपत्य सुख व आकर्षण बढ़ाते हैं।'
+                        : userDriver === 7
+                        ? 'केतु (Ketu): परिष्कृत स्टेनलेस स्टील सिल्वर घड़ी, स्मोकी ग्रे या मैट व्हाइट डायल, जो शोध, गहन चिंतन व आध्यात्मिक एकाग्रता को साधते हैं।'
+                        : userDriver === 8
+                        ? 'शनि (Shani): सुदृढ़ भारी-धातु, गहरा नीला या काला डायल, अनुशासन से धारण करने पर दीर्घकालीन संघर्षों को विशाल सफलता में बदलता है।'
+                        : 'मंगल (Mangal): डायनामिक गोल स्पोर्ट्स या स्टील क्रोनोग्राफ, लाल/मैरून सेकंड हैंड, जो साहस, ऊर्जा और विजय का मार्ग प्रशस्त करते हैं।'
+                      : userDriver === 1
+                      ? 'For Sun (Surya): Round gold dial with stainless steel casing and active second hand to command unshakeable leadership and administrative power.'
+                      : userDriver === 2
+                      ? 'For Moon (Chandra): Round silver watch with pearl white or shimmering silver dial to calm emotional restlessness and ignite intuitive creativity.'
+                      : userDriver === 3
+                      ? 'For Jupiter (Guru): Round gold-toned watch with bright yellow, golden, or cream dial to expand wisdom, mentorship, and high ethical wealth.'
+                      : userDriver === 4
+                      ? 'For Rahu: Octagonal or clean square dial in grey, navy, or khaki; avoid irregular zigzag dials to stabilize sudden career fluctuations.'
+                      : userDriver === 5
+                      ? 'For Mercury (Budh): Balanced square or round dial with emerald green, turquoise, or clean white face to accelerate commercial cashflow and sales magnetism.'
+                      : userDriver === 6
+                      ? 'For Venus (Shukra): Luxury polished silver or rose gold watch with sparkling or diamond-accented bezel and pastel/white dial for romantic harmony and brand glamour.'
+                      : userDriver === 7
+                      ? 'For Ketu: Refined stainless steel silver watch with smoky grey or matte white dial to anchor spiritual focus and intuitive research skills.'
+                      : userDriver === 8
+                      ? 'For Saturn (Shani): Sturdy heavy-metal blue or black dial watch worn with strict discipline to convert long struggles into massive permanent legacy.'
+                      : 'For Mars (Mangal): Dynamic round sports or steel chronograph with bold maroon or red second-hand to channel courageous action into unstoppable victory.'}
+                  </p>
                 </div>
 
                 {/* Therapy Watch Recommendation Box */}
                 <div className="bg-gradient-to-br from-amber-950 to-stone-900 text-amber-100 rounded-xl p-4 border border-amber-400/50 space-y-2">
                   <div className="flex items-center gap-1.5 text-amber-300 font-sacred text-xs font-bold uppercase tracking-wider">
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Therapy Watch Prescription</span>
+                    <span>{lang === 'hi' ? 'थेरेपी वॉच अनुशंसा' : 'Therapy Watch Prescription'}</span>
                   </div>
                   <div className="text-xs space-y-1 text-amber-100/90">
-                    <p><strong className="text-amber-200">Recommended Geometry:</strong> {diagnosis.therapyWatchPrescription.recommendedShape}</p>
-                    <p><strong className="text-amber-200">Dial Hue:</strong> {diagnosis.therapyWatchPrescription.recommendedDialColor}</p>
-                    <p><strong className="text-amber-200">Strap / Mesh:</strong> {diagnosis.therapyWatchPrescription.recommendedStrap}</p>
-                    <p><strong className="text-amber-200">Wear On:</strong> {diagnosis.therapyWatchPrescription.recommendedWrist}</p>
-                    <p><strong className="text-amber-200">Best Muhurat:</strong> {diagnosis.therapyWatchPrescription.activationTiming}</p>
+                    <p><strong className="text-amber-200">{lang === 'hi' ? 'अनुकूल आकार:' : 'Recommended Geometry:'}</strong> {diagnosis.therapyWatchPrescription.recommendedShape}</p>
+                    <p><strong className="text-amber-200">{lang === 'hi' ? 'डायल का रंग:' : 'Dial Hue:'}</strong> {diagnosis.therapyWatchPrescription.recommendedDialColor}</p>
+                    <p><strong className="text-amber-200">{lang === 'hi' ? 'पट्टा / ब्रेसलेट:' : 'Strap / Mesh:'}</strong> {diagnosis.therapyWatchPrescription.recommendedStrap}</p>
+                    <p><strong className="text-amber-200">{lang === 'hi' ? 'पहनने का हाथ:' : 'Wear On:'}</strong> {diagnosis.therapyWatchPrescription.recommendedWrist}</p>
+                    <p><strong className="text-amber-200">{lang === 'hi' ? 'शुभ मुहूर्त:' : 'Best Muhurat:'}</strong> {diagnosis.therapyWatchPrescription.activationTiming}</p>
                   </div>
                   <p className="text-[11px] text-amber-300/80 pt-1 border-t border-amber-800/80 italic">
-                    💡 Tip: {diagnosis.therapyWatchPrescription.specialTip}
+                    {lang === 'hi' ? '💡 विशेष सुझाव:' : '💡 Tip:'} {diagnosis.therapyWatchPrescription.specialTip}
                   </p>
                 </div>
               </div>
@@ -657,7 +774,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                   className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 hover:to-amber-950 text-white font-semibold py-2.5 px-4 rounded-lg shadow-sm text-xs transition-all"
                 >
                   <Watch className="w-4 h-4 text-amber-300" />
-                  <span>Get Master Randhir’s Personal Watch Analysis</span>
+                  <span>{lang === 'hi' ? 'मास्टर रणधीर सिंह जी से व्यक्तिगत घड़ी परामर्श प्राप्त करें' : 'Get Master Randhir’s Personal Watch Analysis'}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -671,27 +788,39 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
             <div className="flex items-start gap-3">
               <Zap className="w-5 h-5 text-amber-800 shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-sacred font-bold text-stone-900 text-sm">Punctuality of Wealth</h4>
+                <h4 className="font-sacred font-bold text-stone-900 text-sm">
+                  {lang === 'hi' ? 'समयबद्ध धन प्रवाह' : 'Punctuality of Wealth'}
+                </h4>
                 <p className="text-xs text-stone-600 mt-1">
-                  When your watch movement and dial reflect planetary harmony, contracts clear faster and cash rotation becomes prompt and frictionless.
+                  {lang === 'hi'
+                    ? 'जब आपकी घड़ी की गति एवं डायल ग्रहों के अनुकूल होते हैं, तो अटके हुए सौदे तेज़ी से पूरे होते हैं और धन का आवक सुगम बनता है।'
+                    : 'When your watch movement and dial reflect planetary harmony, contracts clear faster and cash rotation becomes prompt and frictionless.'}
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <Shield className="w-5 h-5 text-amber-800 shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-sacred font-bold text-stone-900 text-sm">Eliminates Subconscious Delays</h4>
+                <h4 className="font-sacred font-bold text-stone-900 text-sm">
+                  {lang === 'hi' ? 'अवचेतन विलंब का निवारण' : 'Eliminates Subconscious Delays'}
+                </h4>
                 <p className="text-xs text-stone-600 mt-1">
-                  Scratched crystals or lagging battery cells subtly program your neural pathways to accept delayed results. A prescribed therapy watch restores swift momentum.
+                  {lang === 'hi'
+                    ? 'खरोंच युक्त शीशा या रुकने वाली घड़ी अवचेतन मन में काम टालने की आदत बनाती है। अनुकूलित थेरेपी वॉच जीवन को नई गति प्रदान करती है।'
+                    : 'Scratched crystals or lagging battery cells subtly program your neural pathways to accept delayed results. A prescribed therapy watch restores swift momentum.'}
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <Compass className="w-5 h-5 text-amber-800 shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-sacred font-bold text-stone-900 text-sm">Customized to Your Lo-Shu Grid</h4>
+                <h4 className="font-sacred font-bold text-stone-900 text-sm">
+                  {lang === 'hi' ? 'लो-शू ग्रिड अनुसार संतुलन' : 'Customized to Your Lo-Shu Grid'}
+                </h4>
                 <p className="text-xs text-stone-600 mt-1">
-                  If your birth grid lacks the Fire or Earth element, the watch metal, dial geometry, and ticking tempo act as a physical supplement to fill the void.
+                  {lang === 'hi'
+                    ? 'यदि आपकी जन्म कुंडली में अग्नि या पृथ्वी तत्व की कमी है, तो घड़ी की धातु, डायल आकार एवं सेकंड की सुई उस रिक्तता को पूर्ण करते हैं।'
+                    : 'If your birth grid lacks the Fire or Earth element, the watch metal, dial geometry, and ticking tempo act as a physical supplement to fill the void.'}
                 </p>
               </div>
             </div>

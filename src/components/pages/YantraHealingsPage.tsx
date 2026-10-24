@@ -467,7 +467,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
                   }`}
                 >
                   <span>{yantra.frequencyHz.split(' ')[0]}</span>
-                  <span>{isSelected ? '● Active' : 'Select →'}</span>
+                  <span>{isSelected ? (lang === 'hi' ? '● सक्रिय' : '● Active') : (lang === 'hi' ? 'चुनें →' : 'Select →')}</span>
                 </div>
               </button>
             );
@@ -512,7 +512,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
             <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-amber-50 via-[#faf6ee] to-amber-100/60 rounded-2xl border border-amber-300">
               <div className="text-center mb-4">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800 block">
-                  Sacred Consecrated Representation
+                  {lang === 'hi' ? 'सिद्ध पावन वैदिक स्वरूप' : 'Sacred Consecrated Representation'}
                 </span>
                 <span className="font-sacred text-xs text-stone-600">
                   {selectedYantra.geometryType}
@@ -535,7 +535,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
                     )}
                   </div>
                   <div className="mt-3 text-center text-xs font-mono font-bold text-amber-900">
-                    Row, Column &amp; Diagonal Sum = <span className="text-amber-800 text-sm font-black">{selectedYantra.matrixConstant}</span>
+                    {lang === 'hi' ? 'पंक्ति, स्तंभ व विकर्ण योग = ' : 'Row, Column & Diagonal Sum = '}<span className="text-amber-800 text-sm font-black">{selectedYantra.matrixConstant}</span>
                   </div>
                 </div>
               ) : (
@@ -557,15 +557,15 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
               {/* Consecration Metadata Pills */}
               <div className="w-full mt-6 pt-4 border-t border-amber-200/80 space-y-2 text-xs text-stone-700">
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold text-stone-500">Ideal Metal/Medium:</span>
+                  <span className="font-semibold text-stone-500">{lang === 'hi' ? 'उत्तम धातु / माध्यम:' : 'Ideal Metal/Medium:'}</span>
                   <span className="font-bold text-stone-900 text-right">{selectedYantra.idealMaterial}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold text-stone-500">Vastu Placement:</span>
+                  <span className="font-semibold text-stone-500">{lang === 'hi' ? 'वास्तु स्थापना दिशा:' : 'Vastu Placement:'}</span>
                   <span className="font-bold text-amber-900">{selectedYantra.placementDirection}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold text-stone-500">Chanting Rhythm:</span>
+                  <span className="font-semibold text-stone-500">{lang === 'hi' ? 'जप संख्या व नियम:' : 'Chanting Rhythm:'}</span>
                   <span className="font-bold text-stone-900">{selectedYantra.mantraCount}</span>
                 </div>
               </div>
@@ -578,7 +578,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
                 <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-amber-300 mb-2">
                   <span className="flex items-center gap-1.5">
                     <Volume2 className="w-4 h-4" />
-                    Sacred Consecrated Activation Mantra
+                    {lang === 'hi' ? 'सिद्ध प्राण-प्रतिष्ठा बीज मंत्र' : 'Sacred Consecrated Activation Mantra'}
                   </span>
                   <span className="text-[10px] font-mono bg-amber-900 px-2 py-0.5 rounded">
                     Freq: {selectedYantra.frequencyHz}
@@ -588,8 +588,8 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
                   "{selectedYantra.mantra}"
                 </p>
                 <div className="mt-3 pt-3 border-t border-amber-800/80 flex items-center justify-between text-[11px] text-amber-300">
-                  <span>Recite daily with Rudraksha / Sphatik Mala</span>
-                  <span>108 Repetitions Recommended</span>
+                  <span>{lang === 'hi' ? 'रुद्राक्ष अथवा स्फटिक माला से प्रतिदिन जप करें' : 'Recite daily with Rudraksha / Sphatik Mala'}</span>
+                  <span>{lang === 'hi' ? 'प्रतिदिन १०८ जप अनुशंसित' : '108 Repetitions Recommended'}</span>
                 </div>
               </div>
 
@@ -597,7 +597,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
               <div className="bg-stone-50 p-5 rounded-2xl border border-stone-200">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-3 flex items-center gap-2">
                   <Activity className="w-4 h-4 text-rose-600" />
-                  <span>Target Symptoms &amp; Energetic Blockages Addressed:</span>
+                  <span>{lang === 'hi' ? 'शारीरिक, मानसिक व ऊर्जा अवरोधों का निवारण:' : 'Target Symptoms & Energetic Blockages Addressed:'}</span>
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-700">
                   {selectedYantra.symptomsAddressed.map((sym, i) => (
@@ -613,7 +613,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
               <div className="bg-[#fcfaf5] p-5 rounded-2xl border border-amber-200">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-amber-950 mb-3 flex items-center gap-2">
                   <Flame className="w-4 h-4 text-amber-700" />
-                  <span>4-Step Energization &amp; Daily Maintenance Protocol:</span>
+                  <span>{lang === 'hi' ? '४-चरणीय प्राण-प्रतिष्ठा एवं दैनिक साधना विधान:' : '4-Step Energization & Daily Maintenance Protocol:'}</span>
                 </h4>
                 <ol className="space-y-2 text-xs text-stone-700">
                   {selectedYantra.ritualSteps.map((step, idx) => (
@@ -634,14 +634,14 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
                     {lang === 'hi' ? 'विशेष अष्टगंध भोजपत्र निर्माण' : 'Hand-Etched Bhojpatra with Ashtagandha'}
                   </strong>
                   <span className="text-stone-600">
-                    Consecrated specifically under your birth star (Nakshatra) and Driver-Conductor numbers.
+                    {lang === 'hi' ? 'आपकी जन्म तिथि, मूलांक-भाग्यांक एवं नक्षत्र के अनुकूल विशेष रूप से सिद्ध।' : 'Consecrated specifically under your birth star (Nakshatra) and Driver-Conductor numbers.'}
                   </span>
                 </div>
                 <button
                   onClick={() => onOpenBooking(`Handcrafted Bhojpatra ${selectedYantra.nameEn}`, '₹5,100')}
                   className="bg-amber-800 hover:bg-amber-900 text-white font-bold px-4 py-2 rounded-lg text-xs shrink-0 transition-colors"
                 >
-                  Consult Master Randhir
+                  {lang === 'hi' ? 'रणधीर जी से परामर्श लें' : 'Consult Master Randhir'}
                 </button>
               </div>
             </div>
@@ -657,35 +657,49 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
               {lang === 'hi' ? 'यंत्र सामग्री एवं प्रामाणिकता निर्देश' : 'Materials, Consecration & Authenticity'}
             </h2>
             <p className="text-xs sm:text-sm text-stone-600 mt-1">
-              Important insights before purchasing or placing any sacred yantra
+              {lang === 'hi'
+                ? 'यंत्र स्थापित करने अथवा मंगवाने से पूर्व महत्वपूर्ण वैदिक मार्गदर्शन'
+                : 'Important insights before purchasing or placing any sacred yantra'}
             </p>
           </div>
 
           <div className="space-y-4 text-xs sm:text-sm text-stone-700">
             <div className="p-4 bg-[#faf7f0] rounded-xl border border-amber-200">
               <strong className="text-amber-950 block mb-1 font-sacred">
-                1. What makes Master Randhir Singh's Yantras different from market items?
+                {lang === 'hi'
+                  ? '१. मास्टर रणधीर सिंह जी द्वारा सिद्ध यंत्र बाज़ारू यंत्रों से भिन्न क्यों हैं?'
+                  : "1. What makes Master Randhir Singh's Yantras different from market items?"}
               </strong>
               <p className="text-stone-600 leading-relaxed">
-                Market machine-stamped plates are often mathematically flawed and mechanically cold. Master Randhir Singh inspects every matrix cell for mathematical sums, hand-etches them on authentic Himalayan Bhojpatra using Pomegranate stylus (Anar ki Kalam) and Ashtagandha ink, or uses heavy unadulterated copper sheets energized through 1,100 Vedic samputit mantras.
+                {lang === 'hi'
+                  ? 'बाज़ार में मिलने वाले यंत्र मशीनों द्वारा छापे जाते हैं, जिनमें न तो उचित ऊर्जा होती है और न ही अंकों का सही संतुलन। मास्टर रणधीर सिंह प्रत्येक अंक-यंत्र के गणितीय योग की गहन जाँच करते हैं, उन्हें अनार की कलम व अष्टगंध से असली भोजपत्र पर अथवा शुद्ध तांबे की प्लेट पर वैदिक संपुटित मंत्रों से प्राण-प्रतिष्ठित करते हैं।'
+                  : 'Market machine-stamped plates are often mathematically flawed and mechanically cold. Master Randhir Singh inspects every matrix cell for mathematical sums, hand-etches them on authentic Himalayan Bhojpatra using Pomegranate stylus (Anar ki Kalam) and Ashtagandha ink, or uses heavy unadulterated copper sheets energized through 1,100 Vedic samputit mantras.'}
               </p>
             </div>
 
             <div className="p-4 bg-[#faf7f0] rounded-xl border border-amber-200">
               <strong className="text-amber-950 block mb-1 font-sacred">
-                2. Can I place multiple healing yantras together?
+                {lang === 'hi'
+                  ? '२. क्या एक साथ एक से अधिक हीलिंग यंत्र स्थापित किए जा सकते हैं?'
+                  : '2. Can I place multiple healing yantras together?'}
               </strong>
               <p className="text-stone-600 leading-relaxed">
-                Yes, provided their elemental orientations do not conflict. For example, Surya and Gayatri align with the East (Solar Agni), while Kuber and Mahamrityunjaya align with the North / North-East (Kubera &amp; Shiva dik). During your personalized consultation, Master Randhir Singh provides an exact Vastu blueprint for your residence or office.
+                {lang === 'hi'
+                  ? 'हाँ, बशर्ते उनकी दिशा और तत्वों में टकराव न हो। उदाहरण के लिए, सूर्य व गायत्री यंत्र पूर्व दिशा (अग्नि/प्रकाश) में स्थापित होते हैं, जबकि कुबेर व महामृत्युंजय यंत्र उत्तर या उत्तर-पूर्व (ईशान कोण) में। व्यक्तिगत परामर्श के दौरान रणधीर जी आपके घर या कार्यालय के अनुसार सही दिशा बताते हैं।'
+                  : 'Yes, provided their elemental orientations do not conflict. For example, Surya and Gayatri align with the East (Solar Agni), while Kuber and Mahamrityunjaya align with the North / North-East (Kubera & Shiva dik). During your personalized consultation, Master Randhir Singh provides an exact Vastu blueprint for your residence or office.'}
               </p>
             </div>
 
             <div className="p-4 bg-[#faf7f0] rounded-xl border border-amber-200">
               <strong className="text-amber-950 block mb-1 font-sacred">
-                3. What if I miss chanting for a few days?
+                {lang === 'hi'
+                  ? '३. यदि कुछ दिनों तक मंत्र जप छूट जाए तो क्या करना चाहिए?'
+                  : '3. What if I miss chanting for a few days?'}
               </strong>
               <p className="text-stone-600 leading-relaxed">
-                A properly consecrated yantra holds an enduring electro-magnetic charge for up to 3 years. If you miss daily japa, gently re-consecrate by showing incense (Dhoop) and a desi ghee lamp on any Monday or Thursday morning to reactivate the latent field.
+                {lang === 'hi'
+                  ? 'विधिपूर्वक प्राण-प्रतिष्ठित यंत्र का ऊर्जा क्षेत्र दीर्घकाल तक सक्रिय रहता है। यदि दैनिक जप में अंतराल आ जाए, तो सोमवार अथवा गुरुवार की प्रातः धूप-दीप (देसी घी) दिखाकर क्षमा प्रार्थना करें और पुनः नियमित साधना प्रारंभ करें।'
+                  : 'A properly consecrated yantra holds an enduring electro-magnetic charge for up to 3 years. If you miss daily japa, gently re-consecrate by showing incense (Dhoop) and a desi ghee lamp on any Monday or Thursday morning to reactivate the latent field.'}
               </p>
             </div>
           </div>

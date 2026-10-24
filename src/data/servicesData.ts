@@ -13,11 +13,11 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 2,
-    titleEn: 'Watch Analysis',
-    titleHi: 'घड़ी विश्लेषण (वॉच एनालिसिस)',
+    titleEn: 'Watch Analysis & Therapeutic Watch Consultation',
+    titleHi: 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श',
     category: 'watch',
-    shortDesc: 'Deep audit of your current wristwatch dial shape, color, strap, and energetic time imprint.',
-    fullDesc: 'Your watch sits upon the radial pulse meridian and acts as an energetic conduit. We analyze dial geometry, color frequencies, strap materials, and internal motion to detect subconscious roadblocks.',
+    shortDesc: 'Your wristwatch sits near the radial artery, where your pulse can be felt. Exploring watch design, shape, and time-display patterns connected to personal energy.',
+    fullDesc: 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path.',
     badge: 'Signature Specialist',
     iconName: 'Watch'
   },
@@ -63,8 +63,8 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 7,
-    titleEn: 'Negativities Removal, Protections & Cleansing Salts Therapy',
-    titleHi: 'नकारात्मकता निवारण, सुरक्षा एवं सॉल्ट थेरेपी',
+    titleEn: 'Negativity Removal & Salt Therapy',
+    titleHi: 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)',
     category: 'salt',
     shortDesc: 'Traditional salt-cleansing rituals and auric shielding for peaceful spaces and positive mindsets.',
     fullDesc: 'Ancient Sendha & Samudri salt rituals, foot soaks, threshold energy barriers, and aura mist formulas to dissolve psychic static, fatigue, and household negativity safely and organically.',

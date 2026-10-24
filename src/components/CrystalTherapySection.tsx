@@ -30,14 +30,16 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100/90 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Gem className="w-3.5 h-3.5 text-amber-700" />
-            <span>Sacred Mineral Energies · Randhir Singh</span>
+            <span>{lang === 'hi' ? 'पवित्र खनिज ऊर्जा · रणधीर सिंह' : 'Sacred Mineral Energies · Randhir Singh'}</span>
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            CRYSTAL THERAPY &amp; PERSONALIZED GUIDANCE
+            {lang === 'hi' ? 'क्रिस्टल थेरेपी एवं व्यक्तिगत मार्गदर्शन' : 'CRYSTAL THERAPY & PERSONALIZED GUIDANCE'}
           </h2>
           <p className="font-medium text-amber-900 text-sm sm:text-base mt-2">
-            Discover Crystals. Explore Traditional Practices. Create Your Personal Ritual.
+            {lang === 'hi'
+              ? 'क्रिस्टल्स की शक्ति पहचानें। पारंपरिक विधान अपनाएँ। अपनी ऊर्जा संतुलित करें।'
+              : 'Discover Crystals. Explore Traditional Practices. Create Your Personal Ritual.'}
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
             {lang === 'hi'
@@ -49,12 +51,12 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
         {/* Filter Pills / Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
           {[
-            { id: 'all', label: 'All Crystals' },
-            { id: 'wealth', label: 'Wealth & Business (Pyrite/Citrine)' },
-            { id: 'career', label: 'Career Luck (Aventurine/Tiger Eye)' },
-            { id: 'protection', label: 'Shield & Nazar (Black Tourmaline)' },
-            { id: 'peace', label: 'Mental Peace & Sleep (Amethyst)' },
-            { id: 'love', label: 'Heart & Relationships (Rose Quartz)' }
+            { id: 'all', label: lang === 'hi' ? 'सभी क्रिस्टल्स' : 'All Crystals' },
+            { id: 'wealth', label: lang === 'hi' ? 'धन एवं व्यापार (पायराइट/सिट्रीन)' : 'Wealth & Business (Pyrite/Citrine)' },
+            { id: 'career', label: lang === 'hi' ? 'करियर व भाग्य (एवेंच्यूरिन/टाइगर आई)' : 'Career Luck (Aventurine/Tiger Eye)' },
+            { id: 'protection', label: lang === 'hi' ? 'सुरक्षा कवच व नजर दोष (ब्लैक टूमलाइन)' : 'Shield & Nazar (Black Tourmaline)' },
+            { id: 'peace', label: lang === 'hi' ? 'मानसिक शांति व निद्रा (एमेथिस्ट/कटैला)' : 'Mental Peace & Sleep (Amethyst)' },
+            { id: 'love', label: lang === 'hi' ? 'प्रेम व पारिवारिक संबंध (रोज क्वार्ट्ज)' : 'Heart & Relationships (Rose Quartz)' }
           ].map((cat) => (
             <button
               key={cat.id}
@@ -92,7 +94,7 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
                         {crystal.category.toUpperCase()}
                       </span>
                       <span className="text-xs text-stone-500 font-mono">
-                        Ruling Nos: {crystal.rulingNumber.join(', ')}
+                        {lang === 'hi' ? 'शासक अंक: ' : 'Ruling Nos: '}{crystal.rulingNumber.join(', ')}
                       </span>
                     </div>
 
@@ -105,9 +107,9 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-amber-900">
-                    <span>Chakra: {crystal.chakra.split(' ')[0]}</span>
+                    <span>{lang === 'hi' ? 'चक्र: ' : 'Chakra: '}{crystal.chakra.split(' ')[0]}</span>
                     <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      Explore Ritual →
+                      {lang === 'hi' ? 'अनुष्ठान देखें →' : 'Explore Ritual →'}
                     </span>
                   </div>
                 </div>
@@ -120,10 +122,10 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
             <div className="border-b border-amber-100 pb-4 mb-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-widest text-amber-800">
-                  Detailed Ritual Profile
+                  {lang === 'hi' ? 'विस्तृत रत्न व अनुष्ठान परिचय' : 'Detailed Ritual Profile'}
                 </span>
                 <span className="text-xs bg-amber-100 text-amber-950 font-bold px-2 py-0.5 rounded">
-                  Chakra: {activeCrystal.chakra}
+                  {lang === 'hi' ? 'संबद्ध चक्र: ' : 'Chakra: '}{activeCrystal.chakra}
                 </span>
               </div>
               <h3 className="font-sacred text-2xl font-bold text-stone-900 mt-1">
@@ -131,7 +133,7 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
               </h3>
               {activeCrystal.sanskritName && (
                 <p className="text-xs text-amber-900 font-serif italic">
-                  Vedic Classification: {activeCrystal.sanskritName}
+                  {lang === 'hi' ? 'वैदिक वर्गीकरण: ' : 'Vedic Classification: '}{activeCrystal.sanskritName}
                 </p>
               )}
             </div>
@@ -144,7 +146,7 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
             <div className="mb-4 bg-amber-50/70 p-3.5 rounded-lg border border-amber-200/80">
               <span className="text-xs font-bold text-amber-950 block mb-1.5 flex items-center gap-1.5">
                 <Briefcase className="w-3.5 h-3.5 text-amber-700" />
-                Ideal Professions &amp; Roles:
+                {lang === 'hi' ? 'अनुकूल कार्यक्षेत्र व व्यवसाय:' : 'Ideal Professions & Roles:'}
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {activeCrystal.bestProfessions.map((prof, idx) => (
@@ -163,7 +165,7 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
               <div className="p-3 bg-stone-50 rounded-lg border border-stone-200">
                 <strong className="text-stone-900 block mb-1 flex items-center gap-1.5">
                   <Sun className="w-3.5 h-3.5 text-amber-600" />
-                  Cleansing &amp; Consecration Method:
+                  {lang === 'hi' ? 'शुद्धिकरण एवं प्राण-प्रतिष्ठा विधि:' : 'Cleansing & Consecration Method:'}
                 </strong>
                 <p>{activeCrystal.cleansingMethod}</p>
               </div>
@@ -171,14 +173,14 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
               <div className="p-3 bg-stone-50 rounded-lg border border-stone-200">
                 <strong className="text-stone-900 block mb-1 flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  How to Wear or Place:
+                  {lang === 'hi' ? 'धारण करने अथवा स्थापित करने की विधि:' : 'How to Wear or Place:'}
                 </strong>
                 <p>{activeCrystal.wearingMethod}</p>
               </div>
 
               <div className="p-3 bg-amber-900 text-amber-100 rounded-lg border border-amber-800">
                 <strong className="text-amber-300 block mb-1">
-                  Sacred Activation Affirmation:
+                  {lang === 'hi' ? 'पावन संकल्प एवं सिद्ध मंत्र:' : 'Sacred Activation Affirmation:'}
                 </strong>
                 <p className="font-serif italic text-xs">
                   "{activeCrystal.affirmation}"
@@ -191,7 +193,7 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
               className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 hover:to-amber-950 text-white font-bold py-2.5 rounded-lg shadow-sm text-xs transition-all"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-              <span>Request Personal Crystal Recommendation</span>
+              <span>{lang === 'hi' ? 'व्यक्तिगत क्रिस्टल परामर्श का निवेदन करें' : 'Request Personal Crystal Recommendation'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -201,10 +203,12 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
         <div className="bg-white rounded-xl border border-amber-200 p-6 sm:p-8">
           <div className="max-w-2xl mb-6">
             <h3 className="font-sacred text-lg sm:text-xl font-bold text-stone-900">
-              Crystals Matched by Profession &amp; Industry
+              {lang === 'hi' ? 'व्यवसाय व कार्यक्षेत्र के अनुसार क्रिस्टल चयन' : 'Crystals Matched by Profession & Industry'}
             </h3>
             <p className="text-xs text-stone-600 mt-1">
-              Select your domain to see the primary crystal combinations recommended by Randhir Singh:
+              {lang === 'hi'
+                ? 'अपने कार्यक्षेत्र का चयन करें और रणधीर सिंह जी द्वारा अनुशंसित प्रभावशाली क्रिस्टल्स देखें:'
+                : 'Select your domain to see the primary crystal combinations recommended by Randhir Singh:'}
             </p>
           </div>
 

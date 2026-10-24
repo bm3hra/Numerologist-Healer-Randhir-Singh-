@@ -12,13 +12,18 @@ export interface SpecializedHealingService {
   id: number;
   category: 'energy' | 'numerology' | 'mind' | 'plr';
   categoryLabel: string;
+  categoryLabelHi?: string;
   badge?: string;
+  badgeHi?: string;
   name: string;
   nameHi: string;
   price: string;
   duration?: string;
+  durationHi?: string;
   description: string;
+  descriptionHi?: string;
   note?: string;
+  noteHi?: string;
   confidential: boolean;
 }
 
@@ -27,125 +32,162 @@ export const SPECIALIZED_SERVICES_11: SpecializedHealingService[] = [
     id: 1,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
+    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
     name: 'Aura Cleaning',
     nameHi: 'आभा-मंडल शुद्धिकरण (Aura Cleaning)',
     price: '₹3,100',
     duration: '20 minutes',
+    durationHi: '२० मिनट',
     description: 'Aura cleaning is a sacred spiritual practice focusing on subtle energy balance, cleansing lingering dense energies to cultivate positivity, serenity, and inner awareness.',
+    descriptionHi: 'आभामंडल शुद्धिकरण एक पावन आध्यात्मिक पद्धति है जो सूक्ष्म ऊर्जा संतुलन, नकारात्मक ऊर्जा के निष्कासन और अंतर्मन में सकारात्मकता, शांति व आत्म-जागृति लाने पर केंद्रित है।',
     confidential: true
   },
   {
     id: 2,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
-    name: 'Negativity Healing',
-    nameHi: 'नकारात्मकता निवारण हीलिंग',
+    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
+    name: 'Negativity Removal & Salt Therapy',
+    nameHi: 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)',
     price: '₹5,100',
     duration: '30 minutes',
+    durationHi: '३० मिनट',
     description: 'This session assists in consciously dissipating negative thought patterns, emotional residue, and mental heaviness using harmonizing spiritual techniques.',
+    descriptionHi: 'यह सत्र पारंपरिक एवं आध्यात्मिक विधियों के माध्यम से नकारात्मक विचारों, मानसिक भारीपन और संचित भावनात्मक अवरोधों को दूर करने में सहायता करता है।',
     confidential: true
   },
   {
     id: 3,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
+    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
     badge: '7-Day Intensive',
+    badgeHi: '७ दिवसीय गहन साधना',
     name: 'Chakra Healing (7-Day Intensive)',
     nameHi: 'चक्र हीलिंग (7 दिवसीय गहन साधना)',
     price: '₹31,000',
     duration: '7 Days',
+    durationHi: '७ दिन',
     description: 'An intensive 7-day deep vibrational alignment addressing the 7 prime subtle chakras through meditation, sacred resonance, and transformative energy work.',
+    descriptionHi: 'ध्यान, पवित्र ध्वनियों और ऊर्जा रूपांतरण के माध्यम से शरीर के ७ प्रमुख चक्रों को संतुलित करने की ७ दिवसीय गहन आध्यात्मिक साधना।',
     confidential: true
   },
   {
     id: 4,
     category: 'numerology',
     categoryLabel: 'Numerological Correction',
+    categoryLabelHi: 'अंक ज्योतिष सुधार',
     name: 'Mobile Number Numerology Correction',
     nameHi: 'मोबाइल नंबर अंक ज्योतिष सुधार',
     price: '₹5,100',
     duration: 'Full Report & Audit',
+    durationHi: 'विस्तृत रिपोर्ट एवं विश्लेषण',
     description: 'Vedic numerological analysis of your mobile digits and vibrational frequencies to guide auspicious number combinations aligned with career and wealth.',
+    descriptionHi: 'आपके मोबाइल नंबर के अंकों और उनकी ऊर्जा तरंगों का वैदिक अंक ज्योतिषीय विश्लेषण, जो आपके करियर और धन प्रवाह के अनुकूल शुभ अंक संयोजन का मार्गदर्शन करता है।',
     confidential: true
   },
   {
     id: 5,
     category: 'numerology',
     categoryLabel: 'Numerological Correction',
+    categoryLabelHi: 'अंक ज्योतिष सुधार',
     name: 'Name Spelling & Numerology Correction',
     nameHi: 'नाम वर्तनी एवं अंक ज्योतिष सुधार (Chaldean)',
     price: '₹1,100',
     duration: 'Detailed Analysis',
+    durationHi: 'विस्तृत विश्लेषण',
     description: 'Comprehensive study of name syllables and compound vibrations to synchronize your name frequency with your Mulank and Bhagyank destiny rulers.',
+    descriptionHi: 'आपके मूलांक और भाग्यांक के अनुकूल तालमेल स्थापित करने हेतु काल्डियन पद्धति द्वारा नाम के अक्षरों व अक्षरों की ध्वनि ऊर्जा का संपूर्ण सुधार।',
     confidential: true
   },
   {
     id: 6,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
+    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
     name: 'Relationship & Harmony Healing',
     nameHi: 'संबंध एवं दांपत्य सौहार्द्र हीलिंग',
     price: '₹11,000',
     duration: '45-60 minutes',
+    durationHi: '४५-६० मिनट',
     description: 'Spiritual and awareness-based guidance to heal emotional discord, bridge communication barriers, and restore mutual compassion in relationships.',
+    descriptionHi: 'आपसी संबंधों में भावनात्मक खिंचाव को दूर करने, संवाद के अवरोधों को मिटाने और सौहार्द्र व प्रेम स्थापित करने हेतु आध्यात्मिक मार्गदर्शन।',
     confidential: true
   },
   {
     id: 7,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
+    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
     name: 'Sacred Sound Healing',
     nameHi: 'पवित्र ध्वनि उपचार (Sound Healing)',
     price: '₹11,000',
     duration: '45 minutes',
+    durationHi: '४५ मिनट',
     description: 'Harnessing sacred sound frequencies, singing bowls, resonant bells, and Vedic mantras to induce profound meditative states, cellular relaxation, and mental clarity.',
+    descriptionHi: 'तिब्बती सिंगिंग बाउल्स, घंटियों और पवित्र वैदिक मंत्रों की सूक्ष्म ध्वनि तरंगों द्वारा गहन ध्यान, कोशिकीय विश्रांति और मानसिक स्पष्टता का पावन अनुभव।',
     confidential: true
   },
   {
     id: 8,
     category: 'mind',
     categoryLabel: 'Mind Balance & Therapy',
+    categoryLabelHi: 'मन व शरीर संतुलन',
     name: 'Mind & Body Relaxation Therapy',
     nameHi: 'मन एवं देह विश्रांति थेरेपी',
     price: '₹5,100',
     duration: '45 minutes',
+    durationHi: '४५ मिनट',
     description: 'A guided therapeutic session centering on somatic de-stressing, conscious breathwork (Pranayama), and deep tranquility for nervous system reset.',
+    descriptionHi: 'शारीरिक तनाव मुक्ति, प्राणायाम (सचेतन श्वसन) और स्नायु तंत्र को शांत कर मानसिक विश्रांति प्रदान करने वाला एक निर्देशित सत्र।',
     confidential: true
   },
   {
     id: 9,
     category: 'mind',
     categoryLabel: 'Mind Balance & Therapy',
+    categoryLabelHi: 'मन व शरीर संतुलन',
     name: 'Anxiety & Emotional Support Therapy',
     nameHi: 'चिंता मुक्ति एवं संवेगात्मक संबल थेरेपी',
     price: '₹5,100',
     duration: '45 minutes',
+    durationHi: '४५ मिनट',
     description: 'Supportive spiritual mentorship cultivating mindfulness, calm grounding, and emotional resilience for those navigating anxiety or prolonged low moods.',
+    descriptionHi: 'चिंता, घबराहट या मानसिक तनाव से जूझ रहे साधकों के लिए मनःशांति, भावनात्मक संबल और सकारात्मक आत्मविश्वास विकसित करने वाला आध्यात्मिक मार्गदर्शन।',
     note: 'Important: This service is for spiritual and mindful support and is not a substitute for clinical medical treatment or psychiatric care.',
+    noteHi: 'महत्वपूर्ण सूचना: यह सेवा आध्यात्मिक एवं सचेतन मार्गदर्शन हेतु है तथा यह किसी चिकित्सीय या मनोचिकित्सीय उपचार का विकल्प नहीं है।',
     confidential: true
   },
   {
     id: 10,
     category: 'plr',
     categoryLabel: 'Deep Soul Exploration',
+    categoryLabelHi: 'पूर्व जन्म स्मृति अन्वेषण',
     badge: 'Specialized Session',
+    badgeHi: 'विशिष्ट सत्र',
     name: 'Past Life Regression (PLR) Session',
     nameHi: 'पूर्व जन्म स्मृति अन्वेषण (PLR Session)',
     price: '₹15,000',
     duration: '90-120 minutes',
+    durationHi: '९०-१२० मिनट',
     description: 'Past Life Regression spiritual exploration delving into soul impressions, karmic patterns, and deep subconscious emotional layers.',
+    descriptionHi: 'अवचेतन मन की गहराइयों, कार्मिक प्रवृत्तियों और आंतरिक प्रतीकों को समझने हेतु एक आध्यात्मिक व ध्यान-आधारित अन्वेषण सत्र।',
     note: 'PLR is understood as a spiritual meditative exploration of subconscious patterns and inner symbols rather than verified historic memories.',
+    noteHi: 'पीएलआर को ऐतिहासिक स्मृतियों के बजाय अवचेतन मन के प्रतीकों व कार्मिक प्रवृत्तियों की आध्यात्मिक खोज के रूप में समझा जाता है।',
     confidential: true
   },
   {
     id: 11,
     category: 'mind',
     categoryLabel: 'Mind Balance & Therapy',
+    categoryLabelHi: 'मन व शरीर संतुलन',
     name: 'Mind Peace Therapy',
     nameHi: 'मनः शांति एवं संतुलन थेरेपी',
     price: '₹5,100',
     duration: '45 minutes',
+    durationHi: '४५ मिनट',
     description: 'Gentle meditative practices focused on quieting overactive mental chatter, cultivating enduring peace, and restoring emotional equilibrium.',
+    descriptionHi: 'अशांत विचारों को शांत करने, मानसिक शांति को सुदृढ़ करने और भावनात्मक संतुलन पुनर्स्थापित करने हेतु सौम्य ध्यान साधना।',
     confidential: true
   }
 ];
@@ -330,7 +372,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                   className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 text-stone-950 font-bold py-3 px-4 rounded-xl text-xs sm:text-sm shadow-md transition-all"
                 >
                   <Sparkles className="w-4 h-4 text-stone-900" />
-                  <span>{lang === 'hi' ? 'फ्री रविवार स्लॉट बुक करें' : 'Claim Sunday Free Slot Now'}</span>
+                  <span>{lang === 'hi' ? 'रविवार का निःशुल्क परामर्श बुक करें' : 'Claim Sunday Free Slot Now'}</span>
                   <ArrowRight className="w-4 h-4 text-stone-900" />
                 </button>
               </div>
@@ -354,8 +396,8 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                   </h3>
                   <p className="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
                     {lang === 'hi'
-                      ? 'एक संपूर्ण व्यक्तिगत 1-on-1 परामर्श सत्र जिसमें वैदिक अंक ज्योतिष, वॉच एनालिसिस और व्यावहारिक उपायों द्वारा आपके जीवन, करियर व विवाह संबंधी प्रश्नों का समाधान किया जाता है।'
-                      : 'A personalized 1-on-1 consultation session dedicated to understanding your queries, life circumstances, and life path through Vedic wisdom, Watch Analysis, and Remedial Guidance.'}
+                      ? 'एक संपूर्ण व्यक्तिगत 1-on-1 परामर्श सत्र जिसमें वैदिक अंक ज्योतिष, घड़ी का विश्लेषण एवं चिकित्सीय परामर्श और व्यावहारिक उपायों द्वारा आपके जीवन, करियर व विवाह संबंधी प्रश्नों का समाधान किया जाता है।'
+                      : 'A personalized 1-on-1 consultation session dedicated to understanding your queries, life circumstances, and life path through Vedic wisdom, Watch Analysis & Therapeutic Watch Consultation, and Remedial Guidance.'}
                   </p>
 
                   <div className="my-5 p-4 bg-amber-50/80 rounded-xl border border-amber-200 flex items-center justify-between">
@@ -373,7 +415,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
 
                     <div className="text-right text-xs text-stone-600">
                       <span className="block font-bold text-amber-950">{lang === 'hi' ? 'सत्र में शामिल:' : 'Includes:'}</span>
-                      <span>{lang === 'hi' ? 'जन्म तिथि + घड़ी + नाम विश्लेषण' : 'DOB + Watch + Name review'}</span>
+                      <span>{lang === 'hi' ? 'जन्म तिथि + घड़ी का विश्लेषण + नाम' : 'DOB + Watch + Name review'}</span>
                     </div>
                   </div>
 
@@ -419,21 +461,21 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               <div className="border-t border-amber-200/80 pt-10 mb-6 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                    Targeted Restorative Sessions
+                    {lang === 'hi' ? 'विशेष उपचारात्मक सत्र' : 'Targeted Restorative Sessions'}
                   </span>
                   <h3 className="font-sacred text-xl sm:text-2xl font-bold text-stone-900">
-                    11 Specialized Healing &amp; Correction Services
+                    {lang === 'hi' ? '११ विशेष हीलिंग एवं सुधार सेवाएँ' : '11 Specialized Healing & Correction Services'}
                   </h3>
                 </div>
 
                 {/* Filter Pills */}
                 <div className="flex flex-wrap items-center gap-1.5">
                   {[
-                    { id: 'all', label: 'All Services (11)' },
-                    { id: 'energy', label: 'Energy & Healing (5)' },
-                    { id: 'numerology', label: 'Numerology Corrections (2)' },
-                    { id: 'mind', label: 'Mind Balance & Therapy (3)' },
-                    { id: 'plr', label: 'PLR Regression (1)' }
+                    { id: 'all', labelEn: 'All Services (11)', labelHi: 'सभी सेवाएँ (११)' },
+                    { id: 'energy', labelEn: 'Energy & Healing (5)', labelHi: 'ऊर्जा एवं हीलिंग (५)' },
+                    { id: 'numerology', labelEn: 'Numerology Corrections (2)', labelHi: 'अंक ज्योतिष सुधार (२)' },
+                    { id: 'mind', labelEn: 'Mind Balance & Therapy (3)', labelHi: 'मानसिक संतुलन एवं थेरेपी (३)' },
+                    { id: 'plr', labelEn: 'PLR Regression (1)', labelHi: 'पूर्व जन्म अन्वेषण (१)' }
                   ].map((f) => (
                     <button
                       key={f.id}
@@ -444,7 +486,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                           : 'bg-white text-stone-700 border border-stone-200 hover:border-amber-300'
                       }`}
                     >
-                      {f.label}
+                      {lang === 'hi' ? f.labelHi : f.labelEn}
                     </button>
                   ))}
                 </div>
@@ -466,11 +508,11 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                         <div className="flex items-center gap-1.5">
                           {svc.badge && (
                             <span className="text-[10px] font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
-                              {svc.badge}
+                              {lang === 'hi' ? svc.badgeHi || svc.badge : svc.badge}
                             </span>
                           )}
                           <span className="text-[10px] font-semibold text-stone-500 uppercase tracking-wider">
-                            {svc.categoryLabel}
+                            {lang === 'hi' ? svc.categoryLabelHi || svc.categoryLabel : svc.categoryLabel}
                           </span>
                         </div>
                       </div>
@@ -485,19 +527,19 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                         </span>
                         {svc.duration && (
                           <span className="text-[11px] font-medium text-stone-500">
-                            ⏱ {svc.duration}
+                            ⏱ {lang === 'hi' ? svc.durationHi || svc.duration : svc.duration}
                           </span>
                         )}
                       </div>
 
                       <p className="text-xs text-stone-600 leading-relaxed mb-3">
-                        {svc.description}
+                        {lang === 'hi' ? svc.descriptionHi || svc.description : svc.description}
                       </p>
 
                       {svc.note && (
                         <div className="bg-amber-50/80 p-2.5 rounded-lg border border-amber-200 text-[11px] text-amber-950 mb-3 flex items-start gap-1.5">
                           <AlertCircle className="w-3.5 h-3.5 text-amber-700 shrink-0 mt-0.5" />
-                          <p className="leading-snug">{svc.note}</p>
+                          <p className="leading-snug">{lang === 'hi' ? svc.noteHi || svc.note : svc.note}</p>
                         </div>
                       )}
                     </div>
@@ -505,14 +547,14 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                     <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
                       <span className="text-[11px] text-emerald-800 font-medium flex items-center gap-1">
                         <Shield className="w-3 h-3 text-emerald-600" />
-                        Confidential
+                        <span>{lang === 'hi' ? 'पूर्णतः गोपनीय' : 'Confidential'}</span>
                       </span>
 
                       <button
                         onClick={() => onBookService(svc.name, svc.price)}
                         className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 text-white font-bold py-1.5 px-3.5 rounded-lg text-xs transition-colors shadow-2xs"
                       >
-                        <span>Book Session</span>
+                        <span>{lang === 'hi' ? 'सत्र बुक करें' : 'Book Session'}</span>
                         <ArrowRight className="w-3 h-3 text-amber-300" />
                       </button>
                     </div>
@@ -539,13 +581,13 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               <div className="space-y-3 text-left">
                 <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-800 font-bold bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">
                   <Award className="w-3.5 h-3.5 text-amber-700" />
-                  <span>{lang === 'hi' ? 'वैदिक अंक ज्योतिषी एवं हीलर' : 'A Numerologist & Healer'}</span>
+                  <span>{lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}</span>
                 </div>
                 <h3 className="font-sacred text-2xl sm:text-3xl font-extrabold text-stone-900">
                   {lang === 'hi' ? 'रणधीर सिंह जी' : 'Randhir Singh Ji'}
                 </h3>
                 <p className="text-amber-900 font-medium text-sm">
-                  {lang === 'hi' ? '“अपनी जन्म तिथि को डिकोड करें। अपना जीवन एवं भाग्य बदलें।”' : '“Decode Your Date of Birth. Change Your Life and Destiny.”'}
+                  {lang === 'hi' ? '“अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।”' : '“DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.”'}
                 </p>
                 <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
                   {lang === 'hi'

@@ -74,14 +74,14 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            {lang === 'hi' ? 'सभी 16 पावन वैदिक एवं आध्यात्मिक सेवाएँ' : 'ALL 16 SACRED SERVICES'}
+            {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'ALL 16 SACRED SERVICES'}
           </h2>
           <p className="font-medium text-amber-900 text-sm sm:text-base mt-2">
-            {lang === 'hi' ? 'अपनी जन्म तिथि को डिकोड करें · अपना जीवन एवं भाग्य बदलें' : 'Decode Your Date of Birth · Change Your Life and Destiny'}
+            {lang === 'hi' ? 'अपनी जन्मतिथि के रहस्यों को जानें · अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।' : 'Decode Your Date of Birth · Change Your Life and Destiny'}
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
             {lang === 'hi'
-              ? 'अंक ज्योतिष, वॉच एनालिसिस, नमक शुद्धि (सॉल्ट थेरेपी), यंत्र एवं क्रिस्टल मार्गदर्शन की सभी 16 प्रमाणित सेवाएँ। प्रत्येक सेवा का एक स्वतंत्र, विस्तृत व्यक्तिगत पृष्ठ उपलब्ध है।'
+              ? 'अंक ज्योतिष, घड़ी विश्लेषण एवं थेरेपी, पारंपरिक नमक शुद्धिकरण, पवित्र यंत्र, हीलिंग कोड्स और आध्यात्मिक परामर्श सहित सभी 16 विशेष सेवाओं का अनुभव करें। प्रत्येक सेवा के लिए एक समर्पित अलग पृष्ठ उपलब्ध है, जहाँ आप उससे जुड़ी जानकारी, उसकी विशेषताओं और संबंधित प्रक्रिया के बारे में विस्तार से जान सकते हैं।'
               : 'Explore the complete repertoire of sacred numerology, watch therapy, traditional salt clearing, yantras, and healing services. Each service features its own dedicated individual page.'}
           </p>
           <div className="mt-3 inline-flex items-center gap-2 bg-amber-100/80 border border-amber-300/80 px-3 py-1 rounded-full text-[11px] font-bold text-amber-900">
@@ -96,8 +96,8 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
             {[
               { id: 'all', labelEn: 'All 16 Services', labelHi: 'सभी 16 सेवाएँ' },
               { id: 'numerology', labelEn: 'Numerology & DOB', labelHi: 'अंक ज्योतिष व जन्म तिथि' },
-              { id: 'watch', labelEn: 'Watch Analysis', labelHi: 'वॉच एनालिसिस' },
-              { id: 'salt', labelEn: 'Salt Therapy', labelHi: 'सॉल्ट थेरेपी' },
+              { id: 'watch', labelEn: 'Watch Consultation', labelHi: 'घड़ी का विश्लेषण' },
+              { id: 'salt', labelEn: 'Negativity Removal & Salt Therapy', labelHi: 'नमक चिकित्सा (सॉल्ट थेरेपी)' },
               { id: 'crystal', labelEn: 'Crystals', labelHi: 'क्रिस्टल थेरेपी' },
               { id: 'yantra', labelEn: 'Yantras', labelHi: 'पवित्र यंत्र' },
               { id: 'healing', labelEn: 'Healings & Codes', labelHi: 'हीलिंग एवं कोड्स' }
@@ -146,7 +146,27 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
 
                     {service.badge && (
                       <span className="text-[10px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                        {service.badge}
+                        {lang === 'hi' ? (() => {
+                          const badgeMap: Record<string, string> = {
+                            'Popular': 'अत्यधिक लोकप्रिय',
+                            'Signature Specialist': 'विशेषज्ञता प्राप्त',
+                            'Core Foundation': 'मूल आधार',
+                            'Unique Remedy': 'अद्वितीय उपाय',
+                            'Family Blessing': 'पारिवारिक वरदान',
+                            'High Impact': 'उच्च प्रभाव',
+                            'Sacred Cleansing': 'पवित्र शुद्धि',
+                            'Holistic Shield': 'ऊर्जा कवच',
+                            'Empowerment': 'आत्म-उत्थान',
+                            'Direct Healing': 'प्रत्यक्ष उपचार',
+                            'Frequency Code': 'ऊर्जा कोड',
+                            'Vedic Matrix': 'वैदिक यंत्र',
+                            'Divine Word': 'दिव्य शब्द',
+                            'Chakra Stone': 'चक्र रत्न',
+                            'Divine Aura': 'दिव्य आभामंडल',
+                            'Vedic Healing': 'वैदिक उपचार'
+                          };
+                          return badgeMap[service.badge] || service.badge;
+                        })() : service.badge}
                       </span>
                     )}
                   </div>

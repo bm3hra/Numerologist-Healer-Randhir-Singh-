@@ -476,7 +476,7 @@ export default function App() {
             <WatchAnalysisSection
               lang={lang as Language}
               onBookWatchConsultation={() =>
-                handleOpenBooking('Signature Watch Analysis & Therapy Watch', '₹1,800')
+                handleOpenBooking('Watch Analysis & Therapeutic Watch Consultation', '₹1,800')
               }
             />
 
@@ -484,7 +484,7 @@ export default function App() {
             <SaltTherapySection
               lang={lang as Language}
               onBookSaltSession={() =>
-                handleOpenBooking('Negativity Removal & Cleansing Salt Therapy', '₹5,100')
+                handleOpenBooking('Negativity Removal & Salt Therapy', '₹5,100')
               }
             />
 

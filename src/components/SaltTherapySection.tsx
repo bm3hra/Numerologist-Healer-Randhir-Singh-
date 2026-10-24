@@ -23,14 +23,18 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100/90 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Sparkles className="w-3.5 h-3.5 text-amber-700" />
-            <span>Traditional Holistic Cleansing</span>
+            <span>{lang === 'hi' ? 'पारंपरिक समग्र लवण शुद्धिकरण विधान' : 'Traditional Holistic Cleansing'}</span>
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            NEGATIVITY REMOVAL &amp; SALT THERAPY
+            {lang === 'hi'
+              ? 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)'
+              : 'NEGATIVITY REMOVAL & SALT THERAPY'}
           </h2>
           <p className="font-medium text-amber-900 text-sm sm:text-base mt-2">
-            {SALT_THERAPY_PHILOSOPHY.tagline}
+            {lang === 'hi'
+              ? 'सेंधा व समुद्री लवण द्वारा नकारात्मक ऊर्जा, नजर दोष एवं वास्तु अवरोधों का संपूर्ण निवारण'
+              : SALT_THERAPY_PHILOSOPHY.tagline}
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
             {lang === 'hi'
@@ -43,7 +47,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
         <div className="bg-amber-50/80 border border-amber-200/90 rounded-xl p-4 mb-10 max-w-4xl mx-auto flex items-start gap-3 text-xs text-amber-950">
           <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
           <p className="leading-relaxed">
-            <strong>Traditional Practice Note:</strong> {SALT_THERAPY_PHILOSOPHY.disclaimer}
+            <strong>{lang === 'hi' ? 'पारंपरिक आध्यात्मिक विधान निर्देश:' : 'Traditional Practice Note:'}</strong> {SALT_THERAPY_PHILOSOPHY.disclaimer}
           </p>
         </div>
 
@@ -52,7 +56,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
           {/* Left: Ritual Navigation List */}
           <div className="lg:col-span-5 space-y-3">
             <h3 className="font-sacred text-xs uppercase tracking-wider text-stone-500 font-bold px-1">
-              Select Cleansing Ritual:
+              {lang === 'hi' ? 'शुद्धिकरण विधान का चयन करें:' : 'Select Cleansing Ritual:'}
             </h3>
 
             {SALT_THERAPY_RITUALS.map((ritual) => {
@@ -108,16 +112,18 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
             <div className="bg-gradient-to-br from-amber-950 to-stone-900 text-amber-100 rounded-xl p-5 border border-amber-400/40 mt-4 space-y-3">
               <div className="flex items-center gap-2 text-amber-300 font-sacred text-xs font-bold uppercase tracking-wider">
                 <HeartHandshake className="w-4 h-4" />
-                <span>Specialized Cleansing Salts</span>
+                <span>{lang === 'hi' ? 'विशेष सिद्ध शोधक लवण (सॉल्ट)' : 'Specialized Cleansing Salts'}</span>
               </div>
               <p className="text-xs text-amber-200/90 leading-relaxed">
-                Consult with Randhir Singh for consecrated, mantra-energized cleansing salts infused with natural camphor, cloves, and Vedic herbs for stubborn home disputes and aura replenishment.
+                {lang === 'hi'
+                  ? 'घर के कलह, वास्तु दोष एवं आभा मंडल की शुद्धि हेतु रणधीर सिंह जी से वैदिक मंत्रों व जड़ी-बूटियों द्वारा अभिमंत्रित विशेष सेंधा नमक प्राप्त करें।'
+                  : 'Consult with Randhir Singh for consecrated, mantra-energized cleansing salts infused with natural camphor, cloves, and Vedic herbs for stubborn home disputes and aura replenishment.'}
               </p>
               <button
                 onClick={onBookSaltSession}
                 className="w-full inline-flex items-center justify-center gap-1.5 bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold py-2 rounded-lg text-xs transition-colors"
               >
-                Request Cleansing Salt Guidance
+                {lang === 'hi' ? 'शुद्धिकरण नमक परामर्श प्राप्त करें' : 'Request Cleansing Salt Guidance'}
               </button>
             </div>
           </div>
@@ -126,7 +132,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
           <div className="lg:col-span-7 bg-white rounded-2xl border-2 border-amber-200/90 p-6 sm:p-8 shadow-md">
             <div className="border-b border-amber-100 pb-5 mb-6">
               <span className="text-[11px] uppercase tracking-wider font-bold text-amber-700">
-                Traditional Ritual Protocol
+                {lang === 'hi' ? 'पारंपरिक अनुष्ठान विधि' : 'Traditional Ritual Protocol'}
               </span>
               <h3 className="font-sacred text-xl sm:text-2xl font-bold text-stone-900 mt-1">
                 {lang === 'hi' ? selectedRitual.titleHi : selectedRitual.titleEn}
@@ -137,10 +143,10 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
 
               <div className="flex flex-wrap items-center gap-4 mt-4 text-xs text-stone-600">
                 <span className="bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200/60 font-medium">
-                  ⏳ <strong>Duration:</strong> {selectedRitual.duration}
+                  ⏳ <strong>{lang === 'hi' ? 'अवधि:' : 'Duration:'}</strong> {selectedRitual.duration}
                 </span>
                 <span className="bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200/60 font-medium">
-                  🌅 <strong>Ideal Timing:</strong> {selectedRitual.idealTime}
+                  🌅 <strong>{lang === 'hi' ? 'उत्तम समय:' : 'Ideal Timing:'}</strong> {selectedRitual.idealTime}
                 </span>
               </div>
 
@@ -158,10 +164,12 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
                 <div className="flex-1 text-[11px] space-y-0.5">
                   <div className="text-amber-300 font-bold font-sacred uppercase tracking-wider flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span>Bio-Energetic Ionic Extraction Wave</span>
+                    <span>{lang === 'hi' ? 'प्राण ऊर्जा आयनिक शुद्धि तरंग' : 'Bio-Energetic Ionic Extraction Wave'}</span>
                   </div>
                   <p className="text-stone-300 text-[10px] leading-relaxed">
-                    Unprocessed Himalayan crystals emit negative ions that bond with and neutralize static psychic fatigue, dissolving heavy auric impressions into saline brine.
+                    {lang === 'hi'
+                      ? 'प्राकृतिक हिमालयी सेंधा नमक नकारात्मक ऊर्जा को सोखकर आभा-मंडल की थकान व मानसिक तनाव को लवण जल में विसर्जित करता है।'
+                      : 'Unprocessed Himalayan crystals emit negative ions that bond with and neutralize static psychic fatigue, dissolving heavy auric impressions into saline brine.'}
                   </p>
                 </div>
               </div>
@@ -170,7 +178,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
             {/* Ingredients Needed */}
             <div className="mb-6">
               <h4 className="text-xs font-bold uppercase tracking-wider text-stone-800 mb-2.5">
-                Required Elements &amp; Ingredients:
+                {lang === 'hi' ? 'आवश्यक सामग्री व घटक:' : 'Required Elements & Ingredients:'}
               </h4>
               <ul className="space-y-1.5">
                 {selectedRitual.ingredients.map((ing, idx) => (
@@ -185,7 +193,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
             {/* Step-by-Step Procedure */}
             <div className="mb-6">
               <h4 className="text-xs font-bold uppercase tracking-wider text-stone-800 mb-3">
-                Step-by-Step Execution:
+                {lang === 'hi' ? 'चरणबद्ध अनुष्ठान विधि:' : 'Step-by-Step Execution:'}
               </h4>
               <div className="space-y-3">
                 {selectedRitual.procedure.map((step, idx) => (
@@ -206,7 +214,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
               <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-xl p-4">
                 <span className="text-xs font-bold text-emerald-900 flex items-center gap-1.5 mb-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  Primary Benefits:
+                  {lang === 'hi' ? 'प्रमुख आध्यात्मिक लाभ:' : 'Primary Benefits:'}
                 </span>
                 <ul className="text-xs text-emerald-950 space-y-1 pl-4 list-disc">
                   {selectedRitual.benefits.map((b, idx) => (
@@ -217,7 +225,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
 
               <div className="bg-stone-100/70 border border-stone-200 rounded-xl p-4">
                 <span className="text-xs font-bold text-stone-800 block mb-2">
-                  Traditional Precautions:
+                  {lang === 'hi' ? 'पारंपरिक सावधानियाँ:' : 'Traditional Precautions:'}
                 </span>
                 <ul className="text-xs text-stone-600 space-y-1 pl-4 list-disc">
                   {selectedRitual.precautions.map((p, idx) => (
@@ -229,7 +237,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
 
             {/* Consultant Note */}
             <div className="bg-amber-100/60 rounded-xl p-4 border border-amber-300/70 text-xs text-amber-950 flex items-start gap-3">
-              <span className="font-sacred font-bold shrink-0">💡 Note:</span>
+              <span className="font-sacred font-bold shrink-0">{lang === 'hi' ? '💡 विशेष सुझाव:' : '💡 Note:'}</span>
               <p className="leading-relaxed">
                 {selectedRitual.consultantNote}
               </p>

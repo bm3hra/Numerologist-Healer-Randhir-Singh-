@@ -63,6 +63,15 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
     synergyPoints.push(`Lo-Shu Mutual Grid Blessing: Person B fills missing numbers [${mutualCompletedNumbers.join(', ')}] in Person A's grid, creating psychological wholeness.`);
   }
 
+  const loshuPositions = [
+    [4, 9, 2],
+    [3, 5, 7],
+    [8, 1, 6]
+  ];
+
+  const bFillsA = profileA.missingNumbers.filter((m) => profileB.presentNumbers.includes(m));
+  const aFillsB = profileB.missingNumbers.filter((m) => profileA.presentNumbers.includes(m));
+
   // Normalize score
   score = Math.min(96, Math.max(48, score));
 
@@ -212,6 +221,102 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
 
               <div className="p-3 bg-stone-50 rounded-lg text-xs text-stone-600">
                 <strong>Driver:</strong> {profileB.driverNumber} ({PLANETARY_ARCHETYPES[profileB.driverNumber].planet}) · <strong>Conductor:</strong> {profileB.conductorNumber}
+              </div>
+            </div>
+          </div>
+
+          {/* Visual Dual Lo-Shu Grids with Complementary Highlights */}
+          <div className="mt-6 pt-6 border-t border-stone-200">
+            <div className="text-center mb-4">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-900 bg-amber-100 px-3 py-1 rounded-md border border-amber-300">
+                Visual Dual Lo-Shu Grid Synastry
+              </span>
+              <p className="text-xs text-stone-600 mt-1">
+                Numbers glowing in emerald are missing voids in one partner's grid that are healed by the other partner!
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              {/* Partner A Lo-Shu Grid */}
+              <div className="bg-amber-50/70 p-4 rounded-xl border border-amber-300 text-center">
+                <span className="text-xs font-bold text-amber-950 block mb-2">
+                  Partner A Lo-Shu Grid ({dayA}/{monthA}/{yearA})
+                </span>
+                <div className="grid grid-cols-3 gap-2 max-w-[210px] mx-auto">
+                  {loshuPositions.map((row) =>
+                    row.map((num) => {
+                      const count = profileA.loShuCounts[num] || 0;
+                      const isFillsFromB = count === 0 && profileB.presentNumbers.includes(num);
+                      const isDriver = num === profileA.driverNumber;
+                      const isConductor = num === profileA.conductorNumber;
+
+                      return (
+                        <div
+                          key={num}
+                          className={`aspect-square rounded-lg flex flex-col items-center justify-center p-1 font-mono text-xs font-bold transition-all ${
+                            count > 0
+                              ? 'bg-amber-800 text-white shadow-2xs'
+                              : isFillsFromB
+                              ? 'bg-emerald-100 text-emerald-900 border-2 border-emerald-500 shadow-xs'
+                              : 'bg-stone-200 text-stone-400 border border-dashed border-stone-300'
+                          }`}
+                        >
+                          <span className="text-[9px] opacity-75">P{num}</span>
+                          <span className="text-sm font-black">
+                            {count > 0 ? Array.from({ length: count }, () => num).join('') : isFillsFromB ? `+${num}` : '-'}
+                          </span>
+                          {isDriver && <span className="text-[7px] text-amber-200 leading-none">Driver</span>}
+                          {isConductor && !isDriver && <span className="text-[7px] text-amber-200 leading-none">Cond</span>}
+                          {isFillsFromB && <span className="text-[7px] text-emerald-800 font-bold leading-none">By B</span>}
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
+                <div className="text-[10px] text-stone-600 mt-2">
+                  Missing: [{profileA.missingNumbers.join(', ')}]
+                </div>
+              </div>
+
+              {/* Partner B Lo-Shu Grid */}
+              <div className="bg-amber-50/70 p-4 rounded-xl border border-amber-300 text-center">
+                <span className="text-xs font-bold text-amber-950 block mb-2">
+                  Partner B Lo-Shu Grid ({dayB}/{monthB}/{yearB})
+                </span>
+                <div className="grid grid-cols-3 gap-2 max-w-[210px] mx-auto">
+                  {loshuPositions.map((row) =>
+                    row.map((num) => {
+                      const count = profileB.loShuCounts[num] || 0;
+                      const isFillsFromA = count === 0 && profileA.presentNumbers.includes(num);
+                      const isDriver = num === profileB.driverNumber;
+                      const isConductor = num === profileB.conductorNumber;
+
+                      return (
+                        <div
+                          key={num}
+                          className={`aspect-square rounded-lg flex flex-col items-center justify-center p-1 font-mono text-xs font-bold transition-all ${
+                            count > 0
+                              ? 'bg-stone-900 text-white shadow-2xs'
+                              : isFillsFromA
+                              ? 'bg-emerald-100 text-emerald-900 border-2 border-emerald-500 shadow-xs'
+                              : 'bg-stone-200 text-stone-400 border border-dashed border-stone-300'
+                          }`}
+                        >
+                          <span className="text-[9px] opacity-75">P{num}</span>
+                          <span className="text-sm font-black">
+                            {count > 0 ? Array.from({ length: count }, () => num).join('') : isFillsFromA ? `+${num}` : '-'}
+                          </span>
+                          {isDriver && <span className="text-[7px] text-amber-300 leading-none">Driver</span>}
+                          {isConductor && !isDriver && <span className="text-[7px] text-amber-300 leading-none">Cond</span>}
+                          {isFillsFromA && <span className="text-[7px] text-emerald-800 font-bold leading-none">By A</span>}
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
+                <div className="text-[10px] text-stone-600 mt-2">
+                  Missing: [{profileB.missingNumbers.join(', ')}]
+                </div>
               </div>
             </div>
           </div>
