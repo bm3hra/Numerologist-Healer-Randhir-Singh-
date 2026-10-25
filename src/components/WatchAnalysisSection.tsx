@@ -74,7 +74,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
           ))}
         </div>
 
-        {/* Precision Therapy Watches Exhibition — Master Randhir Singh Bespoke Masterpiece */}
+        {/* Precision Therapy Watches Exhibition — Numerologist & Healer · Randhir Singh Bespoke Masterpiece */}
         <div className="bg-gradient-to-br from-stone-950 via-[#0d1627] to-stone-900 rounded-3xl border-2 border-amber-400/90 shadow-2xl p-6 sm:p-10 mb-14 text-white relative overflow-hidden">
           {/* Subtle cosmic background ambient glows */}
           <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-blue-600/15 blur-3xl pointer-events-none" />
@@ -92,8 +92,8 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                 </div>
                 <h3 className="font-sacred text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                   {lang === 'hi'
-                    ? 'मास्टर रणधीर सिंह सिग्नेचर थेरेपी वॉच · 18K गोल्ड व रॉयल ब्लू'
-                    : 'Master Randhir Singh Signature Victorinox Therapy Watch'}
+                    ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह सिग्नेचर थेरेपी वॉच · 18K गोल्ड व रॉयल ब्लू'
+                    : 'Numerologist & Healer · Randhir Singh Signature Victorinox Therapy Watch'}
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-300 mt-1 max-w-2xl">
                   {lang === 'hi'
@@ -117,7 +117,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                 <div className="relative w-64 sm:w-76 md:w-84 aspect-square rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-[0_0_40px_rgba(245,158,11,0.25)] group bg-stone-950 p-2">
                   <img
                     src="/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png"
-                    alt="Master Randhir Singh Luxury Gold and Royal Blue Victorinox Precision Therapy Watch"
+                    alt="Numerologist & Healer · Randhir Singh Luxury Gold and Royal Blue Victorinox Precision Therapy Watch"
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
                     loading="lazy"
                   />
@@ -131,8 +131,8 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                 <div className="mt-3 text-center">
                   <span className="text-[11px] text-amber-300/90 font-medium">
                     {lang === 'hi'
-                      ? 'हस्तनिर्मित व वैदिक मंत्रों से अभिमंत्रित · मास्टर रणधीर सिंह'
-                      : 'Personally Consecrated & Vedic Energized · Master Randhir Singh'}
+                      ? 'हस्तनिर्मित व वैदिक मंत्रों से अभिमंत्रित · अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह'
+                      : 'Personally Consecrated & Vedic Energized · Numerologist & Healer · Randhir Singh'}
                   </span>
                 </div>
               </div>
@@ -705,8 +705,8 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>
                       {lang === 'hi'
-                        ? `मास्टर रणधीर सिंह जी द्वारा मूलांक ${userDriver} (${PLANETARY_ARCHETYPES[userDriver].planet.split(' ')[0]}) हेतु अनुकूल घड़ी निर्देश:`
-                        : `Master Randhir Singh’s Driver ${userDriver} (${PLANETARY_ARCHETYPES[userDriver].planet.split(' ')[0]}) Watch Calibration:`}
+                        ? `अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी द्वारा मूलांक ${userDriver} (${PLANETARY_ARCHETYPES[userDriver].planet.split(' ')[0]}) हेतु अनुकूल घड़ी निर्देश:`
+                        : `Numerologist & Healer · Randhir Singh’s Driver ${userDriver} (${PLANETARY_ARCHETYPES[userDriver].planet.split(' ')[0]}) Watch Calibration:`}
                     </span>
                   </div>
                   <p className="text-[11px] text-stone-700 leading-relaxed">
@@ -774,7 +774,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                   className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 hover:to-amber-950 text-white font-semibold py-2.5 px-4 rounded-lg shadow-sm text-xs transition-all"
                 >
                   <Watch className="w-4 h-4 text-amber-300" />
-                  <span>{lang === 'hi' ? 'मास्टर रणधीर सिंह जी से व्यक्तिगत घड़ी परामर्श प्राप्त करें' : 'Get Master Randhir’s Personal Watch Analysis'}</span>
+                  <span>{lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी से व्यक्तिगत घड़ी परामर्श प्राप्त करें' : 'Get Numerologist & Healer · Randhir Singh’s Personal Watch Analysis'}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>

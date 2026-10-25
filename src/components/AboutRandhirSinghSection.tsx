@@ -25,14 +25,14 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
   {
     id: 'photo_portrait_formal',
     titleEn: 'Enhanced Portrait of Randhir Singh — Official Formal Portrait',
-    titleHi: 'मास्टर रणधीर सिंह — आधिकारिक गरिमामय पोर्ट्रेट',
+    titleHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह — आधिकारिक गरिमामय पोर्ट्रेट',
     category: 'portraits',
     categoryLabelEn: 'Master Portrait',
     categoryLabelHi: 'मास्टर पोर्ट्रेट',
     imageUrl: '/assets/aistudio/Randhir_Singh_8dc81223.png',
-    captionEn: 'High-definition formal portrait of Master Randhir Singh in azure blue formal attire with pocket pens and official nameplate, radiating calm authority, clarity, and mastery in Vedic numerology and pulse horology.',
-    captionHi: 'मास्टर रणधीर सिंह का आधिकारिक गरिमामय पोर्ट्रेट। रॉयल ब्लू औपचारिक परिधान एवं नेमप्लेट में वैदिक ज्ञान, सकारात्मकता एवं दशकों के अनुभव का जीवंत स्वरूप।',
-    tags: ['Master Randhir Singh', 'Jaipur Sanctuary', 'Vedic Numerologist', 'Enhanced Portrait']
+    captionEn: 'High-definition formal portrait of Numerologist & Healer · Randhir Singh in azure blue formal attire with pocket pens and official nameplate, radiating calm authority, clarity, and mastery in Vedic numerology and pulse horology.',
+    captionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का आधिकारिक गरिमामय पोर्ट्रेट। रॉयल ब्लू औपचारिक परिधान एवं नेमप्लेट में वैदिक ज्ञान, सकारात्मकता एवं दशकों के अनुभव का जीवंत स्वरूप।',
+    tags: ['Numerologist & Healer · Randhir Singh', 'Jaipur Sanctuary', 'Vedic Numerologist', 'Enhanced Portrait']
   },
 
   // 2. Official Visiting Card Front (16 Sacred Services)
@@ -45,7 +45,7 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     categoryLabelHi: 'विजिटिंग कार्ड',
     imageUrl: '/assets/aistudio/Card-Back_682c94ca.jpg',
     captionEn: 'Authentic visiting card specifying all 16 sacred services: Numerology Consultation, Watch Analysis, Date of Birth Analysis, Therapy Watches, Child Birth Dates, Mobile Number Analysis, Negativity Removal & Salt Therapy, Name Corrections, Marriage & Health Remedies, Grid Matching, Health Switch Words, Spiritual & Pranic Healings, Sacred Healing Codes, DOB Yantras, Special Business/Job Yantras, and Growth Crystals.',
-    captionHi: 'मास्टर रणधीर सिंह का अधिकृत विजिटिंग कार्ड जिसमें अंक ज्योतिष, वॉच एनालिसिस, थेरेपी वॉचेस, नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी), यंत्र एवं हीलिंग कोड्स सहित सभी 16 प्रमुख सेवाओं का संपूर्ण विवरण अंकित है।',
+    captionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का अधिकृत विजिटिंग कार्ड जिसमें अंक ज्योतिष, वॉच एनालिसिस, थेरेपी वॉचेस, नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी), यंत्र एवं हीलिंग कोड्स सहित सभी 16 प्रमुख सेवाओं का संपूर्ण विवरण अंकित है।',
     tags: ['Visiting Card', '16 Sacred Services', 'Om Shri Ganeshay Namh', 'Remedies']
   },
 
@@ -73,7 +73,7 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     categoryLabelHi: 'दीक्षांत पोर्ट्रेट',
     imageUrl: '/assets/about/proud-graduation-portrait-golden-tassel.svg',
     captionEn: 'Ceremonial full-length graduation portrait in black doctoral convocation gown, formal three-piece suit, patterned blue tie with tie clip, and mortarboard cap with radiant golden yellow tassel against champagne drapery.',
-    captionHi: 'भव्य दीक्षांत समारोह गाउन, सूट, सिल्क टाई क्लिप एवं सुनहरे पीले फुंदने से सुशोभित कैप में मास्टर रणधीर सिंह का गौरवशाली उपाधि चित्र।',
+    captionHi: 'भव्य दीक्षांत समारोह गाउन, सूट, सिल्क टाई क्लिप एवं सुनहरे पीले फुंदने से सुशोभित कैप में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का गौरवशाली उपाधि चित्र।',
     tags: ['Golden Tassel', 'Graduation Robe', 'Convocation 2024', 'Doctoral Regalia']
   },
 
@@ -86,8 +86,8 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     categoryLabelEn: 'Scholars Wall',
     categoryLabelHi: 'विद्वत स्मृति दीवार',
     imageUrl: '/assets/about/randhir-singh-collage-wall.svg',
-    captionEn: 'Master Randhir Singh in tailored black two-piece suit and patterned blue silk tie presenting the commemorative tree wall featuring certified numerology leaders and fellow practitioners across India.',
-    captionHi: 'काले औपचारिक सूट व नीली सिल्क टाई में मास्टर रणधीर सिंह, भारत भर के प्रमाणित अंक शास्त्रियों की ज्ञान-वृक्ष स्मृति दीवार का भावपूर्ण प्रदर्शन करते हुए।',
+    captionEn: 'Numerologist & Healer · Randhir Singh in tailored black two-piece suit and patterned blue silk tie presenting the commemorative tree wall featuring certified numerology leaders and fellow practitioners across India.',
+    captionHi: 'काले औपचारिक सूट व नीली सिल्क टाई में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह, भारत भर के प्रमाणित अंक शास्त्रियों की ज्ञान-वृक्ष स्मृति दीवार का भावपूर्ण प्रदर्शन करते हुए।',
     tags: ['Community Wall', 'Black Suit', 'Fellow Numerologists', 'Tree of Knowledge']
   },
 
@@ -100,8 +100,8 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     categoryLabelEn: 'Academic Award',
     categoryLabelHi: 'अकादमिक पुरस्कार',
     imageUrl: '/assets/about/proud-convocation-achievement-delhi.svg',
-    captionEn: 'Master Randhir Singh in academic graduation gown and golden tassel cap proudly holding the framed Royal Skills Academy Certificate (Regd. No. 10115) and 3-star wooden shield plaque from Dr. Rohit Sachdev (11th June 2024, Navgal Saikk Academy, New Delhi).',
-    captionHi: 'दीक्षांत पोशाक एवं स्वर्ण फुंदने वाली कैप में मास्टर रणधीर सिंह। रॉयल स्किल्स एकेडमी प्रमाण-पत्र (पंजीकरण 10115) तथा डॉ. रोहित सचदेव द्वारा प्रदत्त 3-स्टार काष्ठ स्मृति-चिह्न के साथ।',
+    captionEn: 'Numerologist & Healer · Randhir Singh in academic graduation gown and golden tassel cap proudly holding the framed Royal Skills Academy Certificate (Regd. No. 10115) and 3-star wooden shield plaque from Dr. Rohit Sachdev (11th June 2024, Navgal Saikk Academy, New Delhi).',
+    captionHi: 'दीक्षांत पोशाक एवं स्वर्ण फुंदने वाली कैप में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह। रॉयल स्किल्स एकेडमी प्रमाण-पत्र (पंजीकरण 10115) तथा डॉ. रोहित सचदेव द्वारा प्रदत्त 3-स्टार काष्ठ स्मृति-चिह्न के साथ।',
     tags: ['Royal Skills Academy', 'Regd 10115', 'Dr. Rohit Sachdev', 'Advance Numerology']
   },
 
@@ -114,7 +114,7 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     categoryLabelEn: 'Convocation Podium',
     categoryLabelHi: 'दीक्षांत मंच',
     imageUrl: '/assets/about/randhir-singh-at-convocation-podium.svg',
-    captionEn: 'Master Randhir Singh addressing international delegates from the official podium with golden nameplate pinned to his suit lapel, speaking on the historic 2nd Mega Convocation stage in New Delhi.',
+    captionEn: 'Numerologist & Healer · Randhir Singh addressing international delegates from the official podium with golden nameplate pinned to his suit lapel, speaking on the historic 2nd Mega Convocation stage in New Delhi.',
     captionHi: 'सूट लैपल पर रणधीर सिंह नेमप्लेट के साथ पोडियम से देश-विदेश से पधारे अंक ज्योतिष शोधार्थियों एवं साधकों को संबोधित करते हुए।',
     tags: ['Podium Speech', 'Nameplate', 'New Delhi Convention', '8th June 2024']
   },
@@ -226,8 +226,8 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     categoryLabelEn: 'Therapy Watch',
     categoryLabelHi: 'थेरेपी वॉच',
     imageUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
-    captionEn: 'Master Randhir Singh’s consecrated Victorinox 18K Gold & Royal Azure Precision Therapy Watch. Designed with central golden Om (ॐ) mandala, dual protective inscriptions "NUMEROLOGY GUIDANCE" and "HEALING ENERGY POSITIVITY", Master Number 22 date aperture, and a divine golden blooming lotus at 6 o\'clock.',
-    captionHi: 'मास्टर रणधीर सिंह द्वारा सिद्ध विक्टोरिनॉक्स 18K स्वर्ण व रॉयल ब्लू थेरेपी वॉच। डायल पर स्वर्ण ॐ यंत्र, "न्यूमेरोलॉजी गाइडेंस", "हीलिंग एनर्जी पॉजिटिविटी", मास्टर नंबर 22 दिनांक विंडो और दिव्य स्वर्ण कमल पुष्प अंकित है।',
+    captionEn: 'Numerologist & Healer · Randhir Singh’s consecrated Victorinox 18K Gold & Royal Azure Precision Therapy Watch. Designed with central golden Om (ॐ) mandala, dual protective inscriptions "NUMEROLOGY GUIDANCE" and "HEALING ENERGY POSITIVITY", Master Number 22 date aperture, and a divine golden blooming lotus at 6 o\'clock.',
+    captionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा सिद्ध विक्टोरिनॉक्स 18K स्वर्ण व रॉयल ब्लू थेरेपी वॉच। डायल पर स्वर्ण ॐ यंत्र, "न्यूमेरोलॉजी गाइडेंस", "हीलिंग एनर्जी पॉजिटिविटी", मास्टर नंबर 22 दिनांक विंडो और दिव्य स्वर्ण कमल पुष्प अंकित है।',
     tags: ['Victorinox Gold & Blue', 'Om Mandala', 'Master Number 22', 'Radial Pulse', 'Lotus 6 O\'Clock']
   },
 
@@ -240,7 +240,7 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     categoryLabelEn: 'Diagnostic Station',
     categoryLabelHi: 'डायग्नोस्टिक वॉच',
     imageUrl: '/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png',
-    captionEn: 'Master Randhir Singh’s bespoke Victorinox precision diagnostic watch in solid 18K yellow gold with pristine ceramic pearl white bezel and textured Guilloche dial. Features central golden Om (ॐ) 12-petal yantra mandala, dual protective mantras, and Master Number 22 date aperture.',
+    captionEn: 'Numerologist & Healer · Randhir Singh’s bespoke Victorinox precision diagnostic watch in solid 18K yellow gold with pristine ceramic pearl white bezel and textured Guilloche dial. Features central golden Om (ॐ) 12-petal yantra mandala, dual protective mantras, and Master Number 22 date aperture.',
     captionHi: 'विक्टोरिनॉक्स 18K स्वर्ण एवं शुद्ध पर्ल व्हाइट सिरेमिक थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, सुरक्षा मंत्र, 6 बजे मास्टर नंबर 22 दिनांक विंडो और स्वर्ण कमल पुष्प स्थापित है।',
     tags: ['Pearl White Ceramic', '18K Yellow Gold', 'Guilloche Dial', 'Om ॐ Yantra', 'Master 22']
   },
@@ -301,7 +301,7 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
           </div>
 
           <h2 className="font-sacred text-3xl sm:text-5xl font-extrabold text-stone-900 tracking-tight">
-            {lang === 'hi' ? 'मास्टर रणधीर सिंह जी का परिचय' : 'About Master Randhir Singh Ji'}
+            {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी का परिचय' : 'About Numerologist & Healer · Randhir Singh Ji'}
           </h2>
 
           <p className="font-sacred text-amber-900 font-semibold text-base sm:text-lg mt-2">
@@ -326,7 +326,7 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
                   {lang === 'hi' ? 'जयपुर आध्यात्मिक पीठ' : 'Jaipur Spiritual Sanctuary'}
                 </span>
                 <h3 className="font-sacred text-2xl sm:text-3xl font-extrabold text-white mt-1">
-                  Master Randhir Singh (रणधीर सिंह)
+                  Numerologist & Healer · Randhir Singh (रणधीर सिंह)
                 </h3>
                 <p className="text-xs sm:text-sm text-amber-200/80 mt-1">
                   Senior Vedic Numerologist · Horology Pulse Resonance Consultant · Pranic &amp; Crystal Healer
@@ -348,12 +348,12 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
               <div className="relative w-64 sm:w-72 aspect-4/5 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-lg group bg-stone-900">
                 <img
                   src="/assets/aistudio/Randhir_Singh_8dc81223.png"
-                  alt="Master Randhir Singh Formal Portrait"
+                  alt="Numerologist & Healer · Randhir Singh Formal Portrait"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute bottom-3 inset-x-3 bg-stone-950/85 backdrop-blur-xs border border-amber-400/50 p-2 rounded-lg text-center">
-                  <span className="text-xs font-bold text-amber-200 block">Master Randhir Singh</span>
+                  <span className="text-xs font-bold text-amber-200 block">Numerologist & Healer · Randhir Singh</span>
                   <span className="text-[10px] text-stone-300">
                     {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · जयपुर' : 'Numerologist & Healer · Jaipur'}
                   </span>
@@ -367,11 +367,11 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
                 <p>
                   {lang === 'hi' ? (
                     <>
-                      <strong>मास्टर रणधीर सिंह</strong> जयपुर (राजस्थान) के सुविख्यात एवं वरिष्ठ वैदिक अंक ज्योतिषी, आध्यात्मिक हीलर एवं उपाय विशेषज्ञ हैं। विगत कई वर्षों से वे देश-विदेश के हजारों साधकों, उद्योगपतियों, कॉर्पोरेट लीडर्स एवं परिवारों को जन्म तिथि डिकोडिंग, करियर उन्नति, वैवाहिक सामंजस्य एवं आर्थिक स्थिरता हेतु प्रामाणिक मार्गदर्शन प्रदान कर रहे हैं।
+                      <strong>अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह</strong> जयपुर (राजस्थान) के सुविख्यात एवं वरिष्ठ वैदिक अंक ज्योतिषी, आध्यात्मिक हीलर एवं उपाय विशेषज्ञ हैं। विगत कई वर्षों से वे देश-विदेश के हजारों साधकों, उद्योगपतियों, कॉर्पोरेट लीडर्स एवं परिवारों को जन्म तिथि डिकोडिंग, करियर उन्नति, वैवाहिक सामंजस्य एवं आर्थिक स्थिरता हेतु प्रामाणिक मार्गदर्शन प्रदान कर रहे हैं।
                     </>
                   ) : (
                     <>
-                      <strong>Master Randhir Singh</strong> is a celebrated Vedic Numerologist, Pulse Horology Expert, and Spiritual Healer based in Jaipur, Rajasthan. Serving seekers, business founders, and families across all 24 major Indian and international languages, his practice synthesizes authentic 3x3 Lo-Shu magic square vibrations with modern subconscious science.
+                      <strong>Numerologist & Healer · Randhir Singh</strong> is a celebrated Vedic Numerologist, Pulse Horology Expert, and Spiritual Healer based in Jaipur, Rajasthan. Serving seekers, business founders, and families across all 24 major Indian and international languages, his practice synthesizes authentic 3x3 Lo-Shu magic square vibrations with modern subconscious science.
                     </>
                   )}
                 </p>
@@ -383,7 +383,7 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
                     </>
                   ) : (
                     <>
-                      Honored with the prestigious Royal Skills Academy doctoral convocation regalia (Regd. No. 10115) and keynote speaker recognition at the 2nd Mega Convocation at Radisson Blu, Master Randhir Singh is internationally renowned for his pioneer breakthroughs in <strong>Horological Pulse Resonance (Wristwatch Therapy)</strong> and <strong>Sendha Rock Salt Aura Shielding</strong>.
+                      Honored with the prestigious Royal Skills Academy doctoral convocation regalia (Regd. No. 10115) and keynote speaker recognition at the 2nd Mega Convocation at Radisson Blu, Numerologist & Healer · Randhir Singh is internationally renowned for his pioneer breakthroughs in <strong>Horological Pulse Resonance (Wristwatch Therapy)</strong> and <strong>Sendha Rock Salt Aura Shielding</strong>.
                     </>
                   )}
                 </p>
@@ -472,7 +472,7 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
               <span>{lang === 'hi' ? 'समस्त 18 आधिकारिक छायाचित्र एवं प्रमाण-पत्र' : 'All 18 Official Photos, Credentials & Timepieces'}</span>
             </div>
             <h3 className="font-sacred text-2xl sm:text-3xl font-extrabold text-stone-900">
-              {lang === 'hi' ? 'मास्टर रणधीर सिंह — संपूर्ण छायाचित्र एवं दीक्षांत यात्रा' : 'Master Randhir Singh — Complete Photo Portfolio'}
+              {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह — संपूर्ण छायाचित्र एवं दीक्षांत यात्रा' : 'Numerologist & Healer · Randhir Singh — Complete Photo Portfolio'}
             </h3>
             <p className="text-xs sm:text-sm text-stone-600 mt-1">
               {lang === 'hi'
@@ -608,7 +608,7 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
 
                 <div className="pt-4 mt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-3">
                   <span className="text-xs text-stone-500">
-                    Master Randhir Singh · H.No. 45, Mahadev Nagar, Ramnagaria Road, Jagatpura, Jaipur
+                    Numerologist & Healer · Randhir Singh · H.No. 45, Mahadev Nagar, Ramnagaria Road, Jagatpura, Jaipur
                   </span>
                   <div className="flex items-center gap-2 w-full sm:w-auto">
                     <a

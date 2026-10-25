@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Secondary navigation tabs placed in "More" dropdown on desktop
   const secondaryNavLinks = [
-    { id: 'about-randhir', labelEn: '★ About Master Randhir Singh (18 Photos)', labelHi: '★ मास्टर रणधीर सिंह परिचय (18 फ़ोटो)' },
+    { id: 'about-randhir', labelEn: '★ About Numerologist & Healer · Randhir Singh (18 Photos)', labelHi: '★ अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह परिचय (18 फ़ोटो)' },
     { id: 'services', labelEn: '★ All 16 Sacred Services (Individual Pages)', labelHi: '★ सभी 16 पवित्र सेवाएँ (व्यक्तिगत पृष्ठ)' },
     { id: 'yantra-healings', labelEn: '★ Yantra Healings (Detailed Page)', labelHi: '★ यंत्र हीलिंग विज्ञान (विस्तृत पृष्ठ)' },
     { id: 'special-yantras', labelEn: '★ Special Yantras (Business, Job, Desires)', labelHi: '★ विशेष यंत्र (व्यापार, नौकरी, मनोरथ)' },

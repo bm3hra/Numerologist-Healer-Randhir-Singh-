@@ -54,8 +54,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Complete blueprint of your life’s core numbers, karmic patterns, and upcoming golden periods.',
     taglineHi: 'मूलांक, भाग्यांक, कुआ नंबर एवं जीवन के स्वर्णिम काल का प्रामाणिक वैदिक अंक ज्योतिषीय विश्लेषण।',
     shortDesc: 'Complete blueprint of your life’s core numbers, karmic patterns, and upcoming golden periods.',
-    fullDescEn: 'A personalized one-on-one consultation with Master Randhir Singh decoding your complete numerical matrix: Driver (Mulank), Conductor (Bhagyank), Name Vibration (Namank), and Kua Number. This comprehensive reading maps out your life purpose, hidden talents, karmic debt numbers, personal year transitions, and optimal timing for major life decisions like marriage, investments, and career shifts.',
-    fullDescHi: 'मास्टर रणधीर सिंह जी के साथ व्यक्तिगत एक-पर-एक परामर्श, जिसमें आपके मूलांक, भाग्यांक, नामांक एवं कुआ नंबर का गूढ़ अध्ययन किया जाता है। यह परामर्श आपके जीवन के उद्देश्य, अंतर्निहित प्रतिभाओं, कार्मिक ऋणों, महादशा-अंतर्दशा तथा विवाह, व्यापार एवं निवेश हेतु अत्यंत शुभ समयावधि का अचूक मार्गदर्शन प्रदान करता है।',
+    fullDescEn: 'A personalized one-on-one consultation with Numerologist & Healer · Randhir Singh decoding your complete numerical matrix: Driver (Mulank), Conductor (Bhagyank), Name Vibration (Namank), and Kua Number. This comprehensive reading maps out your life purpose, hidden talents, karmic debt numbers, personal year transitions, and optimal timing for major life decisions like marriage, investments, and career shifts.',
+    fullDescHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी के साथ व्यक्तिगत एक-पर-एक परामर्श, जिसमें आपके मूलांक, भाग्यांक, नामांक एवं कुआ नंबर का गूढ़ अध्ययन किया जाता है। यह परामर्श आपके जीवन के उद्देश्य, अंतर्निहित प्रतिभाओं, कार्मिक ऋणों, महादशा-अंतर्दशा तथा विवाह, व्यापार एवं निवेश हेतु अत्यंत शुभ समयावधि का अचूक मार्गदर्शन प्रदान करता है।',
     sciencePrinciples: [
       {
         titleEn: 'Driver (Mulank) & Conductor (Bhagyank) Synergy',
@@ -86,8 +86,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         titleEn: '1-on-1 Consultation Session',
         titleHi: 'व्यक्तिगत परामर्श सत्र (45 मिनट)',
-        descEn: 'Direct confidential consultation with Master Randhir Singh in Jaipur or via WhatsApp video call globally.',
-        descHi: 'मास्टर रणधीर सिंह जी के साथ जयपुर केंद्र पर अथवा व्हाट्सएप वीडियो कॉल पर आमने-सामने विस्तृत वार्ता।'
+        descEn: 'Direct confidential consultation with Numerologist & Healer · Randhir Singh in Jaipur or via WhatsApp video call globally.',
+        descHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी के साथ जयपुर केंद्र पर अथवा व्हाट्सएप वीडियो कॉल पर आमने-सामने विस्तृत वार्ता।'
       },
       {
         titleEn: 'Remedies & Auspicious Calendar',
@@ -118,7 +118,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'Can consultations be done online via WhatsApp?',
         qHi: 'क्या देश-विदेश से ऑनलाइन व्हाट्सएप पर परामर्श संभव है?',
-        aEn: 'Yes, Master Randhir Singh conducts consultations for clients worldwide in Hindi and English via high-definition WhatsApp video or voice call.',
+        aEn: 'Yes, Numerologist & Healer · Randhir Singh conducts consultations for clients worldwide in Hindi and English via high-definition WhatsApp video or voice call.',
         aHi: 'हाँ! देश-विदेश के साधक घर बैठे उच्च गुणवत्ता वाली व्हाट्सएप वीडियो कॉल या वॉइस कॉल पर परामर्श प्राप्त कर सकते हैं।'
       }
     ]
@@ -135,8 +135,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path.',
     taglineHi: 'आपकी कलाई पर पहनी जाने वाली घड़ी केवल समय बताने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद और व्यक्तित्व का भी प्रतीक है। इस विशेष पद्धति में घड़ी की बनावट, आकार, डिज़ाइन और समय-अंकों की संरचना का विश्लेषण किया जाता है, ताकि इनके प्रतीकात्मक अर्थों तथा आपकी मानसिक धारणाओं, व्यक्तिगत ऊर्जा और जीवन की दिशा से इनके संभावित संबंधों को समझा जा सके।',
     shortDesc: 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path.',
-    fullDescEn: 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path. Master Randhir Singh performs a meticulous audit of your current wristwatch—inspecting dial geometry (round, rectangle, square), dial background shade, strap metal/leather composition, index markers, and movement rhythm—identifying energetic disharmonies and prescribing therapeutic configurations for harmony and growth.',
-    fullDescHi: 'आपकी कलाई पर पहनी जाने वाली घड़ी केवल समय बताने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद और व्यक्तित्व का भी प्रतीक है। इस विशेष पद्धति में घड़ी की बनावट, आकार, डिज़ाइन और समय-अंकों की संरचना का विश्लेषण किया जाता है, ताकि इनके प्रतीकात्मक अर्थों तथा आपकी मानसिक धारणाओं, व्यक्तिगत ऊर्जा और जीवन की दिशा से इनके संभावित संबंधों को समझा जा सके। मास्टर रणधीर सिंह जी आपकी घड़ी का सूक्ष्म विश्लेषण कर आपकी प्रगति व समृद्धि हेतु सटीक मार्गदर्शन प्रदान करते हैं।',
+    fullDescEn: 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path. Numerologist & Healer · Randhir Singh performs a meticulous audit of your current wristwatch—inspecting dial geometry (round, rectangle, square), dial background shade, strap metal/leather composition, index markers, and movement rhythm—identifying energetic disharmonies and prescribing therapeutic configurations for harmony and growth.',
+    fullDescHi: 'आपकी कलाई पर पहनी जाने वाली घड़ी केवल समय बताने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद और व्यक्तित्व का भी प्रतीक है। इस विशेष पद्धति में घड़ी की बनावट, आकार, डिज़ाइन और समय-अंकों की संरचना का विश्लेषण किया जाता है, ताकि इनके प्रतीकात्मक अर्थों तथा आपकी मानसिक धारणाओं, व्यक्तिगत ऊर्जा और जीवन की दिशा से इनके संभावित संबंधों को समझा जा सके। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपकी घड़ी का सूक्ष्म विश्लेषण कर आपकी प्रगति व समृद्धि हेतु सटीक मार्गदर्शन प्रदान करते हैं।',
     sciencePrinciples: [
       {
         titleEn: 'Radial Pulse Meridian Interaction',
@@ -203,8 +203,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Complete 3x3 Lo-Shu Magic Grid analysis identifying planetary planes and missing numbers.',
     taglineHi: '3x3 लो-शू जादुई ग्रिड के माध्यम से 8 तलों एवं लुप्त अंकों का वैज्ञानिक विश्लेषण।',
     shortDesc: 'Complete 3x3 Lo-Shu Magic Grid analysis identifying planetary planes and missing numbers.',
-    fullDescEn: 'The Lo-Shu Magic Square is a 4,000-year-old sacred mathematical matrix where every horizontal, vertical, and diagonal row adds up to 15. By transposing your birth date digits into this 9-chamber cosmic grid, Master Randhir Singh analyzes the 8 Planes of Existence: Mental Plane (4-9-2), Emotional Plane (3-5-7), Practical Plane (8-1-6), Thought Plane (4-3-8), Will Plane (9-5-1), Action Plane (2-7-6), and the supreme Raj Yogas (Golden & Silver Planes). Crucially, he identifies missing numbers and provides targeted non-invasive remedies to fill the energetic voids.',
-    fullDescHi: 'लो-शू मैजिक स्क्वायर एक प्राचीन एवं प्रामाणिक 3x3 कॉस्मिक ग्रिड है, जिसमें प्रत्येक पंक्ति का योग 15 होता है। आपकी जन्म तिथि के अंकों को इस ग्रिड में स्थापित कर मास्टर रणधीर सिंह जी 8 प्रमुख तलों का अध्ययन करते हैं: मानसिक तल (4-9-2), भावनात्मक तल (3-5-7), व्यावहारिक तल (8-1-6), विचार तल (4-3-8), इच्छा शक्ति तल (9-5-1), कर्म तल (2-7-6) तथा स्वर्ण व रजत राजयोग। विशेष रूप से लुप्त अंकों की पहचान कर उनके संतुलन हेतु अचूक वैदिक उपाय दिए जाते हैं।',
+    fullDescEn: 'The Lo-Shu Magic Square is a 4,000-year-old sacred mathematical matrix where every horizontal, vertical, and diagonal row adds up to 15. By transposing your birth date digits into this 9-chamber cosmic grid, Numerologist & Healer · Randhir Singh analyzes the 8 Planes of Existence: Mental Plane (4-9-2), Emotional Plane (3-5-7), Practical Plane (8-1-6), Thought Plane (4-3-8), Will Plane (9-5-1), Action Plane (2-7-6), and the supreme Raj Yogas (Golden & Silver Planes). Crucially, he identifies missing numbers and provides targeted non-invasive remedies to fill the energetic voids.',
+    fullDescHi: 'लो-शू मैजिक स्क्वायर एक प्राचीन एवं प्रामाणिक 3x3 कॉस्मिक ग्रिड है, जिसमें प्रत्येक पंक्ति का योग 15 होता है। आपकी जन्म तिथि के अंकों को इस ग्रिड में स्थापित कर अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी 8 प्रमुख तलों का अध्ययन करते हैं: मानसिक तल (4-9-2), भावनात्मक तल (3-5-7), व्यावहारिक तल (8-1-6), विचार तल (4-3-8), इच्छा शक्ति तल (9-5-1), कर्म तल (2-7-6) तथा स्वर्ण व रजत राजयोग। विशेष रूप से लुप्त अंकों की पहचान कर उनके संतुलन हेतु अचूक वैदिक उपाय दिए जाते हैं।',
     sciencePrinciples: [
       {
         titleEn: 'The 8 Cosmic Planes of Lo-Shu',
@@ -246,8 +246,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'What if many numbers are missing in my grid?',
         qHi: 'यदि मेरे ग्रिड में कई अंक गायब हों तो क्या उपाय है?',
-        aEn: 'It is completely normal! Most individuals have 2 to 4 missing numbers. Master Randhir Singh uses yantras, therapy watches, and crystals to supply those missing frequencies.',
-        aHi: 'यह सामान्य है! अधिकांश लोगों के ग्रिड में 2 से 4 अंक लुप्त होते हैं। मास्टर रणधीर सिंह जी सिद्ध यंत्रों, थेरेपी घड़ियों एवं क्रिस्टल द्वारा इन रिक्तियों को पूर्ण करते हैं।'
+        aEn: 'It is completely normal! Most individuals have 2 to 4 missing numbers. Numerologist & Healer · Randhir Singh uses yantras, therapy watches, and crystals to supply those missing frequencies.',
+        aHi: 'यह सामान्य है! अधिकांश लोगों के ग्रिड में 2 से 4 अंक लुप्त होते हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी सिद्ध यंत्रों, थेरेपी घड़ियों एवं क्रिस्टल द्वारा इन रिक्तियों को पूर्ण करते हैं।'
       }
     ]
   },
@@ -263,8 +263,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Customized prescription watches designed to accelerate career growth, wealth flow, and mental peace.',
     taglineHi: 'कलाई की नाड़ी के माध्यम से करियर उन्नति, लक्ष्मी आकर्षण एवं शांति हेतु सिद्ध प्रिस्क्रिप्शन घड़ियाँ।',
     shortDesc: 'Customized prescription watches designed to accelerate career growth, wealth flow, and mental peace.',
-    fullDescEn: 'Therapy Watches are Master Randhir Singh’s celebrated signature horological innovation. Unlike generic luxury timepieces, a Therapy Watch is individually consecrated and custom-configured based on your missing Lo-Shu numbers, ruling planet, and immediate life objectives. Featuring sacred geometry dials (such as 18K Yellow Gold with Royal Azure dials for Jupiter/Saturn mastery or Pearl White dials for Lunar peace), energized Om Yantras, and specific metallic alloy links, these watches serve as continuous bio-resonance energy anchors right on your radial pulse meridian.',
-    fullDescHi: 'थेरेपी वॉचेस मास्टर रणधीर सिंह जी का सुविख्यात एवं विशिष्ट उपचारात्मक नवाचार है। साधारण घड़ियों के विपरीत, थेरेपी घड़ी को आपकी जन्म तिथि के लुप्त अंकों, स्वामी ग्रह एवं तात्कालिक लक्ष्य के आधार पर विशेष रूप से तैयार व अभिमंत्रित किया जाता है। इसमें 18K स्वर्ण पॉलिश, रॉयल अज़्योर ब्लू अथवा पर्ल व्हाइट डायल, केंद्र में प्रतिष्ठित ॐ यंत्र, तथा विशिष्ट धातुओं के मेल से बनी कलाई चेन होती है, जो दिनभर आपकी नाड़ी के माध्यम से सकारात्मक ऊर्जा का संचार करती है।',
+    fullDescEn: 'Therapy Watches are Numerologist & Healer · Randhir Singh’s celebrated signature horological innovation. Unlike generic luxury timepieces, a Therapy Watch is individually consecrated and custom-configured based on your missing Lo-Shu numbers, ruling planet, and immediate life objectives. Featuring sacred geometry dials (such as 18K Yellow Gold with Royal Azure dials for Jupiter/Saturn mastery or Pearl White dials for Lunar peace), energized Om Yantras, and specific metallic alloy links, these watches serve as continuous bio-resonance energy anchors right on your radial pulse meridian.',
+    fullDescHi: 'थेरेपी वॉचेस अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी का सुविख्यात एवं विशिष्ट उपचारात्मक नवाचार है। साधारण घड़ियों के विपरीत, थेरेपी घड़ी को आपकी जन्म तिथि के लुप्त अंकों, स्वामी ग्रह एवं तात्कालिक लक्ष्य के आधार पर विशेष रूप से तैयार व अभिमंत्रित किया जाता है। इसमें 18K स्वर्ण पॉलिश, रॉयल अज़्योर ब्लू अथवा पर्ल व्हाइट डायल, केंद्र में प्रतिष्ठित ॐ यंत्र, तथा विशिष्ट धातुओं के मेल से बनी कलाई चेन होती है, जो दिनभर आपकी नाड़ी के माध्यम से सकारात्मक ऊर्जा का संचार करती है।',
     sciencePrinciples: [
       {
         titleEn: 'Continuous Pulse Energy Entrainment',
@@ -283,8 +283,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         titleEn: 'Individually Consecrated Timepiece',
         titleHi: 'व्यक्तिगत रूप से अभिमंत्रित थेरेपी घड़ी',
-        descEn: 'Bespoke watch assembled and energized under Master Randhir Singh’s guidance with sacred mantras and correct muhurta activation.',
-        descHi: 'मास्टर रणधीर सिंह जी द्वारा शुभ मुहूर्त में वैदिक मंत्रों से अभिमंत्रित एवं तैयार की गई अनूठी थेरेपी घड़ी।'
+        descEn: 'Bespoke watch assembled and energized under Numerologist & Healer · Randhir Singh’s guidance with sacred mantras and correct muhurta activation.',
+        descHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी द्वारा शुभ मुहूर्त में वैदिक मंत्रों से अभिमंत्रित एवं तैयार की गई अनूठी थेरेपी घड़ी।'
       },
       {
         titleEn: 'Muhurta Activation Protocol',
@@ -323,8 +323,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Vedic numerological planning for planned deliveries to bestow a harmonious destiny upon your newborn.',
     taglineHi: 'नियोजित प्रसव (C-Section) हेतु शुभ तिथि, वार एवं नक्षत्र का चयन ताकि नवजात को मिले स्वर्णिम भविष्य।',
     shortDesc: 'Vedic numerological planning for planned deliveries to bestow a harmonious destiny upon your newborn.',
-    fullDescEn: 'When medical conditions necessitate a planned delivery or caesarean section within a recommended clinical window, selecting the exact date and hour becomes a sacred parental responsibility. Master Randhir Singh cross-calculates the candidate delivery dates against parental charts to identify dates with high-frequency Driver-Conductor synergy (such as 1-1, 1-5, 3-3, 5-1, or 6-3), avoiding conflicting enemy numbers (like 1-8, 2-8, or 4-8) and ensuring the newborn is blessed with vibrant health, intellectual brilliance, and filial affection.',
-    fullDescHi: 'जब चिकित्सीय कारणों से सी-सेक्शन (नियोजित प्रसव) की सलाह दी जाती है, तब उस अनुशंसित समयावधि में से सर्वोत्तम शुभ तिथि एवं समय का चयन करना संतान के उज्ज्वल भविष्य का आधार बनता है। मास्टर रणधीर सिंह जी माता-पिता के अंकों के साथ तालमेल बिठाते हुए ऐसे शुभ मूलांक-भाग्यांक (जैसे 1-1, 1-5, 3-3, 5-1, 6-3) का चयन करते हैं, जो शत्रु अंकों (जैसे 1-8, 2-8, 4-8) से मुक्त हों और नवजात को उत्तम स्वास्थ्य, दीर्घायु, कुशाग्र बुद्धि एवं पारिवारिक प्रेम प्रदान करें।',
+    fullDescEn: 'When medical conditions necessitate a planned delivery or caesarean section within a recommended clinical window, selecting the exact date and hour becomes a sacred parental responsibility. Numerologist & Healer · Randhir Singh cross-calculates the candidate delivery dates against parental charts to identify dates with high-frequency Driver-Conductor synergy (such as 1-1, 1-5, 3-3, 5-1, or 6-3), avoiding conflicting enemy numbers (like 1-8, 2-8, or 4-8) and ensuring the newborn is blessed with vibrant health, intellectual brilliance, and filial affection.',
+    fullDescHi: 'जब चिकित्सीय कारणों से सी-सेक्शन (नियोजित प्रसव) की सलाह दी जाती है, तब उस अनुशंसित समयावधि में से सर्वोत्तम शुभ तिथि एवं समय का चयन करना संतान के उज्ज्वल भविष्य का आधार बनता है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी माता-पिता के अंकों के साथ तालमेल बिठाते हुए ऐसे शुभ मूलांक-भाग्यांक (जैसे 1-1, 1-5, 3-3, 5-1, 6-3) का चयन करते हैं, जो शत्रु अंकों (जैसे 1-8, 2-8, 4-8) से मुक्त हों और नवजात को उत्तम स्वास्थ्य, दीर्घायु, कुशाग्र बुद्धि एवं पारिवारिक प्रेम प्रदान करें।',
     sciencePrinciples: [
       {
         titleEn: 'Driver-Conductor Harmonic Affinity',
@@ -366,7 +366,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'Can we consult before the doctor confirms the exact week?',
         qHi: 'क्या डॉक्टर द्वारा सप्ताह निश्चित करने से पूर्व परामर्श ले सकते हैं?',
-        aEn: 'Yes, as soon as your expected due month is established, Master Randhir Singh can prepare the most auspicious astrological windows for your medical team.',
+        aEn: 'Yes, as soon as your expected due month is established, Numerologist & Healer · Randhir Singh can prepare the most auspicious astrological windows for your medical team.',
         aHi: 'हाँ! संभावित माह की जानकारी मिलते ही आप परामर्श ले सकते हैं ताकि अग्रिम रूप से शुभ तिथियों का चयन किया जा सके।'
       }
     ]
@@ -383,8 +383,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Diagnose your active phone number vibrations and select high-frequency auspicious numbers.',
     taglineHi: 'वर्तमान मोबाइल नंबर की सूक्ष्म जांच एवं व्यापार-करियर के अनुकूल लकी मोबाइल नंबर का चयन।',
     shortDesc: 'Diagnose your active phone number vibrations and select high-frequency auspicious numbers.',
-    fullDescEn: 'Your mobile phone is dialed dozens of times daily, held against your aura constantly, and typed into financial banking transactions. A phone number whose 10 digits sum to an enemy number or contain conflicting interior pairs (like 2-8, 4-8, or multiple repeating zeros) creates subconscious barriers in client calls, delayed payments, and frequent misunderstandings. Master Randhir Singh analyzes your active SIM number and assists you in selecting a new lucky phone number calibrated to your Mulank and business goals.',
-    fullDescHi: 'आपका मोबाइल नंबर दिनभर में अनगिनत बार डायल होता है, आपके औरा क्षेत्र में रहता है तथा समस्त व्यापारिक व बैंकिंग लेन-देन से जुड़ा है। यदि 10 अंकों का कुल योग या आंतरिक जोड़ शत्रु अंकों (जैसे 2-8, 4-8, या अधिक शून्य) पर आ रहा हो, तो यह ग्राहकों से बातचीत में अड़चन, पेमेंट में देरी तथा अनचाहे विवाद उत्पन्न करता है। मास्टर रणधीर सिंह जी आपके वर्तमान नंबर का विश्लेषण कर आपके मूलांक व व्यवसाय के अनुकूल लकी मोबाइल नंबर चुनते हैं।',
+    fullDescEn: 'Your mobile phone is dialed dozens of times daily, held against your aura constantly, and typed into financial banking transactions. A phone number whose 10 digits sum to an enemy number or contain conflicting interior pairs (like 2-8, 4-8, or multiple repeating zeros) creates subconscious barriers in client calls, delayed payments, and frequent misunderstandings. Numerologist & Healer · Randhir Singh analyzes your active SIM number and assists you in selecting a new lucky phone number calibrated to your Mulank and business goals.',
+    fullDescHi: 'आपका मोबाइल नंबर दिनभर में अनगिनत बार डायल होता है, आपके औरा क्षेत्र में रहता है तथा समस्त व्यापारिक व बैंकिंग लेन-देन से जुड़ा है। यदि 10 अंकों का कुल योग या आंतरिक जोड़ शत्रु अंकों (जैसे 2-8, 4-8, या अधिक शून्य) पर आ रहा हो, तो यह ग्राहकों से बातचीत में अड़चन, पेमेंट में देरी तथा अनचाहे विवाद उत्पन्न करता है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपके वर्तमान नंबर का विश्लेषण कर आपके मूलांक व व्यवसाय के अनुकूल लकी मोबाइल नंबर चुनते हैं।',
     sciencePrinciples: [
       {
         titleEn: 'Single Root and Compound Total Energy',
@@ -426,7 +426,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'Do I need to buy an expensive VIP fancy number?',
         qHi: 'क्या मुझे बहुत महंगा वीआईपी नंबर खरीदना पड़ेगा?',
-        aEn: 'Not at all! Fancy numbers (like 9999 or 0000) are often numerologically harmful. Master Randhir Singh identifies inexpensive regular numbers that possess supreme mathematical harmony.',
+        aEn: 'Not at all! Fancy numbers (like 9999 or 0000) are often numerologically harmful. Numerologist & Healer · Randhir Singh identifies inexpensive regular numbers that possess supreme mathematical harmony.',
         aHi: 'बिल्कुल नहीं! अक्सर चार बार 9 या 0 वाले फैंसी नंबर नुकसानदायक होते हैं। सामान्य दरों पर मिलने वाले ऐसे नंबर जो आपके मूलांक से मेल खाते हों, सर्वोत्तम परिणाम देते हैं।'
       }
     ]
@@ -443,8 +443,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Traditional salt-cleansing rituals and auric shielding for peaceful spaces and positive mindsets.',
     taglineHi: 'प्राकृतिक सेंधा व समुद्री लवण द्वारा नकारात्मक ऊर्जा, नजर दोष एवं वास्तु अवरोधों का संपूर्ण निवारण।',
     shortDesc: 'Traditional salt-cleansing rituals and auric shielding for peaceful spaces and positive mindsets.',
-    fullDescEn: 'For thousands of years, Vedic sages and traditional healers have revered authentic Rock Salt (Sendha Namak) and Sea Salt (Samudri Namak) for their unyielding ionic capacity to absorb psychic debris, the evil eye (Nazar dosha), etheric fatigue, and geopathic stress. Master Randhir Singh prescribes personalized salt rituals, threshold barrier placements, auric foot bath protocols, and consecrated salt water glass traps to purge stuck negative vibrations from homes, offices, and human bio-fields.',
-    fullDescHi: 'हजारों वर्षों से वैदिक ऋषि एवं पारम्परिक हीलर सेंधा व समुद्री नमक को नकारात्मक ऊर्जा, नजर दोष, मानसिक अशांति एवं घर के भारीपन को सोखने का सबसे शक्तिशाली प्राकृतिक माध्यम मानते आए हैं। मास्टर रणधीर सिंह जी व्यक्तिगत परामर्श के आधार पर नमक के पोछे, मुख्य द्वार पर रक्षा पोटली, चरण लवण स्नान तथा कांच के पात्र में जल-नमक के विशेष उपाय बताते हैं, जिससे घर व कार्यस्थल की नकारात्मकता तुरंत समाप्त होती है।',
+    fullDescEn: 'For thousands of years, Vedic sages and traditional healers have revered authentic Rock Salt (Sendha Namak) and Sea Salt (Samudri Namak) for their unyielding ionic capacity to absorb psychic debris, the evil eye (Nazar dosha), etheric fatigue, and geopathic stress. Numerologist & Healer · Randhir Singh prescribes personalized salt rituals, threshold barrier placements, auric foot bath protocols, and consecrated salt water glass traps to purge stuck negative vibrations from homes, offices, and human bio-fields.',
+    fullDescHi: 'हजारों वर्षों से वैदिक ऋषि एवं पारम्परिक हीलर सेंधा व समुद्री नमक को नकारात्मक ऊर्जा, नजर दोष, मानसिक अशांति एवं घर के भारीपन को सोखने का सबसे शक्तिशाली प्राकृतिक माध्यम मानते आए हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी व्यक्तिगत परामर्श के आधार पर नमक के पोछे, मुख्य द्वार पर रक्षा पोटली, चरण लवण स्नान तथा कांच के पात्र में जल-नमक के विशेष उपाय बताते हैं, जिससे घर व कार्यस्थल की नकारात्मकता तुरंत समाप्त होती है।',
     sciencePrinciples: [
       {
         titleEn: 'Ionic Absorption of Psychic & Etheric Residue',
@@ -503,8 +503,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Harmonize your name vibrations with your birth chart using Chaldean and Pythagorean sciences.',
     taglineHi: 'काल्डियन एवं पाइथागोरियन पद्धति से नाम के अक्षरों का सूक्ष्म संशोधन ताकि भाग्य बने चुंबकीय।',
     shortDesc: 'Harmonize your name vibrations with your birth chart using Chaldean and Pythagorean sciences.',
-    fullDescEn: 'Every letter of your name carries a distinct cosmic numerical frequency. If your birth numbers are governed by the Sun (1) or Venus (6), but your existing name sums to a conflicting Saturnine 8 or deceptive 4, an internal vibrational civil war takes place in your life. Master Randhir Singh utilizes ancient Chaldean numerology to suggest subtle, elegant spelling modifications (often adding or modifying a single letter) that realign your Name Compound with wealth-generating master vibrations (such as 19, 23, 37, 41, or 42) without requiring cumbersome legal changes on official passports or IDs.',
-    fullDescHi: 'आपके नाम का प्रत्येक अक्षर एक विशिष्ट ब्रह्मांडीय अंक से जुड़ा है। यदि आपका मूलांक सूर्य (1) या शुक्र (6) है, परंतु नाम का कुल योग शत्रु अंक 8 या 4 पर आ रहा है, तो जीवन में लगातार संघर्ष व असफलता बनी रहती है। मास्टर रणधीर सिंह जी प्राचीन काल्डियन अंक ज्योतिष द्वारा नाम के केवल एक या दो अक्षरों में ऐसा सूक्ष्म व सुरुचिपूर्ण सुधार करते हैं, जो आपके नाम को अत्यंत भाग्यशाली कंपाउंड (जैसे 19, 23, 37, 41, 42) पर ले आता है, बिना किसी कानूनी दस्तावेज बदलने के झंझट के।',
+    fullDescEn: 'Every letter of your name carries a distinct cosmic numerical frequency. If your birth numbers are governed by the Sun (1) or Venus (6), but your existing name sums to a conflicting Saturnine 8 or deceptive 4, an internal vibrational civil war takes place in your life. Numerologist & Healer · Randhir Singh utilizes ancient Chaldean numerology to suggest subtle, elegant spelling modifications (often adding or modifying a single letter) that realign your Name Compound with wealth-generating master vibrations (such as 19, 23, 37, 41, or 42) without requiring cumbersome legal changes on official passports or IDs.',
+    fullDescHi: 'आपके नाम का प्रत्येक अक्षर एक विशिष्ट ब्रह्मांडीय अंक से जुड़ा है। यदि आपका मूलांक सूर्य (1) या शुक्र (6) है, परंतु नाम का कुल योग शत्रु अंक 8 या 4 पर आ रहा है, तो जीवन में लगातार संघर्ष व असफलता बनी रहती है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी प्राचीन काल्डियन अंक ज्योतिष द्वारा नाम के केवल एक या दो अक्षरों में ऐसा सूक्ष्म व सुरुचिपूर्ण सुधार करते हैं, जो आपके नाम को अत्यंत भाग्यशाली कंपाउंड (जैसे 19, 23, 37, 41, 42) पर ले आता है, बिना किसी कानूनी दस्तावेज बदलने के झंझट के।',
     sciencePrinciples: [
       {
         titleEn: 'Chaldean Sound Vibration Alphabet',
@@ -563,8 +563,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Tailored, non-invasive Vedic, cosmic, and behavioral remedies for delayed marriages and career blocks.',
     taglineHi: 'विवाह में आ रहे व्यवधान, पुरानी बीमारियों एवं व्यापारिक मंदी हेतु सरल व अचूक वैदिक समाधान।',
     shortDesc: 'Tailored, non-invasive Vedic, cosmic, and behavioral remedies for delayed marriages and career blocks.',
-    fullDescEn: 'Life problems often arise not from lack of effort, but from subtle energetic misalignments between personal karma and planetary time-periods. Master Randhir Singh prescribes practical, non-invasive, and cost-effective remedies tailored to your birth chart. From resolving delayed marriage proposals and restoring spousal harmony, to dissipating chronic health lethargy and breaking commercial stagnation, these remedies encompass planetary color therapy, directional energization, specific charity acts, and Vedic behavioral protocols.',
-    fullDescHi: 'जीवन में समस्याएं अक्सर परिश्रम की कमी से नहीं, बल्कि व्यक्तिगत कर्म एवं ग्रहीय दशाओं के असंतुलन से उत्पन्न होती हैं। मास्टर रणधीर सिंह जी आपकी जन्म तिथि के अनुसार अत्यंत व्यावहारिक, सरल एवं बिना किसी आडंबर वाले उपाय प्रदान करते हैं। चाहे विवाह प्रस्तावों में अड़चन हो, दांपत्य जीवन में तनाव हो, स्वास्थ्य में सुस्ती हो या व्यापार में मंदी—इनके समाधान हेतु रंग चिकित्सा, दिशा शोधन, विशिष्ट दान एवं सात्विक जीवन शैली के अचूक नियम बताए जाते हैं।',
+    fullDescEn: 'Life problems often arise not from lack of effort, but from subtle energetic misalignments between personal karma and planetary time-periods. Numerologist & Healer · Randhir Singh prescribes practical, non-invasive, and cost-effective remedies tailored to your birth chart. From resolving delayed marriage proposals and restoring spousal harmony, to dissipating chronic health lethargy and breaking commercial stagnation, these remedies encompass planetary color therapy, directional energization, specific charity acts, and Vedic behavioral protocols.',
+    fullDescHi: 'जीवन में समस्याएं अक्सर परिश्रम की कमी से नहीं, बल्कि व्यक्तिगत कर्म एवं ग्रहीय दशाओं के असंतुलन से उत्पन्न होती हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपकी जन्म तिथि के अनुसार अत्यंत व्यावहारिक, सरल एवं बिना किसी आडंबर वाले उपाय प्रदान करते हैं। चाहे विवाह प्रस्तावों में अड़चन हो, दांपत्य जीवन में तनाव हो, स्वास्थ्य में सुस्ती हो या व्यापार में मंदी—इनके समाधान हेतु रंग चिकित्सा, दिशा शोधन, विशिष्ट दान एवं सात्विक जीवन शैली के अचूक नियम बताए जाते हैं।',
     sciencePrinciples: [
       {
         titleEn: 'Planetary Element Rebalancing',
@@ -606,8 +606,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'Are the remedies expensive or hard to perform?',
         qHi: 'क्या ये उपाय महंगे या कठिन होते हैं?',
-        aEn: 'No! Master Randhir Singh never prescribes costly gemstones or fear-based rituals. All remedies use natural elements, colors, charity, and simple daily consciousness adjustments.',
-        aHi: 'बिल्कुल नहीं! मास्टर रणधीर सिंह जी कभी भी महंगे रत्नों या भयभीत करने वाले अनुष्ठानों की सलाह नहीं देते। सभी उपाय सरल, सात्विक एवं घर पर आसानी से किए जाने योग्य होते हैं।'
+        aEn: 'No! Numerologist & Healer · Randhir Singh never prescribes costly gemstones or fear-based rituals. All remedies use natural elements, colors, charity, and simple daily consciousness adjustments.',
+        aHi: 'बिल्कुल नहीं! अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी कभी भी महंगे रत्नों या भयभीत करने वाले अनुष्ठानों की सलाह नहीं देते। सभी उपाय सरल, सात्विक एवं घर पर आसानी से किए जाने योग्य होते हैं।'
       }
     ]
   },
@@ -623,8 +623,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Cross-analyzing two or more Lo-Shu charts to verify karmic synergy, trust, and mutual growth.',
     taglineHi: 'विवाह, व्यापार साझेदारी अथवा मुख्य कर्मचारियों के चयन हेतु 36-बिंदु वैज्ञानिक ग्रिड मिलान।',
     shortDesc: 'Cross-analyzing two or more Lo-Shu charts to verify karmic synergy, trust, and mutual growth.',
-    fullDescEn: 'A partnership—whether matrimonial or commercial—is an energetic merger of two distinct vibrational fields. Traditional astrology often limits compatibility to Moon signs, overlooking the vital day-to-day behavioral and financial interactions. Master Randhir Singh cross-analyzes the 3x3 Lo-Shu grids of both individuals to evaluate mutual compatibility: identifying complementary numbers that fill each other’s voids, warning against destructive enemy clashes, and calculating a 36-point compatibility index for long-term trust, prosperity, and peace.',
-    fullDescHi: 'साझेदारी—चाहे वैवाहिक हो या व्यापारिक—दो भिन्न ऊर्जा क्षेत्रों का परस्पर सम्मिलन है। केवल राशि मिलान अक्सर व्यावहारिक स्वभाव व आर्थिक तालमेल को स्पष्ट नहीं कर पाता। मास्टर रणधीर सिंह जी दोनों व्यक्तियों के 3x3 लो-शू ग्रिड का तुलनात्मक अध्ययन कर यह देखते हैं कि क्या एक के अंक दूसरे के रिक्त स्थानों को पूर्ण कर रहे हैं, या दोनों के बीच गंभीर ग्रहीय टकराव है। इससे 36-गुणांक वैज्ञानिक इंडेक्स तैयार कर दीर्घकालिक सफलता सुनिश्चित की जाती है।',
+    fullDescEn: 'A partnership—whether matrimonial or commercial—is an energetic merger of two distinct vibrational fields. Traditional astrology often limits compatibility to Moon signs, overlooking the vital day-to-day behavioral and financial interactions. Numerologist & Healer · Randhir Singh cross-analyzes the 3x3 Lo-Shu grids of both individuals to evaluate mutual compatibility: identifying complementary numbers that fill each other’s voids, warning against destructive enemy clashes, and calculating a 36-point compatibility index for long-term trust, prosperity, and peace.',
+    fullDescHi: 'साझेदारी—चाहे वैवाहिक हो या व्यापारिक—दो भिन्न ऊर्जा क्षेत्रों का परस्पर सम्मिलन है। केवल राशि मिलान अक्सर व्यावहारिक स्वभाव व आर्थिक तालमेल को स्पष्ट नहीं कर पाता। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी दोनों व्यक्तियों के 3x3 लो-शू ग्रिड का तुलनात्मक अध्ययन कर यह देखते हैं कि क्या एक के अंक दूसरे के रिक्त स्थानों को पूर्ण कर रहे हैं, या दोनों के बीच गंभीर ग्रहीय टकराव है। इससे 36-गुणांक वैज्ञानिक इंडेक्स तैयार कर दीर्घकालिक सफलता सुनिश्चित की जाती है।',
     sciencePrinciples: [
       {
         titleEn: 'Grid Void Complementarity',
@@ -666,8 +666,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'What if our compatibility score is low but we really want to marry?',
         qHi: 'यदि मिलान कम आए परंतु हम विवाह करना चाहते हों तो?',
-        aEn: 'Master Randhir Singh specializes in non-invasive Vedic and color adjustments that bridge energetic gaps, allowing couples to thrive harmoniously despite chart differences.',
-        aHi: 'मास्टर रणधीर सिंह जी ऐसे विशेष उपचारात्मक उपाय प्रदान करते हैं, जिससे ग्रहीय भिन्नताओं के बावजूद दांपत्य में सामंजस्य स्थापित किया जा सकता है।'
+        aEn: 'Numerologist & Healer · Randhir Singh specializes in non-invasive Vedic and color adjustments that bridge energetic gaps, allowing couples to thrive harmoniously despite chart differences.',
+        aHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी ऐसे विशेष उपचारात्मक उपाय प्रदान करते हैं, जिससे ग्रहीय भिन्नताओं के बावजूद दांपत्य में सामंजस्य स्थापित किया जा सकता है।'
       }
     ]
   },
@@ -683,8 +683,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'High-frequency verbal switchwords that bypass subconscious resistance to accelerate wellness.',
     taglineHi: 'अवचेतन मन के अवरोधों को भेदकर त्वरित स्वास्थ्य लाभ एवं तनावमुक्ति देने वाले दिव्य स्विचवर्ड्स।',
     shortDesc: 'High-frequency verbal switchwords that bypass subconscious resistance to accelerate wellness.',
-    fullDescEn: 'Switchwords are single-word verbal energetic keys that communicate directly with the subconscious mind, bypassing conscious doubt, anxiety, and mental resistance. Discovered by James T. Mangan and integrated with Vedic acoustic science, switchwords like GOLDEN SUNRISE, RESTORE, CANCEL-CLEAR, and DIVINE LIGHT shift cellular vibration within minutes. Master Randhir Singh formulates personalized switchword combinations and energy circles (EC) tailored to your specific physical ailments, sleep disorders, or emotional stress.',
-    fullDescHi: 'स्विचवर्ड्स वे शक्तिशाली एकल शब्द हैं जो सचेतन मन के संशय एवं चिंता को पार कर सीधे अवचेतन मन में परिवर्तन लाते हैं। वैदिक नाद विज्ञान एवं आधुनिक मनोविज्ञान के समन्वय से बने ये दिव्य शब्द—जैसे GOLDEN SUNRISE, RESTORE, CANCEL-CLEAR, DIVINE LIGHT—शरीर की ऊर्जा में तुरंत सकारात्मक बदलाव लाते हैं। मास्टर रणधीर सिंह जी आपकी शारीरिक व्याधि, अनिद्रा अथवा मानसिक तनाव के अनुसार व्यक्तिगत स्विचवर्ड्स एवं एनर्जी सर्कल प्रदान करते हैं।',
+    fullDescEn: 'Switchwords are single-word verbal energetic keys that communicate directly with the subconscious mind, bypassing conscious doubt, anxiety, and mental resistance. Discovered by James T. Mangan and integrated with Vedic acoustic science, switchwords like GOLDEN SUNRISE, RESTORE, CANCEL-CLEAR, and DIVINE LIGHT shift cellular vibration within minutes. Numerologist & Healer · Randhir Singh formulates personalized switchword combinations and energy circles (EC) tailored to your specific physical ailments, sleep disorders, or emotional stress.',
+    fullDescHi: 'स्विचवर्ड्स वे शक्तिशाली एकल शब्द हैं जो सचेतन मन के संशय एवं चिंता को पार कर सीधे अवचेतन मन में परिवर्तन लाते हैं। वैदिक नाद विज्ञान एवं आधुनिक मनोविज्ञान के समन्वय से बने ये दिव्य शब्द—जैसे GOLDEN SUNRISE, RESTORE, CANCEL-CLEAR, DIVINE LIGHT—शरीर की ऊर्जा में तुरंत सकारात्मक बदलाव लाते हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपकी शारीरिक व्याधि, अनिद्रा अथवा मानसिक तनाव के अनुसार व्यक्तिगत स्विचवर्ड्स एवं एनर्जी सर्कल प्रदान करते हैं।',
     sciencePrinciples: [
       {
         titleEn: 'Acoustic Subconscious Neurological Bypassing',
@@ -743,8 +743,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Distance and in-person Pranic and spiritual energy alignment to clear etheric blockages.',
     taglineHi: 'सूक्ष्म प्राणिक ऊर्जा द्वारा चक्रों की शुद्धि, मानसिक शांति एवं दूरस्थ ऊर्जा उपचार।',
     shortDesc: 'Distance and in-person Pranic and spiritual energy alignment to clear etheric blockages.',
-    fullDescEn: 'Before an illness or distress manifests in the physical flesh, it appears as an energetic congestion or depletion in the subtle etheric bioplasmic body (Pranamaya Kosha). In S. Healings sessions, Master Randhir Singh projects pure spiritual and Pranic prana to sweep away dirty, diseased energy from the 11 major chakras, dissolving emotional grief, energetic cords, and psychic exhaustion. Sessions are conducted both in-person at his peaceful Jaipur sanctuary and remotely across distances for seekers worldwide.',
-    fullDescHi: 'किसी भी रोग या अशांति के भौतिक शरीर में प्रकट होने से पहले, वह हमारे सूक्ष्म प्राणमय शरीर (चक्रों व नाड़ियों) में ऊर्जा अवरोध के रूप में दिखाई देती है। एस. हीलिंग्स सत्र में मास्टर रणधीर सिंह जी शुद्ध प्राणिक एवं आध्यात्मिक ऊर्जा का संप्रेषण कर 11 प्रमुख चक्रों की शुद्धि करते हैं। इससे पुराना मानसिक अवसाद, नकारात्मक विचार एवं ऊर्जा की कमी दूर होती है। यह उपचार जयपुर केंद्र पर अथवा देश-विदेश में दूरस्थ (Distance Healing) माध्यम से संपन्न होता है।',
+    fullDescEn: 'Before an illness or distress manifests in the physical flesh, it appears as an energetic congestion or depletion in the subtle etheric bioplasmic body (Pranamaya Kosha). In S. Healings sessions, Numerologist & Healer · Randhir Singh projects pure spiritual and Pranic prana to sweep away dirty, diseased energy from the 11 major chakras, dissolving emotional grief, energetic cords, and psychic exhaustion. Sessions are conducted both in-person at his peaceful Jaipur sanctuary and remotely across distances for seekers worldwide.',
+    fullDescHi: 'किसी भी रोग या अशांति के भौतिक शरीर में प्रकट होने से पहले, वह हमारे सूक्ष्म प्राणमय शरीर (चक्रों व नाड़ियों) में ऊर्जा अवरोध के रूप में दिखाई देती है। एस. हीलिंग्स सत्र में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी शुद्ध प्राणिक एवं आध्यात्मिक ऊर्जा का संप्रेषण कर 11 प्रमुख चक्रों की शुद्धि करते हैं। इससे पुराना मानसिक अवसाद, नकारात्मक विचार एवं ऊर्जा की कमी दूर होती है। यह उपचार जयपुर केंद्र पर अथवा देश-विदेश में दूरस्थ (Distance Healing) माध्यम से संपन्न होता है।',
     sciencePrinciples: [
       {
         titleEn: 'Bioplasmic Body Sweeping & Energizing',
@@ -786,8 +786,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'Does Pranic Healing replace medical doctors?',
         qHi: 'क्या प्राणिक हीलिंग डॉक्टरी इलाज का विकल्प है?',
-        aEn: 'No. Master Randhir Singh emphasizes that S. Healings is a complementary spiritual therapy that supports medical science, never replacing your certified physician’s advice.',
-        aHi: 'नहीं! मास्टर रणधीर सिंह जी सदैव स्पष्ट करते हैं कि यह पूरक आध्यात्मिक चिकित्सा है, जो डॉक्टरी दवाओं के प्रभाव को बढ़ाती है, उनका स्थान नहीं लेती।'
+        aEn: 'No. Numerologist & Healer · Randhir Singh emphasizes that S. Healings is a complementary spiritual therapy that supports medical science, never replacing your certified physician’s advice.',
+        aHi: 'नहीं! अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी सदैव स्पष्ट करते हैं कि यह पूरक आध्यात्मिक चिकित्सा है, जो डॉक्टरी दवाओं के प्रभाव को बढ़ाती है, उनका स्थान नहीं लेती।'
       }
     ]
   },
@@ -803,8 +803,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Sacred numerical frequencies (Grabovoi & Divine Codes) for targeted energetic restoration.',
     taglineHi: 'ग्रैबोवोई एवं वैदिक दिव्य संख्यात्मक अनुक्रमों द्वारा धन, स्वास्थ्य व मनोकामना पूर्ति।',
     shortDesc: 'Sacred numerical frequencies (Grabovoi & Divine Codes) for targeted energetic restoration.',
-    fullDescEn: 'Everything in the cosmos—from the orbit of Jupiter to the DNA helix—is constructed upon sacred mathematical ratios. Healing Codes (including the acclaimed sequences of Dr. Grigori Grabovoi and ancient Vedic numerical mantras) are specific numerical vibrations that restore distorted biophysical frequencies back to the divine norm. Master Randhir Singh provides verified codes (such as 520 741 8 for unexpected cash inflows, 1814321 for overall health restoration, and 8888 for divine protection), complete with exact methods for writing on wrist pulse points, charging water, and silent mental visualization.',
-    fullDescHi: 'समस्त ब्रह्मांड—तारों की गति से लेकर हमारे डीएनए तक—पवित्र गणितीय अनुपातों पर आधारित है। हीलिंग कोड्स (जिनमें डॉ. ग्रिगोरी ग्रैबोवोई के विश्वप्रसिद्ध कोड्स एवं वैदिक संख्यात्मक मंत्र शामिल हैं) वे विशिष्ट आवृत्तियां हैं जो जीवन की विकृत ऊर्जा को पुनः संतुलित करती हैं। मास्टर रणधीर सिंह जी प्रामाणिक कोड्स (जैसे अप्रत्याशित धन आगमन हेतु 520 741 8, सम्पूर्ण स्वास्थ्य हेतु 1814321, तथा दिव्य सुरक्षा हेतु 8888) प्रदान करते हैं, जिन्हें बाईं कलाई पर लिखने, जल चार्ज करने एवं ध्यान करने की सटीक विधि सिखाई जाती है।',
+    fullDescEn: 'Everything in the cosmos—from the orbit of Jupiter to the DNA helix—is constructed upon sacred mathematical ratios. Healing Codes (including the acclaimed sequences of Dr. Grigori Grabovoi and ancient Vedic numerical mantras) are specific numerical vibrations that restore distorted biophysical frequencies back to the divine norm. Numerologist & Healer · Randhir Singh provides verified codes (such as 520 741 8 for unexpected cash inflows, 1814321 for overall health restoration, and 8888 for divine protection), complete with exact methods for writing on wrist pulse points, charging water, and silent mental visualization.',
+    fullDescHi: 'समस्त ब्रह्मांड—तारों की गति से लेकर हमारे डीएनए तक—पवित्र गणितीय अनुपातों पर आधारित है। हीलिंग कोड्स (जिनमें डॉ. ग्रिगोरी ग्रैबोवोई के विश्वप्रसिद्ध कोड्स एवं वैदिक संख्यात्मक मंत्र शामिल हैं) वे विशिष्ट आवृत्तियां हैं जो जीवन की विकृत ऊर्जा को पुनः संतुलित करती हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी प्रामाणिक कोड्स (जैसे अप्रत्याशित धन आगमन हेतु 520 741 8, सम्पूर्ण स्वास्थ्य हेतु 1814321, तथा दिव्य सुरक्षा हेतु 8888) प्रदान करते हैं, जिन्हें बाईं कलाई पर लिखने, जल चार्ज करने एवं ध्यान करने की सटीक विधि सिखाई जाती है।',
     sciencePrinciples: [
       {
         titleEn: 'Numerical Frequency Resonator Theory',
@@ -863,8 +863,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Authentic 3x3 planetary numerical magic square yantras prepared for your weakest or ruling planets.',
     taglineHi: 'आपकी जन्म तिथि के अनुसार तैयार किए जाने वाले 3x3 नवग्रह भोजपत्र एवं तांबे के सिद्ध यंत्र।',
     shortDesc: 'Authentic 3x3 planetary numerical magic square yantras prepared for your weakest or ruling planets.',
-    fullDescEn: 'A Yantra is a physical cosmic antenna inscribed with sacred geometric and numerical codes. In Vedic numerology, every planet—from Surya (Sum 15) and Chandra (Sum 18) to Brihaspati (Sum 27) and Shukra (Sum 30)—has an authentic 3x3 planetary numerical magic square. Master Randhir Singh calculates your exact ruling planet and identifies the weakest planet in your birth chart, inscribing the corresponding authentic yantra on consecrated Bhojpatra (sacred birch bark) or pure copper plates, empowered through Prana Pratishtha rituals.',
-    fullDescHi: 'यंत्र एक भौतिक ब्रह्मांडीय एंटीना है जो शुभ ग्रहीय तरंगों को आकर्षित करता है। वैदिक अंक ज्योतिष में प्रत्येक ग्रह का एक प्रामाणिक 3x3 संख्यात्मक जादुई वर्ग होता है—जैसे सूर्य यंत्र (योग 15), चंद्र यंत्र (योग 18), गुरु यंत्र (योग 27), तथा शुक्र यंत्र (योग 30)। मास्टर रणधीर सिंह जी आपकी जन्म तिथि के अनुसार आपके कमजोर व कारक ग्रह का निर्धारण कर, पवित्र भोजपत्र अथवा शुद्ध तांबे पर हस्तलिखित यंत्र तैयार कर वैदिक प्राण-प्रतिष्ठा करते हैं।',
+    fullDescEn: 'A Yantra is a physical cosmic antenna inscribed with sacred geometric and numerical codes. In Vedic numerology, every planet—from Surya (Sum 15) and Chandra (Sum 18) to Brihaspati (Sum 27) and Shukra (Sum 30)—has an authentic 3x3 planetary numerical magic square. Numerologist & Healer · Randhir Singh calculates your exact ruling planet and identifies the weakest planet in your birth chart, inscribing the corresponding authentic yantra on consecrated Bhojpatra (sacred birch bark) or pure copper plates, empowered through Prana Pratishtha rituals.',
+    fullDescHi: 'यंत्र एक भौतिक ब्रह्मांडीय एंटीना है जो शुभ ग्रहीय तरंगों को आकर्षित करता है। वैदिक अंक ज्योतिष में प्रत्येक ग्रह का एक प्रामाणिक 3x3 संख्यात्मक जादुई वर्ग होता है—जैसे सूर्य यंत्र (योग 15), चंद्र यंत्र (योग 18), गुरु यंत्र (योग 27), तथा शुक्र यंत्र (योग 30)। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपकी जन्म तिथि के अनुसार आपके कमजोर व कारक ग्रह का निर्धारण कर, पवित्र भोजपत्र अथवा शुद्ध तांबे पर हस्तलिखित यंत्र तैयार कर वैदिक प्राण-प्रतिष्ठा करते हैं।',
     sciencePrinciples: [
       {
         titleEn: 'The Invariant Mathematical Sum of Planetary Squares',
@@ -906,7 +906,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'How long does a Bhojpatra Yantra retain its energy?',
         qHi: 'भोजपत्र यंत्र की ऊर्जा कितने समय तक सक्रिय रहती है?',
-        aEn: 'A properly consecrated Bhojpatra yantra remains active for years. Master Randhir Singh includes simple periodic incense and mantra rejuvenation instructions.',
+        aEn: 'A properly consecrated Bhojpatra yantra remains active for years. Numerologist & Healer · Randhir Singh includes simple periodic incense and mantra rejuvenation instructions.',
         aHi: 'प्राण-प्रतिष्ठित भोजपत्र यंत्र वर्षों तक सक्रिय रहता है। इसे केवल समय-समय पर अगरबत्ती व दीपक का दर्शन कराना पर्याप्त होता है।'
       }
     ]
@@ -923,8 +923,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Dedicated Sri Yantra, Kuber Yantra (Sum 72), and Vyapar Vridhi Yantras for major life triumphs.',
     taglineHi: 'कुबेर महायंत्र (योग 72), श्री महालक्ष्मी यंत्र एवं व्यापार वृद्धि यंत्र द्वारा असाधारण सफलता।',
     shortDesc: 'Dedicated Sri Yantra, Kuber Yantra (Sum 72), and Vyapar Vridhi Yantras for major life triumphs.',
-    fullDescEn: 'When facing monumental life goals—such as clearing competitive government examinations, winning massive corporate tenders, acquiring commercial property, or breaking out of generational debt—standard remedies must be elevated to High-Potency Special Yantras. Master Randhir Singh crafts and consecrates three supreme specialized yantras: The sacred Kuber Yantra (where every row sums to the master wealth frequency 72), the authentic Vyapar Vridhi Yantra for sales acceleration, and the Sarva Karya Siddhi Yantra for fulfilling cherished life desires.',
-    fullDescHi: 'जब जीवन में कोई बहुत बड़ा लक्ष्य हो—जैसे सरकारी नौकरी, प्रतियोगी परीक्षा, बड़ा व्यापारिक टेंडर, भूमि-भवन क्रय, या पुराने कर्ज से मुक्ति—तब उच्च शक्ति वाले विशेष यंत्रों की आवश्यकता होती है। मास्टर रणधीर सिंह जी तीन सर्वोच्च विशेष यंत्र सिद्ध करते हैं: कुबेर महायंत्र (जिसमें प्रत्येक पंक्ति का योग 72 होता है जो कुबेर का धन अंक है), व्यापार वृद्धि यंत्र (व्यापारिक बिक्री बढ़ाने हेतु), तथा सर्व कार्य सिद्धि यंत्र (मनवांछित मनोरथों को पूर्ण करने हेतु)।',
+    fullDescEn: 'When facing monumental life goals—such as clearing competitive government examinations, winning massive corporate tenders, acquiring commercial property, or breaking out of generational debt—standard remedies must be elevated to High-Potency Special Yantras. Numerologist & Healer · Randhir Singh crafts and consecrates three supreme specialized yantras: The sacred Kuber Yantra (where every row sums to the master wealth frequency 72), the authentic Vyapar Vridhi Yantra for sales acceleration, and the Sarva Karya Siddhi Yantra for fulfilling cherished life desires.',
+    fullDescHi: 'जब जीवन में कोई बहुत बड़ा लक्ष्य हो—जैसे सरकारी नौकरी, प्रतियोगी परीक्षा, बड़ा व्यापारिक टेंडर, भूमि-भवन क्रय, या पुराने कर्ज से मुक्ति—तब उच्च शक्ति वाले विशेष यंत्रों की आवश्यकता होती है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी तीन सर्वोच्च विशेष यंत्र सिद्ध करते हैं: कुबेर महायंत्र (जिसमें प्रत्येक पंक्ति का योग 72 होता है जो कुबेर का धन अंक है), व्यापार वृद्धि यंत्र (व्यापारिक बिक्री बढ़ाने हेतु), तथा सर्व कार्य सिद्धि यंत्र (मनवांछित मनोरथों को पूर्ण करने हेतु)।',
     sciencePrinciples: [
       {
         titleEn: 'The Kuber Sum 72 Matrix Frequency',
@@ -983,8 +983,8 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Profession-matched gemstones and crystal bracelets (Pyrite, Citrine, Aventurine, Amethyst).',
     taglineHi: 'आपके पेशे एवं जन्म तिथि के अनुकूल प्राकृतिक क्रिस्टल ब्रेसलेट (पायराइट, सिट्रीन, एवेंच्यूरिन)।',
     shortDesc: 'Profession-matched gemstones and crystal bracelets (Pyrite, Citrine, Aventurine, Amethyst).',
-    fullDescEn: 'Crystals are Mother Earth’s most stable crystalline resonators, formed over millions of years under extreme telluric pressure. Wearing the wrong crystal can scatter your energy, while wearing the correct profession-matched gemstone acts like a precision psychic amplifier. Master Randhir Singh evaluates your occupation—matching Iron Pyrite (Fool’s Gold) for entrepreneurs needing cash liquidity, Citrine for merchants, Green Aventurine for new venture luck, Amethyst for stressful professions, and Tiger Eye for bold decision-making—complete with salt cleansing and sun/moon charging protocols.',
-    fullDescHi: 'क्रिस्टल पृथ्वी की सबसे स्थिर प्राकृतिक संरचनाएं हैं जो लाखों वर्षों के भूगर्भीय दबाव से बनती हैं। गलत क्रिस्टल पहनने से ऊर्जा बिखर सकती है, जबकि अपने पेशे एवं मूलांक के अनुकूल सही क्रिस्टल धारण करने से अद्भुत सफलता मिलती है। मास्टर रणधीर सिंह जी आपके कार्यक्षेत्र के अनुसार चयन करते हैं: व्यापारियों हेतु पायराइट (धन आकर्षण), दुकानदारों हेतु सिट्रीन (व्यापार वृद्धि), नए प्रोजेक्ट्स हेतु ग्रीन एवेंच्यूरिन (सौभाग्य), तथा तनावग्रस्त व्यक्तियों हेतु अमेथिस्ट। साथ ही लवण शुद्धि व धूप-दीप से चार्ज करने की विधि भी सिखाई जाती है।',
+    fullDescEn: 'Crystals are Mother Earth’s most stable crystalline resonators, formed over millions of years under extreme telluric pressure. Wearing the wrong crystal can scatter your energy, while wearing the correct profession-matched gemstone acts like a precision psychic amplifier. Numerologist & Healer · Randhir Singh evaluates your occupation—matching Iron Pyrite (Fool’s Gold) for entrepreneurs needing cash liquidity, Citrine for merchants, Green Aventurine for new venture luck, Amethyst for stressful professions, and Tiger Eye for bold decision-making—complete with salt cleansing and sun/moon charging protocols.',
+    fullDescHi: 'क्रिस्टल पृथ्वी की सबसे स्थिर प्राकृतिक संरचनाएं हैं जो लाखों वर्षों के भूगर्भीय दबाव से बनती हैं। गलत क्रिस्टल पहनने से ऊर्जा बिखर सकती है, जबकि अपने पेशे एवं मूलांक के अनुकूल सही क्रिस्टल धारण करने से अद्भुत सफलता मिलती है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपके कार्यक्षेत्र के अनुसार चयन करते हैं: व्यापारियों हेतु पायराइट (धन आकर्षण), दुकानदारों हेतु सिट्रीन (व्यापार वृद्धि), नए प्रोजेक्ट्स हेतु ग्रीन एवेंच्यूरिन (सौभाग्य), तथा तनावग्रस्त व्यक्तियों हेतु अमेथिस्ट। साथ ही लवण शुद्धि व धूप-दीप से चार्ज करने की विधि भी सिखाई जाती है।',
     sciencePrinciples: [
       {
         titleEn: 'Piezoelectric Micro-Current Amplification',
@@ -1026,7 +1026,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'Which wrist should I wear my crystal bracelet on?',
         qHi: 'क्रिस्टल ब्रेसलेट किस हाथ में पहनना चाहिए?',
-        aEn: 'The left wrist is the receiving hand (to absorb wealth, healing, peace). The right wrist is the projecting hand (for leadership and protection). Master Randhir Singh specifies the correct hand for your specific crystal.',
+        aEn: 'The left wrist is the receiving hand (to absorb wealth, healing, peace). The right wrist is the projecting hand (for leadership and protection). Numerologist & Healer · Randhir Singh specifies the correct hand for your specific crystal.',
         aHi: 'बायां हाथ ऊर्जा ग्रहण करने वाला (धन, शांति, स्वास्थ्य) होता है; दायां हाथ ऊर्जा प्रवाहित करने वाला (प्रभाव, रक्षा) होता है। आपके क्रिस्टल के आधार पर सही हाथ बताया जाता है।'
       }
     ]

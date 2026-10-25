@@ -323,8 +323,8 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
 
             <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-4 max-w-3xl mx-auto leading-relaxed">
               {lang === 'hi'
-                ? 'यंत्र केवल धातु या कागज पर बना चित्र नहीं है; यह ब्रह्मांडीय ऊर्जा (Cosmic Prana) को आकर्षित करने वाला एक जीवित एंटीना है। मास्टर रणधीर सिंह (जयपुर) द्वारा सिद्ध एवं अभिमंत्रित यंत्र आपके औरा की विकृतियों को दूर कर आरोग्य, अभय एवं शांति प्रदान करते हैं।'
-                : 'In Vedic cosmology, a Yantra is an electro-magnetic resonant blueprint that interfaces directly with human biophotons and cellular memory. Master Randhir Singh personalizes each healing yantra according to the client’s astrological vulnerabilities, bio-pulse, and radial meridian.'}
+                ? 'यंत्र केवल धातु या कागज पर बना चित्र नहीं है; यह ब्रह्मांडीय ऊर्जा (Cosmic Prana) को आकर्षित करने वाला एक जीवित एंटीना है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह (जयपुर) द्वारा सिद्ध एवं अभिमंत्रित यंत्र आपके औरा की विकृतियों को दूर कर आरोग्य, अभय एवं शांति प्रदान करते हैं।'
+                : 'In Vedic cosmology, a Yantra is an electro-magnetic resonant blueprint that interfaces directly with human biophotons and cellular memory. Numerologist & Healer · Randhir Singh personalizes each healing yantra according to the client’s astrological vulnerabilities, bio-pulse, and radial meridian.'}
             </p>
 
             {/* Quick Action CTAs */}
@@ -342,7 +342,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-900 font-bold py-3 px-6 rounded-xl text-sm border-2 border-stone-300 hover:border-amber-400 shadow-2xs transition-all"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-600" />
-                <span>{lang === 'hi' ? 'रणधीर जी से परामर्श बुक करें' : 'Consult Master Randhir Singh'}</span>
+                <span>{lang === 'hi' ? 'रणधीर जी से परामर्श बुक करें' : 'Consult Numerologist & Healer · Randhir Singh'}</span>
               </button>
             </div>
           </div>
@@ -641,7 +641,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
                   onClick={() => onOpenBooking(`Handcrafted Bhojpatra ${selectedYantra.nameEn}`, '₹5,100')}
                   className="bg-amber-800 hover:bg-amber-900 text-white font-bold px-4 py-2 rounded-lg text-xs shrink-0 transition-colors"
                 >
-                  {lang === 'hi' ? 'रणधीर जी से परामर्श लें' : 'Consult Master Randhir'}
+                  {lang === 'hi' ? 'रणधीर जी से परामर्श लें' : 'Consult Numerologist & Healer · Randhir Singh'}
                 </button>
               </div>
             </div>
@@ -667,13 +667,13 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
             <div className="p-4 bg-[#faf7f0] rounded-xl border border-amber-200">
               <strong className="text-amber-950 block mb-1 font-sacred">
                 {lang === 'hi'
-                  ? '१. मास्टर रणधीर सिंह जी द्वारा सिद्ध यंत्र बाज़ारू यंत्रों से भिन्न क्यों हैं?'
-                  : "1. What makes Master Randhir Singh's Yantras different from market items?"}
+                  ? '१. अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी द्वारा सिद्ध यंत्र बाज़ारू यंत्रों से भिन्न क्यों हैं?'
+                  : "1. What makes Numerologist & Healer · Randhir Singh's Yantras different from market items?"}
               </strong>
               <p className="text-stone-600 leading-relaxed">
                 {lang === 'hi'
-                  ? 'बाज़ार में मिलने वाले यंत्र मशीनों द्वारा छापे जाते हैं, जिनमें न तो उचित ऊर्जा होती है और न ही अंकों का सही संतुलन। मास्टर रणधीर सिंह प्रत्येक अंक-यंत्र के गणितीय योग की गहन जाँच करते हैं, उन्हें अनार की कलम व अष्टगंध से असली भोजपत्र पर अथवा शुद्ध तांबे की प्लेट पर वैदिक संपुटित मंत्रों से प्राण-प्रतिष्ठित करते हैं।'
-                  : 'Market machine-stamped plates are often mathematically flawed and mechanically cold. Master Randhir Singh inspects every matrix cell for mathematical sums, hand-etches them on authentic Himalayan Bhojpatra using Pomegranate stylus (Anar ki Kalam) and Ashtagandha ink, or uses heavy unadulterated copper sheets energized through 1,100 Vedic samputit mantras.'}
+                  ? 'बाज़ार में मिलने वाले यंत्र मशीनों द्वारा छापे जाते हैं, जिनमें न तो उचित ऊर्जा होती है और न ही अंकों का सही संतुलन। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह प्रत्येक अंक-यंत्र के गणितीय योग की गहन जाँच करते हैं, उन्हें अनार की कलम व अष्टगंध से असली भोजपत्र पर अथवा शुद्ध तांबे की प्लेट पर वैदिक संपुटित मंत्रों से प्राण-प्रतिष्ठित करते हैं।'
+                  : 'Market machine-stamped plates are often mathematically flawed and mechanically cold. Numerologist & Healer · Randhir Singh inspects every matrix cell for mathematical sums, hand-etches them on authentic Himalayan Bhojpatra using Pomegranate stylus (Anar ki Kalam) and Ashtagandha ink, or uses heavy unadulterated copper sheets energized through 1,100 Vedic samputit mantras.'}
               </p>
             </div>
 
@@ -686,7 +686,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
               <p className="text-stone-600 leading-relaxed">
                 {lang === 'hi'
                   ? 'हाँ, बशर्ते उनकी दिशा और तत्वों में टकराव न हो। उदाहरण के लिए, सूर्य व गायत्री यंत्र पूर्व दिशा (अग्नि/प्रकाश) में स्थापित होते हैं, जबकि कुबेर व महामृत्युंजय यंत्र उत्तर या उत्तर-पूर्व (ईशान कोण) में। व्यक्तिगत परामर्श के दौरान रणधीर जी आपके घर या कार्यालय के अनुसार सही दिशा बताते हैं।'
-                  : 'Yes, provided their elemental orientations do not conflict. For example, Surya and Gayatri align with the East (Solar Agni), while Kuber and Mahamrityunjaya align with the North / North-East (Kubera & Shiva dik). During your personalized consultation, Master Randhir Singh provides an exact Vastu blueprint for your residence or office.'}
+                  : 'Yes, provided their elemental orientations do not conflict. For example, Surya and Gayatri align with the East (Solar Agni), while Kuber and Mahamrityunjaya align with the North / North-East (Kubera & Shiva dik). During your personalized consultation, Numerologist & Healer · Randhir Singh provides an exact Vastu blueprint for your residence or office.'}
               </p>
             </div>
 

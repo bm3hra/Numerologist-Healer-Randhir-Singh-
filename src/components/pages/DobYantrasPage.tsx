@@ -505,7 +505,7 @@ export const DobYantrasPage: React.FC<DobYantrasPageProps> = ({
                   Missing Numbers Requiring Yantric Activation:
                 </span>
                 <p className="text-xs text-stone-600 mb-3">
-                  Your birth grid lacks numbers: <strong>[{profile.missingNumbers.join(', ')}]</strong>. Master Randhir Singh consecrates specific yantras to fill these psychological energy gaps.
+                  Your birth grid lacks numbers: <strong>[{profile.missingNumbers.join(', ')}]</strong>. Numerologist & Healer · Randhir Singh consecrates specific yantras to fill these psychological energy gaps.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {profile.missingNumbers.map((num) => (
@@ -588,7 +588,7 @@ export const DobYantrasPage: React.FC<DobYantrasPageProps> = ({
                   {lang === 'hi' ? 'हस्तनिर्मित अष्टगंध भोजपत्र यंत्र तैयार करवाएं' : 'Order Hand-Etched Bhojpatra Yantra'}
                 </h4>
                 <p className="text-xs text-stone-600 mt-1 max-w-md">
-                  Inscribed by Master Randhir Singh during your auspicious Nakshatra hora with consecrated mantras and delivered with framing.
+                  Inscribed by Numerologist & Healer · Randhir Singh during your auspicious Nakshatra hora with consecrated mantras and delivered with framing.
                 </p>
               </div>
 

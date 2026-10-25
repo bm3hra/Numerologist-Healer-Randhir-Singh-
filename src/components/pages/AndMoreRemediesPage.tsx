@@ -167,7 +167,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-amber-900/10 text-amber-950 px-4 py-1.5 rounded-full border border-amber-300 text-xs font-bold tracking-widest uppercase mb-4 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-amber-700" />
-            <span>{lang === 'hi' ? 'मास्टर रणधीर सिंह का संपूर्ण उपचारात्मक संग्रह' : 'Master Randhir Singh’s Complete Esoteric Treasury'}</span>
+            <span>{lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का संपूर्ण उपचारात्मक संग्रह' : 'Numerologist & Healer · Randhir Singh’s Complete Esoteric Treasury'}</span>
           </div>
 
           <h1 className="font-sacred text-3xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-tight">
@@ -182,7 +182,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
 
           <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-4 max-w-3xl mx-auto leading-relaxed">
             {lang === 'hi'
-              ? 'वैदिक अंक ज्योतिष के अलावा मास्टर रणधीर सिंह अनेक सिद्ध उपचारात्मक पद्धतियों में सिद्धहस्त हैं। यहाँ उन सभी गुप्त एवं व्यावहारिक विधाओं की विस्तृत जानकारी है जो तुरंत आपके जीवन की दिशा बदल सकती हैं।'
+              ? 'वैदिक अंक ज्योतिष के अलावा अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह अनेक सिद्ध उपचारात्मक पद्धतियों में सिद्धहस्त हैं। यहाँ उन सभी गुप्त एवं व्यावहारिक विधाओं की विस्तृत जानकारी है जो तुरंत आपके जीवन की दिशा बदल सकती हैं।'
               : 'Beyond classic birth grid calculations, explore the complete arsenal of quantum frequency cures, sacred switchwords, salt detox protocols, and certified authentic natural gemstones & rudrakshas.'}
           </p>
 
@@ -421,7 +421,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
               <p className="text-xs sm:text-sm text-stone-300 mt-2 leading-relaxed">
                 {lang === 'hi'
                   ? 'पिरामिड ज्यामिति स्वाभाविक रूप से एक जैव-सकारात्मक ऊर्जा क्षेत्र उत्पन्न करती है जो वास्तु दोष, विद्युत-चुंबकीय विकिरण (WiFi/मोबाइल) और पारिवारिक तनाव को शांत करती है। इसके साथ सिद्ध हिमालयन रॉक सॉल्ट का प्रयोग आपके घर व आभामंडल को पूर्णतः शुद्ध रखता है।'
-                  : "Pyramidal geometry naturally generates a bio-positive ionic field that cancels geopathic stress, WiFi electromagnetic smog, and stubborn domestic tensions. Combined with Master Randhir Singh's energized Himalayan rock salt foot soaks, your home and personal aura stay completely unburdened."}
+                  : "Pyramidal geometry naturally generates a bio-positive ionic field that cancels geopathic stress, WiFi electromagnetic smog, and stubborn domestic tensions. Combined with Numerologist & Healer · Randhir Singh's energized Himalayan rock salt foot soaks, your home and personal aura stay completely unburdened."}
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-3 mt-6">

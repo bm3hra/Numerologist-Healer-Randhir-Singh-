@@ -52,7 +52,7 @@ export const MediaGallerySection: React.FC<MediaGallerySectionProps> = ({
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
             {lang === 'hi'
               ? 'हमारे जयपुर केंद्र की पावन झलकियाँ, थेरेपी घड़ियों का प्रत्यक्ष प्रदर्शन, नमक शुद्धि विधान एवं वैदिक अंक ज्योतिष के ज्ञानवर्धक वीडियो व्याख्यान।'
-              : 'Explore our Jaipur spiritual clinic, consecrated Bhojpatra yantras, custom therapy watches, and video masterclasses by Master Randhir Singh.'}
+              : 'Explore our Jaipur spiritual clinic, consecrated Bhojpatra yantras, custom therapy watches, and video masterclasses by Numerologist & Healer · Randhir Singh.'}
           </p>
         </div>
 

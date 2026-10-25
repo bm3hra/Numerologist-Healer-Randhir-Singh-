@@ -254,7 +254,7 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
                       {isMobileFriendly
                         ? `✓ Highly Harmonious! Root ${mobileRoot} naturally complements your Driver ${userDriver}, multiplying business inquiries, client trust, and smooth communication.`
                         : isMobileEnemy
-                        ? `⚠ Inimical Vibration. Root ${mobileRoot} is in natural friction with Driver ${userDriver}. Master Randhir Singh advises selecting a mobile number totaling 5, 6, or 1.`
+                        ? `⚠ Inimical Vibration. Root ${mobileRoot} is in natural friction with Driver ${userDriver}. Numerologist & Healer · Randhir Singh advises selecting a mobile number totaling 5, 6, or 1.`
                         : `Neutral Vibration. Root ${mobileRoot} provides balanced steady flow without dramatic planetary friction.`}
                     </p>
                   </div>
@@ -397,7 +397,7 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
                       {isNameFriendly
                         ? `✓ Divine Phonetic Alignment! Chaldean root ${chaldeanSingle} is in perfect friendship with your Driver ${userDriver}, empowering your aura and public goodwill.`
                         : isNameEnemy
-                        ? `⚠ Karmic Friction Detected. Root ${chaldeanSingle} opposes Driver ${userDriver}. Master Randhir Singh can calibrate an auspicious spelling suffix to unlock effortless growth.`
+                        ? `⚠ Karmic Friction Detected. Root ${chaldeanSingle} opposes Driver ${userDriver}. Numerologist & Healer · Randhir Singh can calibrate an auspicious spelling suffix to unlock effortless growth.`
                         : `Neutral Phonetic Balance. Root ${chaldeanSingle} operates peacefully with Driver ${userDriver}.`}
                     </p>
                   </div>

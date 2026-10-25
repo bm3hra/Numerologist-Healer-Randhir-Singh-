@@ -18,8 +18,8 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 'c1',
     category: 'booking',
     categoryLabel: 'Online Consultations',
-    questionEn: 'How do online consultations with Master Randhir Singh work?',
-    questionHi: 'मास्टर रणधीर सिंह के साथ ऑनलाइन परामर्श कैसे आयोजित होते हैं?',
+    questionEn: 'How do online consultations with Numerologist & Healer · Randhir Singh work?',
+    questionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह के साथ ऑनलाइन परामर्श कैसे आयोजित होते हैं?',
     answerEn: 'All sessions are conducted seamlessly via high-definition Google Meet, Zoom, or WhatsApp video call. You receive an instant confirmation and preparation guide once booked. Distance does not diminish the accuracy or potency of spiritual and numerological consultations.',
     answerHi: 'सभी सत्र हाई-डेफिनिशन गूगल मीट, ज़ूम या व्हाट्सएप वीडियो कॉल द्वारा आयोजित होते हैं। बुकिंग के तुरंत बाद पुष्टि और तैयारी निर्देश प्राप्त होते हैं। दूरी आध्यात्मिक एवं अंक ज्योतिषीय परामर्श की प्रभावशीलता को कम नहीं करती।'
   },
@@ -67,7 +67,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     categoryLabel: 'Booking & Consultations',
     questionEn: 'How do I claim one of the 5 FREE Sunday Consultation slots?',
     questionHi: 'रविवार के 5 निःशुल्क परामर्श स्लॉट में से एक कैसे प्राप्त करें?',
-    answerEn: 'Every Sunday, Master Randhir Singh offers the first 5 consultations 100% FREE for 20 minutes as a sacred service. Slots are granted strictly on a first-come, first-served basis upon prior appointment. Simply click "Claim Free Sunday Slot" on this website or message on WhatsApp at +91-9509593150 with your Name and Date of Birth to secure an available time slot for the upcoming Sunday.',
+    answerEn: 'Every Sunday, Numerologist & Healer · Randhir Singh offers the first 5 consultations 100% FREE for 20 minutes as a sacred service. Slots are granted strictly on a first-come, first-served basis upon prior appointment. Simply click "Claim Free Sunday Slot" on this website or message on WhatsApp at +91-9509593150 with your Name and Date of Birth to secure an available time slot for the upcoming Sunday.',
     answerHi: 'प्रत्येक रविवार प्रथम 5 परामर्श (20 मिनट) पूर्णतः निःशुल्क दिए जाते हैं। यह स्लॉट पूर्व अपॉइंटमेंट के आधार पर पहले आओ-पहले पाओ के नियम पर मिलते हैं। वेबसाइट पर "फ्री संडे स्लॉट" बटन दबाकर या व्हाट्सएप (+91-9509593150) पर अपना नाम व जन्म तिथि भेजकर अपनी सीट आरक्षित कर सकते हैं।'
   },
   {
@@ -136,7 +136,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     categoryLabel: 'Salt Therapy & Crystals',
     questionEn: 'How does Negativity Removal & Salt Therapy work and can I do it at home?',
     questionHi: 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी) कैसे कार्य करती है और क्या इसे घर पर किया जा सकता है?',
-    answerEn: 'Unprocessed Himalayan Rock Salt (Sendha Namak) and sea salt have been revered in Vedic Vastu and esoteric healing as unmatched bio-energetic absorbers of heavy atmospheric static, astral fatigue, and envy (Nazar). Yes, our DIY home rituals—such as the Himalayan Rock Salt Foot Soak and Doorway Threshold Bowls—are simple, safe, and can be done at home. For stubborn chronic disputes or heavy emotional fatigue, Master Randhir also prepares specially consecrated herbal salt blends.',
+    answerEn: 'Unprocessed Himalayan Rock Salt (Sendha Namak) and sea salt have been revered in Vedic Vastu and esoteric healing as unmatched bio-energetic absorbers of heavy atmospheric static, astral fatigue, and envy (Nazar). Yes, our DIY home rituals—such as the Himalayan Rock Salt Foot Soak and Doorway Threshold Bowls—are simple, safe, and can be done at home. For stubborn chronic disputes or heavy emotional fatigue, Numerologist & Healer · Randhir Singh also prepares specially consecrated herbal salt blends.',
     answerHi: 'सेंधा नमक और समुद्री नमक नकारात्मक ऊर्जा और नजर दोष को सोखने का सबसे प्राकृतिक माध्यम हैं। हमारे बताए गए रॉक सॉल्ट फुट सोक और चौखट शुद्धिकरण को आप आसानी से घर पर कर सकते हैं। अधिक पुरानी परेशानियों के लिए विशेष रूप से अभिमंत्रित लवण मिश्रण भी उपलब्ध कराया जाता है।'
   },
   {

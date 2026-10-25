@@ -117,7 +117,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: `${service.titleEn} · Master Randhir Singh`,
+        title: `${service.titleEn} · Numerologist & Healer · Randhir Singh`,
         text: service.taglineEn,
         url: window.location.href
       }).catch(() => {});
@@ -204,7 +204,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
                 </span>
 
                 <span className="text-amber-200/80 text-xs border border-amber-400/30 px-3 py-1 rounded-md">
-                  {lang === 'hi' ? 'मास्टर रणधीर सिंह प्रामाणिक सेवा' : 'Authentic Master Randhir Singh Portfolio'}
+                  {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह प्रामाणिक सेवा' : 'Authentic Numerologist & Healer · Randhir Singh Portfolio'}
                 </span>
               </div>
 
@@ -530,8 +530,8 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
                 <div className="p-3 bg-white rounded-xl border border-amber-200 text-xs text-stone-600 flex items-center justify-between">
                   <span>
                     {lang === 'hi'
-                      ? 'इस सेवा की व्यक्तिगत गणना एवं चार्ट निर्माण मास्टर रणधीर सिंह जी द्वारा विशेष रूप से किया जाता है।'
-                      : 'Personalized calculations, Bhojpatra inscriptions, and synchronizations are performed directly by Master Randhir Singh during consultation.'}
+                      ? 'इस सेवा की व्यक्तिगत गणना एवं चार्ट निर्माण अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी द्वारा विशेष रूप से किया जाता है।'
+                      : 'Personalized calculations, Bhojpatra inscriptions, and synchronizations are performed directly by Numerologist & Healer · Randhir Singh during consultation.'}
                   </span>
                   <button
                     onClick={() => onOpenBooking(service.titleEn, service.suggestedTariff)}
@@ -684,18 +684,18 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
               </a>
             </div>
 
-            {/* Master Randhir Singh Verified Card */}
+            {/* Numerologist & Healer · Randhir Singh Verified Card */}
             <div className="bg-white rounded-3xl p-5 border border-stone-200 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
                 <img
                   src="/assets/aistudio/Randhir_Singh_8dc81223.png"
-                  alt="Master Randhir Singh"
+                  alt="Numerologist & Healer · Randhir Singh"
                   referrerPolicy="no-referrer"
                   className="w-14 h-14 rounded-2xl object-cover border-2 border-amber-400 bg-stone-900 shrink-0"
                 />
                 <div>
                   <h4 className="font-sacred font-bold text-stone-900 text-sm">
-                    Master Randhir Singh
+                    Numerologist & Healer · Randhir Singh
                   </h4>
                   <p className="text-[11px] text-amber-800 font-semibold">
                     {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · जयपुर' : 'Numerologist & Healer · Jaipur'}

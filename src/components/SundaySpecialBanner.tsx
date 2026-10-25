@@ -31,8 +31,8 @@ export const SundaySpecialBanner: React.FC<SundaySpecialBannerProps> = ({ lang, 
             </h3>
             <p className="text-xs sm:text-sm text-amber-200/80 mt-1 max-w-2xl">
               {lang === 'hi'
-                ? 'मास्टर रणधीर सिंह द्वारा प्रत्येक रविवार प्रथम 5 परामर्श पूर्णतः निःशुल्क दिए जाते हैं (पूर्व अपॉइंटमेंट अनिवार्य)। अपनी जन्म तिथि व ग्रिड का सटीक विश्लेषण प्राप्त करें।'
-                : 'Master Randhir Singh reserves 5 exclusive complimentary 20-minute consultation slots every Sunday. Verified on a first-come, first-served basis upon advance appointment.'}
+                ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा प्रत्येक रविवार प्रथम 5 परामर्श पूर्णतः निःशुल्क दिए जाते हैं (पूर्व अपॉइंटमेंट अनिवार्य)। अपनी जन्म तिथि व ग्रिड का सटीक विश्लेषण प्राप्त करें।'
+                : 'Numerologist & Healer · Randhir Singh reserves 5 exclusive complimentary 20-minute consultation slots every Sunday. Verified on a first-come, first-served basis upon advance appointment.'}
             </p>
 
             <div className="flex flex-wrap items-center gap-y-1 gap-x-4 mt-3 text-xs text-amber-300/90 font-medium">

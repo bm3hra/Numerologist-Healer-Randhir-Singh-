@@ -192,7 +192,7 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
 
           <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-4 max-w-3xl mx-auto leading-relaxed">
             {lang === 'hi'
-              ? 'पारंपरिक पंचांग मिलान के साथ-साथ जन्मतिथि का लो-शू ग्रिड मिलान यह स्पष्ट कर देता है कि दोनों व्यक्तियों के बीच स्वभाव, आर्थिक ईमानदारी, संतान सुख एवं दीर्घकालिक प्रेम कैसा रहेगा। यदि कोई दोष हो, तो मास्टर रणधीर सिंह उसके अचूक निवारक उपाय बताते हैं।'
+              ? 'पारंपरिक पंचांग मिलान के साथ-साथ जन्मतिथि का लो-शू ग्रिड मिलान यह स्पष्ट कर देता है कि दोनों व्यक्तियों के बीच स्वभाव, आर्थिक ईमानदारी, संतान सुख एवं दीर्घकालिक प्रेम कैसा रहेगा। यदि कोई दोष हो, तो अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह उसके अचूक निवारक उपाय बताते हैं।'
               : 'Evaluates subconscious temperament, emotional resonance, financial honesty, and complementary missing numbers across both partners. Unlocks practical remedial solutions for differences.'}
           </p>
 
@@ -536,7 +536,7 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
         <div className="bg-white rounded-3xl border-2 border-amber-300 p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-              Master Randhir Singh’s Astrological Remedy Protocol
+              Numerologist & Healer · Randhir Singh’s Astrological Remedy Protocol
             </span>
             <h4 className="font-sacred text-2xl font-bold text-stone-900 mt-1">
               Need Personal Advice on Delayed Marriage, Doshas or Friction?

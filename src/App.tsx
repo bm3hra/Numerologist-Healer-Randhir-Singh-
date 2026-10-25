@@ -271,7 +271,7 @@ export default function App() {
           />
         )}
 
-        {/* ROUTE 6: About Master Randhir Singh Dedicated Page (18 Photos & Credentials) */}
+        {/* ROUTE 6: About Numerologist & Healer · Randhir Singh Dedicated Page (18 Photos & Credentials) */}
         {currentTab === 'about-randhir' && (
           <div className="py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
@@ -327,7 +327,7 @@ export default function App() {
                     <span>{lang === 'hi' ? 'विशेष विस्तृत अनुभाग एवं पोर्टल' : 'Dedicated Specialized In-Depth Portals'}</span>
                   </div>
                   <h2 className="font-sacred text-2xl sm:text-3xl font-black text-stone-900">
-                    {lang === 'hi' ? 'विशिष्ट उपचारात्मक पोर्टल' : 'Explore Master Randhir Singh’s Core Portals'}
+                    {lang === 'hi' ? 'विशिष्ट उपचारात्मक पोर्टल' : 'Explore Numerologist & Healer · Randhir Singh’s Core Portals'}
                   </h2>
                   <p className="text-xs sm:text-sm text-stone-600 mt-1">
                     {lang === 'hi'
@@ -524,7 +524,7 @@ export default function App() {
               onOpenBooking={(svcName) => handleOpenBooking(svcName)}
             />
 
-            {/* 10. Dedicated About Master Randhir Singh Section (Featuring 18 Photos & Credentials) */}
+            {/* 10. Dedicated About Numerologist & Healer · Randhir Singh Section (Featuring 18 Photos & Credentials) */}
             <AboutRandhirSinghSection
               lang={lang as Language}
               onOpenBooking={(svc) => handleOpenBooking(svc)}

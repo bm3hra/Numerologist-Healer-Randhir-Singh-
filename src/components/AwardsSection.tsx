@@ -113,8 +113,8 @@ export const AwardsSection: React.FC<AwardsSectionProps> = ({ lang, onOpenBookin
       yearHi: 'विशाल दीक्षांत समारोह 2024',
       venueEn: 'Radisson Blu Assembly',
       venueHi: 'रेडिसन ब्लू सम्मेलन',
-      conferredByEn: 'Director & Chairman Master Randhir Singh',
-      conferredByHi: 'निदेशक एवं अध्यक्ष मास्टर रणधीर सिंह',
+      conferredByEn: 'Director & Chairman Numerologist & Healer · Randhir Singh',
+      conferredByHi: 'निदेशक एवं अध्यक्ष अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह',
       verificationCode: 'EXC-NUM/CONV/GOLD-2024',
       descriptionEn:
         'Bestowed in recognition of exceptional research, diagnostic precision in watch numerology and name vibrations, and unwavering commitment to ethical seeker empowerment. Features embossed gold Guilloché border and golden rosette seal.',
@@ -123,13 +123,13 @@ export const AwardsSection: React.FC<AwardsSectionProps> = ({ lang, onOpenBookin
       highlightsEn: [
         'Embossed gold guilloché ornamental borders with floral corners',
         'Official citation for outstanding performance & dedicated contribution',
-        'Certified by Council Director and Chairman Master Randhir Singh',
+        'Certified by Council Director and Chairman Numerologist & Healer · Randhir Singh',
         'Includes celebration stage ceremony conferral capture'
       ],
       highlightsHi: [
         'स्वर्ण गिलौश बॉर्डर एवं आकर्षक कोणीय अलंकरण',
         'उत्कृष्ट कार्य प्रदर्शन एवं समर्पित सेवा का आधिकारिक प्रशस्ति पत्र',
-        'परिषद निदेशक एवं अध्यक्ष मास्टर रणधीर सिंह द्वारा प्रमाणित',
+        'परिषद निदेशक एवं अध्यक्ष अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा प्रमाणित',
         'मंच पर प्रदान किए गए गरिमामय समारोह दृश्य सहित'
       ]
     },
@@ -150,13 +150,13 @@ export const AwardsSection: React.FC<AwardsSectionProps> = ({ lang, onOpenBookin
       yearHi: '16 जून 2024',
       venueEn: 'Radisson Blu Grand Ballroom',
       venueHi: 'रेडिसन ब्लू ग्रैण्ड बॉलरूम',
-      conferredByEn: 'Master Randhir Singh (Keynote Speaker & Presiding Master)',
-      conferredByHi: 'मास्टर रणधीर सिंह (मुख्य वक्ता एवं पीठासीन गुरु)',
+      conferredByEn: 'Numerologist & Healer · Randhir Singh (Keynote Speaker & Presiding Master)',
+      conferredByHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह (मुख्य वक्ता एवं पीठासीन गुरु)',
       verificationCode: 'RAD-BLU/CONV/2024-JUN16',
       descriptionEn:
-        'Master Randhir Singh presided and delivered the historic keynote address "NUMBER OF NUMEROLOGISTS TO EXPLORE THE WORLD" with the sacred Tree of Life Chakra emblem at Radisson Blu before hundreds of international delegates and certified practitioners.',
+        'Numerologist & Healer · Randhir Singh presided and delivered the historic keynote address "NUMBER OF NUMEROLOGISTS TO EXPLORE THE WORLD" with the sacred Tree of Life Chakra emblem at Radisson Blu before hundreds of international delegates and certified practitioners.',
       descriptionHi:
-        '16 जून 2024 को रेडिसन ब्लू में आयोजित भव्य द्वितीय दीक्षांत समारोह, जहाँ मास्टर रणधीर सिंह ने "Number of Numerologists to Explore the World" पर ऐतिहासिक मुख्य व्याख्यान दिया और पावन ट्री ऑफ लाइफ चक्र क्रेस्ट का अनावरण किया।',
+        '16 जून 2024 को रेडिसन ब्लू में आयोजित भव्य द्वितीय दीक्षांत समारोह, जहाँ अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह ने "Number of Numerologists to Explore the World" पर ऐतिहासिक मुख्य व्याख्यान दिया और पावन ट्री ऑफ लाइफ चक्र क्रेस्ट का अनावरण किया।',
       highlightsEn: [
         'Conclave Venue: Radisson Blu Luxury Ballroom (16th June 2024)',
         'Historic Keynote: Number of Numerologists to Explore the World',
@@ -626,8 +626,8 @@ export const AwardsSection: React.FC<AwardsSectionProps> = ({ lang, onOpenBookin
               </h3>
               <p className="text-xs sm:text-sm text-amber-200/80 mt-1 max-w-xl">
                 {lang === 'hi'
-                  ? 'मास्टर रणधीर सिंह जी से करियर, व्यापार, वैवाहिक समन्वय एवं थेरेपी घड़ियों पर प्रामाणिक मार्गदर्शन हेतु संपर्क करें।'
-                  : 'Consult with Master Randhir Singh for deep clarity on career milestones, financial expansion, marriage harmony, and therapy watches.'}
+                  ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी से करियर, व्यापार, वैवाहिक समन्वय एवं थेरेपी घड़ियों पर प्रामाणिक मार्गदर्शन हेतु संपर्क करें।'
+                  : 'Consult with Numerologist & Healer · Randhir Singh for deep clarity on career milestones, financial expansion, marriage harmony, and therapy watches.'}
               </p>
             </div>
           </div>

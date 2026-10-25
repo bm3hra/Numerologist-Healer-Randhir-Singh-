@@ -232,7 +232,7 @@ const SPECIAL_YANTRAS: SpecialYantra[] = [
       'Amplifies the law of attraction by aligning your subconscious with cosmic prana',
       'Attracts benevolent mentors, investors, and divine synchronicities',
       'Harmonizes personal lifestyle, luxury, and spiritual contentment',
-      'Consecrated with Master Randhir Singh’s personalized Sankalpa'
+      'Consecrated with Numerologist & Healer · Randhir Singh’s personalized Sankalpa'
     ],
     ritualProcedure: [
       'Perform Pradakshina (clockwise walking) 7 times around the home mandir.',
@@ -326,7 +326,7 @@ export const SpecialYantrasPage: React.FC<SpecialYantrasPageProps> = ({
 
           <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-4 max-w-3xl mx-auto leading-relaxed">
             {lang === 'hi'
-              ? 'जब सामान्य प्रयास अवरुद्ध हो जाएं, तब वैदिक संख्यात्मक यंत्रों की अचूक शक्ति दिशा बदल देती है। प्रत्येक यंत्र को ग्राहक के नाम, जन्मतिथि, गोत्र एवं व्यापारिक लक्ष्य के अनुसार मास्टर रणधीर सिंह (जयपुर) द्वारा विशेष मुहूर्त में भोजपत्र अथवा शुद्ध ताम्र-पत्र पर तैयार किया जाता है।'
+              ? 'जब सामान्य प्रयास अवरुद्ध हो जाएं, तब वैदिक संख्यात्मक यंत्रों की अचूक शक्ति दिशा बदल देती है। प्रत्येक यंत्र को ग्राहक के नाम, जन्मतिथि, गोत्र एवं व्यापारिक लक्ष्य के अनुसार अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह (जयपुर) द्वारा विशेष मुहूर्त में भोजपत्र अथवा शुद्ध ताम्र-पत्र पर तैयार किया जाता है।'
               : 'Engineered with mathematical numerical matrices where every horizontal, vertical, and diagonal axis adds to a sacred cosmic constant. These yantras bypass obstacles to magnetize capital, administrative authority, and fulfillment of high-stakes desires.'}
           </p>
 
@@ -530,7 +530,7 @@ export const SpecialYantrasPage: React.FC<SpecialYantrasPageProps> = ({
                 onClick={() => onOpenBooking(`Consultation for ${activeYantra.nameEn}`, '₹2,100')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-100 text-stone-800 font-bold py-3 px-5 rounded-xl text-xs border border-stone-300 transition-colors"
               >
-                Consult Master Randhir
+                Consult Numerologist & Healer · Randhir Singh
               </button>
             </div>
           </div>

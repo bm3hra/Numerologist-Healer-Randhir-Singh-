@@ -39,8 +39,8 @@ export const OFFICIAL_CERTIFICATE_ASSETS: OfficialCertificateAsset[] = [
     venue: 'DD Consultants National Accreditation (UDYAM-GJ-22-0158332)',
     conferredBy: 'Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist)',
     verificationCode: 'UDYAM-GJ-22-0158332 / REG: G-65',
-    descriptionEn: 'Official Certificate of Completion awarded to Master Randhir Singh Ji upon successfully undergoing the Advance Numerology Course under Dr. Rohit Gadkari. Formally validates adequate mastery over numerological diagnostics and authorizes practice as a professional consultant.',
-    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा मास्टर रणधीर सिंह जी को उन्नत अंक ज्योतिष पाठ्यक्रम सफलतापूर्वक पूर्ण करने पर प्रदान किया गया अधिकृत प्रमाण पत्र, जो उन्हें परामर्शदाता के रूप में अभ्यास हेतु अधिकृत करता है।',
+    descriptionEn: 'Official Certificate of Completion awarded to Numerologist & Healer · Randhir Singh Ji upon successfully undergoing the Advance Numerology Course under Dr. Rohit Gadkari. Formally validates adequate mastery over numerological diagnostics and authorizes practice as a professional consultant.',
+    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी को उन्नत अंक ज्योतिष पाठ्यक्रम सफलतापूर्वक पूर्ण करने पर प्रदान किया गया अधिकृत प्रमाण पत्र, जो उन्हें परामर्शदाता के रूप में अभ्यास हेतु अधिकृत करता है।',
     highlights: [
       'Official Registration Number: G-65 (UDYAM-GJ-22-0158332 & ISO-9001: 2015)',
       'Signed by Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist)',
@@ -125,10 +125,10 @@ export const OFFICIAL_CERTIFICATE_ASSETS: OfficialCertificateAsset[] = [
     assetUrl: '/assets/certificates/radisson-blu-convocation-crest.svg',
     date: '16th June 2024',
     venue: 'Radisson Blu Grand Ballroom',
-    conferredBy: 'Master Randhir Singh (Keynote Speaker & Presiding Master)',
+    conferredBy: 'Numerologist & Healer · Randhir Singh (Keynote Speaker & Presiding Master)',
     verificationCode: 'RAD-BLU/CONV/2024-JUN16',
-    descriptionEn: 'The historic convocation where Master Randhir Singh addressed a packed auditorium of scholars, healers, and numerologists worldwide at Radisson Blu, delivering the visionary keynote "Number of Numerologists to Explore the World" alongside the sacred Tree of Life Chakra emblem.',
-    descriptionHi: '16 जून 2024 को रेडिसन ब्लू में आयोजित भव्य द्वितीय दीक्षांत समारोह, जहाँ मास्टर रणधीर सिंह ने "Number of Numerologists to Explore the World" पर ऐतिहासिक मुख्य व्याख्यान दिया।',
+    descriptionEn: 'The historic convocation where Numerologist & Healer · Randhir Singh addressed a packed auditorium of scholars, healers, and numerologists worldwide at Radisson Blu, delivering the visionary keynote "Number of Numerologists to Explore the World" alongside the sacred Tree of Life Chakra emblem.',
+    descriptionHi: '16 जून 2024 को रेडिसन ब्लू में आयोजित भव्य द्वितीय दीक्षांत समारोह, जहाँ अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह ने "Number of Numerologists to Explore the World" पर ऐतिहासिक मुख्य व्याख्यान दिया।',
     highlights: [
       'Conclave Venue: Radisson Blu Luxury Ballroom (16th June 2024)',
       'Official Convocation Motto: Number of Numerologists to Explore the World',
@@ -147,14 +147,14 @@ export const OFFICIAL_CERTIFICATE_ASSETS: OfficialCertificateAsset[] = [
     assetUrl: '/assets/certificates/certificate-of-excellence.svg',
     date: 'Conferred at Mega Convocation',
     venue: 'Radisson Blu Assembly',
-    conferredBy: 'Director & Chairman Master Randhir Singh',
+    conferredBy: 'Director & Chairman Numerologist & Healer · Randhir Singh',
     verificationCode: 'EXC-NUM/CONV/GOLD-2024',
     descriptionEn: 'Bestowed in recognition of exceptional research, diagnostic precision in watch numerology and name vibrations, and unwavering commitment to ethical seeker empowerment. Features embossed gold Guilloché border, golden rosette seal, and director signatures.',
     descriptionHi: 'अंक ज्योतिष एवं उपचारात्मक साधनाओं में अद्वितीय योगदान, उत्कृष्ट प्रदर्शन एवं सेवा भाव के लिए प्रदान किया गया स्वर्ण-मुद्रित सर्वोच्च उत्कृष्टता प्रमाण पत्र।',
     highlights: [
       'Embossed gold guilloché ornamental borders with floral corners',
       'Official citation for outstanding performance & dedicated contribution',
-      'Certified by Council Director and Chairman Master Randhir Singh',
+      'Certified by Council Director and Chairman Numerologist & Healer · Randhir Singh',
       'High-grade archival paper credential format'
     ]
   }
@@ -206,7 +206,7 @@ export const AssetsCertificatesSection: React.FC<AssetsCertificatesSectionProps>
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
             {lang === 'hi'
-              ? 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट, उद्यम GJ-22-0158332 एवं ISO-9001:2015) द्वारा मास्टर रणधीर सिंह जी को प्रदत्त 4 विशिष्ट उपलब्धि प्रमाण-पत्र एवं 16 जून 2024 रेडिसन ब्लू राष्ट्रीय सम्मेलन में प्रदत्त उपाधियों का आधिकारिक डिजिटल संग्रह।'
+              ? 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट, उद्यम GJ-22-0158332 एवं ISO-9001:2015) द्वारा अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी को प्रदत्त 4 विशिष्ट उपलब्धि प्रमाण-पत्र एवं 16 जून 2024 रेडिसन ब्लू राष्ट्रीय सम्मेलन में प्रदत्त उपाधियों का आधिकारिक डिजिटल संग्रह।'
               : 'Authentic credentials conferred by Dr. Rohit Gadkari (PhD Gold Medalist, UDYAM-GJ-22-0158332 & ISO-9001:2015) alongside Radisson Blu Mega Convocation presidential honors.'}
           </p>
 
@@ -362,7 +362,7 @@ export const AssetsCertificatesSection: React.FC<AssetsCertificatesSectionProps>
             </div>
             <div>
               <h3 className="font-sacred text-lg sm:text-xl font-bold text-white">
-                Learn from Conclave-Honored Master Randhir Singh
+                Learn from Conclave-Honored Numerologist & Healer · Randhir Singh
               </h3>
               <p className="text-xs sm:text-sm text-amber-200/80 mt-1 max-w-2xl">
                 Benefit from authentic Vedic and Lo-Shu numerological guidance recognized across national convocations, Radisson Blu assemblies, and government skill initiatives.
@@ -374,7 +374,7 @@ export const AssetsCertificatesSection: React.FC<AssetsCertificatesSectionProps>
             onClick={() => onOpenBooking('Certificate & Honors Mentorship Consultation', '₹5,100')}
             className="shrink-0 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 text-stone-950 font-bold py-3 px-6 rounded-xl text-xs sm:text-sm shadow-md transition-all transform hover:-translate-y-0.5"
           >
-            Consult With Master Randhir Singh
+            Consult With Numerologist & Healer · Randhir Singh
           </button>
         </div>
       </div>

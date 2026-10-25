@@ -215,8 +215,8 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
       locationHi: 'देहरादून, भारत',
       service: 'Vedic Numerology & Guidance',
       serviceHi: 'वैदिक अंक ज्योतिष एवं मार्गदर्शन',
-      review: 'Master Randhir Singh’s Mulank and Bhagyank breakdown was astoundingly precise. Practical remedies and watch corrections yielded a senior leadership offer within 3 months.',
-      reviewHi: 'मास्टर रणधीर सिंह का मूलांक और भाग्यांक विश्लेषण अत्यंत सटीक था। व्यावहारिक उपायों और कलाई घड़ी के सुझाव से 3 महीने के भीतर मुझे वरिष्ठ पद का प्रस्ताव मिला।',
+      review: 'Numerologist & Healer · Randhir Singh’s Mulank and Bhagyank breakdown was astoundingly precise. Practical remedies and watch corrections yielded a senior leadership offer within 3 months.',
+      reviewHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का मूलांक और भाग्यांक विश्लेषण अत्यंत सटीक था। व्यावहारिक उपायों और कलाई घड़ी के सुझाव से 3 महीने के भीतर मुझे वरिष्ठ पद का प्रस्ताव मिला।',
       rating: 5
     },
     {
@@ -342,8 +342,8 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                   </h3>
                   <p className="text-xs text-amber-200/80 mt-2 leading-relaxed">
                     {lang === 'hi'
-                      ? 'प्रत्येक रविवार, मास्टर रणधीर सिंह प्रथम 5 परामर्श पूर्व अपॉइंटमेंट पर 100% निःशुल्क प्रदान करते हैं। इसमें संपूर्ण जन्म तिथि एवं लो-शू ग्रिड निदान शामिल है।'
-                      : 'Every Sunday, Master Randhir Singh offers the first 5 consultations 100% FREE on appointment. Includes complete Date of Birth & Lo-Shu diagnosis.'}
+                      ? 'प्रत्येक रविवार, अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह प्रथम 5 परामर्श पूर्व अपॉइंटमेंट पर 100% निःशुल्क प्रदान करते हैं। इसमें संपूर्ण जन्म तिथि एवं लो-शू ग्रिड निदान शामिल है।'
+                      : 'Every Sunday, Numerologist & Healer · Randhir Singh offers the first 5 consultations 100% FREE on appointment. Includes complete Date of Birth & Lo-Shu diagnosis.'}
                   </p>
 
                   <div className="my-5 flex items-baseline gap-2">
@@ -572,7 +572,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               <div className="relative w-36 h-44 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-md shrink-0 bg-stone-900 group">
                 <img
                   src="/assets/aistudio/Randhir_Singh_8dc81223.png"
-                  alt="Master Randhir Singh"
+                  alt="Numerologist & Healer · Randhir Singh"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -738,8 +738,8 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               </h2>
               <p className="text-xs sm:text-sm text-stone-600 mt-2">
                 {lang === 'hi'
-                  ? 'मास्टर रणधीर सिंह के साथ स्पष्टता, ऊर्जा उपचार एवं सफलता के वास्तविक अनुभव।'
-                  : 'Real experiences of clarity, healing, and empowered transformation with Master Randhir Singh'}
+                  ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह के साथ स्पष्टता, ऊर्जा उपचार एवं सफलता के वास्तविक अनुभव।'
+                  : 'Real experiences of clarity, healing, and empowered transformation with Numerologist & Healer · Randhir Singh'}
               </p>
             </div>
 

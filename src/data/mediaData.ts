@@ -29,13 +29,13 @@ export const PHOTO_GALLERY: PhotoItem[] = [
   {
     id: 'p_formal_portrait',
     titleEn: 'Enhanced Portrait of Randhir Singh — Official Formal Portrait',
-    titleHi: 'मास्टर रणधीर सिंह — आधिकारिक गरिमामय पोर्ट्रेट',
+    titleHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह — आधिकारिक गरिमामय पोर्ट्रेट',
     category: 'portraits',
     categoryLabel: 'Official Portrait',
     imageUrl: '/assets/aistudio/Randhir_Singh_8dc81223.png',
-    descriptionEn: 'Official high-resolution formal portrait of Master Randhir Singh in royal blue formal attire, reflecting deep wisdom, calm authority, and mastery in Lo-Shu numerology and pulse horology.',
-    descriptionHi: 'मास्टर रणधीर सिंह का आधिकारिक गरिमामय पोर्ट्रेट। रॉयल ब्लू औपचारिक परिधान में वैदिक ज्ञान, सकारात्मकता एवं दशकों के अनुभव का जीवंत स्वरूप।',
-    tags: ['Master Randhir Singh', 'Jaipur Healer', 'Vedic Numerologist', 'Enhanced Portrait']
+    descriptionEn: 'Official high-resolution formal portrait of Numerologist & Healer · Randhir Singh in royal blue formal attire, reflecting deep wisdom, calm authority, and mastery in Lo-Shu numerology and pulse horology.',
+    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का आधिकारिक गरिमामय पोर्ट्रेट। रॉयल ब्लू औपचारिक परिधान में वैदिक ज्ञान, सकारात्मकता एवं दशकों के अनुभव का जीवंत स्वरूप।',
+    tags: ['Numerologist & Healer · Randhir Singh', 'Jaipur Healer', 'Vedic Numerologist', 'Enhanced Portrait']
   },
   {
     id: 'p_card_services',
@@ -45,7 +45,7 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     categoryLabel: 'Visiting Card',
     imageUrl: '/assets/aistudio/Card-Back_682c94ca.jpg',
     descriptionEn: 'Authentic visiting card specifying all 16 sacred services: Numerology Consultation, Watch Analysis, Date of Birth Analysis, Therapy Watches, Child Birth Dates, Mobile Number Analysis, Negativity Removal & Salt Therapy, Name Corrections, Marriage & Health Remedies, Grid Matching, Health Switch Words, Spiritual & Pranic Healings, Sacred Healing Codes, DOB Yantras, Special Business/Job Yantras, and Growth Crystals.',
-    descriptionHi: 'मास्टर रणधीर सिंह का अधिकृत विजिटिंग कार्ड जिसमें अंक ज्योतिष, वॉच एनालिसिस, थेरेपी वॉचेस, नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी), यंत्र एवं हीलिंग कोड्स सहित सभी 16 प्रमुख सेवाओं का संपूर्ण विवरण अंकित है।',
+    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का अधिकृत विजिटिंग कार्ड जिसमें अंक ज्योतिष, वॉच एनालिसिस, थेरेपी वॉचेस, नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी), यंत्र एवं हीलिंग कोड्स सहित सभी 16 प्रमुख सेवाओं का संपूर्ण विवरण अंकित है।',
     tags: ['Visiting Card', '16 Services', 'Om Shri Ganeshay Namh', 'Remedies']
   },
   {
@@ -66,8 +66,8 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     category: 'awards',
     categoryLabel: 'Academic Award',
     imageUrl: '/assets/about/proud-convocation-achievement-delhi.svg',
-    descriptionEn: 'Master Randhir Singh in academic doctoral convocation regalia holding the framed Royal Skills Academy Certificate (Regd. No. 10115) and 3-star wooden trophy from Dr. Rohit Sachdev (11th June 2024, Navgal Saikk Academy, New Delhi).',
-    descriptionHi: 'दीक्षांत पोशाक एवं स्वर्ण फुंदने वाली कैप में मास्टर रणधीर सिंह। रॉयल स्किल्स एकेडमी प्रमाण-पत्र (पंजीकरण 10115) तथा डॉ. रोहित सचदेव द्वारा प्रदत्त 3-स्टार काष्ठ स्मृति-चिह्न के साथ।',
+    descriptionEn: 'Numerologist & Healer · Randhir Singh in academic doctoral convocation regalia holding the framed Royal Skills Academy Certificate (Regd. No. 10115) and 3-star wooden trophy from Dr. Rohit Sachdev (11th June 2024, Navgal Saikk Academy, New Delhi).',
+    descriptionHi: 'दीक्षांत पोशाक एवं स्वर्ण फुंदने वाली कैप में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह। रॉयल स्किल्स एकेडमी प्रमाण-पत्र (पंजीकरण 10115) तथा डॉ. रोहित सचदेव द्वारा प्रदत्त 3-स्टार काष्ठ स्मृति-चिह्न के साथ।',
     tags: ['Royal Skills Academy', 'Regd 10115', 'Dr. Rohit Sachdev', 'Advance Numerology']
   },
   {
@@ -78,7 +78,7 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     categoryLabel: 'Accreditation',
     imageUrl: '/assets/aistudio/Certificate-4_637f7316.jpeg',
     descriptionEn: 'High-resolution original photograph of the official completion certificate conferred upon Randhir Singh by Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist). Validated under UDYAM-GJ-22-0158332 and ISO-9001:2015 on 23 NOV 2024.',
-    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा मास्टर रणधीर सिंह जी को उन्नत दिशात्मक स्थापन (प्लेसमेंट) पाठ्यक्रम पूर्णता पर प्रदान किया गया मूल फोटो प्रमाण-पत्र (REG NO: A-G 62)।',
+    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी को उन्नत दिशात्मक स्थापन (प्लेसमेंट) पाठ्यक्रम पूर्णता पर प्रदान किया गया मूल फोटो प्रमाण-पत्र (REG NO: A-G 62)।',
     tags: ['Advance Placement', 'Dr. Rohit Gadkari', 'REG: A-G 62', 'ISO-9001:2015']
   },
   {
@@ -88,8 +88,8 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     category: 'watches',
     categoryLabel: 'Therapy Watches',
     imageUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
-    descriptionEn: 'Consecrated Victorinox 18K Gold & Royal Azure Blue Precision Therapy Watch personally energized by Master Randhir Singh. Engineered with a sunburst cosmic dial, central Golden Om (ॐ) mandala, "NUMEROLOGY GUIDANCE" and "HEALING ENERGY POSITIVITY" sacred inscriptions, Master Number 22 date aperture, and a divine golden blooming lotus at 6 o\'clock. Calibrated to transmit steady wealth vibration, career promotion, and mental clarity through the radial artery pulse meridian.',
-    descriptionHi: 'मास्टर रणधीर सिंह द्वारा सिद्ध एवं प्राण-प्रतिष्ठित विक्टोरिनॉक्स 18K स्वर्ण व डीप रॉयल ब्लू थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, "न्यूमेरोलॉजी गाइडेंस" एवं "हीलिंग एनर्जी पॉजिटिविटी" महामंत्र, मास्टर नंबर 22 दिनांक चक्र, और 6 बजे दिव्य स्वर्ण कमल पुष्प अंकित है।',
+    descriptionEn: 'Consecrated Victorinox 18K Gold & Royal Azure Blue Precision Therapy Watch personally energized by Numerologist & Healer · Randhir Singh. Engineered with a sunburst cosmic dial, central Golden Om (ॐ) mandala, "NUMEROLOGY GUIDANCE" and "HEALING ENERGY POSITIVITY" sacred inscriptions, Master Number 22 date aperture, and a divine golden blooming lotus at 6 o\'clock. Calibrated to transmit steady wealth vibration, career promotion, and mental clarity through the radial artery pulse meridian.',
+    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा सिद्ध एवं प्राण-प्रतिष्ठित विक्टोरिनॉक्स 18K स्वर्ण व डीप रॉयल ब्लू थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, "न्यूमेरोलॉजी गाइडेंस" एवं "हीलिंग एनर्जी पॉजिटिविटी" महामंत्र, मास्टर नंबर 22 दिनांक चक्र, और 6 बजे दिव्य स्वर्ण कमल पुष्प अंकित है।',
     tags: ['Therapy Watches', 'Victorinox Gold & Blue', 'Om Mandala', 'Master Number 22', 'Radial Pulse']
   },
   {
@@ -99,8 +99,8 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     category: 'watches',
     categoryLabel: 'Therapy Watches',
     imageUrl: '/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png',
-    descriptionEn: 'Master Randhir Singh’s bespoke Victorinox precision diagnostic therapy watch crafted in solid 18K yellow gold with a pristine ceramic pearl white bezel and textured white Guilloche dial. Features a sacred central Golden Om (ॐ) 12-petal yantra mandala, dual protective inscriptions "NUMEROLOGY GUIDANCE" & "HEALING ENERGY POSITIVITY", Master Number 22 date aperture at 6 o’clock, and an auspicious golden blooming lotus.',
-    descriptionHi: 'मास्टर रणधीर सिंह द्वारा प्राण-प्रतिष्ठित विक्टोरिनॉक्स 18K स्वर्ण एवं शुद्ध पर्ल व्हाइट सिरेमिक थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, "न्यूमेरोलॉजी गाइडेंस" एवं "हीलिंग एनर्जी पॉजिटिविटी" महामंत्र, 6 बजे मास्टर नंबर 22 दिनांक विंडो और दिव्य स्वर्ण कमल पुष्प स्थापित है।',
+    descriptionEn: 'Numerologist & Healer · Randhir Singh’s bespoke Victorinox precision diagnostic therapy watch crafted in solid 18K yellow gold with a pristine ceramic pearl white bezel and textured white Guilloche dial. Features a sacred central Golden Om (ॐ) 12-petal yantra mandala, dual protective inscriptions "NUMEROLOGY GUIDANCE" & "HEALING ENERGY POSITIVITY", Master Number 22 date aperture at 6 o’clock, and an auspicious golden blooming lotus.',
+    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा प्राण-प्रतिष्ठित विक्टोरिनॉक्स 18K स्वर्ण एवं शुद्ध पर्ल व्हाइट सिरेमिक थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, "न्यूमेरोलॉजी गाइडेंस" एवं "हीलिंग एनर्जी पॉजिटिविटी" महामंत्र, 6 बजे मास्टर नंबर 22 दिनांक विंडो और दिव्य स्वर्ण कमल पुष्प स्थापित है।',
     tags: ['Watch Diagnostic', 'Pearl White & Gold', 'Om Mandala', 'Master Number 22', 'Radial Pulse']
   },
   {
@@ -111,7 +111,7 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     categoryLabel: 'Convocation',
     imageUrl: '/assets/about/proud-graduation-portrait-golden-tassel.svg',
     descriptionEn: 'Ceremonial graduation portrait wearing the black doctoral convocation gown, formal suit with tie clip, and mortarboard cap with radiant golden yellow tassel.',
-    descriptionHi: 'भव्य दीक्षांत समारोह गाउन, सूट, टाई क्लिप एवं सुनहरे पीले फुंदने से सुशोभित कैप में मास्टर रणधीर सिंह का गौरवशाली उपाधि चित्र।',
+    descriptionHi: 'भव्य दीक्षांत समारोह गाउन, सूट, टाई क्लिप एवं सुनहरे पीले फुंदने से सुशोभित कैप में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का गौरवशाली उपाधि चित्र।',
     tags: ['Golden Tassel', 'Graduation Robe', 'Convocation 2024']
   },
   {
@@ -121,8 +121,8 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     category: 'portraits',
     categoryLabel: 'Scholars Wall',
     imageUrl: '/assets/about/randhir-singh-collage-wall.svg',
-    descriptionEn: 'Master Randhir Singh in tailored black two-piece suit and patterned blue silk tie presenting the commemorative tree wall featuring certified numerology leaders across India.',
-    descriptionHi: 'काले औपचारिक सूट व नीली सिल्क टाई में मास्टर रणधीर सिंह, भारत भर के प्रमाणित अंक शास्त्रियों की ज्ञान-वृक्ष स्मृति दीवार का भावपूर्ण प्रदर्शन करते हुए।',
+    descriptionEn: 'Numerologist & Healer · Randhir Singh in tailored black two-piece suit and patterned blue silk tie presenting the commemorative tree wall featuring certified numerology leaders across India.',
+    descriptionHi: 'काले औपचारिक सूट व नीली सिल्क टाई में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह, भारत भर के प्रमाणित अंक शास्त्रियों की ज्ञान-वृक्ष स्मृति दीवार का भावपूर्ण प्रदर्शन करते हुए।',
     tags: ['Community Wall', 'Black Suit', 'Fellow Numerologists']
   },
   {
@@ -132,7 +132,7 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     category: 'convocation',
     categoryLabel: 'Convocation Keynote',
     imageUrl: '/assets/about/numerologists-mega-convocation-speech.svg',
-    descriptionEn: 'Master Randhir Singh delivering the keynote address on pulse vibration and subconscious numerology at the 2nd Mega Convocation on 16th June 2024 at Radisson Blu, New Delhi.',
+    descriptionEn: 'Numerologist & Healer · Randhir Singh delivering the keynote address on pulse vibration and subconscious numerology at the 2nd Mega Convocation on 16th June 2024 at Radisson Blu, New Delhi.',
     descriptionHi: '16 जून 2024 को रैडिसन ब्लू, नई दिल्ली में आयोजित द्वितीय महा दीक्षांत समारोह के मंच से कलाई स्पंदन एवं अंक ज्योतिष पर मुख्य व्याख्यान प्रस्तुत करते हुए।',
     tags: ['Radisson Blu', 'Keynote Speech', '16 June 2024', 'Convocation']
   },
@@ -143,7 +143,7 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     category: 'convocation',
     categoryLabel: 'Convocation Podium',
     imageUrl: '/assets/about/randhir-singh-at-convocation-podium.svg',
-    descriptionEn: 'Master Randhir Singh addressing international delegates with golden nameplate pinned to his suit lapel, speaking on the historic 2nd Mega Convocation stage in New Delhi.',
+    descriptionEn: 'Numerologist & Healer · Randhir Singh addressing international delegates with golden nameplate pinned to his suit lapel, speaking on the historic 2nd Mega Convocation stage in New Delhi.',
     descriptionHi: 'सूट लैपल पर रणधीर सिंह नेमप्लेट के साथ पोडियम से देश-विदेश से पधारे अंक ज्योतिष शोधार्थियों एवं साधकों को संबोधित करते हुए।',
     tags: ['Podium Speech', 'Nameplate', 'New Delhi Convention']
   },
@@ -237,7 +237,7 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     views: '68K+ Views',
     thumbnailUrl: '/assets/about/numerologists-mega-convocation-speech.svg',
     embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
-    descriptionEn: 'Live recorded address by Master Randhir Singh from the podium at Radisson Blu (16th June 2024). Inspiring hundreds of certified numerologists on ethics, karmic alignment, and global outreach.',
+    descriptionEn: 'Live recorded address by Numerologist & Healer · Randhir Singh from the podium at Radisson Blu (16th June 2024). Inspiring hundreds of certified numerologists on ethics, karmic alignment, and global outreach.',
     descriptionHi: '16 जून 2024, रेडिसन ब्लू से लाइव रिकॉर्डेड मुख्य व्याख्यान: सैकड़ों प्रमाणित अंक शास्त्रियों को संबोधित करते हुए कर्म सिद्धांत, सत्यनिष्ठा और वैश्विक प्रसार का संदेश।',
     keyTakeaways: [
       'The sacred duty of a numerologist: guiding human destiny without fear-mongering',
@@ -273,8 +273,8 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     views: '24K+ Views',
     thumbnailUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
     embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
-    descriptionEn: 'Master Randhir Singh reveals how your wristwatch dial geometry, colors, and radial artery contact subtly influence your financial income, career promotions, and sleep.',
-    descriptionHi: 'मास्टर रणधीर सिंह द्वारा विस्तृत व्याख्या: कलाई की घड़ी आपकी नब्ज और अवचेतन मन से जुड़कर किस प्रकार करियर में गति या रुकावट लाती है।',
+    descriptionEn: 'Numerologist & Healer · Randhir Singh reveals how your wristwatch dial geometry, colors, and radial artery contact subtly influence your financial income, career promotions, and sleep.',
+    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा विस्तृत व्याख्या: कलाई की घड़ी आपकी नब्ज और अवचेतन मन से जुड़कर किस प्रकार करियर में गति या रुकावट लाती है।',
     keyTakeaways: [
       'Why round dials promote harmony while octagonal dials unlock multidirectional wealth',
       'The silent damage of wearing a stopped or scratched watch',
