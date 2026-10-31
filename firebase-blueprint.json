@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "Page": {
+      "title": "Page",
+      "description": "A dynamic CMS website page",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "slug": { "type": "string", "maxLength": 128 },
+        "title": { "type": "string", "maxLength": 256 },
+        "titleHindi": { "type": "string", "maxLength": 256 },
+        "status": { "type": "string", "enum": ["draft", "published"] },
+        "seoTitle": { "type": "string", "maxLength": 256 },
+        "seoDescription": { "type": "string", "maxLength": 512 },
+        "ogImage": { "type": "string", "maxLength": 2048 },
+        "featuredImage": { "type": "string", "maxLength": 2048 },
+        "blocks": { "type": "string", "maxLength": 100000 },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 },
+        "authorEmail": { "type": "string", "maxLength": 128 },
+        "authorUid": { "type": "string", "maxLength": 128 },
+        "showInNav": { "type": "boolean" },
+        "navOrder": { "type": "number" }
+      },
+      "required": ["id", "slug", "title", "status", "blocks", "authorEmail", "authorUid"]
+    },
+    "MediaItem": {
+      "title": "MediaItem",
+      "description": "An uploaded or embedded image/video item in the CMS media library",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 256 },
+        "url": { "type": "string", "maxLength": 500000 },
+        "type": { "type": "string", "enum": ["image", "video"] },
+        "size": { "type": "number" },
+        "alt": { "type": "string", "maxLength": 256 },
+        "caption": { "type": "string", "maxLength": 512 },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "uploadedBy": { "type": "string", "maxLength": 128 },
+        "uploadedByUid": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "name", "url", "type", "uploadedBy", "uploadedByUid"]
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "An authorized administrator profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 128 },
+        "role": { "type": "string", "enum": ["admin"] },
+        "displayName": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/pages/{pageId}": {
+      "schema": "Page",
+      "description": "Dynamic web pages created via CMS"
+    },
+    "/media/{mediaId}": {
+      "schema": "MediaItem",
+      "description": "Media library assets for CMS pages"
+    },
+    "/admins/{adminId}": {
+      "schema": "AdminUser",
+      "description": "List of authorized administrator users"
+    }
+  }
+}

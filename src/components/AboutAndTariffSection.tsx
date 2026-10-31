@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Award, ShieldCheck, QrCode, CreditCard, Sparkles, Star, CheckCircle, ArrowRight, Phone, MessageCircle, MapPin, Clock, Heart, Filter, Shield, AlertCircle } from 'lucide-react';
-import { Language } from '../types';
+import { Language, PageBlock } from '../types';
 import { getTranslation } from '../i18n/languages';
+import { useCmsPages } from '../context/CmsPageContext';
 
 interface AboutAndTariffSectionProps {
   lang: Language;
@@ -32,162 +33,162 @@ export const SPECIALIZED_SERVICES_11: SpecializedHealingService[] = [
     id: 1,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
-    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
+    categoryLabelHi: 'एनर्जी और हीलिंग',
     name: 'Aura Cleaning',
-    nameHi: 'आभा-मंडल शुद्धिकरण (Aura Cleaning)',
+    nameHi: 'औरा क्लीनिंग (Aura Cleaning)',
     price: '₹3,100',
     duration: '20 minutes',
-    durationHi: '२० मिनट',
-    description: 'Aura cleaning is a sacred spiritual practice focusing on subtle energy balance, cleansing lingering dense energies to cultivate positivity, serenity, and inner awareness.',
-    descriptionHi: 'आभामंडल शुद्धिकरण एक पावन आध्यात्मिक पद्धति है जो सूक्ष्म ऊर्जा संतुलन, नकारात्मक ऊर्जा के निष्कासन और अंतर्मन में सकारात्मकता, शांति व आत्म-जागृति लाने पर केंद्रित है।',
+    durationHi: '20 मिनट',
+    description: 'Aura cleaning balances your subtle personal energy, clearing dense and negative vibrations to restore peace, clarity, and positivity.',
+    descriptionHi: 'औरा क्लीनिंग से शरीर के आसपास की नकारात्मक ऊर्जा दूर होती है और मन में शांति, सुकून और नई ताजगी आती है।',
     confidential: true
   },
   {
     id: 2,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
-    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
+    categoryLabelHi: 'एनर्जी और हीलिंग',
     name: 'Negativity Removal & Salt Therapy',
-    nameHi: 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)',
+    nameHi: 'नेगेटिविटी हटाना और सॉल्ट थेरेपी',
     price: '₹5,100',
     duration: '30 minutes',
-    durationHi: '३० मिनट',
-    description: 'This session assists in consciously dissipating negative thought patterns, emotional residue, and mental heaviness using harmonizing spiritual techniques.',
-    descriptionHi: 'यह सत्र पारंपरिक एवं आध्यात्मिक विधियों के माध्यम से नकारात्मक विचारों, मानसिक भारीपन और संचित भावनात्मक अवरोधों को दूर करने में सहायता करता है।',
+    durationHi: '30 मिनट',
+    description: 'This session helps release heavy negative thoughts, lingering emotional stress, and mental tiredness using gentle, proven energy methods.',
+    descriptionHi: 'नेगेटिव सोच, तनाव और मानसिक भारीपन को दूर कर मन को हल्का, शांत और तनावमुक्त करने का खास सेशन।',
     confidential: true
   },
   {
     id: 3,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
-    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
+    categoryLabelHi: 'एनर्जी और हीलिंग',
     badge: '7-Day Intensive',
-    badgeHi: '७ दिवसीय गहन साधना',
+    badgeHi: '7 दिन का स्पेशल सेशन',
     name: 'Chakra Healing (7-Day Intensive)',
-    nameHi: 'चक्र हीलिंग (7 दिवसीय गहन साधना)',
+    nameHi: '7 दिन की चक्र हीलिंग',
     price: '₹31,000',
     duration: '7 Days',
-    durationHi: '७ दिन',
-    description: 'An intensive 7-day deep vibrational alignment addressing the 7 prime subtle chakras through meditation, sacred resonance, and transformative energy work.',
-    descriptionHi: 'ध्यान, पवित्र ध्वनियों और ऊर्जा रूपांतरण के माध्यम से शरीर के ७ प्रमुख चक्रों को संतुलित करने की ७ दिवसीय गहन आध्यात्मिक साधना।',
+    durationHi: '7 दिन',
+    description: 'An intensive 7-day deep vibrational alignment addressing the 7 prime subtle chakras through meditation, sound harmony, and energy work.',
+    descriptionHi: 'ध्यान और हीलिंग द्वारा शरीर के 7 मुख्य चक्रों को संतुलित करने का 7 दिवसीय स्पेशल प्रोग्राम।',
     confidential: true
   },
   {
     id: 4,
     category: 'numerology',
     categoryLabel: 'Numerological Correction',
-    categoryLabelHi: 'अंक ज्योतिष सुधार',
+    categoryLabelHi: 'न्यूमेरोलॉजी सुधार',
     name: 'Mobile Number Numerology Correction',
-    nameHi: 'मोबाइल नंबर अंक ज्योतिष सुधार',
+    nameHi: 'लकी मोबाइल नंबर सुधार',
     price: '₹5,100',
     duration: 'Full Report & Audit',
-    durationHi: 'विस्तृत रिपोर्ट एवं विश्लेषण',
-    description: 'Vedic numerological analysis of your mobile digits and vibrational frequencies to guide auspicious number combinations aligned with career and wealth.',
-    descriptionHi: 'आपके मोबाइल नंबर के अंकों और उनकी ऊर्जा तरंगों का वैदिक अंक ज्योतिषीय विश्लेषण, जो आपके करियर और धन प्रवाह के अनुकूल शुभ अंक संयोजन का मार्गदर्शन करता है।',
+    durationHi: 'पूरी रिपोर्ट और जांच',
+    description: 'Vedic numerology analysis of your mobile digits and frequency to guide lucky number combinations matching your career and wealth flow.',
+    descriptionHi: 'आपके मोबाइल नंबर की जांच करके करियर और पैसों की तरक्की के लिए लकी नंबर चुनने की सलाह दी जाती है।',
     confidential: true
   },
   {
     id: 5,
     category: 'numerology',
     categoryLabel: 'Numerological Correction',
-    categoryLabelHi: 'अंक ज्योतिष सुधार',
+    categoryLabelHi: 'न्यूमेरोलॉजी सुधार',
     name: 'Name Spelling & Numerology Correction',
-    nameHi: 'नाम वर्तनी एवं अंक ज्योतिष सुधार (Chaldean)',
+    nameHi: 'नेम स्पेलिंग करेक्शन (लकी नाम)',
     price: '₹11,000',
     duration: 'Detailed Analysis',
     durationHi: 'विस्तृत विश्लेषण',
-    description: 'Comprehensive study of name syllables and compound vibrations to synchronize your name frequency with your Mulank and Bhagyank destiny rulers.',
-    descriptionHi: 'आपके मूलांक और भाग्यांक के अनुकूल तालमेल स्थापित करने हेतु काल्डियन पद्धति द्वारा नाम के अक्षरों व अक्षरों की ध्वनि ऊर्जा का संपूर्ण सुधार।',
+    description: 'Careful study of name letters and sound frequencies to align your name vibration with your birth Driver and Conductor numbers.',
+    descriptionHi: 'जन्मतिथि के अनुसार नाम की स्पेलिंग में हल्का बदलाव करके किस्मत और सफलता के नए रास्ते खोलना।',
     confidential: true
   },
   {
     id: 6,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
-    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
+    categoryLabelHi: 'एनर्जी और हीलिंग',
     name: 'Relationship & Harmony Healing',
-    nameHi: 'संबंध एवं दांपत्य सौहार्द्र हीलिंग',
+    nameHi: 'रिश्तों में प्यार और समझ (रिलेशनशिप हीलिंग)',
     price: '₹11,000',
     duration: '45-60 minutes',
-    durationHi: '४५-६० मिनट',
-    description: 'Spiritual and awareness-based guidance to heal emotional discord, bridge communication barriers, and restore mutual compassion in relationships.',
-    descriptionHi: 'आपसी संबंधों में भावनात्मक खिंचाव को दूर करने, संवाद के अवरोधों को मिटाने और सौहार्द्र व प्रेम स्थापित करने हेतु आध्यात्मिक मार्गदर्शन।',
+    durationHi: '45-60 मिनट',
+    description: 'Spiritual and awareness-based guidance to heal emotional misunderstandings, soften conflicts, and restore mutual love and trust in relationships.',
+    descriptionHi: 'आपसी रिश्तों में तनाव और गलतफहमियां दूर करने और प्यार, अपनापन व शांति बढ़ाने के लिए हीलिंग सेशन।',
     confidential: true
   },
   {
     id: 7,
     category: 'energy',
     categoryLabel: 'Energy & Healing',
-    categoryLabelHi: 'ऊर्जा एवं हीलिंग',
-    name: 'Sacred Sound Healing',
-    nameHi: 'पवित्र ध्वनि उपचार (Sound Healing)',
+    categoryLabelHi: 'एनर्जी और हीलिंग',
+    name: 'Divine Sound Healing',
+    nameHi: 'साउंड हीलिंग (ध्वनि ध्यान)',
     price: '₹11,000',
     duration: '45 minutes',
-    durationHi: '४५ मिनट',
-    description: 'Harnessing sacred sound frequencies, singing bowls, resonant bells, and Vedic mantras to induce profound meditative states, cellular relaxation, and mental clarity.',
-    descriptionHi: 'तिब्बती सिंगिंग बाउल्स, घंटियों और पवित्र वैदिक मंत्रों की सूक्ष्म ध्वनि तरंगों द्वारा गहन ध्यान, कोशिकीय विश्रांति और मानसिक स्पष्टता का पावन अनुभव।',
+    durationHi: '45 मिनट',
+    description: 'Using gentle sound frequencies, Tibetan singing bowls, bells, and sacred mantras to induce deep relaxation, quiet the mind, and restore inner peace.',
+    descriptionHi: 'सिंगिंग बाउल और मंत्रों की सुखद ध्वनि से गहरे ध्यान, तनाव मुक्ति और मानसिक शांति का अनुभव।',
     confidential: true
   },
   {
     id: 8,
     category: 'mind',
     categoryLabel: 'Mind Balance & Therapy',
-    categoryLabelHi: 'मन व शरीर संतुलन',
+    categoryLabelHi: 'माइंड और बॉडी संतुलन',
     name: 'Mind & Body Relaxation Therapy',
-    nameHi: 'मन एवं देह विश्रांति थेरेपी',
+    nameHi: 'माइंड और बॉडी रिलैक्सेशन थेरेपी',
     price: '₹5,100',
     duration: '45 minutes',
-    durationHi: '४५ मिनट',
+    durationHi: '45 मिनट',
     description: 'A guided therapeutic session centering on somatic de-stressing, conscious breathwork (Pranayama), and deep tranquility for nervous system reset.',
-    descriptionHi: 'शारीरिक तनाव मुक्ति, प्राणायाम (सचेतन श्वसन) और स्नायु तंत्र को शांत कर मानसिक विश्रांति प्रदान करने वाला एक निर्देशित सत्र।',
+    descriptionHi: 'गहरे तनाव से राहत, प्राणायाम और शरीर-मन को शांत करके नई ताजगी देने वाला थेरेपी सत्र।',
     confidential: true
   },
   {
     id: 9,
     category: 'mind',
     categoryLabel: 'Mind Balance & Therapy',
-    categoryLabelHi: 'मन व शरीर संतुलन',
+    categoryLabelHi: 'माइंड और बॉडी संतुलन',
     name: 'Anxiety & Emotional Support Therapy',
-    nameHi: 'चिंता मुक्ति एवं संवेगात्मक संबल थेरेपी',
+    nameHi: 'तनाव और चिंता मुक्ति थेरेपी',
     price: '₹5,100',
     duration: '45 minutes',
-    durationHi: '४५ मिनट',
-    description: 'Supportive spiritual mentorship cultivating mindfulness, calm grounding, and emotional resilience for those navigating anxiety or prolonged low moods.',
-    descriptionHi: 'चिंता, घबराहट या मानसिक तनाव से जूझ रहे साधकों के लिए मनःशांति, भावनात्मक संबल और सकारात्मक आत्मविश्वास विकसित करने वाला आध्यात्मिक मार्गदर्शन।',
+    durationHi: '45 मिनट',
+    description: 'Supportive guidance cultivating calm grounding and emotional strength for those dealing with stress, overthinking, or low moods.',
+    descriptionHi: 'चिंता, घबराहट या ज्यादा सोचने की आदत से परेशान लोगों के लिए मन को शांत और मजबूत बनाने वाला सेशन।',
     note: 'Important: This service is for spiritual and mindful support and is not a substitute for clinical medical treatment or psychiatric care.',
-    noteHi: 'महत्वपूर्ण सूचना: यह सेवा आध्यात्मिक एवं सचेतन मार्गदर्शन हेतु है तथा यह किसी चिकित्सीय या मनोचिकित्सीय उपचार का विकल्प नहीं है।',
+    noteHi: 'नोट: यह सेवा आध्यात्मिक और मानसिक शांति के लिए है, यह किसी डॉक्टर या मेडिकल इलाज का विकल्प नहीं है।',
     confidential: true
   },
   {
     id: 10,
     category: 'plr',
     categoryLabel: 'Deep Soul Exploration',
-    categoryLabelHi: 'पूर्व जन्म स्मृति अन्वेषण',
+    categoryLabelHi: 'पास्ट लाइफ एक्सप्लोरेशन',
     badge: 'Specialized Session',
-    badgeHi: 'विशिष्ट सत्र',
+    badgeHi: 'स्पेशल सेशन',
     name: 'Past Life Regression (PLR) Session',
-    nameHi: 'पूर्व जन्म स्मृति अन्वेषण (PLR Session)',
+    nameHi: 'पास्ट लाइफ रिग्रेशन (PLR सेशन)',
     price: '₹15,000',
     duration: '90-120 minutes',
-    durationHi: '९०-१२० मिनट',
-    description: 'Past Life Regression spiritual exploration delving into soul impressions, karmic patterns, and deep subconscious emotional layers.',
-    descriptionHi: 'अवचेतन मन की गहराइयों, कार्मिक प्रवृत्तियों और आंतरिक प्रतीकों को समझने हेतु एक आध्यात्मिक व ध्यान-आधारित अन्वेषण सत्र।',
+    durationHi: '90-120 मिनट',
+    description: 'Past Life Regression meditative exploration delving into subconscious impressions, habits, and deep emotional patterns.',
+    descriptionHi: 'अवचेतन मन के पुराने पैटर्न और जीवन की गहरी आदतों को समझने के लिए एक ध्यान-आधारित सेशन।',
     note: 'PLR is understood as a spiritual meditative exploration of subconscious patterns and inner symbols rather than verified historic memories.',
-    noteHi: 'पीएलआर को ऐतिहासिक स्मृतियों के बजाय अवचेतन मन के प्रतीकों व कार्मिक प्रवृत्तियों की आध्यात्मिक खोज के रूप में समझा जाता है।',
+    noteHi: 'नोट: इसे अवचेतन मन और जीवन की गहरी आदतों को समझने के आध्यात्मिक तरीके के रूप में देखा जाता है।',
     confidential: true
   },
   {
     id: 11,
     category: 'mind',
     categoryLabel: 'Mind Balance & Therapy',
-    categoryLabelHi: 'मन व शरीर संतुलन',
+    categoryLabelHi: 'माइंड और बॉडी संतुलन',
     name: 'Mind Peace Therapy',
-    nameHi: 'मनः शांति एवं संतुलन थेरेपी',
+    nameHi: 'मन की शांति (माइंड पीस थेरेपी)',
     price: '₹5,100',
     duration: '45 minutes',
-    durationHi: '४५ मिनट',
+    durationHi: '45 मिनट',
     description: 'Gentle meditative practices focused on quieting overactive mental chatter, cultivating enduring peace, and restoring emotional equilibrium.',
-    descriptionHi: 'अशांत विचारों को शांत करने, मानसिक शांति को सुदृढ़ करने और भावनात्मक संतुलन पुनर्स्थापित करने हेतु सौम्य ध्यान साधना।',
+    descriptionHi: 'अशांत और उलझे विचारों को शांत करने और मन में गहरी शांति लाने के लिए ध्यान और हीलिंग।',
     confidential: true
   }
 ];
@@ -197,8 +198,29 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
   onBookService
 }) => {
   const t = getTranslation(lang);
+  const { getPageBySectionId } = useCmsPages();
+  const cmsTariff = getPageBySectionId('tariff-about');
   const [activeTab, setActiveTab] = useState<'tariff' | 'about' | 'bank' | 'testimonials'>('tariff');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  // Listen to window hash changes to activate corresponding tab
+  React.useEffect(() => {
+    const checkHash = () => {
+      const hash = window.location.hash.toLowerCase().replace('#', '').trim();
+      if (hash === 'tariff' || hash === 'fees' || hash === 'consultancy-fees' || hash === 'healing-fees') {
+        setActiveTab('tariff');
+      } else if (hash === 'bank' || hash === 'payment') {
+        setActiveTab('bank');
+      } else if (hash === 'about' || hash === 'randhir-singh') {
+        setActiveTab('about');
+      } else if (hash === 'testimonials' || hash === 'reviews') {
+        setActiveTab('testimonials');
+      }
+    };
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
+    return () => window.removeEventListener('hashchange', checkHash);
+  }, []);
 
   const filteredHealingServices = SPECIALIZED_SERVICES_11.filter((svc) => {
     if (selectedCategory === 'all') return true;
@@ -214,9 +236,9 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
       location: 'Dehradun, India',
       locationHi: 'देहरादून, भारत',
       service: 'Vedic Numerology & Guidance',
-      serviceHi: 'वैदिक अंक ज्योतिष एवं मार्गदर्शन',
+      serviceHi: 'वैदिक अंक ज्योतिष व मार्गदर्शन',
       review: 'Numerologist & Healer · Randhir Singh’s Mulank and Bhagyank breakdown was astoundingly precise. Practical remedies and watch corrections yielded a senior leadership offer within 3 months.',
-      reviewHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का मूलांक और भाग्यांक विश्लेषण अत्यंत सटीक था। व्यावहारिक उपायों और कलाई घड़ी के सुझाव से 3 महीने के भीतर मुझे वरिष्ठ पद का प्रस्ताव मिला।',
+      reviewHi: 'रणधीर सिंह जी का मूलांक और भाग्यांक विश्लेषण बहुत सटीक था। उनके बताए आसान उपायों और रिस्ट वॉच के सुझाव से 3 महीने में मुझे सीनियर जॉब का ऑफर मिल गया।',
       rating: 5
     },
     {
@@ -227,9 +249,9 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
       location: 'Mumbai, India',
       locationHi: 'मुंबई, भारत',
       service: 'Tarot Reading & Energy Healing',
-      serviceHi: 'टैरो रीडिंग एवं प्राणिक हीलिंग',
+      serviceHi: 'टैरो कार्ड व एनर्जी हीलिंग',
       review: 'I came during an emotionally stressful chapter. The session brought instant clarity and peace. The distance energy healing calmed my anxiety remarkably.',
-      reviewHi: 'मानसिक तनाव के समय मैंने परामर्श लिया। इस सत्र से मुझे अद्भुत शांति और स्पष्टता मिली। दूरस्थ हीलिंग ने मेरी चिंता को पूरी तरह शांत कर दिया।',
+      reviewHi: 'काफी मानसिक तनाव के समय मैंने इनसे बात की। इस सेशन से मुझे बहुत शांति और मन की स्पष्टता मिली। डिस्टेंस हीलिंग से मेरी चिंता व घबराहट दूर हो गई।',
       rating: 5
     },
     {
@@ -240,9 +262,9 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
       location: 'Bengaluru, India',
       locationHi: 'बेंगलुरु, भारत',
       service: 'Life Guidance & Chakra Alignment',
-      serviceHi: 'जीवन मार्गदर्शन एवं चक्र शुद्धि',
+      serviceHi: 'जीवन मार्गदर्शन व चक्र संतुलन',
       review: 'A rare combination of genuine spiritual depth with practical grounding. The actionable advice transformed my career and personal relationships.',
-      reviewHi: 'गहरे आध्यात्मिक ज्ञान और व्यावहारिक दृष्टिकोण का अद्भुत संगम। दिए गए उपायों से मेरे करियर और पारिवारिक संबंधों में सकारात्मक बदलाव आया।',
+      reviewHi: 'गहरा आध्यात्मिक ज्ञान और बहुत ही आसान, काम आने वाले उपाय। इनके बताए सुझावों से मेरे करियर और परिवार के रिश्तों में बहुत अच्छा बदलाव आया।',
       rating: 5
     },
     {
@@ -253,23 +275,28 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
       location: 'Jaipur, India',
       locationHi: 'जयपुर, भारत',
       service: 'Relationship Numerology & Grid Match',
-      serviceHi: 'संबंध अंक ज्योतिष एवं ग्रिड मिलान',
+      serviceHi: 'रिलेशनशिप व ग्रिड मिलान',
       review: 'We consulted for relationship and business compatibility. Compassionate guidance resolved friction patterns and gave us total confidence to move forward.',
-      reviewHi: 'हमने व्यापार विस्तार और आपसी तालमेल के लिए ग्रिड मिलान करवाया। आदरणीय रणधीर जी के मार्गदर्शन से आपसी सामंजस्य और विश्वास सुदृढ़ हुआ।',
+      reviewHi: 'हमने बिजनेस और आपसी तालमेल के लिए ग्रिड मैचिंग करवाई। रणधीर जी की सरल सलाह से हमारे बीच आपसी समझ और विश्वास बहुत मजबूत हुआ।',
       rating: 5
     }
   ];
 
   return (
-    <section id="tariff-about" className="py-12 sm:py-16 bg-[#faf7f0] border-b border-amber-200/80">
+    <section id="tariff-about" className="relative py-12 sm:py-16 bg-[#faf7f0] border-b border-amber-200/80">
+      {/* Anchor targets for direct URL jumps */}
+      <div id="tariff" className="absolute -top-20 left-0 pointer-events-none" />
+      <div id="fees" className="absolute -top-20 left-0 pointer-events-none" />
+      <div id="consultancy-fees" className="absolute -top-20 left-0 pointer-events-none" />
+      <div id="healing-fees" className="absolute -top-20 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           {[
-            { id: 'tariff', label: lang === 'hi' ? 'परामर्श एवं हीलिंग शुल्क' : 'Consultancy & Healing Tariff', icon: Sparkles },
-            { id: 'about', label: lang === 'hi' ? 'रणधीर सिंह जी का परिचय' : 'About Randhir Singh Ji', icon: Award },
-            { id: 'bank', label: lang === 'hi' ? 'बैंक एवं यूपीआई विवरण' : 'Bank & UPI Details', icon: CreditCard },
-            { id: 'testimonials', label: lang === 'hi' ? 'अनुभव एवं समीक्षाएँ' : 'Transformational Stories', icon: Star }
+            { id: 'tariff', label: lang === 'hi' ? 'परामर्श और हीलिंग फीस' : 'Consultancy & Healing Fees', icon: Sparkles },
+            { id: 'about', label: lang === 'hi' ? 'रणधीर सिंह जी के बारे में' : 'About Randhir Singh Ji', icon: Award },
+            { id: 'bank', label: lang === 'hi' ? 'बैंक और UPI से पेमेंट' : 'Bank & UPI Details', icon: CreditCard },
+            { id: 'testimonials', label: lang === 'hi' ? 'लोगों के अनुभव (रिव्यू)' : 'Client Reviews & Stories', icon: Star }
           ].map((tab) => {
             const Icon = tab.icon;
             return (
@@ -295,30 +322,30 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
             {/* Header */}
             <div className="text-center max-w-3xl mx-auto">
               <span className="text-xs font-bold uppercase tracking-widest text-amber-900 bg-amber-100 px-3 py-1 rounded-md border border-amber-300">
-                {lang === 'hi' ? 'आध्यात्मिक मार्गदर्शन एवं हीलिंग सेवाएँ' : 'Spiritual Guidance & Healing Services'}
+                {lang === 'hi' ? 'आध्यात्मिक सलाह और हीलिंग सेवाएँ' : 'Spiritual Guidance & Healing Services'}
               </span>
               <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 mt-3">
-                {lang === 'hi' ? 'परामर्श एवं हीलिंग सेवा शुल्क सूची' : 'Consultancy & Healing Services Tariff'}
+                {lang === 'hi' ? 'परामर्श और हीलिंग फीस लिस्ट' : 'Consultancy & Healing Services Fees'}
               </h2>
               <p className="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
                 {lang === 'hi'
-                  ? 'व्यक्तिगत 1-on-1 सत्र, पूर्ण गोपनीयता, आध्यात्मिक ऊर्जा और प्रामाणिक वैदिक उपायों के साथ।'
-                  : 'Dedicated 1-on-1 sessions designed with complete confidentiality, sacred awareness, and profound spiritual healing.'}
+                  ? 'पर्सनल 1-on-1 बातचीत, पूरी प्राइवेसी, पॉजिटिव एनर्जी और सरल वैदिक उपायों के साथ।'
+                  : 'Dedicated 1-on-1 sessions designed with complete confidentiality, divine awareness, and simple practical guidance.'}
               </p>
 
               {/* 3 Value Pillars */}
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mt-5 text-xs font-semibold text-stone-700">
                 <span className="flex items-center gap-1.5 text-emerald-800">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  {lang === 'hi' ? '100% गोपनीय मार्गदर्शन' : '100% Confidential Guidance'}
+                  {lang === 'hi' ? '100% प्राइवेट व गोपनीय' : '100% Confidential'}
                 </span>
                 <span className="flex items-center gap-1.5 text-amber-900">
                   <Clock className="w-4 h-4 text-amber-700" />
-                  {lang === 'hi' ? 'पूर्व-निर्धारित प्रामाणिक सत्र' : 'Pre-scheduled Authentic Sessions'}
+                  {lang === 'hi' ? 'पहले से बुक किया गया समय' : 'Pre-scheduled Confirmed Sessions'}
                 </span>
                 <span className="flex items-center gap-1.5 text-blue-900">
                   <CreditCard className="w-4 h-4 text-blue-700" />
-                  {lang === 'hi' ? 'UPI, QR व सीधा बैंक ट्रांसफर' : 'UPI, QR & Direct Bank Transfer'}
+                  {lang === 'hi' ? 'UPI, QR कोड व बैंक ट्रांसफर' : 'UPI, QR & Direct Bank Transfer'}
                 </span>
               </div>
             </div>
@@ -330,7 +357,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-amber-300 bg-white/10 px-2.5 py-1 rounded border border-white/20">
-                      {lang === 'hi' ? 'साप्ताहिक पावन सेवा' : 'Weekly Sacred Privilege'}
+                      {lang === 'hi' ? 'रविवार की फ्री सेवा' : 'Sunday Free Privilege'}
                     </span>
                     <span className="text-xs text-amber-300 font-mono font-bold">
                       {lang === 'hi' ? 'जयपुर व ऑनलाइन' : 'Jaipur & Online'}
@@ -338,31 +365,31 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                   </div>
 
                   <h3 className="font-sacred text-xl sm:text-2xl font-bold text-white leading-snug">
-                    {lang === 'hi' ? 'रविवार निःशुल्क 1-on-1 परामर्श' : 'Sunday Free 1-on-1 Consultation'}
+                    {lang === 'hi' ? 'रविवार को फ्री 1-on-1 कंसल्टेशन' : 'Sunday Free 1-on-1 Consultation'}
                   </h3>
                   <p className="text-xs text-amber-200/80 mt-2 leading-relaxed">
                     {lang === 'hi'
-                      ? 'प्रत्येक रविवार, अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह प्रथम 5 परामर्श पूर्व अपॉइंटमेंट पर 100% निःशुल्क प्रदान करते हैं। इसमें संपूर्ण जन्म तिथि एवं लो-शू ग्रिड निदान शामिल है।'
+                      ? 'हर रविवार, रणधीर सिंह जी पहले 5 लोगों को फ्री में सलाह (कंसल्टेशन) देते हैं। इसमें जन्मतिथि और लो-शू ग्रिड की पूरी जांच शामिल है।'
                       : 'Every Sunday, Numerologist & Healer · Randhir Singh offers the first 5 consultations 100% FREE on appointment. Includes complete Date of Birth & Lo-Shu diagnosis.'}
                   </p>
 
                   <div className="my-5 flex items-baseline gap-2">
-                    <span className="text-3xl font-black text-amber-300">{lang === 'hi' ? 'निःशुल्क' : 'FREE'}</span>
+                    <span className="text-3xl font-black text-amber-300">{lang === 'hi' ? 'निःशुल्क (FREE)' : 'FREE'}</span>
                     <span className="text-xs text-amber-200/60 line-through">{lang === 'hi' ? 'नियमित ₹2,100' : 'Regular ₹2,100'}</span>
                   </div>
 
                   <ul className="text-xs text-amber-100 space-y-2 mb-6">
                     <li className="flex items-center gap-2">
                       <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>{lang === 'hi' ? 'अवधि: 20 मिनट (ऑनलाइन या जयपुर क्लिनिक)' : 'Duration: 20 Minutes (Virtual or Jaipur Clinic)'}</span>
+                      <span>{lang === 'hi' ? 'समय: 20 मिनट (ऑनलाइन या जयपुर क्लिनिक में)' : 'Duration: 20 Minutes (Virtual or Jaipur Clinic)'}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>{lang === 'hi' ? 'मूलांक, भाग्यांक व अनुपस्थित अंकों का परीक्षण' : 'Mulank, Bhagyank & Missing numbers identification'}</span>
+                      <span>{lang === 'hi' ? 'मूलांक, भाग्यांक और मिसिंग नंबर की जांच' : 'Driver, Conductor & Missing numbers identification'}</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>{lang === 'hi' ? 'केवल पूर्व पुष्टि प्राप्त बुकिंग पर आधारित' : 'Allocated strictly on first-come confirmed booking'}</span>
+                      <span>{lang === 'hi' ? 'पहले आओ, पहले पाओ के आधार पर' : 'Allocated strictly on first-come confirmed booking'}</span>
                     </li>
                   </ul>
                 </div>
@@ -372,7 +399,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                   className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 text-stone-950 font-bold py-3 px-4 rounded-xl text-xs sm:text-sm shadow-md transition-all"
                 >
                   <Sparkles className="w-4 h-4 text-stone-900" />
-                  <span>{lang === 'hi' ? 'रविवार का निःशुल्क परामर्श बुक करें' : 'Claim Sunday Free Slot Now'}</span>
+                  <span>{lang === 'hi' ? 'रविवार का फ्री स्लॉट बुक करें' : 'Claim Sunday Free Slot Now'}</span>
                   <ArrowRight className="w-4 h-4 text-stone-900" />
                 </button>
               </div>
@@ -380,57 +407,57 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               {/* Flagship Most Popular: Personalized Spiritual Consultation */}
               <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-7 border-2 border-amber-500 shadow-xl relative flex flex-col justify-between">
                 <div className="absolute -top-3.5 right-6 bg-gradient-to-r from-amber-600 to-amber-800 text-white text-[11px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full shadow-sm">
-                  ★ {lang === 'hi' ? 'सर्वाधिक लोकप्रिय' : 'Most Popular'}
+                  ★ {lang === 'hi' ? 'सबसे ज्यादा लोकप्रिय' : 'Most Popular'}
                 </div>
 
                 <div>
                   <div className="flex items-center gap-2 text-stone-500 text-xs mb-2">
                     <Clock className="w-4 h-4 text-amber-700" />
-                    <span>{lang === 'hi' ? 'अवधि: 45-60 मिनट' : 'Duration: 45-60 mins'}</span>
+                    <span>{lang === 'hi' ? 'समय: 45-60 मिनट' : 'Duration: 45-60 mins'}</span>
                     <span>·</span>
-                    <span className="text-amber-900 font-semibold">{lang === 'hi' ? 'गहन व्यक्तिगत विश्लेषण' : 'Personalized In-depth Analysis'}</span>
+                    <span className="text-amber-900 font-semibold">{lang === 'hi' ? 'विस्तार से व्यक्तिगत बातचीत' : 'Personalized In-depth Analysis'}</span>
                   </div>
 
                   <h3 className="font-sacred text-xl sm:text-2xl font-bold text-stone-900">
-                    {lang === 'hi' ? 'व्यक्तिगत आध्यात्मिक व अंक ज्योतिष परामर्श' : 'Personalized Spiritual Consultation'}
+                    {lang === 'hi' ? 'पर्सनल अंक ज्योतिष एवं लाइफ गाइडेंस' : 'Personalized Spiritual & Numerology Consultation'}
                   </h3>
                   <p className="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
                     {lang === 'hi'
-                      ? 'एक संपूर्ण व्यक्तिगत 1-on-1 परामर्श सत्र जिसमें वैदिक अंक ज्योतिष, घड़ी का विश्लेषण एवं चिकित्सीय परामर्श और व्यावहारिक उपायों द्वारा आपके जीवन, करियर व विवाह संबंधी प्रश्नों का समाधान किया जाता है।'
-                      : 'A personalized 1-on-1 consultation session dedicated to understanding your queries, life circumstances, and life path through Vedic wisdom, Watch Analysis & Therapeutic Watch Consultation, and Remedial Guidance.'}
+                      ? 'एक संपूर्ण 1-on-1 सेशन जिसमें आपकी जन्मतिथि, हाथ की घड़ी (वॉच थेरेपी) और आसान उपायों द्वारा नौकरी, व्यापार, शादी और जीवन की समस्याओं का समाधान किया जाता है।'
+                      : 'A personalized 1-on-1 consultation session dedicated to understanding your queries, life circumstances, and life path through Vedic wisdom, Watch Analysis & Therapy Watch Guidance, and Simple Remedial Guidance.'}
                   </p>
 
                   <div className="my-5 p-4 bg-amber-50/80 rounded-xl border border-amber-200 flex items-center justify-between">
                     <div>
                       <span className="text-[11px] font-bold uppercase text-stone-500 block">
-                        {lang === 'hi' ? 'परामर्श शुल्क' : 'Consultancy Fee'}
+                        {lang === 'hi' ? 'कंसल्टेशन फीस' : 'Consultancy Fee'}
                       </span>
                       <div className="text-3xl font-black text-amber-900">
-                        ₹5,100
+                        {cmsTariff?.blocks?.find((b: PageBlock) => b.type === 'consultation')?.price || '₹5,100'}
                       </div>
                       <span className="text-[11px] text-stone-500">
-                        {lang === 'hi' ? 'प्रति सत्र (ऑनलाइन वीडियो / फोन / क्लिनिक)' : 'Per session (Virtual / Telephonic / In-Person)'}
+                        {lang === 'hi' ? 'प्रति सेशन (वीडियो कॉल / फोन / क्लिनिक)' : 'Per session (Virtual / Phone / In-Person)'}
                       </span>
                     </div>
 
                     <div className="text-right text-xs text-stone-600">
                       <span className="block font-bold text-amber-950">{lang === 'hi' ? 'सत्र में शामिल:' : 'Includes:'}</span>
-                      <span>{lang === 'hi' ? 'जन्म तिथि + घड़ी का विश्लेषण + नाम' : 'DOB + Watch + Name review'}</span>
+                      <span>{lang === 'hi' ? 'जन्मतिथि + घड़ी + नाम की जांच' : 'DOB + Watch + Name review'}</span>
                     </div>
                   </div>
 
                   <div className="space-y-2 mb-6 text-xs text-stone-700">
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{lang === 'hi' ? 'संपूर्ण लो-शू 3×3 मैजिक ग्रिड और 8 तलों (Planes) का विश्लेषण' : 'Full Lo-Shu 3x3 Magic Grid and 8 Planes evaluation'}</span>
+                      <span>{lang === 'hi' ? 'पूरा लो-शू 3×3 ग्रिड और 8 योग (तलों) का विश्लेषण' : 'Full Lo-Shu 3x3 Magic Grid and 8 Planes evaluation'}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{lang === 'hi' ? 'सिग्नेचर थेरेपी वॉच प्रिस्क्रिप्शन एवं रंग आवृत्ति निर्धारण' : 'Signature Therapy Watch prescription & color frequencies'}</span>
+                      <span>{lang === 'hi' ? 'आपके लिए लकी थेरेपी वॉच का सही मॉडल व रंग का सुझाव' : 'Signature Therapy Watch prescription & color frequencies'}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{lang === 'hi' ? 'करियर, व्यापार, विवाह व स्वास्थ्य हेतु व्यक्तिगत उपाय' : 'Personalized Remedies for marriage, health, and career growth'}</span>
+                      <span>{lang === 'hi' ? 'करियर, व्यापार, शादी व सेहत के लिए आसान व असरदार उपाय' : 'Personalized remedies for marriage, health, and career growth'}</span>
                     </div>
                   </div>
                 </div>
@@ -450,7 +477,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl border border-stone-300 text-stone-700 hover:bg-stone-50 text-xs font-semibold"
                   >
                     <CreditCard className="w-4 h-4 text-stone-600" />
-                    <span>{lang === 'hi' ? 'भुगतान विवरण' : 'Payment Info'}</span>
+                    <span>{lang === 'hi' ? 'पेमेंट का विवरण' : 'Payment Info'}</span>
                   </button>
                 </div>
               </div>
@@ -461,21 +488,21 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               <div className="border-t border-amber-200/80 pt-10 mb-6 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                    {lang === 'hi' ? 'विशेष उपचारात्मक सत्र' : 'Targeted Restorative Sessions'}
+                    {lang === 'hi' ? 'खास समाधान और हीलिंग' : 'Targeted Restorative Sessions'}
                   </span>
                   <h3 className="font-sacred text-xl sm:text-2xl font-bold text-stone-900">
-                    {lang === 'hi' ? '११ विशेष हीलिंग एवं सुधार सेवाएँ' : '11 Specialized Healing & Correction Services'}
+                    {lang === 'hi' ? '11 खास हीलिंग और सुधार सेवाएँ' : '11 Specialized Healing & Correction Services'}
                   </h3>
                 </div>
 
                 {/* Filter Pills */}
                 <div className="flex flex-wrap items-center gap-1.5">
                   {[
-                    { id: 'all', labelEn: 'All Services (11)', labelHi: 'सभी सेवाएँ (११)' },
-                    { id: 'energy', labelEn: 'Energy & Healing (5)', labelHi: 'ऊर्जा एवं हीलिंग (५)' },
-                    { id: 'numerology', labelEn: 'Numerology Corrections (2)', labelHi: 'अंक ज्योतिष सुधार (२)' },
-                    { id: 'mind', labelEn: 'Mind Balance & Therapy (3)', labelHi: 'मानसिक संतुलन एवं थेरेपी (३)' },
-                    { id: 'plr', labelEn: 'PLR Regression (1)', labelHi: 'पूर्व जन्म अन्वेषण (१)' }
+                    { id: 'all', labelEn: 'All Services (11)', labelHi: 'सभी सेवाएँ (11)' },
+                    { id: 'energy', labelEn: 'Energy & Healing (5)', labelHi: 'ऊर्जा और हीलिंग (5)' },
+                    { id: 'numerology', labelEn: 'Numerology Corrections (2)', labelHi: 'अंक ज्योतिष सुधार (2)' },
+                    { id: 'mind', labelEn: 'Mind Balance & Therapy (3)', labelHi: 'मन की शांति और थेरेपी (3)' },
+                    { id: 'plr', labelEn: 'Past Life Therapy (1)', labelHi: 'पूर्व जन्म थेरेपी (PLR) (1)' }
                   ].map((f) => (
                     <button
                       key={f.id}
@@ -581,18 +608,18 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               <div className="space-y-3 text-left">
                 <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-800 font-bold bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">
                   <Award className="w-3.5 h-3.5 text-amber-700" />
-                  <span>{lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}</span>
+                  <span>{lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'A Numerologist and Healer · Randhir Singh Ji Jaipur'}</span>
                 </div>
                 <h3 className="font-sacred text-2xl sm:text-3xl font-extrabold text-stone-900">
                   {lang === 'hi' ? 'रणधीर सिंह जी' : 'Randhir Singh Ji'}
                 </h3>
                 <p className="text-amber-900 font-medium text-sm">
-                  {lang === 'hi' ? '“अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।”' : '“DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.”'}
+                  {lang === 'hi' ? '“अपनी जन्मतिथि को समझें, अपनी ज़िंदगी और भविष्य को बेहतर बनाएँ।”' : '“DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.”'}
                 </p>
                 <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
                   {lang === 'hi'
-                    ? 'जयपुर (राजस्थान) के प्रतिष्ठित वैदिक अंक ज्योतिषी, आध्यात्मिक साधक एवं प्राणिक हीलर। जन्म तिथि (लो-शू ग्रिड), थेरेपी वॉचेस, पारंपरिक लवण शुद्धि (सॉल्ट थेरेपी) एवं सिद्ध यंत्रों के माध्यम से देश-विदेश के साधकों को प्रामाणिक मार्गदर्शन प्रदान करते हैं।'
-                    : 'Dedicated spiritual practitioner, Vedic numerologist, and energetic healer based in Jaipur, Rajasthan. Serving seekers across all 24 major Indian and international languages with profound expertise in Date of Birth Lo-Shu analysis, Therapy Watches, Traditional Salt Cleansing, and Sacred Yantras.'}
+                    ? 'जयपुर (राजस्थान) के जाने-माने अंक ज्योतिषी और हीलर। जन्मतिथि (लो-शू ग्रिड), कलाई की घड़ी (थेरेपी वॉच), सॉल्ट थेरेपी (नमक के उपाय) और सिद्ध यंत्रों के माध्यम से लोगों को सरल, सटीक और सच्चा मार्गदर्शन प्रदान करते हैं।'
+                    : 'Experienced numerologist and energetic healer based in Jaipur, Rajasthan. Serving seekers across languages with practical Date of Birth Lo-Shu analysis, Therapy Watches, Traditional Salt Cleansing, and Divine Yantras.'}
                 </p>
               </div>
             </div>
@@ -609,21 +636,21 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
 
               <div className="p-4 bg-amber-50/70 rounded-xl border border-amber-200">
                 <span className="text-xs font-bold text-amber-950 block mb-1">
-                  {lang === 'hi' ? '⏰ परामर्श समय' : '⏰ Consultation Timings'}
+                  {lang === 'hi' ? '⏰ मिलने का समय' : '⏰ Consultation Timings'}
                 </span>
                 <p className="text-xs text-stone-600 leading-relaxed">
-                  {lang === 'hi' ? 'प्रातः 9:00 से सायं 6:00 बजे तक (IST)' : '9:00 A.M. to 6:00 P.M. (IST)'}<br />
-                  {lang === 'hi' ? 'पूर्व अपॉइंटमेंट आवश्यक।' : 'Prior appointment recommended.'}
+                  {lang === 'hi' ? 'सुबह 9:00 से शाम 6:00 बजे तक' : '9:00 A.M. to 6:00 P.M. (IST)'}<br />
+                  {lang === 'hi' ? 'पहले से समय बुक करना जरूरी है।' : 'Prior appointment recommended.'}
                 </p>
               </div>
 
               <div className="p-4 bg-amber-50/70 rounded-xl border border-amber-200">
                 <span className="text-xs font-bold text-amber-950 block mb-1">
-                  {lang === 'hi' ? '🎁 साप्ताहिक निःशुल्क सेवा' : '🎁 Weekly Free Privilege'}
+                  {lang === 'hi' ? '🎁 हर हफ्ते फ्री सेवा' : '🎁 Weekly Free Sunday Privilege'}
                 </span>
                 <p className="text-xs text-stone-600 leading-relaxed">
                   {lang === 'hi'
-                    ? 'प्रत्येक रविवार प्रथम 5 परामर्श पूर्व अपॉइंटमेंट पर 100% निःशुल्क हैं।'
+                    ? 'हर रविवार पहले 5 लोगों को फ्री में सलाह दी जाती है (पहले से बुकिंग जरूरी)।'
                     : 'Every Sunday first 5 consultations are 100% FREE on confirmed appointments.'}
                 </p>
               </div>
@@ -640,7 +667,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                 className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded-lg text-xs shadow-xs"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-emerald-200" />
-                <span>{lang === 'hi' ? 'व्हाट्सएप पर सीधा संपर्क करें' : 'Connect Directly on WhatsApp'}</span>
+                <span>{lang === 'hi' ? 'व्हाट्सएप पर बात करें' : 'Connect Directly on WhatsApp'}</span>
               </a>
             </div>
           </div>
@@ -654,12 +681,12 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                 <QrCode className="w-6 h-6 text-amber-800" />
               </div>
               <h3 className="font-sacred text-2xl font-bold text-stone-900">
-                {lang === 'hi' ? 'बैंक एवं यूपीआई भुगतान विवरण' : 'Bank & UPI Payment Details'}
+                {lang === 'hi' ? 'बैंक और UPI पेमेंट की जानकारी' : 'Bank & UPI Payment Details'}
               </h3>
               <p className="text-xs text-stone-600 mt-1">
                 {lang === 'hi'
-                  ? 'परामर्श शुल्क, थेरेपी वॉचेस व यंत्रों हेतु प्रामाणिक एवं सत्यापित भुगतान विवरण।'
-                  : 'Direct and verified payment credentials for consultancy fees, therapy watches, and consecrated materials.'}
+                  ? 'फीस, थेरेपी वॉच या यंत्र मंगवाने के लिए सही और सुरक्षित पेमेंट डिटेल्स।'
+                  : 'Direct and verified payment credentials for consultancy fees, therapy watches, and materials.'}
               </p>
             </div>
 
@@ -668,7 +695,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div>
                   <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300">
-                    {lang === 'hi' ? 'आधिकारिक तुरंत यूपीआई नंबर' : 'Official Instant UPI Number'}
+                    {lang === 'hi' ? 'ऑफिशियल UPI नंबर' : 'Official Instant UPI Number'}
                   </span>
                   <div className="text-2xl sm:text-3xl font-black font-mono text-white mt-1">
                     +91-9509593150
@@ -700,26 +727,26 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
             <div className="bg-stone-50 rounded-xl p-5 border border-stone-200 text-xs text-stone-700 space-y-2">
               <span className="font-bold text-stone-900 block flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                {lang === 'hi' ? 'अपनी अपॉइंटमेंट की पुष्टि कैसे करें:' : 'How to Confirm Your Appointment:'}
+                {lang === 'hi' ? 'अपॉइंटमेंट कैसे पक्की (कन्फर्म) करें:' : 'How to Confirm Your Appointment:'}
               </span>
               <p>
                 {lang === 'hi'
-                  ? '1. निर्धारित परामर्श शुल्क UPI द्वारा +91-9509593150 पर भेजें।'
+                  ? '1. तय की गई फीस UPI नंबर +91-9509593150 पर भेजें।'
                   : '1. Transfer the applicable consultancy fee using UPI to +91-9509593150.'}
               </p>
               <p>
                 {lang === 'hi'
-                  ? '2. सफल भुगतान का स्क्रीनशॉट प्राप्त करें।'
+                  ? '2. पेमेंट का स्क्रीनशॉट ले लें।'
                   : '2. Take a screenshot of the completed payment transaction receipt.'}
               </p>
               <p>
                 {lang === 'hi'
-                  ? '3. स्क्रीनशॉट, अपना पूरा नाम और जन्म तिथि व्हाट्सएप +91-9509593150 पर भेजें।'
+                  ? '3. स्क्रीनशॉट, अपना नाम और जन्मतिथि व्हाट्सएप (+91-9509593150) पर भेजें।'
                   : '3. Share the screenshot along with your Full Name and Date of Birth directly on WhatsApp at +91-9509593150.'}
               </p>
               <p>
                 {lang === 'hi'
-                  ? '4. हमारी टीम तुरंत समय स्लॉट निर्धारित कर आपको पुष्टि भेजेगी।'
+                  ? '4. हमारी टीम तुरंत आपको समय स्लॉट देकर कन्फर्मेशन भेज देगी।'
                   : '4. Our team will verify and lock in your priority appointment slot and confirm time.'}
               </p>
             </div>
@@ -731,14 +758,14 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
           <div className="space-y-8 animate-in fade-in duration-200">
             <div className="text-center max-w-2xl mx-auto">
               <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                {lang === 'hi' ? 'सकारात्मक जीवन परिवर्तन' : 'Transformational Stories'}
+                {lang === 'hi' ? 'सच्चे अनुभव' : 'Transformational Stories'}
               </span>
               <h2 className="font-sacred text-2xl sm:text-3xl font-extrabold text-stone-900 mt-1">
-                {lang === 'hi' ? 'साधकों के अनुभव व विचार' : 'Client Words & Reflections'}
+                {lang === 'hi' ? 'लोगों के अनुभव और रिव्यू' : 'Client Words & Reflections'}
               </h2>
               <p className="text-xs sm:text-sm text-stone-600 mt-2">
                 {lang === 'hi'
-                  ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह के साथ स्पष्टता, ऊर्जा उपचार एवं सफलता के वास्तविक अनुभव।'
+                  ? 'रणधीर सिंह जी से सलाह लेने के बाद लोगों के जीवन में आए सकारात्मक बदलाव।'
                   : 'Real experiences of clarity, healing, and empowered transformation with Numerologist & Healer · Randhir Singh'}
               </p>
             </div>

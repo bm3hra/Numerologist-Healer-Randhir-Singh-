@@ -97,7 +97,7 @@ const PLANETARY_DOB_MATRICES: Record<number, {
       [9, 16, 11]
     ],
     deity: 'Lord Bhairava & Goddess Saraswati',
-    metal: 'Ashtadhatu (8 Sacred Metals) or Ashtagandha Bhojpatra',
+    metal: 'Ashtadhatu (8 Divine Metals) or Ashtagandha Bhojpatra',
     mantra: 'Om Bhram Bhreem Bhroum Sah Rahave Namah',
     bestDay: 'Saturday twilight after sunset',
     direction: 'South-West (Nairritya Kona)',

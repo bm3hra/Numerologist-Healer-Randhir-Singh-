@@ -413,7 +413,7 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
               <div className="flex items-center justify-between border-b border-amber-100 pb-3 mb-6">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                    {lang === 'hi' ? 'पवित्र ज्यामितीय ग्रिड' : 'Sacred Geometric Matrix'}
+                    {lang === 'hi' ? 'पवित्र ज्यामितीय ग्रिड' : 'Divine Geometric Matrix'}
                   </span>
                   <h3 className="font-sacred text-xl font-bold text-stone-900">
                     {lang === 'hi' ? 'आपका 3×3 लो-शू ग्रिड' : 'Your 3×3 Lo-Shu Grid'}

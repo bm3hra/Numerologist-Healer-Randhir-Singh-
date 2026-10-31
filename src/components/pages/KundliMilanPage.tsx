@@ -542,7 +542,7 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
               Need Personal Advice on Delayed Marriage, Doshas or Friction?
             </h4>
             <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-xl">
-              Get an in-depth relationship consultation with custom watch analysis for both partners, bedroom color frequencies, and sacred Bhojpatra Yantra remedies to guarantee lifelong harmony.
+              Get an in-depth relationship consultation with custom watch analysis for both partners, bedroom color frequencies, and divine Bhojpatra Yantra remedies to guarantee lifelong harmony.
             </p>
           </div>
 

@@ -200,7 +200,7 @@ const SPECIAL_YANTRAS: SpecialYantra[] = [
     mantra: 'Om Hreem Kleem Namah · Om Sarva Kaamya Siddhi Karaye Hreem Namah',
     bestDay: 'Tuesday, Thursday or Purnima morning',
     idealDirection: 'North-East or Home Mandir altar',
-    metalOptions: ['Panchdhatu (5 Sacred Metals)', 'Bhojpatra in Ashtagandha', 'Sterling Silver Foil'],
+    metalOptions: ['Panchdhatu (5 Divine Metals)', 'Bhojpatra in Ashtagandha', 'Sterling Silver Foil'],
     keyBenefits: [
       'Combines 7 divine energetic circuits into an integrated power grid',
       'Destroys invisible karmic roadblocks preventing long-cherished dreams',
@@ -327,7 +327,7 @@ export const SpecialYantrasPage: React.FC<SpecialYantrasPageProps> = ({
           <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-4 max-w-3xl mx-auto leading-relaxed">
             {lang === 'hi'
               ? 'जब सामान्य प्रयास अवरुद्ध हो जाएं, तब वैदिक संख्यात्मक यंत्रों की अचूक शक्ति दिशा बदल देती है। प्रत्येक यंत्र को ग्राहक के नाम, जन्मतिथि, गोत्र एवं व्यापारिक लक्ष्य के अनुसार अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह (जयपुर) द्वारा विशेष मुहूर्त में भोजपत्र अथवा शुद्ध ताम्र-पत्र पर तैयार किया जाता है।'
-              : 'Engineered with mathematical numerical matrices where every horizontal, vertical, and diagonal axis adds to a sacred cosmic constant. These yantras bypass obstacles to magnetize capital, administrative authority, and fulfillment of high-stakes desires.'}
+              : 'Engineered with mathematical numerical matrices where every horizontal, vertical, and diagonal axis adds to a divine cosmic constant. These yantras bypass obstacles to magnetize capital, administrative authority, and fulfillment of high-stakes desires.'}
           </p>
 
           {/* Category Filter Pills */}

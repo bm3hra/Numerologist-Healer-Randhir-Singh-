@@ -14,7 +14,7 @@ export interface WatchShapeInfo {
 export const WATCH_SHAPES: WatchShapeInfo[] = [
   {
     shape: 'round',
-    nameEn: 'Round Dial (वृत्ताकार)',
+    nameEn: 'Round Dial',
     nameHi: 'गोल डायल',
     element: 'Water / Infinite Cycle',
     bestFor: 'Healers, Counselors, Public Speakers, Harmonious Relationships & Fluid Cash Flow',
@@ -24,8 +24,8 @@ export const WATCH_SHAPES: WatchShapeInfo[] = [
   },
   {
     shape: 'square',
-    nameEn: 'Square Dial (चौकोर)',
-    nameHi: 'वर्गाकार डायल',
+    nameEn: 'Square Dial',
+    nameHi: 'चौकोर (स्क्वायर) डायल',
     element: 'Earth / Solid Foundation',
     bestFor: 'Accountants, Engineers, Real Estate Developers, Administrators & Strict Planners',
     subconsciousEffect: 'Instills grounding, unwavering discipline, timely deliverables, and financial containment.',
@@ -34,8 +34,8 @@ export const WATCH_SHAPES: WatchShapeInfo[] = [
   },
   {
     shape: 'rectangle',
-    nameEn: 'Rectangular Dial (आयताकार)',
-    nameHi: 'आयताकार डायल',
+    nameEn: 'Rectangular Dial',
+    nameHi: 'आयताकार (रेक्टेंगल) डायल',
     element: 'Wood / Upward Growth',
     bestFor: 'Corporate Executives, Bureaucrats, Lawyers, Academics & Structural Visionaries',
     subconsciousEffect: 'Stimulates vertical professional elevation, long-term legacy thinking, and authoritative bearing.',
@@ -44,8 +44,8 @@ export const WATCH_SHAPES: WatchShapeInfo[] = [
   },
   {
     shape: 'octagonal',
-    nameEn: 'Octagonal Dial (अष्टकोणीय / Hexagonal)',
-    nameHi: 'अष्टकोणीय डायल',
+    nameEn: 'Octagonal Dial (8-Sided)',
+    nameHi: '8 कोनों वाला (अष्टकोणीय) डायल',
     element: 'Air / Omnidirectional Expansion',
     bestFor: 'Stock Traders, Global Importers/Exporters, Tech Innovators & Multi-Venture Entrepreneurs',
     subconsciousEffect: 'Attracts luck from all eight cardinal directions (Ashta Lakshmi), multidimensional breakthrough.',
@@ -54,8 +54,8 @@ export const WATCH_SHAPES: WatchShapeInfo[] = [
   },
   {
     shape: 'oval',
-    nameEn: 'Oval Dial (अंडाकार)',
-    nameHi: 'दीर्घवृत्ताकार डायल',
+    nameEn: 'Oval Dial',
+    nameHi: 'अंडाकार (ओवल) डायल',
     element: 'Water & Wind Harmony',
     bestFor: 'Designers, Artists, Hospitality Managers, Writers & Luxury Lifestyle Curators',
     subconsciousEffect: 'Refines aesthetic magnetism, creative diplomacy, and graceful persuasion without conflict.',
@@ -64,8 +64,8 @@ export const WATCH_SHAPES: WatchShapeInfo[] = [
   },
   {
     shape: 'triangular',
-    nameEn: 'Triangular / Avant-Garde Dial',
-    nameHi: 'त्रिकोणीय डायल',
+    nameEn: 'Triangular Dial',
+    nameHi: 'तिकोना (ट्रायंगल) डायल',
     element: 'Fire / Aggressive Breakthrough',
     bestFor: 'Special forces, competitive athletes, venture risk-takers (needs caution)',
     subconsciousEffect: 'Heightens sharp adrenaline and rapid execution, but can trigger emotional spikes and interpersonal friction.',
@@ -110,27 +110,27 @@ export const WATCH_DIAL_COLORS = [
 export const WATCH_PRINCIPLES = [
   {
     title: 'Pulse Meridian Direct Connection',
-    titleHi: 'नब्ज (रेडियल पल्स) से सीधा ऊर्जा संपर्क',
-    desc: 'The radial artery and wrist pulse point connect directly to heart energy and nervous pathways. The metal, shape, and ticking frequency of your watch send micro-vibrations 24 hours a day into your energetic matrix.',
-    descHi: 'कलाई की रेडियल धमनी सीधे हृदय और केंद्रीय स्नायुतंत्र से जुड़ी होती है। घड़ी की धातु, डायल का आकार और सुईयों की गति 24 घंटे आपके सूक्ष्म शरीर में ऊर्जा का संचार करती है।'
+    titleHi: 'कलाई की नाड़ी से सीधा संपर्क',
+    desc: 'The radial artery and wrist pulse point connect directly to heart energy and nervous pathways. The metal, shape, and movement of your watch send continuous micro-vibrations into your energy field.',
+    descHi: 'कलाई की नाड़ी सीधे दिल और दिमाग से जुड़ी होती है। घड़ी की धातु, डायल का आकार और सुइयों की चाल हर पल मन और शरीर को ऊर्जा देती है।'
   },
   {
     title: 'The Psychology of Time Mastery',
-    titleHi: 'समय प्रबंधन व मानसिक स्पष्टता',
-    desc: 'A broken, scratched, or stopped watch creates subconscious delays in career promotions and debt clearance. Randhir Singh’s Therapy Watches ensure continuous positive momentum.',
-    descHi: 'बंद, टूटी या खरोंच लगी घड़ी अवचेतन मन में विलंब, रुकावटें और कर्ज की स्थिति पैदा करती है। रणधीर सिंह जी द्वारा सुझाई गई थेरेपी वॉच जीवन को निरंतर प्रगति देती है।'
+    titleHi: 'समय का सही उपयोग और मन की स्पष्टता',
+    desc: 'A broken, scratched, or stopped watch creates subconscious delays in career promotions and pending work. Suitable Therapy Watches keep positive momentum flowing.',
+    descHi: 'बंद, टूटी या रुकी हुई घड़ी काम में रुकावटें, देरी और तनाव लाती है। सही और चालू घड़ी जीवन में लगातार तरक्की और नए अवसर लाती है।'
   },
   {
     title: 'Active vs. Receptive Wrist Dynamics',
-    titleHi: 'दाहिनी बनाम बायीं कलाई का प्रभाव',
-    desc: 'Wearing your therapy watch on the active hand (usually right) projects leadership, authority, and financial attraction outward. Wearing on the left hand cultivates inner intuition, stress relief, and receptive blessings.',
-    descHi: 'सक्रिय हाथ (प्रायः दायां) पर घड़ी धारण करने से नेतृत्व क्षमता, पराक्रम और धन आकर्षण बढ़ता है; जबकि बायीं कलाई पर पहनने से मानसिक शांति, अंतर्ज्ञान और तनाव से मुक्ति मिलती है।'
+    titleHi: 'दाएं और बाएं हाथ में घड़ी पहनने का असर',
+    desc: 'Wearing your therapy watch on the active hand (usually right) boosts leadership, active sales, and confidence. Wearing on the left hand supports inner peace, intuition, and stress relief.',
+    descHi: 'दाएं हाथ में घड़ी पहनने से आत्मविश्वास, लीडरशिप और धन लाभ बढ़ता है; बाएं हाथ में पहनने से मन शांत रहता है और तनाव कम होता है।'
   },
   {
     title: 'Dial Numbering & Numerological Alignment',
-    titleHi: 'डायल अंक एवं अंक ज्योतिषीय संतुलन',
-    desc: 'Whether your dial features Roman numerals, Arabic numbers, or minimalist baton markers significantly alters how your brain computes deadlines, growth ceilings, and opportunities.',
-    descHi: 'घड़ी में रोमन अंक, सामान्य अंक या सादे निशान होने का मस्तिष्क की कार्यप्रणाली और वित्तीय निर्णय लेने की गति पर गहरा प्रभाव पड़ता है।'
+    titleHi: 'डायल के अंक और सही नंबरों का असर',
+    desc: 'Whether your dial features Roman numerals, simple numbers, or clean markers affects how your brain processes deadlines, goals, and opportunities.',
+    descHi: 'घड़ी के डायल पर अंकों की बनावट का हमारे दिमाग, समय के सदुपयोग और सही फैसले लेने पर सीधा असर पड़ता है।'
   }
 ];
 

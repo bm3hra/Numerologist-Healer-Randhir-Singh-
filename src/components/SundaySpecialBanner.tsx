@@ -24,29 +24,29 @@ export const SundaySpecialBanner: React.FC<SundaySpecialBannerProps> = ({ lang, 
           <div>
             <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-300 font-semibold mb-1">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>{lang === 'hi' ? 'विशेष रविवार सेवा' : 'Weekly Sacred Privilege'}</span>
+              <span>{lang === 'hi' ? 'रविवार की फ्री सेवा' : 'Weekly Free Service'}</span>
             </div>
             <h3 className="font-sacred text-lg sm:text-2xl font-bold text-amber-100 tracking-wide">
               {lang === 'hi' ? SUNDAY_SPECIAL_OFFER.titleHi : SUNDAY_SPECIAL_OFFER.title}
             </h3>
             <p className="text-xs sm:text-sm text-amber-200/80 mt-1 max-w-2xl">
               {lang === 'hi'
-                ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा प्रत्येक रविवार प्रथम 5 परामर्श पूर्णतः निःशुल्क दिए जाते हैं (पूर्व अपॉइंटमेंट अनिवार्य)। अपनी जन्म तिथि व ग्रिड का सटीक विश्लेषण प्राप्त करें।'
-                : 'Numerologist & Healer · Randhir Singh reserves 5 exclusive complimentary 20-minute consultation slots every Sunday. Verified on a first-come, first-served basis upon advance appointment.'}
+                ? 'हर रविवार रणधीर सिंह जी पहले 5 लोगों को 20 मिनट का कंसल्टेशन बिल्कुल फ्री देते हैं (पहले से बुकिंग जरूरी)। अपनी जन्मतिथि और ग्रिड की पूरी जांच करवाएँ।'
+                : 'Numerologist & Healer · Randhir Singh offers 5 free 20-minute consultation slots every Sunday (advance booking required). Get your Date of Birth and grid analyzed.'}
             </p>
 
             <div className="flex flex-wrap items-center gap-y-1 gap-x-4 mt-3 text-xs text-amber-300/90 font-medium">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                {lang === 'hi' ? 'पूर्ण Lo-Shu ग्रिड निदान' : 'Full Lo-Shu Grid Diagnosis'}
+                {lang === 'hi' ? 'पूरी लो-शू ग्रिड जांच' : 'Complete Lo-Shu Grid Check'}
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                {lang === 'hi' ? 'व्यक्तिगत उपाय व मार्गदर्शन' : 'Remedy & Watch Analysis'}
+                {lang === 'hi' ? 'आसान उपाय और सही घड़ी की सलाह' : 'Simple Remedies & Watch Guidance'}
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                {lang === 'hi' ? 'ऑनलाइन या जयपुर क्लिनिक' : 'Online / Jaipur In-Person'}
+                {lang === 'hi' ? 'ऑनलाइन या जयपुर क्लिनिक में' : 'Online or Jaipur Clinic'}
               </span>
             </div>
           </div>
@@ -58,12 +58,21 @@ export const SundaySpecialBanner: React.FC<SundaySpecialBannerProps> = ({ lang, 
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 font-bold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-sm"
           >
             <Calendar className="w-4 h-4 text-stone-900" />
-            <span>{lang === 'hi' ? 'रविवार फ्री स्लॉट बुक करें' : 'Claim Free Sunday Slot'}</span>
+            <span>{lang === 'hi' ? 'रविवार का फ्री स्लॉट बुक करें' : 'Claim Free Sunday Slot'}</span>
             <ArrowRight className="w-4 h-4 text-stone-900" />
           </button>
-          <span className="text-[11px] text-amber-300/70 mt-2 text-center sm:text-right">
-            {lang === 'hi' ? 'व्हाट्सएप या कॉल: +91-9509593150' : 'Via WhatsApp or Call: +91-9509593150'}
-          </span>
+          <div className="flex flex-col sm:flex-row items-center gap-2 mt-2">
+            <span className="text-[11px] text-amber-300/70 text-center sm:text-right">
+              {lang === 'hi' ? 'व्हाट्सएप या कॉल: +91-9509593150' : 'Via WhatsApp or Call: +91-9509593150'}
+            </span>
+            <span className="hidden sm:inline text-amber-400/40">·</span>
+            <a
+              href="#tariff"
+              className="text-[11px] text-amber-300 hover:text-white underline underline-offset-2 transition-colors font-medium"
+            >
+              {lang === 'hi' ? 'नियमित परामर्श फीस देखें (Tariff)' : 'View Regular Consultation Fees'}
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Compass, Watch, Droplets, Gem, Sparkles, MessageCircle, Phone, Clock, ArrowRight, ShieldCheck, MapPin } from 'lucide-react';
-import { Language } from '../types';
+import { Compass, Watch, Droplets, Gem, Sparkles, MessageCircle, Phone, Clock, ArrowRight, ShieldCheck, MapPin, CreditCard } from 'lucide-react';
+import { Language, PageBlock } from '../types';
 import { getTranslation, ALL_LANGUAGES } from '../i18n/languages';
+import { useCmsPages } from '../context/CmsPageContext';
 
 interface HeroSectionProps {
   lang: string;
@@ -17,10 +18,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenBooking
 }) => {
   const t = getTranslation(lang);
+  const { getPageBySectionId } = useCmsPages();
+  const cmsHero = getPageBySectionId('hero-section');
+  const heroBlock = cmsHero?.blocks?.find((b: PageBlock) => b.type === 'hero');
+
+  const rawHeadline = (lang === 'hi' ? cmsHero?.titleHi : cmsHero?.title) || t.motto;
+  const cleanHeadline = (rawHeadline || '')
+    .replace(/Hero Banner & Tagline/gi, '')
+    .replace(/शीर्ष मुख्य बैनर[^]*/gi, '')
+    .trim() || t.motto;
+  const headline = cleanHeadline.startsWith('“') ? cleanHeadline : `“${cleanHeadline}”`;
+  const subHeadline = heroBlock?.subtitle || (lang === 'hi' 
+    ? 'अपनी जन्मतिथि को समझें। अपने जीवन के पैटर्न को पहचानें। आत्मविश्वास के साथ आगे बढ़ें।' 
+    : 'Understand your Date of Birth. Recognize your life patterns. Move forward with confidence.');
 
   return (
     <section id="home" className="relative overflow-hidden scroll-mt-20 bg-gradient-to-b from-[#faf6ee] via-[#f7f2e5] to-[#faf6ee] pt-8 pb-14 border-b border-amber-200/80">
-      {/* Sacred Rotating Vedic Mandala & Celestial Geometry Graphic with 9 Navagraha Cosmic Spheres */}
+      {/* Divine Rotating Vedic Mandala & Celestial Geometry Graphic with 9 Navagraha Cosmic Spheres */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] sm:w-[980px] sm:h-[980px] pointer-events-none opacity-[0.24] select-none overflow-hidden">
         {/* Outer Rotating 12-Ray Solar Sun Wheel & Lotus Circle */}
         <svg viewBox="0 0 800 800" className="w-full h-full animate-spin-slow">
@@ -69,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           ))}
         </svg>
 
-        {/* Counter-Rotating Sacred Sri Yantra Interlocking Triangles */}
+        {/* Counter-Rotating Divine Sri Yantra Interlocking Triangles */}
         <svg viewBox="0 0 800 800" className="w-full h-full absolute inset-0 animate-spin-reverse">
           <circle cx="400" cy="400" r="280" fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4,6" />
           {/* Upward Triangles */}
@@ -154,45 +168,43 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        {/* Sacred Header Invocation (Om Shri Ganeshay Namh) */}
+        {/* Divine Header Invocation (Om Shri Ganeshay Namh) */}
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-900/10 via-amber-700/20 to-amber-900/10 text-amber-950 px-4 py-1.5 rounded-full border border-amber-300/80 text-xs font-sacred font-bold tracking-widest shadow-2xs">
             <span>卐</span>
-            <span>{t.sacredHeader}</span>
+            <span>{t.divineHeader}</span>
             <span>卐</span>
           </div>
 
           <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-900 mt-3">
-            {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}
+            {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'A Numerologist and Healer · Randhir Singh Ji Jaipur'}
           </h2>
         </div>
 
         {/* Core Hero Headline */}
         <div className="text-center max-w-4xl mx-auto mb-10">
           <h1 className="font-sacred text-3xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-[1.15]">
-            “{t.motto}”
+            {headline}
           </h1>
 
           <p className="font-sacred text-base sm:text-xl font-bold text-amber-900 mt-3 tracking-wide">
-            {lang === 'hi' 
-              ? 'अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।' 
-              : 'DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.'}
+            {subHeadline}
           </p>
 
           <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-4 max-w-3xl mx-auto leading-relaxed">
-            {t.subMotto}
+            {cmsHero?.description || t.subMotto}
           </p>
 
           {/* Location & Quick Credentials Pill */}
           <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-4 mt-6 text-xs text-stone-700 font-medium">
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 font-bold text-amber-900 bg-amber-100/90 px-3 py-1 rounded-full border border-amber-300/80 shadow-2xs">
               <MapPin className="w-3.5 h-3.5 text-amber-700" />
-              <span>{lang === 'hi' ? 'जयपुर, राजस्थान · विश्वभर में ऑनलाइन सेवाएँ' : 'Jaipur, Rajasthan · Worldwide Online'}</span>
+              <span>{lang === 'hi' ? 'रणधीर सिंह · जयपुर, राजस्थान · ऑनलाइन परामर्श उपलब्ध' : 'Randhir Singh · Jaipur, Rajasthan · Online Consultations Available'}</span>
             </span>
             <span className="hidden sm:inline text-stone-300">·</span>
             <span className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-amber-700" />
-              <span>{lang === 'hi' ? 'समय: प्रातः 9:00 से सायं 6:00 बजे तक' : 'Timings: 9:00 A.M. to 6:00 P.M.'}</span>
+              <span>{lang === 'hi' ? 'समय: सुबह 9:00 से शाम 6:00 बजे तक' : 'Timings: 9:00 AM to 6:00 PM (IST)'}</span>
             </span>
             <span className="hidden sm:inline text-stone-300">·</span>
             <span className="flex items-center gap-1.5">
@@ -219,6 +231,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <MessageCircle className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>{t.bookConsultation}</span>
             </button>
+
+            <button
+              onClick={() => onNavigate('tariff')}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-100/90 hover:bg-amber-200 text-amber-950 font-bold py-3.5 px-5 rounded-xl text-sm border-2 border-amber-300 hover:border-amber-400 shadow-2xs transition-all shrink-0"
+              title={lang === 'hi' ? 'परामर्श एवं हीलिंग सेवाएं फीस' : 'Consultancy & Healing Services Fees'}
+            >
+              <CreditCard className="w-4 h-4 text-amber-700 shrink-0" />
+              <span>{lang === 'hi' ? 'परामर्श व हीलिंग फीस' : 'Consultancy & Healing Fees'}</span>
+            </button>
           </div>
         </div>
 
@@ -233,18 +254,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <Watch className="w-5 h-5 text-amber-700" />
             </div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-              {lang === 'hi' ? 'विशेषज्ञ सेवा' : 'Signature Service'}
+              {lang === 'hi' ? 'खास सेवा' : 'Signature Service'}
             </span>
             <h3 className="font-sacred font-bold text-stone-900 text-base mt-2 group-hover:text-amber-900">
-              {lang === 'hi' ? 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श' : 'Watch Analysis & Therapeutic Watch Consultation'}
+              {lang === 'hi' ? 'हाथ की घड़ी (वॉच थेरेपी गाइडेंस)' : 'Watch Analysis & Therapy Guidance'}
             </h3>
             <p className="text-xs text-stone-600 mt-1 line-clamp-2">
               {lang === 'hi' 
-                ? 'आपकी कलाई पर पहनी जाने वाली घड़ी की बनावट, आकार और समय-अंकों के प्रतीकात्मक अर्थों का आपकी व्यक्तिगत ऊर्जा और जीवन की दिशा से संबंध।' 
-                : 'Your wristwatch sits near the radial artery. Explore how design, shape, and time-display patterns connect to personal energy and your life path.'}
+                ? 'कलाई की घड़ी का डायल, रंग और शेप आपकी ऊर्जा और तरक्की पर गहरा असर डालते हैं। जानिए आपके लिए कौन सी घड़ी लकी है।' 
+                : 'Your wristwatch sits on your pulse. Discover how dial shape, color, and metal influence your focus, career, and personal energy.'}
             </p>
             <div className="mt-3 text-xs font-semibold text-amber-800 flex items-center gap-1">
-              <span>{lang === 'hi' ? 'घड़ी का परीक्षण करें →' : 'Diagnose Watch →'}</span>
+              <span>{lang === 'hi' ? 'घड़ी की जांच करें →' : 'Analyze Watch →'}</span>
             </div>
           </div>
 
@@ -257,18 +278,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <Droplets className="w-5 h-5 text-amber-700" />
             </div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-              {lang === 'hi' ? 'प्राचीन उपाय' : 'Holistic Cleansing'}
+              {lang === 'hi' ? 'सरल घरेलू उपाय' : 'Simple Remedy'}
             </span>
             <h3 className="font-sacred font-bold text-stone-900 text-base mt-2 group-hover:text-amber-900">
-              {lang === 'hi' ? 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)' : 'Negativity Removal & Salt Therapy'}
+              {lang === 'hi' ? 'सॉल्ट थेरेपी (सेंधा नमक से नेगेटिविटी दूर करें)' : 'Negativity Removal & Salt Therapy'}
             </h3>
             <p className="text-xs text-stone-600 mt-1 line-clamp-2">
               {lang === 'hi'
-                ? 'घर, व्यापार व औरा की शुद्धि हेतु पारंपरिक लवण शुद्धि विधान।'
-                : 'Traditional rock salt foot soaks, threshold energy shields, and space clearing.'}
+                ? 'सेंधा नमक के पानी से पैर धोना, घर में पोछा लगाना और औरा साफ करने के आसान और असरदार तरीके।'
+                : 'Traditional rock salt foot soaks, doorstep energy shields, and easy home cleansing techniques.'}
             </p>
             <div className="mt-3 text-xs font-semibold text-amber-800 flex items-center gap-1">
-              <span>{lang === 'hi' ? 'विधान देखें →' : 'Explore Rituals →'}</span>
+              <span>{lang === 'hi' ? 'उपाय देखें →' : 'View Salt Remedies →'}</span>
             </div>
           </div>
 
@@ -281,15 +302,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <Gem className="w-5 h-5 text-amber-700" />
             </div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-              {lang === 'hi' ? 'दैवीय रत्न ऊर्जा' : 'Earth Vibration'}
+              {lang === 'hi' ? 'नेचुरल स्टोन' : 'Healing Crystals'}
             </span>
             <h3 className="font-sacred font-bold text-stone-900 text-base mt-2 group-hover:text-amber-900">
-              {lang === 'hi' ? 'व्यवसाय व सफलता हेतु क्रिस्टल थेरेपी' : 'Crystal Therapy for Profession'}
+              {lang === 'hi' ? 'बिजनेस और जॉब के लिए क्रिस्टल थेरेपी' : 'Crystal Therapy for Career & Money'}
             </h3>
             <p className="text-xs text-stone-600 mt-1 line-clamp-2">
               {lang === 'hi'
-                ? 'पायराइट, सिट्रीन, एवेन्चुरिन व एमेथिस्ट—आपके लक्ष्यों के अनुसार सिद्ध।'
-                : 'Pyrite, Citrine, Aventurine, Amethyst and Tourmaline tailored to your goals.'}
+                ? 'पायराइट, सिट्रीन और ग्रीन एवेंच्यूरिन जैसे असली क्रिस्टल जो धन, सफलता और शांति लाते हैं।'
+                : 'Natural Pyrite, Citrine, and Green Aventurine crystals chosen to attract wealth, confidence, and peace.'}
             </p>
             <div className="mt-3 text-xs font-semibold text-amber-800 flex items-center gap-1">
               <span>{lang === 'hi' ? 'क्रिस्टल देखें →' : 'View Crystals →'}</span>
@@ -305,18 +326,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <Compass className="w-5 h-5 text-amber-700" />
             </div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-              {lang === 'hi' ? 'इंटरएक्टिव टूल' : 'Interactive Tool'}
+              {lang === 'hi' ? 'फ्री कैलकुलेटर' : 'Free Tool'}
             </span>
             <h3 className="font-sacred font-bold text-stone-900 text-base mt-2 group-hover:text-amber-900">
-              {lang === 'hi' ? '3×3 लो-शू मैजिक ग्रिड कैलकुलेटर' : '3×3 Lo-Shu Magic Grid Engine'}
+              {lang === 'hi' ? 'लो-शू मैजिक ग्रिड और जन्मतिथि कैलकुलेटर' : '3×3 Lo-Shu Magic Grid Calculator'}
             </h3>
             <p className="text-xs text-stone-600 mt-1 line-clamp-2">
               {lang === 'hi'
-                ? 'मूलांक, भाग्यांक, कुआ नंबर एवं राजयोग तलों (Planes) का तुरंत विश्लेषण।'
-                : 'Calculate Mulank, Bhagyank, Kua number and Golden Raj Yoga planes.'}
+                ? 'अपनी जन्मतिथि डालकर अपना मूलांक (ड्राइवर), भाग्यांक (कंडक्टर) और लकी नंबर तुरंत जानें।'
+                : 'Enter your date of birth to discover your Driver number, Conductor number, and lucky grid planes.'}
             </p>
             <div className="mt-3 text-xs font-semibold text-amber-800 flex items-center gap-1">
-              <span>{lang === 'hi' ? 'अंक निकालें →' : 'Calculate Numbers →'}</span>
+              <span>{lang === 'hi' ? 'नंबर जानें →' : 'Check Your Numbers →'}</span>
             </div>
           </div>
         </div>

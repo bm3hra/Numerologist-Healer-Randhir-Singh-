@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Sparkles, Shield, Droplets, Home, Wind, CheckCircle2, ChevronRight, Info, HeartHandshake } from 'lucide-react';
 import { SALT_THERAPY_RITUALS, SALT_THERAPY_PHILOSOPHY } from '../data/saltTherapyData';
 import { Language, SaltTherapyRitual } from '../types';
+import { useCmsPages } from '../context/CmsPageContext';
 
 interface SaltTherapySectionProps {
   lang: Language;
@@ -13,6 +14,15 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
   onBookSaltSession
 }) => {
   const [selectedRitual, setSelectedRitual] = useState<SaltTherapyRitual>(SALT_THERAPY_RITUALS[0]);
+  const { getPageBySectionId } = useCmsPages();
+  const cmsPage = getPageBySectionId('salt-therapy');
+
+  const title = (lang === 'hi' ? cmsPage?.titleHi : cmsPage?.title) || (lang === 'hi'
+    ? 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)'
+    : 'NEGATIVITY REMOVAL & SALT THERAPY');
+  const description = cmsPage?.description || (lang === 'hi'
+    ? 'सेंधा नमक एवं समुद्री लवण प्राचीन काल से आभा-मंडल (Aura) एवं गृह-वास्तु की भारी व अवरुद्ध तरंगों को सोखने का सबसे सरल और प्राकृतिक माध्यम रहे हैं। जानिए दैनिक जीवन में इसके प्रभावी विधान।'
+    : 'Unprocessed mineral salts have been revered across Vedic, Vastu, and esoteric traditions as extraordinary bio-energetic absorbers of psychic fatigue, static stress, and heavy environmental impressions.');
 
   return (
     <section id="salt-therapy" className="relative py-12 sm:py-16 bg-[#fbf8f2] border-b border-amber-200/80">
@@ -27,9 +37,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            {lang === 'hi'
-              ? 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)'
-              : 'NEGATIVITY REMOVAL & SALT THERAPY'}
+            {title}
           </h2>
           <p className="font-medium text-amber-900 text-sm sm:text-base mt-2">
             {lang === 'hi'
@@ -37,9 +45,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
               : SALT_THERAPY_PHILOSOPHY.tagline}
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
-            {lang === 'hi'
-              ? 'सेंधा नमक एवं समुद्री लवण प्राचीन काल से आभा-मंडल (Aura) एवं गृह-वास्तु की भारी व अवरुद्ध तरंगों को सोखने का सबसे सरल और प्राकृतिक माध्यम रहे हैं। जानिए दैनिक जीवन में इसके प्रभावी विधान।'
-              : 'Unprocessed mineral salts have been revered across Vedic, Vastu, and esoteric traditions as extraordinary bio-energetic absorbers of psychic fatigue, static stress, and heavy environmental impressions.'}
+            {description}
           </p>
         </div>
 

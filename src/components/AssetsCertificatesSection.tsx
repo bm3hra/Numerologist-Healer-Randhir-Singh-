@@ -45,7 +45,7 @@ export const OFFICIAL_CERTIFICATE_ASSETS: OfficialCertificateAsset[] = [
       'Official Registration Number: G-65 (UDYAM-GJ-22-0158332 & ISO-9001: 2015)',
       'Signed by Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist)',
       'Formally authorizes professional practice as a Numerology Consultant',
-      'Inscribed with sacred Lord Ganesha & Maa Saraswati auspicious seals'
+      'Inscribed with divine Lord Ganesha & Maa Saraswati auspicious seals'
     ]
   },
   {
@@ -67,7 +67,7 @@ export const OFFICIAL_CERTIFICATE_ASSETS: OfficialCertificateAsset[] = [
       'Official Registration: A-H 44 (Conferred 24 NOV 2024)',
       'Certified by Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist)',
       'Specialized mastery over dial geometry, pulse meridian, and therapy watches',
-      'Vintage baroque filigree and sacred Lord Ganesha insignia'
+      'Vintage baroque filigree and divine Lord Ganesha insignia'
     ]
   },
   {
@@ -105,7 +105,7 @@ export const OFFICIAL_CERTIFICATE_ASSETS: OfficialCertificateAsset[] = [
     venue: 'Dr. Rohit Gadkari Accreditation (UDYAM-GJ-22-0158332)',
     conferredBy: 'Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist)',
     verificationCode: 'UDYAM-GJ-22-0158332 / REG NO: A-G 62',
-    descriptionEn: 'Official Certificate acknowledging and honoring Randhir Singh for successfully completing the Advance placement Course under Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist). Certifies mastery in directional placement of remedies, sacred yantras, cash lockers, and workspace alignment per Vedic and Kua numerical vibrations.',
+    descriptionEn: 'Official Certificate acknowledging and honoring Randhir Singh for successfully completing the Advance placement Course under Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist). Certifies mastery in directional placement of remedies, divine yantras, cash lockers, and workspace alignment per Vedic and Kua numerical vibrations.',
     descriptionHi: 'डॉ. रोहित गड़करी (ऐस न्यूमेरोलॉजिस्ट, पीएचडी गोल्ड मेडलिस्ट) द्वारा रणधीर सिंह जी को कुआं अंक एवं दिशात्मक ऊर्जा के अनुसार यंत्रों, तिजोरी, कार्यस्थल एवं शयन कक्ष में वस्तुओं के सटीक स्थापन हेतु 23 नवंबर 2024 को प्रदत्त मूल अधिकृत प्रमाण पत्र (REG NO: A-G 62, ISO-9001: 2015)।',
     highlights: [
       'Official Registration: REG NO: A-G 62 (Conferred 23 NOV 2024)',
@@ -127,7 +127,7 @@ export const OFFICIAL_CERTIFICATE_ASSETS: OfficialCertificateAsset[] = [
     venue: 'Radisson Blu Grand Ballroom',
     conferredBy: 'Numerologist & Healer · Randhir Singh (Keynote Speaker & Presiding Master)',
     verificationCode: 'RAD-BLU/CONV/2024-JUN16',
-    descriptionEn: 'The historic convocation where Numerologist & Healer · Randhir Singh addressed a packed auditorium of scholars, healers, and numerologists worldwide at Radisson Blu, delivering the visionary keynote "Number of Numerologists to Explore the World" alongside the sacred Tree of Life Chakra emblem.',
+    descriptionEn: 'The historic convocation where Numerologist & Healer · Randhir Singh addressed a packed auditorium of scholars, healers, and numerologists worldwide at Radisson Blu, delivering the visionary keynote "Number of Numerologists to Explore the World" alongside the divine Tree of Life Chakra emblem.',
     descriptionHi: '16 जून 2024 को रेडिसन ब्लू में आयोजित भव्य द्वितीय दीक्षांत समारोह, जहाँ अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह ने "Number of Numerologists to Explore the World" पर ऐतिहासिक मुख्य व्याख्यान दिया।',
     highlights: [
       'Conclave Venue: Radisson Blu Luxury Ballroom (16th June 2024)',

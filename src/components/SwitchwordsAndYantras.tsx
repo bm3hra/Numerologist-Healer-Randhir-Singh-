@@ -48,7 +48,7 @@ export const SwitchwordsAndYantras: React.FC<SwitchwordsAndYantrasProps> = ({
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Grid className="w-3.5 h-3.5 text-amber-700" />
-            <span>{lang === 'hi' ? 'सेवा संख्या #11, 13, 14, 15 · पावन ऊर्जा तरंगें' : 'Services #11, 13, 14, 15 · Sacred Frequencies'}</span>
+            <span>{lang === 'hi' ? 'सेवा संख्या #11, 13, 14, 15 · पावन ऊर्जा तरंगें' : 'Services #11, 13, 14, 15 · Divine Frequencies'}</span>
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
@@ -57,12 +57,12 @@ export const SwitchwordsAndYantras: React.FC<SwitchwordsAndYantrasProps> = ({
           <p className="font-sacred font-bold text-amber-900 text-sm sm:text-base mt-2">
             {lang === 'hi'
               ? 'वैदिक रहस्यमयी अंक-यंत्र एवं पवित्र शब्दों की ऊर्जा'
-              : 'Vedic Magic Matrices & Sacred Quantum Word Energies'}
+              : 'Vedic Magic Matrices & Divine Quantum Word Energies'}
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
             {lang === 'hi'
               ? 'पारंपरिक वैदिक मान्यताओं और आध्यात्मिक पद्धतियों के अनुसार, पवित्र अंक-यंत्रों, हीलिंग कोड्स एवं सकारात्मक शब्दों का उपयोग स्वास्थ्य, विजय, समृद्धि और सफलता के संकल्प को सुदृढ़ करने के लिए किया जाता है। यह पद्धति सकारात्मक सोच, आत्मविश्वास और जीवन में अपने लक्ष्यों के प्रति एकाग्रता बढ़ाने पर केंद्रित है।'
-              : 'Sacred numerical yantras and high-frequency switchwords bypass conscious barriers to magnetize health, victory, and wealth.'}
+              : 'Divine numerical yantras and high-frequency switchwords bypass conscious barriers to magnetize health, victory, and wealth.'}
           </p>
         </div>
 
@@ -101,7 +101,7 @@ export const SwitchwordsAndYantras: React.FC<SwitchwordsAndYantrasProps> = ({
             {/* Catalog List */}
             <div className="lg:col-span-7 space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-stone-500 block px-1">
-                {lang === 'hi' ? 'पवित्र ऊर्जा संग्रह:' : 'Sacred Frequency Catalog:'}
+                {lang === 'hi' ? 'पवित्र ऊर्जा संग्रह:' : 'Divine Frequency Catalog:'}
               </span>
 
               {SWITCHWORDS_LIST.map((item) => {
@@ -221,13 +221,13 @@ export const SwitchwordsAndYantras: React.FC<SwitchwordsAndYantrasProps> = ({
           </div>
         )}
 
-        {/* TAB 2: SACRED NUMERICAL YANTRAS */}
+        {/* TAB 2: DIVINE NUMERICAL YANTRAS */}
         {activeSection === 'yantras' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Yantra Selector */}
             <div className="lg:col-span-5 space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-stone-500 block px-1">
-                {lang === 'hi' ? 'पवित्र यंत्र चुनें:' : 'Select Sacred Yantra:'}
+                {lang === 'hi' ? 'पवित्र यंत्र चुनें:' : 'Select Divine Yantra:'}
               </span>
 
               {YANTRAS_LIST.map((yantra) => {
@@ -294,7 +294,7 @@ export const SwitchwordsAndYantras: React.FC<SwitchwordsAndYantrasProps> = ({
               {/* Activation Mantra */}
               <div className="bg-amber-900 text-amber-100 p-4 rounded-xl border border-amber-800 mb-4 text-center">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-amber-300 block mb-1">
-                  {lang === 'hi' ? 'पवित्र प्राण-प्रतिष्ठा बीज मंत्र' : 'Sacred Activation Seed Mantra'}
+                  {lang === 'hi' ? 'पवित्र प्राण-प्रतिष्ठा बीज मंत्र' : 'Divine Activation Seed Mantra'}
                 </span>
                 <p className="font-serif italic text-sm tracking-wide text-amber-100">
                   "{selectedYantra.mantra}"

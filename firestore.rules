@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global fallback deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'bm3hra@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Admins collection
+    match /admins/{adminId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin() && isValidId(adminId);
+    }
+
+    // Pages collection
+    match /pages/{pageId} {
+      allow get: if isValidId(pageId) && (resource.data.status == 'published' || isAdmin());
+      allow list: if (resource.data.status == 'published') || isAdmin();
+
+      allow create: if isAdmin() && isValidId(pageId);
+      allow update: if isAdmin() && isValidId(pageId);
+      allow delete: if isAdmin() && isValidId(pageId);
+    }
+
+    // Media library collection
+    match /media/{mediaId} {
+      allow get: if isValidId(mediaId);
+      allow list: if true;
+
+      allow create: if isAdmin() && isValidId(mediaId);
+      allow update: if isAdmin() && isValidId(mediaId);
+      allow delete: if isAdmin() && isValidId(mediaId);
+    }
+
+    // Reviews collection
+    match /reviews/{reviewId} {
+      allow get: if isValidId(reviewId);
+      allow list: if true;
+
+      allow create: if isValidId(reviewId) &&
+        request.resource.data.name is string &&
+        request.resource.data.name.size() >= 2 &&
+        request.resource.data.reviewText is string &&
+        request.resource.data.reviewText.size() >= 5;
+      allow update, delete: if isAdmin();
+    }
+  }
+}

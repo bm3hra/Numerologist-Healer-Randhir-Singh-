@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Gem, Sparkles, Filter, Briefcase, CheckCircle2, ArrowRight, ShieldCheck, Moon, Sun } from 'lucide-react';
 import { CRYSTALS_COLLECTION, PROFESSION_CRYSTAL_MAP } from '../data/crystalTherapyData';
 import { Language, CrystalItem } from '../types';
+import { useCmsPages } from '../context/CmsPageContext';
 
 interface CrystalTherapySectionProps {
   lang: Language;
@@ -15,6 +16,16 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedProfession, setSelectedProfession] = useState<string>('all');
   const [activeCrystal, setActiveCrystal] = useState<CrystalItem>(CRYSTALS_COLLECTION[0]);
+
+  const { getPageBySectionId } = useCmsPages();
+  const cmsCrystal = getPageBySectionId('crystal-therapy');
+
+  const title = (lang === 'hi' ? cmsCrystal?.titleHi : cmsCrystal?.title) || (lang === 'hi' 
+    ? 'क्रिस्टल थेरेपी एवं व्यक्तिगत मार्गदर्शन' 
+    : 'CRYSTAL THERAPY & PERSONALIZED GUIDANCE');
+  const description = cmsCrystal?.description || (lang === 'hi'
+    ? 'पृथ्वी के गर्भ में लाखों वर्षों में निर्मित प्राकृतिक क्रिस्टल्स विशिष्ट विद्युत-चुंबकीय आवृत्तियाँ (Electromagnetic Frequencies) उत्सर्जित करते हैं। अपने पेशे, जन्म अंक एवं चक्रों के अनुकूल सही क्रिस्टल धारण करें।'
+    : 'Natural earth crystals hold precise geometric crystalline structures that harmonize auric fields. Discover the most auspicious crystal companions for your profession, wealth expansion, and peaceful living.');
 
   const filteredCrystals = CRYSTALS_COLLECTION.filter((c) => {
     if (selectedCategory !== 'all' && c.category !== selectedCategory) return false;
@@ -30,11 +41,11 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100/90 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Gem className="w-3.5 h-3.5 text-amber-700" />
-            <span>{lang === 'hi' ? 'पवित्र खनिज ऊर्जा · रणधीर सिंह' : 'Sacred Mineral Energies · Randhir Singh'}</span>
+            <span>{lang === 'hi' ? 'पवित्र खनिज ऊर्जा · रणधीर सिंह' : 'Divine Mineral Energies · Randhir Singh'}</span>
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            {lang === 'hi' ? 'क्रिस्टल थेरेपी एवं व्यक्तिगत मार्गदर्शन' : 'CRYSTAL THERAPY & PERSONALIZED GUIDANCE'}
+            {title}
           </h2>
           <p className="font-medium text-amber-900 text-sm sm:text-base mt-2">
             {lang === 'hi'
@@ -42,9 +53,7 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
               : 'Discover Crystals. Explore Traditional Practices. Create Your Personal Ritual.'}
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
-            {lang === 'hi'
-              ? 'पृथ्वी के गर्भ में लाखों वर्षों में निर्मित प्राकृतिक क्रिस्टल्स विशिष्ट विद्युत-चुंबकीय आवृत्तियाँ (Electromagnetic Frequencies) उत्सर्जित करते हैं। अपने पेशे, जन्म अंक एवं चक्रों के अनुकूल सही क्रिस्टल धारण करें।'
-              : 'Natural earth crystals hold precise geometric crystalline structures that harmonize auric fields. Discover the most auspicious crystal companions for your profession, wealth expansion, and peaceful living.'}
+            {description}
           </p>
         </div>
 
@@ -180,7 +189,7 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
 
               <div className="p-3 bg-amber-900 text-amber-100 rounded-lg border border-amber-800">
                 <strong className="text-amber-300 block mb-1">
-                  {lang === 'hi' ? 'पावन संकल्प एवं सिद्ध मंत्र:' : 'Sacred Activation Affirmation:'}
+                  {lang === 'hi' ? 'पावन संकल्प एवं सिद्ध मंत्र:' : 'Divine Activation Affirmation:'}
                 </strong>
                 <p className="font-serif italic text-xs">
                   "{activeCrystal.affirmation}"

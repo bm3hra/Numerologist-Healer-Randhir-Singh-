@@ -66,7 +66,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         titleEn: '9-Year Cyclic Energy Periods',
         titleHi: '9-वर्षीय व्यक्तिगत चक्र (Personal Year)',
-        descEn: 'Life moves in sacred 9-year mathematical waves. Knowing your active Personal Year dictates whether you should plant new seeds, consolidate wealth, or withdraw from risky speculations.',
+        descEn: 'Life moves in divine 9-year mathematical waves. Knowing your active Personal Year dictates whether you should plant new seeds, consolidate wealth, or withdraw from risky speculations.',
         descHi: 'प्रकृति 9 वर्षों के गणितीय चक्र में कार्य करती है। वर्तमान व्यक्तिगत वर्ष (Personal Year) के ज्ञान से आप जान सकते हैं कि कब नया व्यापार शुरू करें और कब धैर्य रखें।'
       },
       {
@@ -128,15 +128,15 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     slug: 'service-2',
     badge: 'Signature Specialist',
     titleEn: 'Watch Analysis & Therapeutic Watch Consultation',
-    titleHi: 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श',
+    titleHi: 'घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श',
     category: 'watch',
     iconName: 'Watch',
     suggestedTariff: '₹1,800',
-    taglineEn: 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path.',
-    taglineHi: 'आपकी कलाई पर पहनी जाने वाली घड़ी केवल समय बताने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद और व्यक्तित्व का भी प्रतीक है। इस विशेष पद्धति में घड़ी की बनावट, आकार, डिज़ाइन और समय-अंकों की संरचना का विश्लेषण किया जाता है, ताकि इनके प्रतीकात्मक अर्थों तथा आपकी मानसिक धारणाओं, व्यक्तिगत ऊर्जा और जीवन की दिशा से इनके संभावित संबंधों को समझा जा सके।',
-    shortDesc: 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path.',
-    fullDescEn: 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path. Numerologist & Healer · Randhir Singh performs a meticulous audit of your current wristwatch—inspecting dial geometry (round, rectangle, square), dial background shade, strap metal/leather composition, index markers, and movement rhythm—identifying energetic disharmonies and prescribing therapeutic configurations for harmony and growth.',
-    fullDescHi: 'आपकी कलाई पर पहनी जाने वाली घड़ी केवल समय बताने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद और व्यक्तित्व का भी प्रतीक है। इस विशेष पद्धति में घड़ी की बनावट, आकार, डिज़ाइन और समय-अंकों की संरचना का विश्लेषण किया जाता है, ताकि इनके प्रतीकात्मक अर्थों तथा आपकी मानसिक धारणाओं, व्यक्तिगत ऊर्जा और जीवन की दिशा से इनके संभावित संबंधों को समझा जा सके। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपकी घड़ी का सूक्ष्म विश्लेषण कर आपकी प्रगति व समृद्धि हेतु सटीक मार्गदर्शन प्रदान करते हैं।',
+    taglineEn: 'Your wristwatch is not merely a tool for telling time, but also an expression of your personal preferences, lifestyle, and personality.',
+    taglineHi: 'आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।',
+    shortDesc: 'Your wristwatch is not merely a tool for telling time, but also an expression of your personal preferences, lifestyle, and personality.',
+    fullDescEn: 'Your wristwatch is not merely a tool for telling time, but also an expression of your personal preferences, lifestyle, and personality. In this specialized consultation, the build, shape, design, color, dial, and numeral structure of your watch are carefully analyzed. The objective is to understand the symbolic meanings associated with your watch and your personal perceptions toward them, helping you gain fresh perspectives on self-awareness, personal choices, and life goals. This consultation is rooted in numerological and symbolic interpretations. It should not be construed as a medically or scientifically proven diagnosis or guarantee of specific outcomes.',
+    fullDescHi: 'आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है। इस विशेष परामर्श में घड़ी की मजबूती, आकार, डिज़ाइन, रंग, डायल और अंकों की संरचना का विश्लेषण किया जाता है। इसका उद्देश्य घड़ी से जुड़े प्रतीकात्मक अर्थों और उनके प्रति आपकी व्यक्तिगत धारणाओं को समझना है, ताकि आत्म-जागरूकता, व्यक्तिगत पसंद और जीवन के लक्ष्यों पर एक नया दृष्टिकोण प्राप्त किया जा सके। यह परामर्श अंक ज्योतिष एवं प्रतीकात्मक व्याख्याओं पर आधारित है। इसे वैज्ञानिक रूप से प्रमाणित निदान या जीवन में परिणामों की गारंटी के रूप में नहीं समझना चाहिए।',
     sciencePrinciples: [
       {
         titleEn: 'Radial Pulse Meridian Interaction',
@@ -145,7 +145,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
         descHi: 'घड़ी के नीचे से गुजरने वाली नाड़ी वर्ष भर में लाखों बार धड़कती है। यहाँ धातु या रंग का असंतुलन सीधे आपके तंत्रिका तंत्र एवं औरा को प्रभावित करता है।'
       },
       {
-        titleEn: 'Dial Geometry as Sacred Yantra',
+        titleEn: 'Dial Geometry as Divine Yantra',
         titleHi: 'डायल ज्यामिति: ब्रह्मांडीय यंत्र स्वरूप',
         descEn: 'Round dials reflect Solar wholeness; rectangular dials stimulate Mercury analytical focus; square dials anchor Saturnian grounding. Wrong geometry triggers psychological fatigue.',
         descHi: 'गोल डायल सूर्य व पूर्णता, आयताकार डायल बुध व व्यापारिक बुद्धि, तथा चौकोर डायल शनि व स्थिरता का प्रतीक है। गलत आकार मानसिक विचलन देता है।'
@@ -203,7 +203,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Complete 3x3 Lo-Shu Magic Grid analysis identifying planetary planes and missing numbers.',
     taglineHi: '3x3 लो-शू जादुई ग्रिड के माध्यम से 8 तलों एवं लुप्त अंकों का वैज्ञानिक विश्लेषण।',
     shortDesc: 'Complete 3x3 Lo-Shu Magic Grid analysis identifying planetary planes and missing numbers.',
-    fullDescEn: 'The Lo-Shu Magic Square is a 4,000-year-old sacred mathematical matrix where every horizontal, vertical, and diagonal row adds up to 15. By transposing your birth date digits into this 9-chamber cosmic grid, Numerologist & Healer · Randhir Singh analyzes the 8 Planes of Existence: Mental Plane (4-9-2), Emotional Plane (3-5-7), Practical Plane (8-1-6), Thought Plane (4-3-8), Will Plane (9-5-1), Action Plane (2-7-6), and the supreme Raj Yogas (Golden & Silver Planes). Crucially, he identifies missing numbers and provides targeted non-invasive remedies to fill the energetic voids.',
+    fullDescEn: 'The Lo-Shu Magic Square is a 4,000-year-old divine mathematical matrix where every horizontal, vertical, and diagonal row adds up to 15. By transposing your birth date digits into this 9-chamber cosmic grid, Numerologist & Healer · Randhir Singh analyzes the 8 Planes of Existence: Mental Plane (4-9-2), Emotional Plane (3-5-7), Practical Plane (8-1-6), Thought Plane (4-3-8), Will Plane (9-5-1), Action Plane (2-7-6), and the supreme Raj Yogas (Golden & Silver Planes). Crucially, he identifies missing numbers and provides targeted non-invasive remedies to fill the energetic voids.',
     fullDescHi: 'लो-शू मैजिक स्क्वायर एक प्राचीन एवं प्रामाणिक 3x3 कॉस्मिक ग्रिड है, जिसमें प्रत्येक पंक्ति का योग 15 होता है। आपकी जन्म तिथि के अंकों को इस ग्रिड में स्थापित कर अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी 8 प्रमुख तलों का अध्ययन करते हैं: मानसिक तल (4-9-2), भावनात्मक तल (3-5-7), व्यावहारिक तल (8-1-6), विचार तल (4-3-8), इच्छा शक्ति तल (9-5-1), कर्म तल (2-7-6) तथा स्वर्ण व रजत राजयोग। विशेष रूप से लुप्त अंकों की पहचान कर उनके संतुलन हेतु अचूक वैदिक उपाय दिए जाते हैं।',
     sciencePrinciples: [
       {
@@ -229,7 +229,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         titleEn: 'Missing Number Balancing Protocol',
         titleHi: 'लुप्त अंक पूरक उपाय योजना',
-        descEn: 'Exact recommendations: planetary metals, sacred crystals, yantras, and dietary frequencies to supply the missing vibrations.',
+        descEn: 'Exact recommendations: planetary metals, divine crystals, yantras, and dietary frequencies to supply the missing vibrations.',
         descHi: 'रिक्त अंकों की ऊर्जा की पूर्ति हेतु विशेष धातु, क्रिस्टल ब्रेसलेट, भोजपत्र यंत्र एवं दैनिक नियम।'
       }
     ],
@@ -263,7 +263,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Customized prescription watches designed to accelerate career growth, wealth flow, and mental peace.',
     taglineHi: 'कलाई की नाड़ी के माध्यम से करियर उन्नति, लक्ष्मी आकर्षण एवं शांति हेतु सिद्ध प्रिस्क्रिप्शन घड़ियाँ।',
     shortDesc: 'Customized prescription watches designed to accelerate career growth, wealth flow, and mental peace.',
-    fullDescEn: 'Therapy Watches are Numerologist & Healer · Randhir Singh’s celebrated signature horological innovation. Unlike generic luxury timepieces, a Therapy Watch is individually consecrated and custom-configured based on your missing Lo-Shu numbers, ruling planet, and immediate life objectives. Featuring sacred geometry dials (such as 18K Yellow Gold with Royal Azure dials for Jupiter/Saturn mastery or Pearl White dials for Lunar peace), energized Om Yantras, and specific metallic alloy links, these watches serve as continuous bio-resonance energy anchors right on your radial pulse meridian.',
+    fullDescEn: 'Therapy Watches are Numerologist & Healer · Randhir Singh’s celebrated signature horological innovation. Unlike generic luxury timepieces, a Therapy Watch is individually consecrated and custom-configured based on your missing Lo-Shu numbers, ruling planet, and immediate life objectives. Featuring divine geometry dials (such as 18K Yellow Gold with Royal Azure dials for Jupiter/Saturn mastery or Pearl White dials for Lunar peace), energized Om Yantras, and specific metallic alloy links, these watches serve as continuous bio-resonance energy anchors right on your radial pulse meridian.',
     fullDescHi: 'थेरेपी वॉचेस अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी का सुविख्यात एवं विशिष्ट उपचारात्मक नवाचार है। साधारण घड़ियों के विपरीत, थेरेपी घड़ी को आपकी जन्म तिथि के लुप्त अंकों, स्वामी ग्रह एवं तात्कालिक लक्ष्य के आधार पर विशेष रूप से तैयार व अभिमंत्रित किया जाता है। इसमें 18K स्वर्ण पॉलिश, रॉयल अज़्योर ब्लू अथवा पर्ल व्हाइट डायल, केंद्र में प्रतिष्ठित ॐ यंत्र, तथा विशिष्ट धातुओं के मेल से बनी कलाई चेन होती है, जो दिनभर आपकी नाड़ी के माध्यम से सकारात्मक ऊर्जा का संचार करती है।',
     sciencePrinciples: [
       {
@@ -283,7 +283,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         titleEn: 'Individually Consecrated Timepiece',
         titleHi: 'व्यक्तिगत रूप से अभिमंत्रित थेरेपी घड़ी',
-        descEn: 'Bespoke watch assembled and energized under Numerologist & Healer · Randhir Singh’s guidance with sacred mantras and correct muhurta activation.',
+        descEn: 'Bespoke watch assembled and energized under Numerologist & Healer · Randhir Singh’s guidance with divine mantras and correct muhurta activation.',
         descHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी द्वारा शुभ मुहूर्त में वैदिक मंत्रों से अभिमंत्रित एवं तैयार की गई अनूठी थेरेपी घड़ी।'
       },
       {
@@ -306,7 +306,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         qEn: 'How is a Therapy Watch different from a normal luxury watch?',
         qHi: 'थेरेपी घड़ी सामान्य लग्जरी घड़ी से किस प्रकार भिन्न है?',
-        aEn: 'A normal watch only tells time. A Therapy Watch integrates sacred geometry, planetary dial colors, correct strap grounding, and Vedic consecration aligned with your unique pulse.',
+        aEn: 'A normal watch only tells time. A Therapy Watch integrates divine geometry, planetary dial colors, correct strap grounding, and Vedic consecration aligned with your unique pulse.',
         aHi: 'सामान्य घड़ी केवल समय दिखाती है। थेरेपी घड़ी में पवित्र ज्यामिति, ग्रहीय रंग, सही धातु का स्ट्रैप एवं आपकी नाड़ी के अनुकूल वैदिक प्राण-प्रतिष्ठा की जाती है।'
       }
     ]
@@ -323,7 +323,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Vedic numerological planning for planned deliveries to bestow a harmonious destiny upon your newborn.',
     taglineHi: 'नियोजित प्रसव (C-Section) हेतु शुभ तिथि, वार एवं नक्षत्र का चयन ताकि नवजात को मिले स्वर्णिम भविष्य।',
     shortDesc: 'Vedic numerological planning for planned deliveries to bestow a harmonious destiny upon your newborn.',
-    fullDescEn: 'When medical conditions necessitate a planned delivery or caesarean section within a recommended clinical window, selecting the exact date and hour becomes a sacred parental responsibility. Numerologist & Healer · Randhir Singh cross-calculates the candidate delivery dates against parental charts to identify dates with high-frequency Driver-Conductor synergy (such as 1-1, 1-5, 3-3, 5-1, or 6-3), avoiding conflicting enemy numbers (like 1-8, 2-8, or 4-8) and ensuring the newborn is blessed with vibrant health, intellectual brilliance, and filial affection.',
+    fullDescEn: 'When medical conditions necessitate a planned delivery or caesarean section within a recommended clinical window, selecting the exact date and hour becomes a divine parental responsibility. Numerologist & Healer · Randhir Singh cross-calculates the candidate delivery dates against parental charts to identify dates with high-frequency Driver-Conductor synergy (such as 1-1, 1-5, 3-3, 5-1, or 6-3), avoiding conflicting enemy numbers (like 1-8, 2-8, or 4-8) and ensuring the newborn is blessed with vibrant health, intellectual brilliance, and filial affection.',
     fullDescHi: 'जब चिकित्सीय कारणों से सी-सेक्शन (नियोजित प्रसव) की सलाह दी जाती है, तब उस अनुशंसित समयावधि में से सर्वोत्तम शुभ तिथि एवं समय का चयन करना संतान के उज्ज्वल भविष्य का आधार बनता है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी माता-पिता के अंकों के साथ तालमेल बिठाते हुए ऐसे शुभ मूलांक-भाग्यांक (जैसे 1-1, 1-5, 3-3, 5-1, 6-3) का चयन करते हैं, जो शत्रु अंकों (जैसे 1-8, 2-8, 4-8) से मुक्त हों और नवजात को उत्तम स्वास्थ्य, दीर्घायु, कुशाग्र बुद्धि एवं पारिवारिक प्रेम प्रदान करें।',
     sciencePrinciples: [
       {
@@ -794,16 +794,16 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
   13: {
     id: 13,
     slug: 'service-13',
-    badge: 'Sacred Science',
-    titleEn: 'Healing Codes (Sacred Numerical Sequences)',
+    badge: 'Divine Science',
+    titleEn: 'Healing Codes (Divine Numerical Sequences)',
     titleHi: 'हीलिंग कोड्स (पवित्र संख्यात्मक अनुक्रम)',
     category: 'healing',
     iconName: 'Binary',
     suggestedTariff: '₹1,800',
-    taglineEn: 'Sacred numerical frequencies (Grabovoi & Divine Codes) for targeted energetic restoration.',
+    taglineEn: 'Divine numerical frequencies (Grabovoi & Divine Codes) for targeted energetic restoration.',
     taglineHi: 'ग्रैबोवोई एवं वैदिक दिव्य संख्यात्मक अनुक्रमों द्वारा धन, स्वास्थ्य व मनोकामना पूर्ति।',
-    shortDesc: 'Sacred numerical frequencies (Grabovoi & Divine Codes) for targeted energetic restoration.',
-    fullDescEn: 'Everything in the cosmos—from the orbit of Jupiter to the DNA helix—is constructed upon sacred mathematical ratios. Healing Codes (including the acclaimed sequences of Dr. Grigori Grabovoi and ancient Vedic numerical mantras) are specific numerical vibrations that restore distorted biophysical frequencies back to the divine norm. Numerologist & Healer · Randhir Singh provides verified codes (such as 520 741 8 for unexpected cash inflows, 1814321 for overall health restoration, and 8888 for divine protection), complete with exact methods for writing on wrist pulse points, charging water, and silent mental visualization.',
+    shortDesc: 'Divine numerical frequencies (Grabovoi & Divine Codes) for targeted energetic restoration.',
+    fullDescEn: 'Everything in the cosmos—from the orbit of Jupiter to the DNA helix—is constructed upon divine mathematical ratios. Healing Codes (including the acclaimed sequences of Dr. Grigori Grabovoi and ancient Vedic numerical mantras) are specific numerical vibrations that restore distorted biophysical frequencies back to the divine norm. Numerologist & Healer · Randhir Singh provides verified codes (such as 520 741 8 for unexpected cash inflows, 1814321 for overall health restoration, and 8888 for divine protection), complete with exact methods for writing on wrist pulse points, charging water, and silent mental visualization.',
     fullDescHi: 'समस्त ब्रह्मांड—तारों की गति से लेकर हमारे डीएनए तक—पवित्र गणितीय अनुपातों पर आधारित है। हीलिंग कोड्स (जिनमें डॉ. ग्रिगोरी ग्रैबोवोई के विश्वप्रसिद्ध कोड्स एवं वैदिक संख्यात्मक मंत्र शामिल हैं) वे विशिष्ट आवृत्तियां हैं जो जीवन की विकृत ऊर्जा को पुनः संतुलित करती हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी प्रामाणिक कोड्स (जैसे अप्रत्याशित धन आगमन हेतु 520 741 8, सम्पूर्ण स्वास्थ्य हेतु 1814321, तथा दिव्य सुरक्षा हेतु 8888) प्रदान करते हैं, जिन्हें बाईं कलाई पर लिखने, जल चार्ज करने एवं ध्यान करने की सटीक विधि सिखाई जाती है।',
     sciencePrinciples: [
       {
@@ -854,7 +854,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
   14: {
     id: 14,
     slug: 'service-14',
-    badge: 'Sacred Geometry',
+    badge: 'Divine Geometry',
     titleEn: 'Yantras Based on Your Date of Birth',
     titleHi: 'जन्म तिथि आधारित वैदिक यंत्र',
     category: 'yantra',
@@ -863,13 +863,13 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Authentic 3x3 planetary numerical magic square yantras prepared for your weakest or ruling planets.',
     taglineHi: 'आपकी जन्म तिथि के अनुसार तैयार किए जाने वाले 3x3 नवग्रह भोजपत्र एवं तांबे के सिद्ध यंत्र।',
     shortDesc: 'Authentic 3x3 planetary numerical magic square yantras prepared for your weakest or ruling planets.',
-    fullDescEn: 'A Yantra is a physical cosmic antenna inscribed with sacred geometric and numerical codes. In Vedic numerology, every planet—from Surya (Sum 15) and Chandra (Sum 18) to Brihaspati (Sum 27) and Shukra (Sum 30)—has an authentic 3x3 planetary numerical magic square. Numerologist & Healer · Randhir Singh calculates your exact ruling planet and identifies the weakest planet in your birth chart, inscribing the corresponding authentic yantra on consecrated Bhojpatra (sacred birch bark) or pure copper plates, empowered through Prana Pratishtha rituals.',
+    fullDescEn: 'A Yantra is a physical cosmic antenna inscribed with divine geometric and numerical codes. In Vedic numerology, every planet—from Surya (Sum 15) and Chandra (Sum 18) to Brihaspati (Sum 27) and Shukra (Sum 30)—has an authentic 3x3 planetary numerical magic square. Numerologist & Healer · Randhir Singh calculates your exact ruling planet and identifies the weakest planet in your birth chart, inscribing the corresponding authentic yantra on consecrated Bhojpatra (divine birch bark) or pure copper plates, empowered through Prana Pratishtha rituals.',
     fullDescHi: 'यंत्र एक भौतिक ब्रह्मांडीय एंटीना है जो शुभ ग्रहीय तरंगों को आकर्षित करता है। वैदिक अंक ज्योतिष में प्रत्येक ग्रह का एक प्रामाणिक 3x3 संख्यात्मक जादुई वर्ग होता है—जैसे सूर्य यंत्र (योग 15), चंद्र यंत्र (योग 18), गुरु यंत्र (योग 27), तथा शुक्र यंत्र (योग 30)। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपकी जन्म तिथि के अनुसार आपके कमजोर व कारक ग्रह का निर्धारण कर, पवित्र भोजपत्र अथवा शुद्ध तांबे पर हस्तलिखित यंत्र तैयार कर वैदिक प्राण-प्रतिष्ठा करते हैं।',
     sciencePrinciples: [
       {
         titleEn: 'The Invariant Mathematical Sum of Planetary Squares',
         titleHi: 'नवग्रह यंत्रों का स्थिर गणितीय योग',
-        descEn: 'Every planetary yantra possesses a sacred immutable sum. In Surya Yantra, every row, column, and diagonal equals exactly 15; in Brihaspati Yantra, every line equals 27.',
+        descEn: 'Every planetary yantra possesses a divine immutable sum. In Surya Yantra, every row, column, and diagonal equals exactly 15; in Brihaspati Yantra, every line equals 27.',
         descHi: 'प्रत्येक ग्रह यंत्र का योग स्थिर होता है: सूर्य यंत्र में प्रत्येक पंक्ति 15, तथा गुरु यंत्र में प्रत्येक पंक्ति का योग ठीक 27 होता है।'
       },
       {
@@ -883,7 +883,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       {
         titleEn: 'Hand-Inscribed Energized Bhojpatra Yantra',
         titleHi: 'हस्तलिखित सिद्ध भोजपत्र यंत्र',
-        descEn: 'Laminated or framed sacred birch-bark yantra personally inscribed and energized with your name and gotra.',
+        descEn: 'Laminated or framed divine birch-bark yantra personally inscribed and energized with your name and gotra.',
         descHi: 'आपके नाम व गोत्र से अभिमंत्रित, फ्रेम अथवा लैमिनेटेड पवित्र भोजपत्र यंत्र।'
       },
       {
@@ -923,7 +923,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Dedicated Sri Yantra, Kuber Yantra (Sum 72), and Vyapar Vridhi Yantras for major life triumphs.',
     taglineHi: 'कुबेर महायंत्र (योग 72), श्री महालक्ष्मी यंत्र एवं व्यापार वृद्धि यंत्र द्वारा असाधारण सफलता।',
     shortDesc: 'Dedicated Sri Yantra, Kuber Yantra (Sum 72), and Vyapar Vridhi Yantras for major life triumphs.',
-    fullDescEn: 'When facing monumental life goals—such as clearing competitive government examinations, winning massive corporate tenders, acquiring commercial property, or breaking out of generational debt—standard remedies must be elevated to High-Potency Special Yantras. Numerologist & Healer · Randhir Singh crafts and consecrates three supreme specialized yantras: The sacred Kuber Yantra (where every row sums to the master wealth frequency 72), the authentic Vyapar Vridhi Yantra for sales acceleration, and the Sarva Karya Siddhi Yantra for fulfilling cherished life desires.',
+    fullDescEn: 'When facing monumental life goals—such as clearing competitive government examinations, winning massive corporate tenders, acquiring commercial property, or breaking out of generational debt—standard remedies must be elevated to High-Potency Special Yantras. Numerologist & Healer · Randhir Singh crafts and consecrates three supreme specialized yantras: The divine Kuber Yantra (where every row sums to the master wealth frequency 72), the authentic Vyapar Vridhi Yantra for sales acceleration, and the Sarva Karya Siddhi Yantra for fulfilling cherished life desires.',
     fullDescHi: 'जब जीवन में कोई बहुत बड़ा लक्ष्य हो—जैसे सरकारी नौकरी, प्रतियोगी परीक्षा, बड़ा व्यापारिक टेंडर, भूमि-भवन क्रय, या पुराने कर्ज से मुक्ति—तब उच्च शक्ति वाले विशेष यंत्रों की आवश्यकता होती है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी तीन सर्वोच्च विशेष यंत्र सिद्ध करते हैं: कुबेर महायंत्र (जिसमें प्रत्येक पंक्ति का योग 72 होता है जो कुबेर का धन अंक है), व्यापार वृद्धि यंत्र (व्यापारिक बिक्री बढ़ाने हेतु), तथा सर्व कार्य सिद्धि यंत्र (मनवांछित मनोरथों को पूर्ण करने हेतु)।',
     sciencePrinciples: [
       {

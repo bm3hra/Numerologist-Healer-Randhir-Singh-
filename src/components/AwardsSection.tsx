@@ -154,7 +154,7 @@ export const AwardsSection: React.FC<AwardsSectionProps> = ({ lang, onOpenBookin
       conferredByHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह (मुख्य वक्ता एवं पीठासीन गुरु)',
       verificationCode: 'RAD-BLU/CONV/2024-JUN16',
       descriptionEn:
-        'Numerologist & Healer · Randhir Singh presided and delivered the historic keynote address "NUMBER OF NUMEROLOGISTS TO EXPLORE THE WORLD" with the sacred Tree of Life Chakra emblem at Radisson Blu before hundreds of international delegates and certified practitioners.',
+        'Numerologist & Healer · Randhir Singh presided and delivered the historic keynote address "NUMBER OF NUMEROLOGISTS TO EXPLORE THE WORLD" with the divine Tree of Life Chakra emblem at Radisson Blu before hundreds of international delegates and certified practitioners.',
       descriptionHi:
         '16 जून 2024 को रेडिसन ब्लू में आयोजित भव्य द्वितीय दीक्षांत समारोह, जहाँ अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह ने "Number of Numerologists to Explore the World" पर ऐतिहासिक मुख्य व्याख्यान दिया और पावन ट्री ऑफ लाइफ चक्र क्रेस्ट का अनावरण किया।',
       highlightsEn: [

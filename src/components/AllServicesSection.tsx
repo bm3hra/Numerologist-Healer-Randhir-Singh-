@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Watch, Calendar, Clock, Baby, PhoneCall, ShieldAlert, FileSignature, HeartHandshake, Users, Volume2, Sun, Binary, Grid, Trophy, Gem, ArrowRight, Search } from 'lucide-react';
+import { Sparkles, Watch, Calendar, Clock, Baby, PhoneCall, ShieldAlert, FileSignature, HeartHandshake, Users, Volume2, Sun, Binary, Grid, Trophy, Gem, ArrowRight, Search, CreditCard } from 'lucide-react';
 import { ALL_SERVICES } from '../data/servicesData';
 import { Language, ServiceItem } from '../types';
 
@@ -74,7 +74,7 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'ALL 16 SACRED SERVICES'}
+            {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'ALL 16 DIVINE SERVICES'}
           </h2>
           <p className="font-medium text-amber-900 text-sm sm:text-base mt-2">
             {lang === 'hi' ? 'अपनी जन्मतिथि के रहस्यों को जानें · अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।' : 'Decode Your Date of Birth · Change Your Life and Destiny'}
@@ -82,11 +82,20 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
             {lang === 'hi'
               ? 'अंक ज्योतिष, घड़ी विश्लेषण एवं थेरेपी, पारंपरिक नमक शुद्धिकरण, पवित्र यंत्र, हीलिंग कोड्स और आध्यात्मिक परामर्श सहित सभी 16 विशेष सेवाओं का अनुभव करें। प्रत्येक सेवा के लिए एक समर्पित अलग पृष्ठ उपलब्ध है, जहाँ आप उससे जुड़ी जानकारी, उसकी विशेषताओं और संबंधित प्रक्रिया के बारे में विस्तार से जान सकते हैं।'
-              : 'Explore the complete repertoire of sacred numerology, watch therapy, traditional salt clearing, yantras, and healing services. Each service features its own dedicated individual page.'}
+              : 'Explore the complete repertoire of divine numerology, watch therapy, traditional salt clearing, yantras, and healing services. Each service features its own dedicated individual page.'}
           </p>
-          <div className="mt-3 inline-flex items-center gap-2 bg-amber-100/80 border border-amber-300/80 px-3 py-1 rounded-full text-[11px] font-bold text-amber-900">
-            <Sparkles className="w-3 h-3 text-amber-700" />
-            <span>{lang === 'hi' ? 'किसी भी सेवा कार्ड पर क्लिक करके उसका व्यक्तिगत संपूर्ण पृष्ठ देखें' : 'Click any service below to open its comprehensive individual page'}</span>
+          <div className="mt-3.5 flex flex-wrap items-center justify-center gap-2.5">
+            <div className="inline-flex items-center gap-2 bg-amber-100/80 border border-amber-300/80 px-3 py-1 rounded-full text-[11px] font-bold text-amber-900">
+              <Sparkles className="w-3 h-3 text-amber-700" />
+              <span>{lang === 'hi' ? 'किसी भी सेवा कार्ड पर क्लिक करके उसका व्यक्तिगत संपूर्ण पृष्ठ देखें' : 'Click any service below to open its comprehensive individual page'}</span>
+            </div>
+            <a
+              href="#tariff"
+              className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-800 to-amber-950 hover:from-amber-700 hover:to-amber-900 text-white px-3.5 py-1 rounded-full text-[11px] font-bold border border-amber-600/50 shadow-2xs transition-all hover:scale-102"
+            >
+              <CreditCard className="w-3.5 h-3.5 text-amber-300" />
+              <span>{lang === 'hi' ? 'परामर्श एवं हीलिंग सेवाएं फीस (Tariff)' : 'Consultancy & Healing Services Fees'}</span>
+            </a>
           </div>
         </div>
 
@@ -154,7 +163,7 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
                             'Unique Remedy': 'अद्वितीय उपाय',
                             'Family Blessing': 'पारिवारिक वरदान',
                             'High Impact': 'उच्च प्रभाव',
-                            'Sacred Cleansing': 'पवित्र शुद्धि',
+                            'Divine Cleansing': 'पवित्र शुद्धि',
                             'Holistic Shield': 'ऊर्जा कवच',
                             'Empowerment': 'आत्म-उत्थान',
                             'Direct Healing': 'प्रत्यक्ष उपचार',

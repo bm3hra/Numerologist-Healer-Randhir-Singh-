@@ -20,6 +20,7 @@ import { MediaGallerySection } from './components/MediaGallerySection';
 import { ReadingProgressBar } from './components/ReadingProgressBar';
 import { BookingModal } from './components/BookingModal';
 import { Footer } from './components/Footer';
+import { ClientReviewsSection } from './components/ClientReviewsSection';
 
 // 5 Dedicated Detailed Pages
 import { YantraHealingsPage } from './components/pages/YantraHealingsPage';
@@ -28,6 +29,13 @@ import { AndMoreRemediesPage } from './components/pages/AndMoreRemediesPage';
 import { DobYantrasPage } from './components/pages/DobYantrasPage';
 import { KundliMilanPage } from './components/pages/KundliMilanPage';
 import { IndividualServicePage } from './components/pages/IndividualServicePage';
+import { DynamicPageViewer } from './components/pages/DynamicPageViewer';
+
+// Admin CMS & Auth
+import { AdminAuthProvider, useAdminAuth } from './context/AdminAuthContext';
+import { CmsPageProvider } from './context/CmsPageContext';
+import { AdminLogin } from './components/admin/AdminLogin';
+import { AdminDashboard } from './components/admin/AdminDashboard';
 
 import {
   Phone,
@@ -51,10 +59,11 @@ const DEDICATED_PAGES = [
   'dob-yantras',
   'kundli-milan',
   'about-randhir',
+  'client-reviews-stories',
   ...Array.from({ length: 16 }, (_, i) => `service-${i + 1}`)
 ];
 
-export default function App() {
+function MainAppContent() {
   const [lang, setLangState] = useState<string>(() => {
     try {
       return localStorage.getItem('dyd_lang') || 'en';
@@ -75,7 +84,23 @@ export default function App() {
     }
   }, [lang]);
 
-  const [currentTab, setCurrentTab] = useState<string>('home');
+  const [currentTab, setCurrentTab] = useState<string>(() => {
+    try {
+      const pathname = window.location.pathname.toLowerCase().trim();
+      if (pathname === '/admin' || pathname === '/admin/') {
+        return 'admin';
+      }
+      if (pathname.startsWith('/pages/')) {
+        const slug = pathname.replace('/pages/', '').replace('/', '');
+        if (slug) return `pages/${slug}`;
+      }
+      const rawHash = window.location.hash.replace('#', '').trim().toLowerCase();
+      if (rawHash) return rawHash;
+    } catch {
+      // ignore
+    }
+    return 'home';
+  });
 
   // Booking Modal State
   const [isBookingOpen, setIsBookingOpen] = useState<boolean>(false);
@@ -122,8 +147,16 @@ export default function App() {
     'assets-certificates': 'assets-certificates',
     faq: 'faq-section',
     'faq-section': 'faq-section',
+    reviews: 'reviews',
+    'client-reviews-stories': 'reviews',
+    'client-reviews': 'reviews',
+    testimonials: 'reviews',
     tariff: 'tariff-about',
     'tariff-about': 'tariff-about',
+    fees: 'tariff-about',
+    'consultancy-fees': 'tariff-about',
+    'healing-fees': 'tariff-about',
+    'consultancy-healing-fees': 'tariff-about',
     about: 'about-randhir',
     'about-randhir': 'about-randhir',
     'randhir-singh': 'about-randhir'
@@ -134,61 +167,112 @@ export default function App() {
     if (cleanSection.startsWith('service/') || cleanSection.startsWith('service_')) {
       cleanSection = cleanSection.replace('service/', 'service-').replace('service_', 'service-');
     }
+    if (cleanSection.startsWith('/pages/')) {
+      cleanSection = cleanSection.replace('/pages/', 'pages/');
+    }
+    if (cleanSection === '/admin' || cleanSection === '/admin/') {
+      cleanSection = 'admin';
+    }
+
     setCurrentTab(cleanSection);
 
-    // Update browser URL hash so all links are real working, bookmarkable URLs
+    // Update browser URL so all links are real working, bookmarkable URLs
     if (updateUrl) {
-      const cleanHash = cleanSection === 'home' ? '' : `#${cleanSection}`;
+      let targetPath = cleanSection === 'home' ? '/' : `#${cleanSection}`;
+      if (cleanSection === 'admin') {
+        targetPath = '/admin';
+      } else if (cleanSection.startsWith('pages/')) {
+        targetPath = `/${cleanSection}`;
+      }
+
       try {
         if (window.history.pushState) {
-          window.history.pushState(null, '', cleanHash || window.location.pathname);
+          window.history.pushState(null, '', targetPath);
         } else {
-          window.location.hash = cleanHash;
+          window.location.hash = cleanSection === 'home' ? '' : `#${cleanSection}`;
         }
       } catch {
-        window.location.hash = cleanHash;
+        window.location.hash = cleanSection === 'home' ? '' : `#${cleanSection}`;
       }
     }
 
-    // If navigating to one of the dedicated pages (including all 16 individual services) or home, scroll to top
-    if (cleanSection === 'home' || DEDICATED_PAGES.includes(cleanSection) || cleanSection.startsWith('service-')) {
+    // If navigating to one of the dedicated pages, dynamic pages, admin, or home, scroll to top
+    if (
+      cleanSection === 'home' ||
+      cleanSection === 'admin' ||
+      cleanSection.startsWith('pages/') ||
+      DEDICATED_PAGES.includes(cleanSection) ||
+      cleanSection.startsWith('service-')
+    ) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
     // Otherwise scroll to the section anchor
     const targetId = SECTION_MAP[cleanSection] || cleanSection;
-    const element = document.getElementById(targetId);
-    if (element) {
-      const headerOffset = 76;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: Math.max(0, offsetPosition),
-        behavior: 'smooth'
-      });
-    }
+    const performScroll = () => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        const headerOffset = 76;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+      }
+    };
+    performScroll();
+    setTimeout(performScroll, 80);
+    setTimeout(performScroll, 250);
   };
 
-  // Synchronize browser URL hash on initial page load and on back/forward browser buttons
+  // Synchronize browser URL on initial page load and on back/forward browser buttons
   React.useEffect(() => {
-    const handleHash = () => {
+    const handleUrlChange = () => {
+      // 1. Check pathname
+      const pathname = window.location.pathname.toLowerCase().trim();
+      if (pathname === '/admin' || pathname === '/admin/') {
+        handleNavigate('admin', false);
+        return;
+      }
+      if (pathname.startsWith('/pages/')) {
+        const slug = pathname.replace('/pages/', '').replace('/', '');
+        if (slug) {
+          handleNavigate(`pages/${slug}`, false);
+          return;
+        }
+      }
+
+      // 2. Check hash
       const rawHash = window.location.hash.replace('#', '').trim().toLowerCase();
       if (rawHash) {
         handleNavigate(rawHash, false);
-      } else {
+      } else if (pathname === '/' || pathname === '') {
         setCurrentTab('home');
       }
     };
 
-    window.addEventListener('hashchange', handleHash);
+    // Keyboard shortcut: Ctrl + Shift + A or Cmd + Shift + A to open Admin CMS
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        handleNavigate('admin');
+      }
+    };
+
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('keydown', handleKeyDown);
 
     // Initial mount check
-    if (window.location.hash) {
-      setTimeout(handleHash, 150);
-    }
+    setTimeout(handleUrlChange, 100);
 
-    return () => window.removeEventListener('hashchange', handleHash);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlChange);
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   const handleSelectServiceFrom16 = (service: ServiceItem) => {
@@ -201,8 +285,39 @@ export default function App() {
     );
   };
 
-  // Check if currentTab is one of the 5 dedicated pages
-  const isDedicatedPage = DEDICATED_PAGES.includes(currentTab);
+  const { isAdmin, loading: authLoading } = useAdminAuth();
+
+  // If on admin route, render dedicated Admin Portal
+  if (currentTab === 'admin') {
+    if (authLoading) {
+      return (
+        <div className="min-h-screen bg-stone-950 flex flex-col items-center justify-center text-amber-400">
+          <div className="w-10 h-10 border-3 border-amber-600/30 border-t-amber-500 rounded-full animate-spin mb-3" />
+          <p className="text-xs font-mono text-stone-400">Verifying Administrator Session...</p>
+        </div>
+      );
+    }
+    if (isAdmin) {
+      return (
+        <AdminDashboard
+          onBackToSite={() => handleNavigate('home')}
+          onViewLivePage={(slug) => handleNavigate(`pages/${slug}`)}
+        />
+      );
+    }
+    return (
+      <AdminLogin
+        onBackToSite={() => handleNavigate('home')}
+        onSuccess={() => handleNavigate('admin')}
+      />
+    );
+  }
+
+  // Check if currentTab is one of the dedicated pages
+  const isDedicatedPage =
+    DEDICATED_PAGES.includes(currentTab) ||
+    currentTab.startsWith('pages/') ||
+    currentTab === 'admin';
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-stone-900">
@@ -289,7 +404,25 @@ export default function App() {
           </div>
         )}
 
-        {/* ROUTE 7: Individual Dedicated Pages for All 16 Sacred Services */}
+        {/* ROUTE 6B: Dedicated Page for Client Reviews & Stories */}
+        {currentTab === 'client-reviews-stories' && (
+          <div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+              <button
+                onClick={() => handleNavigate('home')}
+                className="inline-flex items-center gap-2 text-xs font-bold text-amber-900 bg-amber-100/80 hover:bg-amber-200 px-3.5 py-1.5 rounded-full border border-amber-300 transition-colors cursor-pointer"
+              >
+                <span>← {lang === 'hi' ? 'मुख्य पृष्ठ पर वापस जाएं' : 'Back to Main Page'}</span>
+              </button>
+            </div>
+            <ClientReviewsSection
+              lang={lang as Language}
+              onOpenBooking={(svc) => handleOpenBooking(svc)}
+            />
+          </div>
+        )}
+
+        {/* ROUTE 7: Individual Dedicated Pages for All 16 Divine Services */}
         {currentTab.startsWith('service-') && (
           <IndividualServicePage
             serviceId={parseInt(currentTab.replace('service-', ''), 10) || 1}
@@ -297,6 +430,16 @@ export default function App() {
             onNavigateHome={() => handleNavigate('home')}
             onNavigateToService={(id) => handleNavigate(`service-${id}`)}
             onOpenBooking={(svc, price) => handleOpenBooking(svc, price)}
+          />
+        )}
+
+        {/* ROUTE 8: Dynamic CMS Pages created via Admin Page Builder */}
+        {currentTab.startsWith('pages/') && (
+          <DynamicPageViewer
+            slug={currentTab.replace('pages/', '')}
+            lang={lang as Language}
+            onNavigateHome={() => handleNavigate('home')}
+            onOpenBooking={handleOpenBooking}
           />
         )}
 
@@ -332,7 +475,7 @@ export default function App() {
                   <p className="text-xs sm:text-sm text-stone-600 mt-1">
                     {lang === 'hi'
                       ? 'गहन अध्ययन, गणना एवं सिद्ध उपायों हेतु नीचे दिए गए किसी भी पोर्टल पर क्लिक करें:'
-                      : 'Click any portal below for deep technical calculations, sacred matrices, and personalized solutions:'}
+                      : 'Click any portal below for deep technical calculations, divine matrices, and personalized solutions:'}
                   </p>
                 </div>
 
@@ -508,11 +651,11 @@ export default function App() {
               onBookMatchingSession={(type) => handleOpenBooking(type)}
             />
 
-            {/* 8. Sacred Yantras, Healing Codes & Switchwords with 108 Japa Counter */}
+            {/* 8. Divine Yantras, Healing Codes & Switchwords with 108 Japa Counter */}
             <SwitchwordsAndYantras
               lang={lang as Language}
               onBookYantraGuidance={(yantraName) =>
-                handleOpenBooking(yantraName ? `Sacred Yantra: ${yantraName}` : 'Consecrated Bhojpatra Yantra')
+                handleOpenBooking(yantraName ? `Divine Yantra: ${yantraName}` : 'Consecrated Bhojpatra Yantra')
               }
             />
 
@@ -558,6 +701,12 @@ export default function App() {
             <FaqSection
               lang={lang as Language}
               onOpenBooking={() => handleOpenBooking()}
+            />
+
+            {/* 15. Client Reviews & Stories (At the last after Frequently Asked Questions with Instant On-Page Submit) */}
+            <ClientReviewsSection
+              lang={lang as Language}
+              onOpenBooking={(svc) => handleOpenBooking(svc)}
             />
           </>
         )}
@@ -639,5 +788,15 @@ export default function App() {
         </div>
       </aside>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AdminAuthProvider>
+      <CmsPageProvider>
+        <MainAppContent />
+      </CmsPageProvider>
+    </AdminAuthProvider>
   );
 }

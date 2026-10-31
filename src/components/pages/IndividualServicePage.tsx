@@ -36,6 +36,7 @@ import {
 import { SERVICES_DETAIL_DATA, ServiceDetailItem } from '../../data/servicesDetailData';
 import { ALL_SERVICES } from '../../data/servicesData';
 import { Language } from '../../types';
+import { useCmsPages } from '../../context/CmsPageContext';
 
 interface IndividualServicePageProps {
   serviceId: number;
@@ -55,6 +56,24 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
   // Ensure serviceId is in bounds 1-16
   const validId = Math.max(1, Math.min(16, serviceId || 1));
   const service = SERVICES_DETAIL_DATA[validId] || SERVICES_DETAIL_DATA[1];
+
+  const { getPage } = useCmsPages();
+  const cmsPage = getPage(`service-${validId}`);
+  const cmsHeroBlock = cmsPage?.blocks?.find((b) => b.type === 'hero');
+  const cmsTextBlock = cmsPage?.blocks?.find((b) => b.type === 'text');
+  const cmsCardBlock = cmsPage?.blocks?.find((b) => b.type === 'consultation' || b.type === 'booking-card');
+
+  const displayTitle = lang === 'hi'
+    ? (cmsPage?.titleHi || cmsHeroBlock?.title || service.titleHi)
+    : (cmsPage?.title || cmsHeroBlock?.title || service.titleEn);
+
+  const displayTagline = lang === 'hi'
+    ? (cmsHeroBlock?.subtitle || service.taglineHi)
+    : (cmsHeroBlock?.subtitle || service.taglineEn);
+
+  const displayFullDesc = cmsTextBlock?.content || (lang === 'hi' ? service.fullDescHi : service.fullDescEn);
+  const displayTariff = cmsCardBlock?.price || service.suggestedTariff || '₹5,100';
+  const displayImage = cmsHeroBlock?.imageUrl || (validId === 2 ? '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png' : '/Randhir Singh.png');
 
   // Quick Interactive Mini-Tools State per service
   const [interactiveInput, setInteractiveInput] = useState<string>('');
@@ -151,7 +170,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
               }}
               className="font-medium text-stone-600 hover:text-amber-900"
             >
-              {lang === 'hi' ? '16 पवित्र सेवाएँ' : 'All 16 Sacred Services'}
+              {lang === 'hi' ? '16 पवित्र सेवाएँ' : 'All 16 Divine Services'}
             </button>
             <span className="text-stone-300">/</span>
             <span className="font-bold text-stone-900 truncate max-w-[150px] sm:max-w-xs">
@@ -209,17 +228,17 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
               </div>
 
               <h1 className="font-sacred text-2xl sm:text-4xl lg:text-5xl font-black text-amber-100 leading-tight">
-                {lang === 'hi' ? service.titleHi : service.titleEn}
+                {displayTitle}
               </h1>
 
               <p className="text-sm sm:text-base text-amber-200/90 font-medium max-w-2xl leading-relaxed">
-                {lang === 'hi' ? service.taglineHi : service.taglineEn}
+                {displayTagline}
               </p>
 
               {/* Action Buttons */}
               <div className="pt-2 flex flex-wrap items-center gap-3">
                 <button
-                  onClick={() => onOpenBooking(service.titleEn, service.suggestedTariff)}
+                  onClick={() => onOpenBooking(displayTitle, displayTariff)}
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm shadow-lg transition-all"
                 >
                   <Calendar className="w-4 h-4 text-stone-900" />
@@ -228,7 +247,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
                 </button>
 
                 <a
-                  href={`https://wa.me/919509593150?text=Hello%20Master%20Randhir%20Singh%20Ji%2C%20I%20am%20interested%20in%20Service%20${validId}%3A%20${encodeURIComponent(service.titleEn)}.%20Please%20guide%20me.`}
+                  href={`https://wa.me/919509593150?text=Hello%20Master%20Randhir%20Singh%20Ji%2C%20I%20am%20interested%20in%20Service%20${validId}%3A%20${encodeURIComponent(displayTitle)}.%20Please%20guide%20me.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-5 rounded-xl text-xs sm:text-sm shadow-md transition-colors"
@@ -244,7 +263,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
                 <span className="text-xs text-stone-300">{lang === 'hi' ? 'परामर्श सहयोग राशि' : 'Consultation Honorarium'}</span>
                 <span className="text-xl font-sacred font-extrabold text-amber-400 font-mono">
-                  {service.suggestedTariff}
+                  {displayTariff}
                 </span>
               </div>
 
@@ -278,7 +297,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
               </div>
 
               <h2 className="font-sacred text-2xl sm:text-3xl font-extrabold text-stone-900">
-                {lang === 'hi' ? 'इस सेवा का गूढ़ वैदिक एवं उपचारात्मक विज्ञान' : 'The Sacred Vedic & Energetic Science Behind This Service'}
+                {lang === 'hi' ? 'इस सेवा का गूढ़ वैदिक एवं उपचारात्मक विज्ञान' : 'The Divine Vedic & Energetic Science Behind This Service'}
               </h2>
 
               <p className="text-sm sm:text-base text-stone-700 leading-relaxed">
@@ -716,7 +735,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
             <div className="bg-white rounded-3xl p-5 border border-stone-200 shadow-sm space-y-3">
               <div className="flex items-center justify-between">
                 <h4 className="font-sacred font-bold text-stone-900 text-xs uppercase tracking-wider">
-                  {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'All 16 Sacred Services'}
+                  {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'All 16 Divine Services'}
                 </h4>
                 <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">
                   16 Pages

@@ -3,6 +3,7 @@ import { Watch, Clock, CheckCircle2, AlertTriangle, Sparkles, ArrowRight, Compas
 import { WATCH_SHAPES, WATCH_DIAL_COLORS, WATCH_PRINCIPLES, diagnoseWatch } from '../data/watchTherapyData';
 import { PLANETARY_ARCHETYPES } from '../data/numerologyData';
 import { WatchAnalysisInput, Language } from '../types';
+import { useCmsPages } from '../context/CmsPageContext';
 
 interface WatchAnalysisSectionProps {
   lang: Language;
@@ -13,6 +14,20 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
   lang,
   onBookWatchConsultation
 }) => {
+  const { getPage } = useCmsPages();
+  const cmsPage = getPage('watch-analysis');
+  const headingBlock = cmsPage?.blocks?.find((b) => b.type === 'heading');
+  const textBlock = cmsPage?.blocks?.find((b) => b.type === 'text');
+  const heroImageBlock = cmsPage?.blocks?.find((b) => b.type === 'image');
+  const videoBlock = cmsPage?.blocks?.find((b) => b.type === 'video');
+
+  const watchImageUrl = heroImageBlock?.imageUrl || '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png';
+  const watchSectionTitle = lang === 'hi' 
+    ? (cmsPage?.titleHi || headingBlock?.title || 'घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श')
+    : (cmsPage?.title || headingBlock?.title || 'Watch Analysis & Therapeutic Watch Consultation');
+  const watchSectionSubtitle = headingBlock?.subtitle || (lang === 'hi'
+    ? 'आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।'
+    : 'Your wristwatch is not merely a tool for telling time, but also an expression of your personal preferences, lifestyle, and personality.');
   const [userDriver, setUserDriver] = useState<number>(5);
   const [formData, setFormData] = useState<WatchAnalysisInput>({
     dialShape: 'round',
@@ -45,13 +60,23 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            {lang === 'hi' ? 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श' : 'Watch Analysis & Therapeutic Watch Consultation'}
+            {watchSectionTitle}
           </h2>
-          <p className="text-sm sm:text-base text-stone-600 mt-3 font-normal leading-relaxed">
-            {lang === 'hi'
-              ? 'आपकी कलाई पर पहनी जाने वाली घड़ी केवल समय बताने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद और व्यक्तित्व का भी प्रतीक है। इस विशेष पद्धति में घड़ी की बनावट, आकार, डिज़ाइन और समय-अंकों की संरचना का विश्लेषण किया जाता है, ताकि इनके प्रतीकात्मक अर्थों तथा आपकी मानसिक धारणाओं, व्यक्तिगत ऊर्जा और जीवन की दिशा से इनके संभावित संबंधों को समझा जा सके।'
-              : 'Your wristwatch sits near the radial artery, where your pulse can be felt. This unique approach explores the symbolism of your watch’s design, shape, and time-display patterns, examining their potential connection to personal energy, subconscious perceptions, and your life path.'}
-          </p>
+          <div className="mt-4 space-y-3 text-stone-700 leading-relaxed text-sm sm:text-base">
+            <p>
+              {watchSectionSubtitle}
+            </p>
+            <p className="text-xs sm:text-sm text-stone-600">
+              {lang === 'hi'
+                ? 'इस विशेष परामर्श में घड़ी की मजबूती, आकार, डिज़ाइन, रंग, डायल और अंकों की संरचना का विश्लेषण किया जाता है। इसका उद्देश्य घड़ी से जुड़े प्रतीकात्मक अर्थों और उनके प्रति आपकी व्यक्तिगत धारणाओं को समझना है, ताकि आत्म-जागरूकता, व्यक्तिगत पसंद और जीवन के लक्ष्यों पर एक नया दृष्टिकोण प्राप्त किया जा सके।'
+                : 'In this specialized consultation, the build, shape, design, color, dial, and numeral structure of your watch are carefully analyzed. The objective is to understand the symbolic meanings associated with your watch and your personal perceptions toward them, helping you gain fresh perspectives on self-awareness, personal choices, and life goals.'}
+            </p>
+            <p className="text-[11px] sm:text-xs text-amber-900/90 bg-amber-100/70 p-2.5 rounded-lg border border-amber-300/70 max-w-2xl mx-auto italic">
+              {lang === 'hi'
+                ? 'यह परामर्श अंक ज्योतिष एवं प्रतीकात्मक व्याख्याओं पर आधारित है। इसे वैज्ञानिक रूप से प्रमाणित निदान या जीवन में परिणामों की गारंटी के रूप में नहीं समझना चाहिए।'
+                : 'This consultation is rooted in numerological and symbolic interpretations. It should not be construed as a medically or scientifically proven diagnosis or guarantee of specific outcomes.'}
+            </p>
+          </div>
         </div>
 
         {/* 4 Core Pillars of Watch Numerology */}
@@ -98,7 +123,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                 <p className="text-xs sm:text-sm text-stone-300 mt-1 max-w-2xl">
                   {lang === 'hi'
                     ? '18K स्वर्ण पॉलिश, डीप रॉयल ब्लू रोटेटिंग बेज़ल, मध्य में प्राण-प्रतिष्ठित ॐ यंत्र, मास्टर नंबर 22 दिनांक विंडो एवं पावन स्वर्ण कमल।'
-                    : '18K yellow gold finish, royal azure blue rotating bezel, consecrated central Om (ॐ) mandala, Master Number 22 date aperture & sacred blooming lotus.'}
+                    : '18K yellow gold finish, royal azure blue rotating bezel, consecrated central Om (ॐ) mandala, Master Number 22 date aperture & divine blooming lotus.'}
                 </p>
               </div>
 
@@ -116,8 +141,8 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
               <div className="lg:col-span-5 flex flex-col items-center">
                 <div className="relative w-64 sm:w-76 md:w-84 aspect-square rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-[0_0_40px_rgba(245,158,11,0.25)] group bg-stone-950 p-2">
                   <img
-                    src="/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png"
-                    alt="Numerologist & Healer · Randhir Singh Luxury Gold and Royal Blue Victorinox Precision Therapy Watch"
+                    src={watchImageUrl}
+                    alt="Numerologist & Healer · Randhir Singh Luxury Watch"
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
                     loading="lazy"
                   />
@@ -151,7 +176,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                     <p className="text-[11px] text-stone-300 leading-relaxed">
                       {lang === 'hi'
                         ? 'डायल के केंद्र में 12-दल वैदिक कमल के भीतर स्वर्ण ॐ, जो अवचेतन मन को अगाध शांति और ब्रह्मांडीय ऊर्जा प्रदान करता है।'
-                        : 'Golden 12-petal sacred geometry mandala at the central pivot constantly radiating deep grounding and cosmic focus to the subconscious.'}
+                        : 'Golden 12-petal divine geometry mandala at the central pivot constantly radiating deep grounding and cosmic focus to the subconscious.'}
                     </p>
                   </div>
 
@@ -160,7 +185,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                     <div className="flex items-center gap-2 mb-1">
                       <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                       <h4 className="text-xs font-bold text-amber-200 uppercase tracking-wider">
-                        {lang === 'hi' ? 'द्वैत ऊर्जा महामंत्र' : 'Sacred Dual Inscriptions'}
+                        {lang === 'hi' ? 'द्वैत ऊर्जा महामंत्र' : 'Divine Dual Inscriptions'}
                       </h4>
                     </div>
                     <p className="text-[11px] text-stone-300 leading-relaxed">

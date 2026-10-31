@@ -1,0 +1,70 @@
+[
+  {
+    "id": "page_sacred_guidance_guide",
+    "slug": "divine-watch-and-numerology-guide",
+    "title": "Divine Watch & Numerology Guidance Guide",
+    "titleHi": "दैवीय कलाई घड़ी विश्लेषण एवं अंक ज्योतिष मार्गदर्शन",
+    "status": "published",
+    "seoTitle": "Divine Watch & Numerology Guidance Guide | Randhir Singh Jaipur",
+    "seoDescription": "Comprehensive guide to Watch Therapy, Lo-Shu Grid analysis, and Vedic remedies by Numerologist & Healer Randhir Singh.",
+    "ogImage": "/Certificate Celebration Ceremony.png",
+    "featuredImage": "/Certificate Celebration Ceremony.png",
+    "showInNav": true,
+    "navOrder": 1,
+    "viewCount": 143,
+    "authorEmail": "bm3hra@gmail.com",
+    "createdAt": "2026-10-29T07:30:03.753Z",
+    "updatedAt": "2026-10-29T07:30:03.753Z",
+    "blocks": [
+      {
+        "id": "block_hero_1",
+        "type": "hero",
+        "title": "Divine Energy Alignment Through Watch & Numerology",
+        "subtitle": "आपकी कलाई पर बंधी घड़ी और आपकी जन्मतिथि का सूक्ष्म आध्यात्मिक विश्लेषण",
+        "imageUrl": "/Certificate Celebration Ceremony.png",
+        "imageAlt": "Randhir Singh Ceremony & Consultation",
+        "buttonText": "Book Private Consultation / परामर्श बुक करें",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "block_heading_1",
+        "type": "heading",
+        "title": "Watch Therapy: How Timepieces Shape Subconscious Energy",
+        "subtitle": "घड़ी केवल समय देखने का उपकरण नहीं, बल्कि जीवन की दिशा का दर्पण है"
+      },
+      {
+        "id": "block_text_1",
+        "type": "text",
+        "content": "आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।\n\nइस विशेष परामर्श में घड़ी की मजबूती, आकार, डिज़ाइन, रंग, डायल और अंकों की संरचना का विश्लेषण किया जाता है। इसका उद्देश्य घड़ी से जुड़े प्रतीकात्मक अर्थों और उनके प्रति आपकी व्यक्तिगत धारणाओं को समझना है, ताकि आत्म-जागरूकता, व्यक्तिगत पसंद और जीवन के लक्ष्यों पर एक नया दृष्टिकोण प्राप्त किया जा सके।\n\nयह परामर्श अंक ज्योतिष एवं प्रतीकात्मक व्याख्याओं पर आधारित है। इसे वैज्ञानिक रूप से प्रमाणित निदान या जीवन में परिणामों की गारंटी के रूप में नहीं समझना चाहिए।"
+      },
+      {
+        "id": "block_list_1",
+        "type": "list",
+        "title": "Key Consultation Highlights / परामर्श के मुख्य बिंदु",
+        "items": [
+          {
+            "title": "Dial Geometry & Element",
+            "description": "Understanding round, square, and octagonal dial energy balance."
+          },
+          {
+            "title": "Color & Metal Resonance",
+            "description": "Selecting gold, silver, or azure dials according to Driver & Conductor numbers."
+          },
+          {
+            "title": "Wrist Selection & Activation",
+            "description": "Optimizing wrist placement (Right vs Left) for active manifestation."
+          }
+        ]
+      },
+      {
+        "id": "block_cta_1",
+        "type": "button",
+        "title": "Ready to Align Your Destiny?",
+        "buttonText": "Connect on WhatsApp (+91 94140 71000)",
+        "buttonLink": "https://wa.me/919414071000?text=Hello%20Randhir%20ji,%20I%20would%20like%20to%20consult%20regarding%20Watch%20Therapy",
+        "buttonStyle": "whatsapp"
+      }
+    ]
+  }
+]

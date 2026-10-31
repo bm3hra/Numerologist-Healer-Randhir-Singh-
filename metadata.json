@@ -1,6 +1,6 @@
 {
   "name": "DecodeYourDestiny",
-  "description": "अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर -- Numerologist & Healer · Randhir Singh | Jaipur. अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें। DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.",
+  "description": "अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर -- A Numerologist and Healer · Randhir Singh Ji Jaipur. अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें। DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

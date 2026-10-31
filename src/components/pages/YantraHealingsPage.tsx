@@ -56,7 +56,7 @@ const HEALING_YANTRAS: HealingYantra[] = [
     deity: 'Lord Shiva (Mahadev)',
     healingDomain: 'Longevity, Severe Disease Protection & Vitality Recovery',
     healingDomainHi: 'दीर्घायु, असाध्य रोग रक्षा एवं प्राण ऊर्जा पुनरुत्थान',
-    geometryType: '8-Petal Lotus with Sacred Concentric Triangle Complex',
+    geometryType: '8-Petal Lotus with Divine Concentric Triangle Complex',
     matrix: [
       [28, 21, 26],
       [23, 25, 27],
@@ -124,7 +124,7 @@ const HEALING_YANTRAS: HealingYantra[] = [
     mantra: 'Om Bhoor Bhuvah Svah, Tat-Savitur Varenyam, Bhargo Devasya Dheemahi, Dhiyo Yo Nah Prachodayaat',
     mantraCount: '24 or 108 times at Brahmamuhurta or Sunrise',
     frequencyHz: '432 Hz (Natural Harmonic Resonance)',
-    idealMaterial: 'Panchdhatu (5 Sacred Metals) or Gold-Plated Copper',
+    idealMaterial: 'Panchdhatu (5 Divine Metals) or Gold-Plated Copper',
     placementDirection: 'East wall where first morning sunrays touch',
     symptomsAddressed: [
       'Chronic overthinking, brain fog, and scattered focus',
@@ -204,7 +204,7 @@ const HEALING_YANTRAS: HealingYantra[] = [
     deity: 'Goddess Saraswati (Deity of Learning, Arts & Wisdom)',
     healingDomain: 'Speech Stammering, Memory Boost, Exam Success & Creative Flow',
     healingDomainHi: 'वाक् शुद्धि, स्मरण शक्ति संवर्धन, परीक्षा सफलता एवं कलात्मक सृजन',
-    geometryType: 'Veena-Shaped Sacred Crescent with 8 Lotus Petals',
+    geometryType: 'Veena-Shaped Divine Crescent with 8 Lotus Petals',
     mantra: 'Om Shreem Hreem Saraswatyai Namah · Om Aim Hreem Kleem Maha Saraswati Devyai Namah',
     mantraCount: '21 times before morning study or creative work',
     frequencyHz: '639 Hz (Harmonious Brainwave Coherence)',
@@ -282,9 +282,9 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
         </div>
       </div>
 
-      {/* Hero Banner with Sacred Geometry Visual */}
+      {/* Hero Banner with Divine Geometry Visual */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#f7f2e5] via-[#faf6ee] to-[#fbf8f0] py-12 sm:py-16 border-b border-amber-200/80">
-        {/* Sacred Geometry Background Rings */}
+        {/* Divine Geometry Background Rings */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none opacity-20 select-none overflow-hidden">
           <svg viewBox="0 0 800 800" className="w-full h-full animate-spin-slow">
             <circle cx="400" cy="400" r="360" fill="none" stroke="#b45309" strokeWidth="2" strokeDasharray="6,8" />
@@ -312,7 +312,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
             </div>
 
             <h1 className="font-sacred text-3xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-tight">
-              {lang === 'hi' ? 'यंत्र हीलिंग विज्ञान एवं ऊर्जा उपचार' : 'Sacred Yantra Healings & Bio-Energetic Therapy'}
+              {lang === 'hi' ? 'यंत्र हीलिंग विज्ञान एवं ऊर्जा उपचार' : 'Divine Yantra Healings & Bio-Energetic Therapy'}
             </h1>
 
             <p className="font-sacred text-base sm:text-xl font-bold text-amber-900 mt-4 tracking-wide">
@@ -508,18 +508,18 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
 
           {/* Card Body */}
           <div className="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Left Column: Visual Sacred Matrix / Geometric Plate */}
+            {/* Left Column: Visual Divine Matrix / Geometric Plate */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-amber-50 via-[#faf6ee] to-amber-100/60 rounded-2xl border border-amber-300">
               <div className="text-center mb-4">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800 block">
-                  {lang === 'hi' ? 'सिद्ध पावन वैदिक स्वरूप' : 'Sacred Consecrated Representation'}
+                  {lang === 'hi' ? 'सिद्ध पावन वैदिक स्वरूप' : 'Divine Consecrated Representation'}
                 </span>
                 <span className="font-sacred text-xs text-stone-600">
                   {selectedYantra.geometryType}
                 </span>
               </div>
 
-              {/* 3x3 Magic Numerical Matrix if available, else sacred concentric diagram */}
+              {/* 3x3 Magic Numerical Matrix if available, else divine concentric diagram */}
               {selectedYantra.matrix ? (
                 <div className="w-full max-w-xs">
                   <div className="grid grid-cols-3 gap-2.5 p-3.5 bg-gradient-to-br from-amber-900 to-stone-950 rounded-2xl border-2 border-amber-400 shadow-xl">
@@ -539,7 +539,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
                   </div>
                 </div>
               ) : (
-                /* Concentric Geometric Sacred Star Vector for non-matrix yantras */
+                /* Concentric Geometric Divine Star Vector for non-matrix yantras */
                 <div className="w-64 h-64 relative flex items-center justify-center bg-radial from-amber-200/50 to-transparent rounded-full p-4 border border-amber-300/60">
                   <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
                     <circle cx="100" cy="100" r="90" fill="none" stroke="#b45309" strokeWidth="2" strokeDasharray="4,4" />
@@ -578,7 +578,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
                 <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-amber-300 mb-2">
                   <span className="flex items-center gap-1.5">
                     <Volume2 className="w-4 h-4" />
-                    {lang === 'hi' ? 'सिद्ध प्राण-प्रतिष्ठा बीज मंत्र' : 'Sacred Consecrated Activation Mantra'}
+                    {lang === 'hi' ? 'सिद्ध प्राण-प्रतिष्ठा बीज मंत्र' : 'Divine Consecrated Activation Mantra'}
                   </span>
                   <span className="text-[10px] font-mono bg-amber-900 px-2 py-0.5 rounded">
                     Freq: {selectedYantra.frequencyHz}
@@ -659,7 +659,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
             <p className="text-xs sm:text-sm text-stone-600 mt-1">
               {lang === 'hi'
                 ? 'यंत्र स्थापित करने अथवा मंगवाने से पूर्व महत्वपूर्ण वैदिक मार्गदर्शन'
-                : 'Important insights before purchasing or placing any sacred yantra'}
+                : 'Important insights before purchasing or placing any divine yantra'}
             </p>
           </div>
 

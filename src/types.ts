@@ -132,3 +132,98 @@ export interface ServiceItem {
   badge?: string;
   iconName: string;
 }
+
+export type PageBlockType =
+  | 'hero'
+  | 'heading'
+  | 'text'
+  | 'image'
+  | 'gallery'
+  | 'video'
+  | 'list'
+  | 'button'
+  | 'quote'
+  | 'card-grid'
+  | 'booking-card'
+  | 'consultation'
+  | 'features'
+  | 'divider';
+
+export interface PageBlock {
+  id: string;
+  type: PageBlockType;
+  title?: string;
+  subtitle?: string;
+  content?: string;
+  contentHi?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  alignment?: 'center' | 'full';
+  columns?: 2 | 3 | 4;
+  images?: Array<{ url: string; caption?: string; alt?: string }>;
+  videoUrl?: string;
+  videoCaption?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  buttonStyle?: 'primary' | 'secondary' | 'whatsapp' | 'call';
+  items?: Array<{ title?: string; description?: string; icon?: string }>;
+  accentColor?: string;
+  price?: string;
+  duration?: string;
+}
+
+export type CMSPageCategory = 'homepage' | 'dedicated' | 'service' | 'custom';
+
+export interface CMSPage {
+  id: string;
+  slug: string;
+  title: string;
+  titleHi?: string;
+  category?: CMSPageCategory;
+  sectionId?: string;
+  isSystemPage?: boolean;
+  status: 'draft' | 'published';
+  seoTitle?: string;
+  seoDescription?: string;
+  focusKeywords?: string;
+  ogImage?: string;
+  featuredImage?: string;
+  description?: string;
+  blocks: PageBlock[];
+  createdAt: string;
+  updatedAt: string;
+  authorEmail: string;
+  authorUid?: string;
+  showInNav?: boolean;
+  navOrder?: number;
+  viewCount?: number;
+}
+
+export interface CMSMediaItem {
+  id: string;
+  name: string;
+  url: string;
+  type: 'image' | 'video';
+  size: number;
+  alt: string;
+  caption: string;
+  createdAt: string;
+  uploadedBy: string;
+  uploadedByUid: string;
+  width?: number;
+  height?: number;
+}
+
+export interface ReviewItem {
+  id: string;
+  name: string;
+  city: string;
+  serviceName: string;
+  rating: number; // 1 to 5
+  reviewText: string;
+  date: string;
+  isVerified?: boolean;
+  avatarColor?: string;
+  helpfulCount?: number;
+}
+

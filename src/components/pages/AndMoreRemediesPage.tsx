@@ -85,7 +85,7 @@ const GRABOVOI_CODES: GrabovoiCode[] = [
     intentEn: 'Harmonious Marriage & Romantic Reconciliation',
     intentHi: 'दांपत्य मधुरता, प्रेम एवं कलह निवारण',
     code: '888 412 1289018',
-    instruction: 'Write on a photo of the couple inside a pink sacred energy circle.'
+    instruction: 'Write on a photo of the couple inside a pink divine energy circle.'
   }
 ];
 
@@ -171,7 +171,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
           </div>
 
           <h1 className="font-sacred text-3xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-tight">
-            {lang === 'hi' ? 'और भी... दिव्य उपचार एवं गुप्त विधाएं' : 'And More.... Sacred Remedies Vault'}
+            {lang === 'hi' ? 'और भी... दिव्य उपचार एवं गुप्त विधाएं' : 'And More.... Divine Remedies Vault'}
           </h1>
 
           <p className="font-sacred text-base sm:text-xl font-bold text-amber-900 mt-4 tracking-wide">
@@ -183,7 +183,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
           <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-4 max-w-3xl mx-auto leading-relaxed">
             {lang === 'hi'
               ? 'वैदिक अंक ज्योतिष के अलावा अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह अनेक सिद्ध उपचारात्मक पद्धतियों में सिद्धहस्त हैं। यहाँ उन सभी गुप्त एवं व्यावहारिक विधाओं की विस्तृत जानकारी है जो तुरंत आपके जीवन की दिशा बदल सकती हैं।'
-              : 'Beyond classic birth grid calculations, explore the complete arsenal of quantum frequency cures, sacred switchwords, salt detox protocols, and certified authentic natural gemstones & rudrakshas.'}
+              : 'Beyond classic birth grid calculations, explore the complete arsenal of quantum frequency cures, divine switchwords, salt detox protocols, and certified authentic natural gemstones & rudrakshas.'}
           </p>
 
           {/* Quick Category Navigation */}
@@ -214,7 +214,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
 
       {/* Main Content Sections */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
-        {/* SECTION 1: SACRED GRABOVOI HEALING CODES */}
+        {/* SECTION 1: DIVINE GRABOVOI HEALING CODES */}
         {(activeCategory === 'all' || activeCategory === 'grabovoi') && (
           <section className="bg-white rounded-3xl border-2 border-amber-300 p-6 sm:p-8 shadow-xl">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-amber-100 pb-5 mb-6">
@@ -223,7 +223,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
                   {lang === 'hi' ? 'क्वांटम अंक ऊर्जा तरंगें' : 'Quantum Numeric Resonance'}
                 </span>
                 <h2 className="font-sacred text-2xl font-bold text-stone-900 mt-1">
-                  {lang === 'hi' ? 'दिव्य हीलिंग कोड्स एवं चमत्कारी अंक' : 'Sacred Divine Healing Numbers & Codes'}
+                  {lang === 'hi' ? 'दिव्य हीलिंग कोड्स एवं चमत्कारी अंक' : 'Divine Divine Healing Numbers & Codes'}
                 </h2>
                 <p className="text-xs text-stone-600 mt-1">
                   {lang === 'hi'
@@ -347,7 +347,7 @@ export const AndMoreRemediesPage: React.FC<AndMoreRemediesPageProps> = ({
           <section className="bg-white rounded-3xl border-2 border-amber-300 p-6 sm:p-8 shadow-xl">
             <div className="border-b border-amber-100 pb-5 mb-6">
               <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                {lang === 'hi' ? 'पवित्र वानस्पतिक प्राण-ऊर्जा' : 'Sacred Botanical Bio-Energy'}
+                {lang === 'hi' ? 'पवित्र वानस्पतिक प्राण-ऊर्जा' : 'Divine Botanical Bio-Energy'}
               </span>
               <h2 className="font-sacred text-2xl font-bold text-stone-900 mt-1">
                 {lang === 'hi' ? 'प्रामाणिक एवं सिद्ध रुद्राक्ष संयोजन' : 'Authentic Certified Rudraksha Combinations'}

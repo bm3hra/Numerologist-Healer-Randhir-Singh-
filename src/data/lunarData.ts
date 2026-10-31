@@ -173,7 +173,7 @@ export const LUNAR_PHASES: MoonPhaseInfo[] = [
     tithiHi: 'कृष्ण एकादशी - चतुर्दशी',
     symbol: '🌘',
     illuminationRange: '49% - 1%',
-    spiritualTheme: 'Deep Rest, Surrender, Sacred Hibernation',
+    spiritualTheme: 'Deep Rest, Surrender, Divine Hibernation',
     numerologyImpact: 'Low physical prana but supreme psychic sensitivity. All numbers benefit from quiet meditation and nourishing sleep.',
     idealActivities: [
       'Rest, restorative sleep, gentle yoga, and contemplative reading',

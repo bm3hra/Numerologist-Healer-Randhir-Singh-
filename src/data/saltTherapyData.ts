@@ -67,7 +67,7 @@ export const SALT_THERAPY_RITUALS: SaltTherapyRitual[] = [
     titleHi: 'प्राणिक सॉल्ट एवं कपूर आभा-मंडल स्प्रे',
     purpose: 'Instantly resets your personal electromagnetic field after returning from crowded hospitals, funerals, courtrooms, or dispute meetings.',
     ingredients: [
-      '100 ml pure distilled water or sacred Ganga Jal',
+      '100 ml pure distilled water or divine Ganga Jal',
       '1 pinch finely powdered Sendha Namak (Rock Salt)',
       '1 drop of natural Camphor oil or crushed Bhimseni Kapur',
       'Dark amber spray bottle'
@@ -122,7 +122,7 @@ export const SALT_THERAPY_RITUALS: SaltTherapyRitual[] = [
 
 export const SALT_THERAPY_PHILOSOPHY = {
   tagline: 'Traditional Salt Cleansing Rituals for a Peaceful Space and Positive Mindset',
-  disclaimer: 'Note: Salt cleansing is an ancient, traditional complementary ritual for energetic clarity, mindfulness, and sacred space maintenance. It is not intended to diagnose, treat, cure, or prevent any medical condition.',
+  disclaimer: 'Note: Salt cleansing is an ancient, traditional complementary ritual for energetic clarity, mindfulness, and divine space maintenance. It is not intended to diagnose, treat, cure, or prevent any medical condition.',
   highlights: [
     'Absorbs negative energetic static from aura and living spaces',
     'Restores harmony, deep restorative sleep, and emotional peace',

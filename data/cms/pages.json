@@ -1,0 +1,1518 @@
+[
+  {
+    "id": "page_hero_section",
+    "slug": "hero-section",
+    "title": "Discover Your Path. Transform Your Life.",
+    "titleHi": "अपनी सही राह पहचानें। अपने जीवन को नई दिशा दें।",
+    "category": "homepage",
+    "sectionId": "home",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "A Numerologist and Healer · Randhir Singh Ji Jaipur",
+    "seoDescription": "Decode your Date of Birth. Recognize your life patterns. Move forward with confidence.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": false,
+    "navOrder": 1,
+    "viewCount": 1420,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "hero_blk_1",
+        "type": "hero",
+        "title": "अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर",
+        "subtitle": "अपनी सही राह पहचानें। अपने जीवन को नई दिशा दें। अपनी जन्मतिथि को समझें। अपने जीवन के पैटर्न को पहचानें। आत्मविश्वास के साथ आगे बढ़ें।",
+        "imageUrl": "/Randhir Singh.png",
+        "imageAlt": "Randhir Singh Jaipur",
+        "buttonText": "परामर्श बुक करें (Book Consultation)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "hero_blk_2",
+        "type": "text",
+        "title": "वैदिक दृष्टि एवं समग्र समाधान",
+        "content": "वैदिक अंक ज्योतिष (न्यूमेरोलॉजी), कलाई घड़ी विश्लेषण (वॉच थेरेपी), टैरो रीडिंग, प्राणिक हीलिंग, सॉल्ट क्लींजिंग और क्रिस्टल थेरेपी का एक समग्र अनुभव।\n\nअपने व्यक्तित्व, जीवन की प्राथमिकताओं और व्यक्तिगत लक्ष्यों को बेहतर ढंग से समझने की दिशा में कदम बढ़ाएँ।\n\nरणधीर सिंह · जयपुर, राजस्थान · ऑनलाइन परामर्श उपलब्ध।"
+      },
+      {
+        "id": "hero_blk_3",
+        "type": "features",
+        "title": "त्वरित सुविधाएँ एवं विशेषताएँ",
+        "items": [
+          {
+            "title": "रविवार 5 फ्री कंसल्टेशन",
+            "description": "प्रत्येक रविवार प्रथम 5 आगंतुकों हेतु निःशुल्क अंक ज्योतिष विश्लेषण।"
+          },
+          {
+            "title": "जयपुर क्लिनिक व ऑनलाइन",
+            "description": "जगतपुरा, जयपुर क्लिनिक में प्रत्यक्ष अथवा विश्वभर से ऑनलाइन परामर्श।"
+          },
+          {
+            "title": "₹5,100 व्यक्तिगत परामर्श",
+            "description": "45-60 मिनट का गहन विश्लेषणात्मक व्यक्तिगत सत्र।"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "page_watch_analysis",
+    "slug": "watch-analysis",
+    "title": "Watch Analysis & Horological Therapy",
+    "titleHi": "कलाई घड़ी विश्लेषण एवं वॉच थेरेपी (Watch Therapy)",
+    "category": "homepage",
+    "sectionId": "watch-analysis",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Watch Analysis & Horological Therapy | Randhir Singh Jaipur",
+    "seoDescription": "आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।",
+    "ogImage": "/Luxury_Gold_Numerology_Watch_0e113989.png",
+    "featuredImage": "/Luxury_Gold_Numerology_Watch_0e113989.png",
+    "showInNav": true,
+    "navOrder": 2,
+    "viewCount": 1150,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "watch_blk_1",
+        "type": "heading",
+        "title": "घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श",
+        "subtitle": "आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।"
+      },
+      {
+        "id": "watch_blk_2",
+        "type": "image",
+        "imageUrl": "/Luxury_Gold_Numerology_Watch_0e113989.png",
+        "imageAlt": "Luxury Gold Numerology Watch",
+        "title": "लक्ज़री गोल्ड न्यूमेरोलॉजी वॉच",
+        "subtitle": "डायल आकार, अंक संरचना और धातु की तरंगों का सूक्ष्म संतुलन",
+        "alignment": "center"
+      },
+      {
+        "id": "watch_blk_3",
+        "type": "text",
+        "title": "वॉच थेरेपी का वैज्ञानिक एवं प्रतीकात्मक आधार",
+        "content": "इस विशेष परामर्श में घड़ी की मजबूती, आकार, डिज़ाइन, रंग, डायल और अंकों की संरचना का विश्लेषण किया जाता है। इसका उद्देश्य घड़ी से जुड़े प्रतीकात्मक अर्थों और उनके प्रति आपकी व्यक्तिगत धारणाओं को समझना है, ताकि आत्म-जागरूकता, व्यक्तिगत पसंद और जीवन के लक्ष्यों पर एक नया दृष्टिकोण प्राप्त किया जा सके।\n\nयह परामर्श अंक ज्योतिष एवं प्रतीकात्मक व्याख्याओं पर आधारित है। इसे वैज्ञानिक रूप से प्रमाणित निदान या जीवन में परिणामों की गारंटी के रूप में नहीं समझना चाहिए।"
+      },
+      {
+        "id": "watch_blk_4",
+        "type": "gallery",
+        "title": "अनुशंसित वैदिक घड़ियाँ",
+        "images": [
+          {
+            "url": "/Luxury_Gold_Numerology_Watch_0e113989.png",
+            "caption": "स्वर्ण फ्रेम एवं अंक संरेखण घड़ी"
+          },
+          {
+            "url": "/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png",
+            "caption": "नीला डायल एवं जल तत्व संतुलन घड़ी"
+          }
+        ],
+        "columns": 2
+      },
+      {
+        "id": "watch_blk_5",
+        "type": "consultation",
+        "title": "घड़ी विश्लेषण परामर्श बुक करें",
+        "subtitle": "अपनी वर्तमान घड़ी की फोटो भेजें और ड्राइवर/कंडक्टर अनुसार सही घड़ी जानें।",
+        "price": "₹5,100",
+        "duration": "45 मिनट (फोन / वीडियो कॉल)",
+        "buttonText": "परामर्श बुक करें"
+      }
+    ]
+  },
+  {
+    "id": "page_salt_therapy",
+    "slug": "salt-therapy",
+    "title": "Salt Therapy & Aura Cleansing",
+    "titleHi": "नमक चिकित्सा एवं नकारात्मक ऊर्जा शुद्धि (Salt Therapy)",
+    "category": "homepage",
+    "sectionId": "salt-therapy",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Salt Therapy for Evil Eye & Heavy Negativity | Randhir Singh Jaipur",
+    "seoDescription": "वैदिक सेंधा नमक एवं समुद्री नमक द्वारा नकारात्मकता, मानसिक भारीपन और तनाव से मुक्ति के प्रामाणिक उपाय।",
+    "ogImage": "/Card-Back.jpg",
+    "featuredImage": "/Card-Back.jpg",
+    "showInNav": true,
+    "navOrder": 3,
+    "viewCount": 890,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "salt_blk_1",
+        "type": "heading",
+        "title": "नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)",
+        "subtitle": "प्राकृतिक सेंधा नमक एवं समुद्री लवण द्वारा सूक्ष्म आभामंडल (Aura) की गहरी सफाई"
+      },
+      {
+        "id": "salt_blk_2",
+        "type": "text",
+        "title": "नमक चिकित्सा के सिद्ध वैदिक नियम",
+        "content": "सेंधा नमक और खड़ा समुद्री नमक प्राकृतिक नकारात्मक आयन (Negative Ions) उत्सर्जित करते हैं। यह घर के कोनों, कार्यस्थल और व्यक्तिगत शरीर में जमी भारी ऊर्जा को खींचकर नष्ट कर देते हैं।\n\n1. कटोरी में समुद्री नमक रखकर घर के दक्षिण-पश्चिम कोने में स्थापित करें।\n2. स्नान के जल में एक चुटकी सेंधा नमक मिलाकर शनिवार अथवा मंगलवार को स्नान करें।\n3. पोछे के पानी में नमक का प्रयोग कर भूमि की नकारात्मकता को शांत करें।"
+      },
+      {
+        "id": "salt_blk_3",
+        "type": "button",
+        "title": "सॉल्ट थेरेपी व्यक्तिगत मार्गदर्शन",
+        "buttonText": "व्हाट्सएप पर संपर्क करें (+91 95095 93150)",
+        "buttonLink": "https://wa.me/919509593150?text=Hello%20Randhir%20ji,%20I%20want%20to%20consult%20about%20Salt%20Therapy",
+        "buttonStyle": "whatsapp"
+      }
+    ]
+  },
+  {
+    "id": "page_crystal_therapy",
+    "slug": "crystal-therapy",
+    "title": "Crystal & Gemstone Healing",
+    "titleHi": "क्रिस्टल थेरेपी एवं ऊर्जा चक्र संतुलन (Crystal Therapy)",
+    "category": "homepage",
+    "sectionId": "crystal-therapy",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Crystal Therapy & Gemstone Healing | Randhir Singh Jaipur",
+    "seoDescription": "अपनी जन्मतिथि एवं मिसिंग नंबर्स के अनुसार सही क्रिस्टल, ब्रेसलेट व रत्नों की पहचान।",
+    "ogImage": "/Certificate Celebration Ceremony.png",
+    "featuredImage": "/Certificate Celebration Ceremony.png",
+    "showInNav": true,
+    "navOrder": 4,
+    "viewCount": 780,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "crys_blk_1",
+        "type": "heading",
+        "title": "क्रिस्टल थेरेपी एवं रत्न ऊर्जा संतुलन",
+        "subtitle": "प्राकृतिक क्वार्ट्ज, पायराइट, टाइगर आई एवं एमेथिस्ट द्वारा ग्रहों का शुभ स्पंदन"
+      },
+      {
+        "id": "crys_blk_2",
+        "type": "text",
+        "content": "हर क्रिस्टल का अपना विशिष्ट आवृत्ति स्पंदन (Frequency Vibration) होता है। जब आप अपनी जन्मतिथि के अनुकूल क्रिस्टल धारण करते हैं, तो आपका आभामंडल सशक्त होता है और मानसिक एकाग्रता बढ़ती है।"
+      }
+    ]
+  },
+  {
+    "id": "page_lunar_numerology",
+    "slug": "lunar-numerology",
+    "title": "Lunar Numerology & Moon Phases",
+    "titleHi": "चंद्र अंक ज्योतिष एवं मानसिक शांति (Lunar Numerology)",
+    "category": "homepage",
+    "sectionId": "lunar-numerology",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Lunar Numerology & Moon Phases | Randhir Singh Jaipur",
+    "seoDescription": "पूर्णिमा, अमावस्या और चंद्र तिथियों का आपके मूलांक एवं भावनाओं पर प्रभाव।",
+    "showInNav": true,
+    "navOrder": 5,
+    "viewCount": 650,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "lunar_blk_1",
+        "type": "heading",
+        "title": "चंद्रमा का अंक ज्योतिष एवं मानसिक शांति",
+        "subtitle": "चंद्रमा मन का कारक है। चंद्र कलाओं के साथ अपने निर्णयों का तालमेल बिठाएँ।"
+      }
+    ]
+  },
+  {
+    "id": "page_dob_calculator",
+    "slug": "dob-calculator",
+    "title": "Date of Birth (Lo-Shu Grid) Calculator",
+    "titleHi": "जन्मतिथि एवं लो-शू ग्रिड कैलकुलेटर (DOB Calculator)",
+    "category": "homepage",
+    "sectionId": "dob-calculator",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Lo-Shu Grid Calculator | Decode Your Date of Birth",
+    "seoDescription": "अपनी जन्मतिथि दर्ज करें और मूलांक, भाग्यांक, 8 योग एवं मिसिंग नंबर्स जानें।",
+    "showInNav": true,
+    "navOrder": 6,
+    "viewCount": 2850,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "dob_blk_1",
+        "type": "heading",
+        "title": "जन्मतिथि विश्लेषण (Lo-Shu Magic Grid)",
+        "subtitle": "अपनी जन्मतिथि के अंकों से जानें अपना मूलांक, भाग्यांक और 8 जीवन विमान (Planes)"
+      }
+    ]
+  },
+  {
+    "id": "page_mobile_name",
+    "slug": "mobile-name",
+    "title": "Mobile & Name Vibration Analyzer",
+    "titleHi": "लकी मोबाइल नंबर व नामांक विश्लेषण (Mobile & Name)",
+    "category": "homepage",
+    "sectionId": "mobile-name",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Lucky Mobile Number & Name Correction | Randhir Singh",
+    "seoDescription": "अपने मोबाइल नंबर का कुल योग और स्पेलिंग की सकारात्मक आवृत्ति की जाँच करें।",
+    "showInNav": true,
+    "navOrder": 7,
+    "viewCount": 1640,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "mob_blk_1",
+        "type": "heading",
+        "title": "मोबाइल नंबर एवं नाम विश्लेषण टूल",
+        "subtitle": "प्रतिदिन बोले और डायल किए जाने वाले अंकों का आपके भाग्य पर सीधा प्रभाव पड़ता है।"
+      }
+    ]
+  },
+  {
+    "id": "page_grid_matching",
+    "slug": "grid-matching",
+    "title": "Lo-Shu Grid Matching & Compatibility",
+    "titleHi": "अंक ज्योतिष ग्रिड मिलान टूल (Grid Matching)",
+    "category": "homepage",
+    "sectionId": "grid-matching",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Lo-Shu Grid Matching & Couple Compatibility | Randhir Singh",
+    "seoDescription": "दो जन्मतिथियों का मिलान कर मानसिक, भावनात्मक और व्यावहारिक अनुकूलता जानें।",
+    "showInNav": false,
+    "navOrder": 8,
+    "viewCount": 920,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "grid_blk_1",
+        "type": "heading",
+        "title": "ग्रिड मिलान एवं अनुकूलता परीक्षण",
+        "subtitle": "विवाह, व्यापारिक साझेदारी एवं पारिवारिक सामंजस्य हेतु लो-शू ग्रिड मिलान"
+      }
+    ]
+  },
+  {
+    "id": "page_switchwords_yantras",
+    "slug": "switchwords-yantras",
+    "title": "Switchwords & Sacred Yantras",
+    "titleHi": "दैवीय स्विचवर्ड्स एवं यंत्र (Switchwords & Yantras)",
+    "category": "homepage",
+    "sectionId": "yantras-codes",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Divine Switchwords & Sacred Yantras | Randhir Singh",
+    "seoDescription": "ऊर्जा चक्र (Energy Circles), जादुई स्विचवर्ड्स और सिद्ध यंत्रों का खजाना।",
+    "showInNav": true,
+    "navOrder": 9,
+    "viewCount": 1330,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "sw_blk_1",
+        "type": "heading",
+        "title": "दैवीय स्विचवर्ड्स एवं सिद्ध यंत्र",
+        "subtitle": "तुरंत अवचेतन मन को सक्रिय करने वाले शब्द एवं ज्यामितीय ऊर्जा यंत्र"
+      }
+    ]
+  },
+  {
+    "id": "page_all_services",
+    "slug": "all-services",
+    "title": "All 16 Divine Services Overview",
+    "titleHi": "सभी 16 दिव्य सेवाएँ (All 16 Services)",
+    "category": "homepage",
+    "sectionId": "all-services",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "16 Divine Numerology & Healing Services | Randhir Singh Jaipur",
+    "seoDescription": "अंक ज्योतिष, वॉच थेरेपी, कुंडली, वास्तु, प्राणिक हीलिंग और समस्त 16 सेवाएँ।",
+    "showInNav": true,
+    "navOrder": 10,
+    "viewCount": 2100,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "srv_blk_1",
+        "type": "heading",
+        "title": "अंक ज्योतिष एवं उपचारात्मक 16 विशिष्ट सेवाएँ",
+        "subtitle": "जीवन के हर पहलू — स्वास्थ्य, करियर, विवाह, धन एवं सुरक्षा का समग्र वैदिक समाधान"
+      }
+    ]
+  },
+  {
+    "id": "page_about_randhir",
+    "slug": "about-randhir",
+    "title": "About Randhir Singh & Philosophy",
+    "titleHi": "रणधीर सिंह जी का परिचय एवं दर्शन (About Randhir Singh)",
+    "category": "homepage",
+    "sectionId": "about-randhir",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "About Randhir Singh | Numerologist & Healer Jaipur Rajasthan",
+    "seoDescription": "रणधीर सिंह जी का जीवन परिचय, शोध, अंतरराष्ट्रीय मान्यताएँ एवं जयपुर क्लिनिक।",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 11,
+    "viewCount": 3400,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "abt_blk_1",
+        "type": "hero",
+        "title": "अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर",
+        "subtitle": "वैदिक ज्ञान, वैज्ञानिक विश्लेषण और निस्वार्थ सेवा का अनूठा संगम",
+        "imageUrl": "/Randhir Singh.png",
+        "imageAlt": "Randhir Singh Jaipur"
+      },
+      {
+        "id": "abt_blk_2",
+        "type": "text",
+        "title": "आध्यात्मिक यात्रा एवं सिद्धांत",
+        "content": "रणधीर सिंह जी ने वर्षों के गहन अनुसंधान, हजारों कुंडलियों एवं कलाई घड़ियों के व्यावहारिक अध्ययन के आधार पर वैदिक अंक ज्योतिष को आधुनिक जीवनशैली के साथ जोड़ा है।"
+      }
+    ]
+  },
+  {
+    "id": "page_tariff_about",
+    "slug": "tariff-about",
+    "title": "Consultation Tariff, Fees & Bank Details",
+    "titleHi": "परामर्श शुल्क, बुकिंग व बैंक विवरण (Tariff & Fees)",
+    "category": "homepage",
+    "sectionId": "tariff-about",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Tariff & Consultation Fees (₹5,100) | Randhir Singh Jaipur",
+    "seoDescription": "व्यक्तिगत परामर्श शुल्क ₹5,100, रविवार 5 फ्री कंसल्टेशन, और अधिकृत UPI/बैंक विवरण।",
+    "showInNav": true,
+    "navOrder": 12,
+    "viewCount": 1980,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "trf_blk_1",
+        "type": "consultation",
+        "title": "व्यक्तिगत पूर्ण अंक ज्योतिष एवं हीलिंग परामर्श",
+        "subtitle": "मूलांक, भाग्यांक, वॉच थेरेपी, नाम संशोधन एवं जीवन के प्रश्नों का संपूर्ण समाधान",
+        "price": "₹5,100",
+        "duration": "45-60 मिनट (Google Meet / Phone / Jaipur Clinic)",
+        "buttonText": "परामर्श बुक करें (+91 95095 93150)"
+      },
+      {
+        "id": "trf_blk_2",
+        "type": "text",
+        "title": "रविवार विशेष: प्रथम 5 परामर्श निःशुल्क",
+        "content": "समाज सेवा एवं जरूरतमंदों के कल्याण हेतु प्रत्येक रविवार को सुबह 10:00 बजे से पहले आने वाले 5 लोगों को निःशुल्क मार्गदर्शन प्रदान किया जाता है।"
+      }
+    ]
+  },
+  {
+    "id": "page_awards_recognition",
+    "slug": "awards-recognition",
+    "title": "40+ National Honors & Awards",
+    "titleHi": "40+ राष्ट्रीय पुरस्कार एवं सम्मान (Awards & Honors)",
+    "category": "homepage",
+    "sectionId": "awards-recognition",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "40+ National Awards & Honors | Randhir Singh Jaipur",
+    "seoDescription": "राष्ट्रीय ज्योतिष रत्न, महा दीक्षांत समारोह एवं 40 से अधिक प्रतिष्ठित सम्मान।",
+    "ogImage": "/Certificate Celebration Ceremony.png",
+    "featuredImage": "/Certificate Celebration Ceremony.png",
+    "showInNav": true,
+    "navOrder": 13,
+    "viewCount": 1450,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "awd_blk_1",
+        "type": "heading",
+        "title": "राष्ट्रीय एवं अंतरराष्ट्रीय सम्मान व उपलब्धियाँ",
+        "subtitle": "वैदिक ज्ञान और निःस्वार्थ जनसेवा हेतु 40 से अधिक प्रतिष्ठित मंचों द्वारा सम्मानित"
+      },
+      {
+        "id": "awd_blk_2",
+        "type": "gallery",
+        "title": "सम्मान एवं दीक्षांत समारोह",
+        "images": [
+          {
+            "url": "/Certificate Celebration Ceremony.png",
+            "caption": "सर्टिफिकेट दीक्षांत समारोह सम्मान"
+          }
+        ],
+        "columns": 2
+      }
+    ]
+  },
+  {
+    "id": "page_assets_certificates",
+    "slug": "assets-certificates",
+    "title": "Certificates Celebration Ceremony",
+    "titleHi": "सर्टिफिकेट दीक्षांत समारोह एवं मान्यताएँ (Certificates)",
+    "category": "homepage",
+    "sectionId": "assets-certificates",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Official Certificates & Accreditations | Randhir Singh Jaipur",
+    "seoDescription": "Advance Numerology, Wrist Watch Therapy एवं Advance Placement अधिकृत प्रमाण पत्र।",
+    "ogImage": "/Certificate Celebration Ceremony.png",
+    "featuredImage": "/Certificate Celebration Ceremony.png",
+    "showInNav": true,
+    "navOrder": 14,
+    "viewCount": 1250,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "cert_blk_1",
+        "type": "heading",
+        "title": "प्रमाणित शैक्षिक योग्यता एवं आधिकारिक मान्यताएँ",
+        "subtitle": "ISO 9001:2015 एवं UDYAM अधिकृत राष्ट्रीय अंक ज्योतिष प्रमाण पत्र"
+      },
+      {
+        "id": "cert_blk_2",
+        "type": "image",
+        "imageUrl": "/Certificate Celebration Ceremony.png",
+        "imageAlt": "Certificate Celebration Ceremony with Randhir Singh",
+        "title": "Certificate Celebration Ceremony",
+        "subtitle": "दीक्षांत समारोह में सम्मान एवं प्रमाण पत्र वितरण क्षण",
+        "alignment": "center"
+      }
+    ]
+  },
+  {
+    "id": "page_faq_section",
+    "slug": "faq-section",
+    "title": "Frequently Asked Questions (FAQs)",
+    "titleHi": "अक्सर पूछे जाने वाले सवाल (FAQ Section)",
+    "category": "homepage",
+    "sectionId": "faq-section",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Frequently Asked Questions | Numerologist Randhir Singh",
+    "seoDescription": "अंक ज्योतिष, परामर्श प्रक्रिया, अपॉइंटमेंट और उपचारात्मक विधियों के स्पष्ट उत्तर।",
+    "showInNav": true,
+    "navOrder": 15,
+    "viewCount": 970,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "faq_blk_1",
+        "type": "heading",
+        "title": "जिज्ञासा एवं समाधान — अक्सर पूछे जाने वाले सवाल",
+        "subtitle": "परामर्श की प्रक्रिया, गोपनीयता और ज्योतिषीय समाधानों से संबंधित स्पष्टीकरण"
+      }
+    ]
+  },
+  {
+    "id": "page_media_gallery",
+    "slug": "media-gallery",
+    "title": "Media Gallery, Videos & Press",
+    "titleHi": "फोटो, वीडियो एवं मीडिया गैलरी (Media Gallery)",
+    "category": "homepage",
+    "sectionId": "media-gallery",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Media Gallery & Videos | Randhir Singh Jaipur",
+    "seoDescription": "दीक्षांत समारोह, टीवी साक्षात्कार, यूट्यूब पॉडकास्ट और प्रेस कवरेज।",
+    "ogImage": "/Certificate Celebration Ceremony.png",
+    "featuredImage": "/Certificate Celebration Ceremony.png",
+    "showInNav": true,
+    "navOrder": 16,
+    "viewCount": 1540,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "med_blk_1",
+        "type": "heading",
+        "title": "मीडिया, वीडियो एवं दीक्षांत समारोह गैलरी",
+        "subtitle": "विभिन्न सम्मेलनों, कार्यशालाओं और समारोहों के ऐतिहासिक दृश्य"
+      },
+      {
+        "id": "med_blk_2",
+        "type": "gallery",
+        "title": "समारोह छायाचित्र",
+        "images": [
+          {
+            "url": "/Certificate Celebration Ceremony.png",
+            "caption": "सर्टिफिकेट दीक्षांत समारोह"
+          },
+          {
+            "url": "/Randhir Singh.png",
+            "caption": "रणधीर सिंह जी का आधिकारिक पोर्ट्रेट"
+          }
+        ],
+        "columns": 2
+      }
+    ]
+  },
+  {
+    "id": "page_yantra_healings",
+    "slug": "yantra-healings",
+    "title": "Yantra Healings & Sacred Energy Shields",
+    "titleHi": "यंत्र चिकित्सा एवं ऊर्जा कवच (Yantra Healings)",
+    "category": "dedicated",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Yantra Healings & Sacred Energy Shields | Randhir Singh Jaipur",
+    "seoDescription": "वैदिक ज्यामिति और सिद्ध यंत्रों द्वारा आभामंडल सुरक्षा एवं ऊर्जा संतुलन।",
+    "ogImage": "/Card-Back.jpg",
+    "featuredImage": "/Card-Back.jpg",
+    "showInNav": true,
+    "navOrder": 17,
+    "viewCount": 1890,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "yh_blk_1",
+        "type": "hero",
+        "title": "सिद्ध यंत्र चिकित्सा एवं सुरक्षा कवच",
+        "subtitle": "प्राचीन वैदिक ज्यामिति से जीवन में सकारात्मक ऊर्जा और सुरक्षा का संचार",
+        "imageUrl": "/Card-Back.jpg"
+      },
+      {
+        "id": "yh_blk_2",
+        "type": "text",
+        "title": "यंत्र क्या हैं और कैसे कार्य करते हैं?",
+        "content": "यंत्र ब्रह्मांडीय ऊर्जा के वैज्ञानिक रिसीवर (Receivers) हैं। सही दिशा, धातु और प्राण-प्रतिष्ठा के साथ स्थापित किया गया यंत्र घर व कार्यस्थल से नकारात्मक तरंगों को तुरंत दूर करता है।"
+      }
+    ]
+  },
+  {
+    "id": "page_special_yantras",
+    "slug": "special-yantras",
+    "title": "Special Vedic Yantras (Wealth, Protection)",
+    "titleHi": "विशेष वैदिक यंत्र (Special Yantras)",
+    "category": "dedicated",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Special Vedic Yantras for Wealth & Business | Randhir Singh",
+    "seoDescription": "कुबेर यंत्र, महालक्ष्मी यंत्र, व्यापार वृद्धि यंत्र और सुरक्षा कवच।",
+    "ogImage": "/Card-Back.jpg",
+    "featuredImage": "/Card-Back.jpg",
+    "showInNav": true,
+    "navOrder": 18,
+    "viewCount": 1650,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "sy_blk_1",
+        "type": "heading",
+        "title": "विशेष एवं दुर्लभ वैदिक यंत्र",
+        "subtitle": "धन, व्यापारिक समृद्धि और घर की सुरक्षा हेतु अभिमंत्रित यंत्र"
+      }
+    ]
+  },
+  {
+    "id": "page_and_more",
+    "slug": "and-more",
+    "title": "And More Remedies (Daily Vedic Rules)",
+    "titleHi": "अन्य महत्वपूर्ण वैदिक उपाय एवं नियम (And More)",
+    "category": "dedicated",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Daily Vedic Numerology Remedies & Rules | Randhir Singh",
+    "seoDescription": "दैनिक जीवन में छोटे-छोटे अचूक वैदिक नियम जो भाग्योदय करते हैं।",
+    "showInNav": true,
+    "navOrder": 19,
+    "viewCount": 1220,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "am_blk_1",
+        "type": "heading",
+        "title": "अन्य सरल एवं प्रभावशाली वैदिक उपाय",
+        "subtitle": "जल के नियम, भोजन की दिशा, तिजोरी का स्थान और कलाई घड़ी पहनने के नियम"
+      }
+    ]
+  },
+  {
+    "id": "page_dob_yantras",
+    "slug": "dob-yantras",
+    "title": "DOB-based Auspicious Yantras",
+    "titleHi": "जन्मतिथि अनुसार लकी यंत्र (DOB Yantras)",
+    "category": "dedicated",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "DOB-based Personalized Yantras | Randhir Singh Jaipur",
+    "seoDescription": "आपके मूलांक और भाग्यांक के अनुसार विशेष रूप से तैयार किए जाने वाले यंत्र।",
+    "showInNav": true,
+    "navOrder": 20,
+    "viewCount": 1410,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "dy_blk_1",
+        "type": "heading",
+        "title": "जन्मतिथि आधारित व्यक्तिगत यंत्र",
+        "subtitle": "मूलांक 1 से 9 तक के जातकों के लिए ग्रहों के अनुकूल सिद्ध यंत्र"
+      }
+    ]
+  },
+  {
+    "id": "page_kundli_milan",
+    "slug": "kundli-milan",
+    "title": "Kundli Milan & Marriage Compatibility",
+    "titleHi": "कुंडली मिलान एवं विवाह अनुकूलता (Kundli Milan)",
+    "category": "dedicated",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Kundli Milan & Numerological Compatibility | Randhir Singh",
+    "seoDescription": "वैदिक अष्टकूट मिलान और अंक ज्योतिष अनुकूलता का संपूर्ण अध्ययन।",
+    "showInNav": true,
+    "navOrder": 21,
+    "viewCount": 2200,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "km_blk_1",
+        "type": "heading",
+        "title": "कुंडली मिलान एवं विवाह अनुकूलता विश्लेषण",
+        "subtitle": "सुखी वैवाहिक जीवन हेतु वर-वधू के गुणों, ग्रहों एवं भाग्यांकों का सटीक मिलान"
+      }
+    ]
+  },
+  {
+    "id": "page_service_1",
+    "slug": "service-1",
+    "title": "Numerology Consultation",
+    "titleHi": "अंक ज्योतिष परामर्श (न्यूमेरोलॉजी)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Numerology Consultation | Randhir Singh Jaipur",
+    "seoDescription": "Complete blueprint of your life’s core numbers, karmic patterns, and upcoming golden periods.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 31,
+    "viewCount": 485,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_1",
+        "type": "hero",
+        "title": "अंक ज्योतिष परामर्श (न्यूमेरोलॉजी)",
+        "subtitle": "मूलांक, भाग्यांक, कुआ नंबर एवं जीवन के स्वर्णिम काल का प्रामाणिक वैदिक अंक ज्योतिषीय विश्लेषण।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹5,100)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_1",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी के साथ व्यक्तिगत एक-पर-एक परामर्श, जिसमें आपके मूलांक, भाग्यांक, नामांक एवं कुआ नंबर का गूढ़ अध्ययन किया जाता है। यह परामर्श आपके जीवन के उद्देश्य, अंतर्निहित प्रतिभाओं, कार्मिक ऋणों, महादशा-अंतर्दशा तथा विवाह, व्यापार एवं निवेश हेतु अत्यंत शुभ समयावधि का अचूक मार्गदर्शन प्रदान करता है।\n\nA personalized one-on-one consultation with Numerologist & Healer · Randhir Singh decoding your complete numerical matrix: Driver (Mulank), Conductor (Bhagyank), Name Vibration (Namank), and Kua Number. This comprehensive reading maps out your life purpose, hidden talents, karmic debt numbers, personal year transitions, and optimal timing for major life decisions like marriage, investments, and career shifts."
+      },
+      {
+        "id": "svc_card_1",
+        "type": "consultation",
+        "title": "अंक ज्योतिष परामर्श (न्यूमेरोलॉजी)",
+        "subtitle": "मूलांक, भाग्यांक, कुआ नंबर एवं जीवन के स्वर्णिम काल का प्रामाणिक वैदिक अंक ज्योतिषीय विश्लेषण।",
+        "price": "₹5,100",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_2",
+    "slug": "service-2",
+    "title": "Watch Analysis & Therapeutic Watch Consultation",
+    "titleHi": "घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Watch Analysis & Therapeutic Watch Consultation | Randhir Singh Jaipur",
+    "seoDescription": "Your wristwatch is not merely a tool for telling time, but also an expression of your personal preferences, lifestyle, and personality.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 32,
+    "viewCount": 520,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_2",
+        "type": "hero",
+        "title": "घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श",
+        "subtitle": "आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।",
+        "imageUrl": "/Luxury_Gold_Numerology_Watch_0e113989.png",
+        "buttonText": "परामर्श बुक करें (₹1,800)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_2",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है। इस विशेष परामर्श में घड़ी की मजबूती, आकार, डिज़ाइन, रंग, डायल और अंकों की संरचना का विश्लेषण किया जाता है। इसका उद्देश्य घड़ी से जुड़े प्रतीकात्मक अर्थों और उनके प्रति आपकी व्यक्तिगत धारणाओं को समझना है, ताकि आत्म-जागरूकता, व्यक्तिगत पसंद और जीवन के लक्ष्यों पर एक नया दृष्टिकोण प्राप्त किया जा सके। यह परामर्श अंक ज्योतिष एवं प्रतीकात्मक व्याख्याओं पर आधारित है। इसे वैज्ञानिक रूप से प्रमाणित निदान या जीवन में परिणामों की गारंटी के रूप में नहीं समझना चाहिए।\n\nYour wristwatch is not merely a tool for telling time, but also an expression of your personal preferences, lifestyle, and personality. In this specialized consultation, the build, shape, design, color, dial, and numeral structure of your watch are carefully analyzed. The objective is to understand the symbolic meanings associated with your watch and your personal perceptions toward them, helping you gain fresh perspectives on self-awareness, personal choices, and life goals. This consultation is rooted in numerological and symbolic interpretations. It should not be construed as a medically or scientifically proven diagnosis or guarantee of specific outcomes."
+      },
+      {
+        "id": "svc_card_2",
+        "type": "consultation",
+        "title": "घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श",
+        "subtitle": "आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।",
+        "price": "₹1,800",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_3",
+    "slug": "service-3",
+    "title": "Date of Birth Analysis",
+    "titleHi": "जन्म तिथि विश्लेषण (Lo-Shu Grid)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Date of Birth Analysis | Randhir Singh Jaipur",
+    "seoDescription": "Complete 3x3 Lo-Shu Magic Grid analysis identifying planetary planes and missing numbers.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 33,
+    "viewCount": 555,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_3",
+        "type": "hero",
+        "title": "जन्म तिथि विश्लेषण (Lo-Shu Grid)",
+        "subtitle": "3x3 लो-शू जादुई ग्रिड के माध्यम से 8 तलों एवं लुप्त अंकों का वैज्ञानिक विश्लेषण।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹2,500)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_3",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "लो-शू मैजिक स्क्वायर एक प्राचीन एवं प्रामाणिक 3x3 कॉस्मिक ग्रिड है, जिसमें प्रत्येक पंक्ति का योग 15 होता है। आपकी जन्म तिथि के अंकों को इस ग्रिड में स्थापित कर अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी 8 प्रमुख तलों का अध्ययन करते हैं: मानसिक तल (4-9-2), भावनात्मक तल (3-5-7), व्यावहारिक तल (8-1-6), विचार तल (4-3-8), इच्छा शक्ति तल (9-5-1), कर्म तल (2-7-6) तथा स्वर्ण व रजत राजयोग। विशेष रूप से लुप्त अंकों की पहचान कर उनके संतुलन हेतु अचूक वैदिक उपाय दिए जाते हैं।\n\nThe Lo-Shu Magic Square is a 4,000-year-old divine mathematical matrix where every horizontal, vertical, and diagonal row adds up to 15. By transposing your birth date digits into this 9-chamber cosmic grid, Numerologist & Healer · Randhir Singh analyzes the 8 Planes of Existence: Mental Plane (4-9-2), Emotional Plane (3-5-7), Practical Plane (8-1-6), Thought Plane (4-3-8), Will Plane (9-5-1), Action Plane (2-7-6), and the supreme Raj Yogas (Golden & Silver Planes). Crucially, he identifies missing numbers and provides targeted non-invasive remedies to fill the energetic voids."
+      },
+      {
+        "id": "svc_card_3",
+        "type": "consultation",
+        "title": "जन्म तिथि विश्लेषण (Lo-Shu Grid)",
+        "subtitle": "3x3 लो-शू जादुई ग्रिड के माध्यम से 8 तलों एवं लुप्त अंकों का वैज्ञानिक विश्लेषण।",
+        "price": "₹2,500",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_4",
+    "slug": "service-4",
+    "title": "Therapy Watches",
+    "titleHi": "थेरेपी वॉचेस (औषधीय एवं भाग्यशाली घड़ियाँ)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Therapy Watches | Randhir Singh Jaipur",
+    "seoDescription": "Customized prescription watches designed to accelerate career growth, wealth flow, and mental peace.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 34,
+    "viewCount": 590,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_4",
+        "type": "hero",
+        "title": "थेरेपी वॉचेस (औषधीय एवं भाग्यशाली घड़ियाँ)",
+        "subtitle": "कलाई की नाड़ी के माध्यम से करियर उन्नति, लक्ष्मी आकर्षण एवं शांति हेतु सिद्ध प्रिस्क्रिप्शन घड़ियाँ।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹11,000+)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_4",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "थेरेपी वॉचेस अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी का सुविख्यात एवं विशिष्ट उपचारात्मक नवाचार है। साधारण घड़ियों के विपरीत, थेरेपी घड़ी को आपकी जन्म तिथि के लुप्त अंकों, स्वामी ग्रह एवं तात्कालिक लक्ष्य के आधार पर विशेष रूप से तैयार व अभिमंत्रित किया जाता है। इसमें 18K स्वर्ण पॉलिश, रॉयल अज़्योर ब्लू अथवा पर्ल व्हाइट डायल, केंद्र में प्रतिष्ठित ॐ यंत्र, तथा विशिष्ट धातुओं के मेल से बनी कलाई चेन होती है, जो दिनभर आपकी नाड़ी के माध्यम से सकारात्मक ऊर्जा का संचार करती है।\n\nTherapy Watches are Numerologist & Healer · Randhir Singh’s celebrated signature horological innovation. Unlike generic luxury timepieces, a Therapy Watch is individually consecrated and custom-configured based on your missing Lo-Shu numbers, ruling planet, and immediate life objectives. Featuring divine geometry dials (such as 18K Yellow Gold with Royal Azure dials for Jupiter/Saturn mastery or Pearl White dials for Lunar peace), energized Om Yantras, and specific metallic alloy links, these watches serve as continuous bio-resonance energy anchors right on your radial pulse meridian."
+      },
+      {
+        "id": "svc_card_4",
+        "type": "consultation",
+        "title": "थेरेपी वॉचेस (औषधीय एवं भाग्यशाली घड़ियाँ)",
+        "subtitle": "कलाई की नाड़ी के माध्यम से करियर उन्नति, लक्ष्मी आकर्षण एवं शांति हेतु सिद्ध प्रिस्क्रिप्शन घड़ियाँ।",
+        "price": "₹11,000+",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_5",
+    "slug": "service-5",
+    "title": "Best Dates of Months for Child Birth",
+    "titleHi": "संतान जन्म हेतु शुभ तिथि चयन (मुहूर्त)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Best Dates of Months for Child Birth | Randhir Singh Jaipur",
+    "seoDescription": "Vedic numerological planning for planned deliveries to bestow a harmonious destiny upon your newborn.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 35,
+    "viewCount": 625,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_5",
+        "type": "hero",
+        "title": "संतान जन्म हेतु शुभ तिथि चयन (मुहूर्त)",
+        "subtitle": "नियोजित प्रसव (C-Section) हेतु शुभ तिथि, वार एवं नक्षत्र का चयन ताकि नवजात को मिले स्वर्णिम भविष्य।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹5,100)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_5",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "जब चिकित्सीय कारणों से सी-सेक्शन (नियोजित प्रसव) की सलाह दी जाती है, तब उस अनुशंसित समयावधि में से सर्वोत्तम शुभ तिथि एवं समय का चयन करना संतान के उज्ज्वल भविष्य का आधार बनता है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी माता-पिता के अंकों के साथ तालमेल बिठाते हुए ऐसे शुभ मूलांक-भाग्यांक (जैसे 1-1, 1-5, 3-3, 5-1, 6-3) का चयन करते हैं, जो शत्रु अंकों (जैसे 1-8, 2-8, 4-8) से मुक्त हों और नवजात को उत्तम स्वास्थ्य, दीर्घायु, कुशाग्र बुद्धि एवं पारिवारिक प्रेम प्रदान करें।\n\nWhen medical conditions necessitate a planned delivery or caesarean section within a recommended clinical window, selecting the exact date and hour becomes a divine parental responsibility. Numerologist & Healer · Randhir Singh cross-calculates the candidate delivery dates against parental charts to identify dates with high-frequency Driver-Conductor synergy (such as 1-1, 1-5, 3-3, 5-1, or 6-3), avoiding conflicting enemy numbers (like 1-8, 2-8, or 4-8) and ensuring the newborn is blessed with vibrant health, intellectual brilliance, and filial affection."
+      },
+      {
+        "id": "svc_card_5",
+        "type": "consultation",
+        "title": "संतान जन्म हेतु शुभ तिथि चयन (मुहूर्त)",
+        "subtitle": "नियोजित प्रसव (C-Section) हेतु शुभ तिथि, वार एवं नक्षत्र का चयन ताकि नवजात को मिले स्वर्णिम भविष्य।",
+        "price": "₹5,100",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_6",
+    "slug": "service-6",
+    "title": "Mobile Number Analysis & Lucky Mobile Numbers",
+    "titleHi": "मोबाइल नंबर विश्लेषण एवं लकी मोबाइल नंबर",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Mobile Number Analysis & Lucky Mobile Numbers | Randhir Singh Jaipur",
+    "seoDescription": "Diagnose your active phone number vibrations and select high-frequency auspicious numbers.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 36,
+    "viewCount": 660,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_6",
+        "type": "hero",
+        "title": "मोबाइल नंबर विश्लेषण एवं लकी मोबाइल नंबर",
+        "subtitle": "वर्तमान मोबाइल नंबर की सूक्ष्म जांच एवं व्यापार-करियर के अनुकूल लकी मोबाइल नंबर का चयन।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹1,500)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_6",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "आपका मोबाइल नंबर दिनभर में अनगिनत बार डायल होता है, आपके औरा क्षेत्र में रहता है तथा समस्त व्यापारिक व बैंकिंग लेन-देन से जुड़ा है। यदि 10 अंकों का कुल योग या आंतरिक जोड़ शत्रु अंकों (जैसे 2-8, 4-8, या अधिक शून्य) पर आ रहा हो, तो यह ग्राहकों से बातचीत में अड़चन, पेमेंट में देरी तथा अनचाहे विवाद उत्पन्न करता है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपके वर्तमान नंबर का विश्लेषण कर आपके मूलांक व व्यवसाय के अनुकूल लकी मोबाइल नंबर चुनते हैं।\n\nYour mobile phone is dialed dozens of times daily, held against your aura constantly, and typed into financial banking transactions. A phone number whose 10 digits sum to an enemy number or contain conflicting interior pairs (like 2-8, 4-8, or multiple repeating zeros) creates subconscious barriers in client calls, delayed payments, and frequent misunderstandings. Numerologist & Healer · Randhir Singh analyzes your active SIM number and assists you in selecting a new lucky phone number calibrated to your Mulank and business goals."
+      },
+      {
+        "id": "svc_card_6",
+        "type": "consultation",
+        "title": "मोबाइल नंबर विश्लेषण एवं लकी मोबाइल नंबर",
+        "subtitle": "वर्तमान मोबाइल नंबर की सूक्ष्म जांच एवं व्यापार-करियर के अनुकूल लकी मोबाइल नंबर का चयन।",
+        "price": "₹1,500",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_7",
+    "slug": "service-7",
+    "title": "Negativity Removal & Salt Therapy",
+    "titleHi": "नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Negativity Removal & Salt Therapy | Randhir Singh Jaipur",
+    "seoDescription": "Traditional salt-cleansing rituals and auric shielding for peaceful spaces and positive mindsets.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 37,
+    "viewCount": 695,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_7",
+        "type": "hero",
+        "title": "नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)",
+        "subtitle": "प्राकृतिक सेंधा व समुद्री लवण द्वारा नकारात्मक ऊर्जा, नजर दोष एवं वास्तु अवरोधों का संपूर्ण निवारण।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹5,100)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_7",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "हजारों वर्षों से वैदिक ऋषि एवं पारम्परिक हीलर सेंधा व समुद्री नमक को नकारात्मक ऊर्जा, नजर दोष, मानसिक अशांति एवं घर के भारीपन को सोखने का सबसे शक्तिशाली प्राकृतिक माध्यम मानते आए हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी व्यक्तिगत परामर्श के आधार पर नमक के पोछे, मुख्य द्वार पर रक्षा पोटली, चरण लवण स्नान तथा कांच के पात्र में जल-नमक के विशेष उपाय बताते हैं, जिससे घर व कार्यस्थल की नकारात्मकता तुरंत समाप्त होती है।\n\nFor thousands of years, Vedic sages and traditional healers have revered authentic Rock Salt (Sendha Namak) and Sea Salt (Samudri Namak) for their unyielding ionic capacity to absorb psychic debris, the evil eye (Nazar dosha), etheric fatigue, and geopathic stress. Numerologist & Healer · Randhir Singh prescribes personalized salt rituals, threshold barrier placements, auric foot bath protocols, and consecrated salt water glass traps to purge stuck negative vibrations from homes, offices, and human bio-fields."
+      },
+      {
+        "id": "svc_card_7",
+        "type": "consultation",
+        "title": "नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)",
+        "subtitle": "प्राकृतिक सेंधा व समुद्री लवण द्वारा नकारात्मक ऊर्जा, नजर दोष एवं वास्तु अवरोधों का संपूर्ण निवारण।",
+        "price": "₹5,100",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_8",
+    "slug": "service-8",
+    "title": "Name Analysis, Suggestions and Corrections",
+    "titleHi": "नाम विश्लेषण, सुझाव एवं नाम सुधार (Chaldean)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Name Analysis, Suggestions and Corrections | Randhir Singh Jaipur",
+    "seoDescription": "Harmonize your name vibrations with your birth chart using Chaldean and Pythagorean sciences.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 38,
+    "viewCount": 730,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_8",
+        "type": "hero",
+        "title": "नाम विश्लेषण, सुझाव एवं नाम सुधार (Chaldean)",
+        "subtitle": "काल्डियन एवं पाइथागोरियन पद्धति से नाम के अक्षरों का सूक्ष्म संशोधन ताकि भाग्य बने चुंबकीय।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹3,500)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_8",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "आपके नाम का प्रत्येक अक्षर एक विशिष्ट ब्रह्मांडीय अंक से जुड़ा है। यदि आपका मूलांक सूर्य (1) या शुक्र (6) है, परंतु नाम का कुल योग शत्रु अंक 8 या 4 पर आ रहा है, तो जीवन में लगातार संघर्ष व असफलता बनी रहती है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी प्राचीन काल्डियन अंक ज्योतिष द्वारा नाम के केवल एक या दो अक्षरों में ऐसा सूक्ष्म व सुरुचिपूर्ण सुधार करते हैं, जो आपके नाम को अत्यंत भाग्यशाली कंपाउंड (जैसे 19, 23, 37, 41, 42) पर ले आता है, बिना किसी कानूनी दस्तावेज बदलने के झंझट के।\n\nEvery letter of your name carries a distinct cosmic numerical frequency. If your birth numbers are governed by the Sun (1) or Venus (6), but your existing name sums to a conflicting Saturnine 8 or deceptive 4, an internal vibrational civil war takes place in your life. Numerologist & Healer · Randhir Singh utilizes ancient Chaldean numerology to suggest subtle, elegant spelling modifications (often adding or modifying a single letter) that realign your Name Compound with wealth-generating master vibrations (such as 19, 23, 37, 41, or 42) without requiring cumbersome legal changes on official passports or IDs."
+      },
+      {
+        "id": "svc_card_8",
+        "type": "consultation",
+        "title": "नाम विश्लेषण, सुझाव एवं नाम सुधार (Chaldean)",
+        "subtitle": "काल्डियन एवं पाइथागोरियन पद्धति से नाम के अक्षरों का सूक्ष्म संशोधन ताकि भाग्य बने चुंबकीय।",
+        "price": "₹3,500",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_9",
+    "slug": "service-9",
+    "title": "Special Remedies for Marriage, Health & Professions",
+    "titleHi": "विवाह, स्वास्थ्य एवं व्यवसाय हेतु विशेष उपाय",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Special Remedies for Marriage, Health & Professions | Randhir Singh Jaipur",
+    "seoDescription": "Tailored, non-invasive Vedic, cosmic, and behavioral remedies for delayed marriages and career blocks.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 39,
+    "viewCount": 765,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_9",
+        "type": "hero",
+        "title": "विवाह, स्वास्थ्य एवं व्यवसाय हेतु विशेष उपाय",
+        "subtitle": "विवाह में आ रहे व्यवधान, पुरानी बीमारियों एवं व्यापारिक मंदी हेतु सरल व अचूक वैदिक समाधान।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹3,500)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_9",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "जीवन में समस्याएं अक्सर परिश्रम की कमी से नहीं, बल्कि व्यक्तिगत कर्म एवं ग्रहीय दशाओं के असंतुलन से उत्पन्न होती हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपकी जन्म तिथि के अनुसार अत्यंत व्यावहारिक, सरल एवं बिना किसी आडंबर वाले उपाय प्रदान करते हैं। चाहे विवाह प्रस्तावों में अड़चन हो, दांपत्य जीवन में तनाव हो, स्वास्थ्य में सुस्ती हो या व्यापार में मंदी—इनके समाधान हेतु रंग चिकित्सा, दिशा शोधन, विशिष्ट दान एवं सात्विक जीवन शैली के अचूक नियम बताए जाते हैं।\n\nLife problems often arise not from lack of effort, but from subtle energetic misalignments between personal karma and planetary time-periods. Numerologist & Healer · Randhir Singh prescribes practical, non-invasive, and cost-effective remedies tailored to your birth chart. From resolving delayed marriage proposals and restoring spousal harmony, to dissipating chronic health lethargy and breaking commercial stagnation, these remedies encompass planetary color therapy, directional energization, specific charity acts, and Vedic behavioral protocols."
+      },
+      {
+        "id": "svc_card_9",
+        "type": "consultation",
+        "title": "विवाह, स्वास्थ्य एवं व्यवसाय हेतु विशेष उपाय",
+        "subtitle": "विवाह में आ रहे व्यवधान, पुरानी बीमारियों एवं व्यापारिक मंदी हेतु सरल व अचूक वैदिक समाधान।",
+        "price": "₹3,500",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_10",
+    "slug": "service-10",
+    "title": "Grid Matching (Marriage, Business Partners, Employees)",
+    "titleHi": "ग्रिड मिलान (विवाह, व्यापारिक साझेदार, कर्मचारी)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Grid Matching (Marriage, Business Partners, Employees) | Randhir Singh Jaipur",
+    "seoDescription": "Cross-analyzing two or more Lo-Shu charts to verify karmic synergy, trust, and mutual growth.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 40,
+    "viewCount": 800,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_10",
+        "type": "hero",
+        "title": "ग्रिड मिलान (विवाह, व्यापारिक साझेदार, कर्मचारी)",
+        "subtitle": "विवाह, व्यापार साझेदारी अथवा मुख्य कर्मचारियों के चयन हेतु 36-बिंदु वैज्ञानिक ग्रिड मिलान।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹3,100)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_10",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "साझेदारी—चाहे वैवाहिक हो या व्यापारिक—दो भिन्न ऊर्जा क्षेत्रों का परस्पर सम्मिलन है। केवल राशि मिलान अक्सर व्यावहारिक स्वभाव व आर्थिक तालमेल को स्पष्ट नहीं कर पाता। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी दोनों व्यक्तियों के 3x3 लो-शू ग्रिड का तुलनात्मक अध्ययन कर यह देखते हैं कि क्या एक के अंक दूसरे के रिक्त स्थानों को पूर्ण कर रहे हैं, या दोनों के बीच गंभीर ग्रहीय टकराव है। इससे 36-गुणांक वैज्ञानिक इंडेक्स तैयार कर दीर्घकालिक सफलता सुनिश्चित की जाती है।\n\nA partnership—whether matrimonial or commercial—is an energetic merger of two distinct vibrational fields. Traditional astrology often limits compatibility to Moon signs, overlooking the vital day-to-day behavioral and financial interactions. Numerologist & Healer · Randhir Singh cross-analyzes the 3x3 Lo-Shu grids of both individuals to evaluate mutual compatibility: identifying complementary numbers that fill each other’s voids, warning against destructive enemy clashes, and calculating a 36-point compatibility index for long-term trust, prosperity, and peace."
+      },
+      {
+        "id": "svc_card_10",
+        "type": "consultation",
+        "title": "ग्रिड मिलान (विवाह, व्यापारिक साझेदार, कर्मचारी)",
+        "subtitle": "विवाह, व्यापार साझेदारी अथवा मुख्य कर्मचारियों के चयन हेतु 36-बिंदु वैज्ञानिक ग्रिड मिलान।",
+        "price": "₹3,100",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_11",
+    "slug": "service-11",
+    "title": "Health Switch Words",
+    "titleHi": "स्वास्थ्य स्विच वर्ड्स (Divine Switchwords)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Health Switch Words | Randhir Singh Jaipur",
+    "seoDescription": "High-frequency verbal switchwords that bypass subconscious resistance to accelerate wellness.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 41,
+    "viewCount": 835,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_11",
+        "type": "hero",
+        "title": "स्वास्थ्य स्विच वर्ड्स (Divine Switchwords)",
+        "subtitle": "अवचेतन मन के अवरोधों को भेदकर त्वरित स्वास्थ्य लाभ एवं तनावमुक्ति देने वाले दिव्य स्विचवर्ड्स।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹1,500)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_11",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "स्विचवर्ड्स वे शक्तिशाली एकल शब्द हैं जो सचेतन मन के संशय एवं चिंता को पार कर सीधे अवचेतन मन में परिवर्तन लाते हैं। वैदिक नाद विज्ञान एवं आधुनिक मनोविज्ञान के समन्वय से बने ये दिव्य शब्द—जैसे GOLDEN SUNRISE, RESTORE, CANCEL-CLEAR, DIVINE LIGHT—शरीर की ऊर्जा में तुरंत सकारात्मक बदलाव लाते हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपकी शारीरिक व्याधि, अनिद्रा अथवा मानसिक तनाव के अनुसार व्यक्तिगत स्विचवर्ड्स एवं एनर्जी सर्कल प्रदान करते हैं।\n\nSwitchwords are single-word verbal energetic keys that communicate directly with the subconscious mind, bypassing conscious doubt, anxiety, and mental resistance. Discovered by James T. Mangan and integrated with Vedic acoustic science, switchwords like GOLDEN SUNRISE, RESTORE, CANCEL-CLEAR, and DIVINE LIGHT shift cellular vibration within minutes. Numerologist & Healer · Randhir Singh formulates personalized switchword combinations and energy circles (EC) tailored to your specific physical ailments, sleep disorders, or emotional stress."
+      },
+      {
+        "id": "svc_card_11",
+        "type": "consultation",
+        "title": "स्वास्थ्य स्विच वर्ड्स (Divine Switchwords)",
+        "subtitle": "अवचेतन मन के अवरोधों को भेदकर त्वरित स्वास्थ्य लाभ एवं तनावमुक्ति देने वाले दिव्य स्विचवर्ड्स।",
+        "price": "₹1,500",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_12",
+    "slug": "service-12",
+    "title": "S. Healings (Spiritual & Pranic Healings)",
+    "titleHi": "एस. हीलिंग्स (आध्यात्मिक व प्राणिक उपचार)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "S. Healings (Spiritual & Pranic Healings) | Randhir Singh Jaipur",
+    "seoDescription": "Distance and in-person Pranic and spiritual energy alignment to clear etheric blockages.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 42,
+    "viewCount": 870,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_12",
+        "type": "hero",
+        "title": "एस. हीलिंग्स (आध्यात्मिक व प्राणिक उपचार)",
+        "subtitle": "सूक्ष्म प्राणिक ऊर्जा द्वारा चक्रों की शुद्धि, मानसिक शांति एवं दूरस्थ ऊर्जा उपचार।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹3,500)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_12",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "किसी भी रोग या अशांति के भौतिक शरीर में प्रकट होने से पहले, वह हमारे सूक्ष्म प्राणमय शरीर (चक्रों व नाड़ियों) में ऊर्जा अवरोध के रूप में दिखाई देती है। एस. हीलिंग्स सत्र में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी शुद्ध प्राणिक एवं आध्यात्मिक ऊर्जा का संप्रेषण कर 11 प्रमुख चक्रों की शुद्धि करते हैं। इससे पुराना मानसिक अवसाद, नकारात्मक विचार एवं ऊर्जा की कमी दूर होती है। यह उपचार जयपुर केंद्र पर अथवा देश-विदेश में दूरस्थ (Distance Healing) माध्यम से संपन्न होता है।\n\nBefore an illness or distress manifests in the physical flesh, it appears as an energetic congestion or depletion in the subtle etheric bioplasmic body (Pranamaya Kosha). In S. Healings sessions, Numerologist & Healer · Randhir Singh projects pure spiritual and Pranic prana to sweep away dirty, diseased energy from the 11 major chakras, dissolving emotional grief, energetic cords, and psychic exhaustion. Sessions are conducted both in-person at his peaceful Jaipur sanctuary and remotely across distances for seekers worldwide."
+      },
+      {
+        "id": "svc_card_12",
+        "type": "consultation",
+        "title": "एस. हीलिंग्स (आध्यात्मिक व प्राणिक उपचार)",
+        "subtitle": "सूक्ष्म प्राणिक ऊर्जा द्वारा चक्रों की शुद्धि, मानसिक शांति एवं दूरस्थ ऊर्जा उपचार।",
+        "price": "₹3,500",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_13",
+    "slug": "service-13",
+    "title": "Healing Codes (Divine Numerical Sequences)",
+    "titleHi": "हीलिंग कोड्स (पवित्र संख्यात्मक अनुक्रम)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Healing Codes (Divine Numerical Sequences) | Randhir Singh Jaipur",
+    "seoDescription": "Divine numerical frequencies (Grabovoi & Divine Codes) for targeted energetic restoration.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 43,
+    "viewCount": 905,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_13",
+        "type": "hero",
+        "title": "हीलिंग कोड्स (पवित्र संख्यात्मक अनुक्रम)",
+        "subtitle": "ग्रैबोवोई एवं वैदिक दिव्य संख्यात्मक अनुक्रमों द्वारा धन, स्वास्थ्य व मनोकामना पूर्ति।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹1,800)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_13",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "समस्त ब्रह्मांड—तारों की गति से लेकर हमारे डीएनए तक—पवित्र गणितीय अनुपातों पर आधारित है। हीलिंग कोड्स (जिनमें डॉ. ग्रिगोरी ग्रैबोवोई के विश्वप्रसिद्ध कोड्स एवं वैदिक संख्यात्मक मंत्र शामिल हैं) वे विशिष्ट आवृत्तियां हैं जो जीवन की विकृत ऊर्जा को पुनः संतुलित करती हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी प्रामाणिक कोड्स (जैसे अप्रत्याशित धन आगमन हेतु 520 741 8, सम्पूर्ण स्वास्थ्य हेतु 1814321, तथा दिव्य सुरक्षा हेतु 8888) प्रदान करते हैं, जिन्हें बाईं कलाई पर लिखने, जल चार्ज करने एवं ध्यान करने की सटीक विधि सिखाई जाती है।\n\nEverything in the cosmos—from the orbit of Jupiter to the DNA helix—is constructed upon divine mathematical ratios. Healing Codes (including the acclaimed sequences of Dr. Grigori Grabovoi and ancient Vedic numerical mantras) are specific numerical vibrations that restore distorted biophysical frequencies back to the divine norm. Numerologist & Healer · Randhir Singh provides verified codes (such as 520 741 8 for unexpected cash inflows, 1814321 for overall health restoration, and 8888 for divine protection), complete with exact methods for writing on wrist pulse points, charging water, and silent mental visualization."
+      },
+      {
+        "id": "svc_card_13",
+        "type": "consultation",
+        "title": "हीलिंग कोड्स (पवित्र संख्यात्मक अनुक्रम)",
+        "subtitle": "ग्रैबोवोई एवं वैदिक दिव्य संख्यात्मक अनुक्रमों द्वारा धन, स्वास्थ्य व मनोकामना पूर्ति।",
+        "price": "₹1,800",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_14",
+    "slug": "service-14",
+    "title": "Yantras Based on Your Date of Birth",
+    "titleHi": "जन्म तिथि आधारित वैदिक यंत्र",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Yantras Based on Your Date of Birth | Randhir Singh Jaipur",
+    "seoDescription": "Authentic 3x3 planetary numerical magic square yantras prepared for your weakest or ruling planets.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 44,
+    "viewCount": 940,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_14",
+        "type": "hero",
+        "title": "जन्म तिथि आधारित वैदिक यंत्र",
+        "subtitle": "आपकी जन्म तिथि के अनुसार तैयार किए जाने वाले 3x3 नवग्रह भोजपत्र एवं तांबे के सिद्ध यंत्र।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹5,100)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_14",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "यंत्र एक भौतिक ब्रह्मांडीय एंटीना है जो शुभ ग्रहीय तरंगों को आकर्षित करता है। वैदिक अंक ज्योतिष में प्रत्येक ग्रह का एक प्रामाणिक 3x3 संख्यात्मक जादुई वर्ग होता है—जैसे सूर्य यंत्र (योग 15), चंद्र यंत्र (योग 18), गुरु यंत्र (योग 27), तथा शुक्र यंत्र (योग 30)। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपकी जन्म तिथि के अनुसार आपके कमजोर व कारक ग्रह का निर्धारण कर, पवित्र भोजपत्र अथवा शुद्ध तांबे पर हस्तलिखित यंत्र तैयार कर वैदिक प्राण-प्रतिष्ठा करते हैं।\n\nA Yantra is a physical cosmic antenna inscribed with divine geometric and numerical codes. In Vedic numerology, every planet—from Surya (Sum 15) and Chandra (Sum 18) to Brihaspati (Sum 27) and Shukra (Sum 30)—has an authentic 3x3 planetary numerical magic square. Numerologist & Healer · Randhir Singh calculates your exact ruling planet and identifies the weakest planet in your birth chart, inscribing the corresponding authentic yantra on consecrated Bhojpatra (divine birch bark) or pure copper plates, empowered through Prana Pratishtha rituals."
+      },
+      {
+        "id": "svc_card_14",
+        "type": "consultation",
+        "title": "जन्म तिथि आधारित वैदिक यंत्र",
+        "subtitle": "आपकी जन्म तिथि के अनुसार तैयार किए जाने वाले 3x3 नवग्रह भोजपत्र एवं तांबे के सिद्ध यंत्र।",
+        "price": "₹5,100",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_15",
+    "slug": "service-15",
+    "title": "Special Yantras (Job Promotions, Special Desires, Business)",
+    "titleHi": "विशेष यंत्र (पदोन्नति, मनोरथ सिद्धि, व्यापार वृद्धि)",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Special Yantras (Job Promotions, Special Desires, Business) | Randhir Singh Jaipur",
+    "seoDescription": "Dedicated Sri Yantra, Kuber Yantra (Sum 72), and Vyapar Vridhi Yantras for major life triumphs.",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 45,
+    "viewCount": 975,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_15",
+        "type": "hero",
+        "title": "विशेष यंत्र (पदोन्नति, मनोरथ सिद्धि, व्यापार वृद्धि)",
+        "subtitle": "कुबेर महायंत्र (योग 72), श्री महालक्ष्मी यंत्र एवं व्यापार वृद्धि यंत्र द्वारा असाधारण सफलता।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹7,100)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_15",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "जब जीवन में कोई बहुत बड़ा लक्ष्य हो—जैसे सरकारी नौकरी, प्रतियोगी परीक्षा, बड़ा व्यापारिक टेंडर, भूमि-भवन क्रय, या पुराने कर्ज से मुक्ति—तब उच्च शक्ति वाले विशेष यंत्रों की आवश्यकता होती है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी तीन सर्वोच्च विशेष यंत्र सिद्ध करते हैं: कुबेर महायंत्र (जिसमें प्रत्येक पंक्ति का योग 72 होता है जो कुबेर का धन अंक है), व्यापार वृद्धि यंत्र (व्यापारिक बिक्री बढ़ाने हेतु), तथा सर्व कार्य सिद्धि यंत्र (मनवांछित मनोरथों को पूर्ण करने हेतु)।\n\nWhen facing monumental life goals—such as clearing competitive government examinations, winning massive corporate tenders, acquiring commercial property, or breaking out of generational debt—standard remedies must be elevated to High-Potency Special Yantras. Numerologist & Healer · Randhir Singh crafts and consecrates three supreme specialized yantras: The divine Kuber Yantra (where every row sums to the master wealth frequency 72), the authentic Vyapar Vridhi Yantra for sales acceleration, and the Sarva Karya Siddhi Yantra for fulfilling cherished life desires."
+      },
+      {
+        "id": "svc_card_15",
+        "type": "consultation",
+        "title": "विशेष यंत्र (पदोन्नति, मनोरथ सिद्धि, व्यापार वृद्धि)",
+        "subtitle": "कुबेर महायंत्र (योग 72), श्री महालक्ष्मी यंत्र एवं व्यापार वृद्धि यंत्र द्वारा असाधारण सफलता।",
+        "price": "₹7,100",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_service_16",
+    "slug": "service-16",
+    "title": "Best Crystals for Your Profession & Growth",
+    "titleHi": "व्यवसाय व प्रगति हेतु सर्वश्रेष्ठ क्रिस्टल व रत्न",
+    "category": "service",
+    "isSystemPage": true,
+    "status": "published",
+    "seoTitle": "Best Crystals for Your Profession & Growth | Randhir Singh Jaipur",
+    "seoDescription": "Profession-matched gemstones and crystal bracelets (Pyrite, Citrine, Aventurine, Amethyst).",
+    "ogImage": "/Randhir Singh.png",
+    "featuredImage": "/Randhir Singh.png",
+    "showInNav": true,
+    "navOrder": 46,
+    "viewCount": 1010,
+    "authorEmail": "admin@randhir.com",
+    "createdAt": "2026-10-29T00:00:00.000Z",
+    "updatedAt": "2026-10-29T00:00:00.000Z",
+    "blocks": [
+      {
+        "id": "svc_hero_16",
+        "type": "hero",
+        "title": "व्यवसाय व प्रगति हेतु सर्वश्रेष्ठ क्रिस्टल व रत्न",
+        "subtitle": "आपके पेशे एवं जन्म तिथि के अनुकूल प्राकृतिक क्रिस्टल ब्रेसलेट (पायराइट, सिट्रीन, एवेंच्यूरिन)।",
+        "imageUrl": "/Randhir Singh.png",
+        "buttonText": "परामर्श बुक करें (₹2,500)",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "svc_desc_16",
+        "type": "text",
+        "title": "विस्तृत विवरण एवं विश्लेषण",
+        "content": "क्रिस्टल पृथ्वी की सबसे स्थिर प्राकृतिक संरचनाएं हैं जो लाखों वर्षों के भूगर्भीय दबाव से बनती हैं। गलत क्रिस्टल पहनने से ऊर्जा बिखर सकती है, जबकि अपने पेशे एवं मूलांक के अनुकूल सही क्रिस्टल धारण करने से अद्भुत सफलता मिलती है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी आपके कार्यक्षेत्र के अनुसार चयन करते हैं: व्यापारियों हेतु पायराइट (धन आकर्षण), दुकानदारों हेतु सिट्रीन (व्यापार वृद्धि), नए प्रोजेक्ट्स हेतु ग्रीन एवेंच्यूरिन (सौभाग्य), तथा तनावग्रस्त व्यक्तियों हेतु अमेथिस्ट। साथ ही लवण शुद्धि व धूप-दीप से चार्ज करने की विधि भी सिखाई जाती है।\n\nCrystals are Mother Earth’s most stable crystalline resonators, formed over millions of years under extreme telluric pressure. Wearing the wrong crystal can scatter your energy, while wearing the correct profession-matched gemstone acts like a precision psychic amplifier. Numerologist & Healer · Randhir Singh evaluates your occupation—matching Iron Pyrite (Fool’s Gold) for entrepreneurs needing cash liquidity, Citrine for merchants, Green Aventurine for new venture luck, Amethyst for stressful professions, and Tiger Eye for bold decision-making—complete with salt cleansing and sun/moon charging protocols."
+      },
+      {
+        "id": "svc_card_16",
+        "type": "consultation",
+        "title": "व्यवसाय व प्रगति हेतु सर्वश्रेष्ठ क्रिस्टल व रत्न",
+        "subtitle": "आपके पेशे एवं जन्म तिथि के अनुकूल प्राकृतिक क्रिस्टल ब्रेसलेट (पायराइट, सिट्रीन, एवेंच्यूरिन)।",
+        "price": "₹2,500",
+        "duration": "45-60 मिनट",
+        "buttonText": "अभी स्लॉट आरक्षित करें"
+      }
+    ]
+  },
+  {
+    "id": "page_sacred_guidance_guide",
+    "slug": "divine-watch-and-numerology-guide",
+    "title": "Divine Watch & Numerology Guidance Guide",
+    "titleHi": "दैवीय कलाई घड़ी विश्लेषण एवं अंक ज्योतिष मार्गदर्शन",
+    "status": "published",
+    "seoTitle": "Divine Watch & Numerology Guidance Guide | Randhir Singh Jaipur",
+    "seoDescription": "Comprehensive guide to Watch Therapy, Lo-Shu Grid analysis, and Vedic remedies by Numerologist & Healer Randhir Singh.",
+    "ogImage": "/Certificate Celebration Ceremony.png",
+    "featuredImage": "/Certificate Celebration Ceremony.png",
+    "showInNav": true,
+    "navOrder": 1,
+    "viewCount": 144,
+    "authorEmail": "bm3hra@gmail.com",
+    "createdAt": "2026-10-29T07:30:03.753Z",
+    "updatedAt": "2026-10-29T07:30:03.753Z",
+    "blocks": [
+      {
+        "id": "block_hero_1",
+        "type": "hero",
+        "title": "Divine Energy Alignment Through Watch & Numerology",
+        "subtitle": "आपकी कलाई पर बंधी घड़ी और आपकी जन्मतिथि का सूक्ष्म आध्यात्मिक विश्लेषण",
+        "imageUrl": "/Certificate Celebration Ceremony.png",
+        "imageAlt": "Randhir Singh Ceremony & Consultation",
+        "buttonText": "Book Private Consultation / परामर्श बुक करें",
+        "buttonLink": "#tariff",
+        "buttonStyle": "primary"
+      },
+      {
+        "id": "block_heading_1",
+        "type": "heading",
+        "title": "Watch Therapy: How Timepieces Shape Subconscious Energy",
+        "subtitle": "घड़ी केवल समय देखने का उपकरण नहीं, बल्कि जीवन की दिशा का दर्पण है"
+      },
+      {
+        "id": "block_text_1",
+        "type": "text",
+        "content": "आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।\n\nइस विशेष परामर्श में घड़ी की मजबूती, आकार, डिज़ाइन, रंग, डायल और अंकों की संरचना का विश्लेषण किया जाता है। इसका उद्देश्य घड़ी से जुड़े प्रतीकात्मक अर्थों और उनके प्रति आपकी व्यक्तिगत धारणाओं को समझना है, ताकि आत्म-जागरूकता, व्यक्तिगत पसंद और जीवन के लक्ष्यों पर एक नया दृष्टिकोण प्राप्त किया जा सके।\n\nयह परामर्श अंक ज्योतिष एवं प्रतीकात्मक व्याख्याओं पर आधारित है। इसे वैज्ञानिक रूप से प्रमाणित निदान या जीवन में परिणामों की गारंटी के रूप में नहीं समझना चाहिए।"
+      },
+      {
+        "id": "block_list_1",
+        "type": "list",
+        "title": "Key Consultation Highlights / परामर्श के मुख्य बिंदु",
+        "items": [
+          {
+            "title": "Dial Geometry & Element",
+            "description": "Understanding round, square, and octagonal dial energy balance."
+          },
+          {
+            "title": "Color & Metal Resonance",
+            "description": "Selecting gold, silver, or azure dials according to Driver & Conductor numbers."
+          },
+          {
+            "title": "Wrist Selection & Activation",
+            "description": "Optimizing wrist placement (Right vs Left) for active manifestation."
+          }
+        ]
+      },
+      {
+        "id": "block_cta_1",
+        "type": "button",
+        "title": "Ready to Align Your Destiny?",
+        "buttonText": "Connect on WhatsApp (+91 94140 71000)",
+        "buttonLink": "https://wa.me/919414071000?text=Hello%20Randhir%20ji,%20I%20would%20like%20to%20consult%20regarding%20Watch%20Therapy",
+        "buttonStyle": "whatsapp"
+      }
+    ],
+    "category": "custom"
+  }
+]

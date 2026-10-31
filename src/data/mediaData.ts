@@ -29,177 +29,177 @@ export const PHOTO_GALLERY: PhotoItem[] = [
   {
     id: 'p_formal_portrait',
     titleEn: 'Enhanced Portrait of Randhir Singh — Official Formal Portrait',
-    titleHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह — आधिकारिक गरिमामय पोर्ट्रेट',
+    titleHi: 'न्यूमेरोलॉजिस्ट और हीलर · रणधीर सिंह — ऑफिशियल फॉर्मल फोटो',
     category: 'portraits',
     categoryLabel: 'Official Portrait',
     imageUrl: '/assets/aistudio/Randhir_Singh_8dc81223.png',
     descriptionEn: 'Official high-resolution formal portrait of Numerologist & Healer · Randhir Singh in royal blue formal attire, reflecting deep wisdom, calm authority, and mastery in Lo-Shu numerology and pulse horology.',
-    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का आधिकारिक गरिमामय पोर्ट्रेट। रॉयल ब्लू औपचारिक परिधान में वैदिक ज्ञान, सकारात्मकता एवं दशकों के अनुभव का जीवंत स्वरूप।',
-    tags: ['Numerologist & Healer · Randhir Singh', 'Jaipur Healer', 'Vedic Numerologist', 'Enhanced Portrait']
+    descriptionHi: 'न्यूमेरोलॉजिस्ट और हीलर · रणधीर सिंह जी की ऑफिशियल फॉर्मल फोटो। रॉयल ब्लू कोट और नेमप्लेट में शांत, अनुभवी और सकारात्मक स्वरूप।',
+    tags: ['Numerologist & Healer · Randhir Singh', 'Jaipur Center', 'Vedic Numerologist', 'Enhanced Portrait']
   },
   {
     id: 'p_card_services',
-    titleEn: 'Official Visiting Card (Front) — All 16 Sacred Services',
-    titleHi: 'आधिकारिक विजिटिंग कार्ड (सामने) — समस्त 16 पावन सेवाएं',
+    titleEn: 'Official Visiting Card (Front) — All 16 Divine Services',
+    titleHi: 'विजिटिंग कार्ड (सामने) — सभी 16 प्रमुख सेवाएं',
     category: 'cards',
     categoryLabel: 'Visiting Card',
     imageUrl: '/assets/aistudio/Card-Back_682c94ca.jpg',
-    descriptionEn: 'Authentic visiting card specifying all 16 sacred services: Numerology Consultation, Watch Analysis, Date of Birth Analysis, Therapy Watches, Child Birth Dates, Mobile Number Analysis, Negativity Removal & Salt Therapy, Name Corrections, Marriage & Health Remedies, Grid Matching, Health Switch Words, Spiritual & Pranic Healings, Sacred Healing Codes, DOB Yantras, Special Business/Job Yantras, and Growth Crystals.',
-    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का अधिकृत विजिटिंग कार्ड जिसमें अंक ज्योतिष, वॉच एनालिसिस, थेरेपी वॉचेस, नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी), यंत्र एवं हीलिंग कोड्स सहित सभी 16 प्रमुख सेवाओं का संपूर्ण विवरण अंकित है।',
+    descriptionEn: 'Authentic visiting card specifying all 16 divine services: Numerology Consultation, Watch Analysis, Date of Birth Analysis, Therapy Watches, Child Birth Dates, Mobile Number Analysis, Negativity Removal & Salt Therapy, Name Corrections, Marriage & Health Remedies, Grid Matching, Health Switch Words, Spiritual & Pranic Healings, Divine Healing Codes, DOB Yantras, Special Business/Job Yantras, and Growth Crystals.',
+    descriptionHi: 'रणधीर सिंह जी का ऑफिशियल विजिटिंग कार्ड, जिसमें न्यूमेरोलॉजी, वॉच एनालिसिस, थेरेपी वॉच, सॉल्ट थेरेपी, सिद्ध यंत्र और हीलिंग समेत सभी 16 सेवाओं की जानकारी है।',
     tags: ['Visiting Card', '16 Services', 'Om Shri Ganeshay Namh', 'Remedies']
   },
   {
     id: 'p_card_address',
     titleEn: 'Official Visiting Card (Back) — Sanctuary Address & Timings',
-    titleHi: 'आधिकारिक विजिटिंग कार्ड (पीछे) — परामर्श केंद्र पता एवं समय',
+    titleHi: 'विजिटिंग कार्ड (पीछे) — जयपुर सेंटर का पता और समय',
     category: 'cards',
     categoryLabel: 'Visiting Card',
     imageUrl: '/assets/about/visiting-card-address.svg',
     descriptionEn: 'Official card showing sanctuary address at Mahadev Nagar, Jagatpura, Jaipur. Consultation hours 9 A.M. to 6 P.M., special privilege of First 5 Consultations Free on every Sunday, and direct WhatsApp contact (9509593150 / 9694723150).',
-    descriptionHi: 'महादेव नगर, जगतपुरा, जयपुर स्थित परामर्श केंद्र का आधिकारिक कार्ड। परामर्श समय प्रातः 9 से सायं 6 बजे तक, एवं प्रत्येक रविवार प्रथम 5 परामर्श निःशुल्क की विशेष घोषणा।',
+    descriptionHi: 'मकान नं. 45, महादेव नगर, रामनगरिया रोड, जगतपुरा, जयपुर सेंटर का कार्ड। समय सुबह 9 से शाम 6 बजे, और हर रविवार पहले 5 लोगों के लिए फ्री कंसल्टेशन।',
     tags: ['Jaipur Address', 'Timings', 'Free Sunday Consultations', 'WhatsApp']
   },
   {
     id: 'p_convocation_achievement',
     titleEn: 'Proud Convocation Achievement in Delhi — Dual Honors',
-    titleHi: 'दीक्षांत समारोह दोहरा गौरव — नई दिल्ली सम्मान',
+    titleHi: 'नई दिल्ली कन्वोकेशन — अवॉर्ड और सम्मान',
     category: 'awards',
     categoryLabel: 'Academic Award',
     imageUrl: '/assets/about/proud-convocation-achievement-delhi.svg',
     descriptionEn: 'Numerologist & Healer · Randhir Singh in academic doctoral convocation regalia holding the framed Royal Skills Academy Certificate (Regd. No. 10115) and 3-star wooden trophy from Dr. Rohit Sachdev (11th June 2024, Navgal Saikk Academy, New Delhi).',
-    descriptionHi: 'दीक्षांत पोशाक एवं स्वर्ण फुंदने वाली कैप में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह। रॉयल स्किल्स एकेडमी प्रमाण-पत्र (पंजीकरण 10115) तथा डॉ. रोहित सचदेव द्वारा प्रदत्त 3-स्टार काष्ठ स्मृति-चिह्न के साथ।',
+    descriptionHi: 'ग्रेजुएशन गाउन में रणधीर सिंह जी, रॉयल स्किल्स एकेडमी का सर्टिफिकेट और डॉ. रोहित सचदेव द्वारा मिला 3-स्टार अवॉर्ड दिखाते हुए।',
     tags: ['Royal Skills Academy', 'Regd 10115', 'Dr. Rohit Sachdev', 'Advance Numerology']
   },
   {
     id: 'p_cert_advance_placement',
     titleEn: 'Official Advance Placement Course Certificate (REG NO: A-G 62)',
-    titleHi: 'उन्नत दिशात्मक स्थापन (प्लेसमेंट) पाठ्यक्रम अधिकृत प्रमाण-पत्र',
+    titleHi: 'एडवांस प्लेसमेंट कोर्स सर्टिफिकेट (Reg: A-G 62)',
     category: 'certificates',
     categoryLabel: 'Accreditation',
     imageUrl: '/assets/aistudio/Certificate-4_637f7316.jpeg',
     descriptionEn: 'High-resolution original photograph of the official completion certificate conferred upon Randhir Singh by Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist). Validated under UDYAM-GJ-22-0158332 and ISO-9001:2015 on 23 NOV 2024.',
-    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी को उन्नत दिशात्मक स्थापन (प्लेसमेंट) पाठ्यक्रम पूर्णता पर प्रदान किया गया मूल फोटो प्रमाण-पत्र (REG NO: A-G 62)।',
+    descriptionHi: 'डॉ. रोहित गड़करी द्वारा 23 नवंबर 2024 को दिया गया मूल सर्टिफिकेट (Reg: A-G 62), जो सही दिशा और उपायों के प्लेसमेंट को प्रमाणित करता है।',
     tags: ['Advance Placement', 'Dr. Rohit Gadkari', 'REG: A-G 62', 'ISO-9001:2015']
   },
   {
     id: 'p_watch_victorinox',
     titleEn: 'Precision Therapy Watches Exhibition — Victorinox Gold & Royal Azure Edition',
-    titleHi: 'विशेष थेरेपी घड़ियों का प्रदर्शन — विक्टोरिनॉक्स 18K गोल्ड एवं रॉयल ब्लू',
+    titleHi: 'विक्टोरिनॉक्स 18K गोल्ड व रॉयल ब्लू थेरेपी वॉच',
     category: 'watches',
     categoryLabel: 'Therapy Watches',
     imageUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
-    descriptionEn: 'Consecrated Victorinox 18K Gold & Royal Azure Blue Precision Therapy Watch personally energized by Numerologist & Healer · Randhir Singh. Engineered with a sunburst cosmic dial, central Golden Om (ॐ) mandala, "NUMEROLOGY GUIDANCE" and "HEALING ENERGY POSITIVITY" sacred inscriptions, Master Number 22 date aperture, and a divine golden blooming lotus at 6 o\'clock. Calibrated to transmit steady wealth vibration, career promotion, and mental clarity through the radial artery pulse meridian.',
-    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा सिद्ध एवं प्राण-प्रतिष्ठित विक्टोरिनॉक्स 18K स्वर्ण व डीप रॉयल ब्लू थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, "न्यूमेरोलॉजी गाइडेंस" एवं "हीलिंग एनर्जी पॉजिटिविटी" महामंत्र, मास्टर नंबर 22 दिनांक चक्र, और 6 बजे दिव्य स्वर्ण कमल पुष्प अंकित है।',
+    descriptionEn: 'Consecrated Victorinox 18K Gold & Royal Azure Blue Precision Therapy Watch personally energized by Numerologist & Healer · Randhir Singh. Engineered with a sunburst cosmic dial, central Golden Om (ॐ) mandala, "NUMEROLOGY GUIDANCE" and "HEALING ENERGY POSITIVITY" divine inscriptions, Master Number 22 date aperture, and a divine golden blooming lotus at 6 o\'clock. Calibrated to transmit steady wealth vibration, career promotion, and mental clarity through the radial artery pulse meridian.',
+    descriptionHi: 'रणधीर सिंह जी द्वारा तैयार विक्टोरिनॉक्स 18K गोल्ड और रॉयल ब्लू थेरेपी वॉच। डायल पर स्वर्ण ॐ यंत्र, सुरक्षा मंत्र, लकी नंबर 22 और कमल का फूल बना है।',
     tags: ['Therapy Watches', 'Victorinox Gold & Blue', 'Om Mandala', 'Master Number 22', 'Radial Pulse']
   },
   {
     id: 'p_watch_pearl_gold',
     titleEn: 'Watch Dial Diagnostic Station — Consecrated Victorinox Pearl White & 18K Gold Edition',
-    titleHi: 'घड़ी डायल डायग्नोस्टिक स्टेशन — विक्टोरिनॉक्स पर्ल व्हाइट एवं 18K स्वर्ण थेरेपी वॉच',
+    titleHi: 'विक्टोरिनॉक्स पर्ल व्हाइट व 18K गोल्ड थेरेपी वॉच',
     category: 'watches',
     categoryLabel: 'Therapy Watches',
     imageUrl: '/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png',
-    descriptionEn: 'Numerologist & Healer · Randhir Singh’s bespoke Victorinox precision diagnostic therapy watch crafted in solid 18K yellow gold with a pristine ceramic pearl white bezel and textured white Guilloche dial. Features a sacred central Golden Om (ॐ) 12-petal yantra mandala, dual protective inscriptions "NUMEROLOGY GUIDANCE" & "HEALING ENERGY POSITIVITY", Master Number 22 date aperture at 6 o’clock, and an auspicious golden blooming lotus.',
-    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा प्राण-प्रतिष्ठित विक्टोरिनॉक्स 18K स्वर्ण एवं शुद्ध पर्ल व्हाइट सिरेमिक थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, "न्यूमेरोलॉजी गाइडेंस" एवं "हीलिंग एनर्जी पॉजिटिविटी" महामंत्र, 6 बजे मास्टर नंबर 22 दिनांक विंडो और दिव्य स्वर्ण कमल पुष्प स्थापित है।',
+    descriptionEn: 'Numerologist & Healer · Randhir Singh’s bespoke Victorinox precision diagnostic therapy watch crafted in solid 18K yellow gold with a pristine ceramic pearl white bezel and textured white Guilloche dial. Features a divine central Golden Om (ॐ) 12-petal yantra mandala, dual protective inscriptions "NUMEROLOGY GUIDANCE" & "HEALING ENERGY POSITIVITY", Master Number 22 date aperture at 6 o’clock, and an auspicious golden blooming lotus.',
+    descriptionHi: 'विक्टोरिनॉक्स 18K गोल्ड और व्हाइट सिरेमिक थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, सुरक्षा मंत्र और कमल का निशान है।',
     tags: ['Watch Diagnostic', 'Pearl White & Gold', 'Om Mandala', 'Master Number 22', 'Radial Pulse']
   },
   {
     id: 'p_graduation_tassel',
     titleEn: 'Proud Graduation Portrait with Golden Tassel',
-    titleHi: 'दीक्षांत उपाधि पोर्ट्रेट — स्वर्ण फुंदने के साथ',
+    titleHi: 'ग्रेजुएशन पोर्ट्रेट — गोल्डन कैप के साथ',
     category: 'convocation',
     categoryLabel: 'Convocation',
-    imageUrl: '/assets/about/proud-graduation-portrait-golden-tassel.svg',
+    imageUrl: '/assets/about/Certificate Celebration Ceremony.png',
     descriptionEn: 'Ceremonial graduation portrait wearing the black doctoral convocation gown, formal suit with tie clip, and mortarboard cap with radiant golden yellow tassel.',
-    descriptionHi: 'भव्य दीक्षांत समारोह गाउन, सूट, टाई क्लिप एवं सुनहरे पीले फुंदने से सुशोभित कैप में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह का गौरवशाली उपाधि चित्र।',
+    descriptionHi: 'दीक्षांत समारोह के काले गाउन, फॉर्मल सूट और गोल्डन कैप में रणधीर सिंह जी की यादगार फोटो।',
     tags: ['Golden Tassel', 'Graduation Robe', 'Convocation 2024']
   },
   {
     id: 'p_collage_wall',
     titleEn: 'Man Presenting a Portrait Collage Wall of Scholars',
-    titleHi: 'विद्वत दीवार प्रदर्शन — साथी अंक शास्त्रियों के साथ',
+    titleHi: 'साथी न्यूमेरोलॉजिस्ट्स की फोटो वॉल',
     category: 'portraits',
     categoryLabel: 'Scholars Wall',
     imageUrl: '/assets/about/randhir-singh-collage-wall.svg',
     descriptionEn: 'Numerologist & Healer · Randhir Singh in tailored black two-piece suit and patterned blue silk tie presenting the commemorative tree wall featuring certified numerology leaders across India.',
-    descriptionHi: 'काले औपचारिक सूट व नीली सिल्क टाई में अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह, भारत भर के प्रमाणित अंक शास्त्रियों की ज्ञान-वृक्ष स्मृति दीवार का भावपूर्ण प्रदर्शन करते हुए।',
+    descriptionHi: 'काले सूट में रणधीर सिंह जी, भारत भर के सर्टिफाइड न्यूमेरोलॉजिस्ट्स की वॉल दिखाते हुए।',
     tags: ['Community Wall', 'Black Suit', 'Fellow Numerologists']
   },
   {
     id: 'p_convocation_speech',
     titleEn: 'Numerologists’ Mega Convocation Speech — Radisson Blu Keynote',
-    titleHi: 'द्वितीय महा दीक्षांत व्याख्यान — रैडिसन ब्लू नई दिल्ली',
+    titleHi: 'रैडिसन ब्लू में मुख्य भाषण — 2nd मेगा कन्वोकेशन',
     category: 'convocation',
     categoryLabel: 'Convocation Keynote',
     imageUrl: '/assets/about/numerologists-mega-convocation-speech.svg',
     descriptionEn: 'Numerologist & Healer · Randhir Singh delivering the keynote address on pulse vibration and subconscious numerology at the 2nd Mega Convocation on 16th June 2024 at Radisson Blu, New Delhi.',
-    descriptionHi: '16 जून 2024 को रैडिसन ब्लू, नई दिल्ली में आयोजित द्वितीय महा दीक्षांत समारोह के मंच से कलाई स्पंदन एवं अंक ज्योतिष पर मुख्य व्याख्यान प्रस्तुत करते हुए।',
+    descriptionHi: '16 जून 2024 को रैडिसन ब्लू, नई दिल्ली में आयोजित मेगा कन्वोकेशन में कलाई घड़ी और न्यूमेरोलॉजी पर मुख्य भाषण देते हुए।',
     tags: ['Radisson Blu', 'Keynote Speech', '16 June 2024', 'Convocation']
   },
   {
     id: 'p_podium_address',
     titleEn: 'Randhir Singh at the Numerologists’ Convocation Podium',
-    titleHi: 'अंक ज्योतिषी सम्मेलन मंच — मुख्य वक्ता उद्बोधन',
+    titleHi: 'कॉन्फ्रेंस मंच पर भाषण (8 जून 2024)',
     category: 'convocation',
     categoryLabel: 'Convocation Podium',
     imageUrl: '/assets/about/randhir-singh-at-convocation-podium.svg',
     descriptionEn: 'Numerologist & Healer · Randhir Singh addressing international delegates with golden nameplate pinned to his suit lapel, speaking on the historic 2nd Mega Convocation stage in New Delhi.',
-    descriptionHi: 'सूट लैपल पर रणधीर सिंह नेमप्लेट के साथ पोडियम से देश-विदेश से पधारे अंक ज्योतिष शोधार्थियों एवं साधकों को संबोधित करते हुए।',
+    descriptionHi: 'नई दिल्ली में आयोजित राष्ट्रीय सम्मेलन के मंच से देश-विदेश के लोगों को संबोधित करते हुए रणधीर सिंह जी।',
     tags: ['Podium Speech', 'Nameplate', 'New Delhi Convention']
   },
   {
     id: 'p_excellence_celebration',
     titleEn: 'Certificate of Excellence Celebration on Stage',
-    titleHi: 'सर्टिफिकेट ऑफ एक्सीलेंस उत्सव मंच',
+    titleHi: 'सर्टिफिकेट ऑफ एक्सीलेंस — स्टेज पर सम्मान',
     category: 'awards',
     categoryLabel: 'Excellence Award',
     imageUrl: '/assets/about/certificate-of-excellence-celebration.svg',
     descriptionEn: 'Celebrating the conferral of the prestigious Certificate of Excellence on stage alongside distinguished colleagues and faculty mentors.',
-    descriptionHi: 'मंच पर प्रख्यात विद्वानों एवं गुरुजनों के साथ सर्टिफिकेट ऑफ एक्सीलेंस (उत्कृष्टता प्रमाण-पत्र) प्राप्त कर आनंद साझा करते हुए।',
+    descriptionHi: 'मंच पर वरिष्ठ गुरुजनों और साथियों के साथ सर्टिफिकेट ऑफ एक्सीलेंस (उत्कृष्टता सम्मान) प्राप्त करते हुए।',
     tags: ['Certificate of Excellence', 'Stage Felicitation', 'Distinction']
   },
   {
     id: 'p_completion_ceremony',
     titleEn: 'Certificate Celebration Ceremony with Faculty',
-    titleHi: 'प्रमाण-पत्र वितरण उत्सव — संकाय सदस्यों के साथ',
+    titleHi: 'सर्टिफिकेट सेरेमनी — टीचर्स और मेंटर्स के साथ',
     category: 'awards',
     categoryLabel: 'Ceremony',
-    imageUrl: '/assets/about/certificate-celebration-ceremony.svg',
+    imageUrl: '/assets/about/Certificate Celebration Ceremony.png',
     descriptionEn: 'Felicitation ceremony presenting certificates under stage illuminations and floral garlands, acknowledging supreme proficiency in Vedic occult sciences.',
-    descriptionHi: 'दीक्षांत मंच पर पुष्पमालाओं एवं मंच प्रकाश के बीच वरिष्ठ आचार्यों के साथ दीक्षांत प्रमाणपत्र वितरण उत्सव का गरिमामय दृश्य।',
+    descriptionHi: 'समारोह के मंच पर टीचर्स और साथी मेंटर्स के साथ नेशनल स्किल सर्टिफिकेट लेते हुए रणधीर सिंह जी।',
     tags: ['Ceremony', 'Faculty Felicitation', 'Occult Science']
   },
   {
     id: 'p_cert_advance_numerology',
     titleEn: 'Advance Numerology Course Certificate of Completion (Reg: G-65)',
-    titleHi: 'उन्नत अंक ज्योतिष पाठ्यक्रम पूर्णता प्रमाण-पत्र (परामर्श अधिकृत)',
+    titleHi: 'एडवांस न्यूमेरोलॉजी कोर्स सर्टिफिकेट (Reg: G-65)',
     category: 'certificates',
     categoryLabel: 'Official Credential',
     imageUrl: '/assets/certificates/certificate-advance-numerology.svg',
     descriptionEn: 'Official Certificate of Completion awarded to Mr. RANDHIR SINGH JI for successfully undergoing the Advance Numerology Course under Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist), accredited under DD Consultants, UDYAM-GJ-22-0158332 and ISO-9001:2015.',
-    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा रणधीर सिंह जी को उन्नत अंक ज्योतिष पाठ्यक्रम पूर्ण करने पर प्रदान किया गया अधिकृत पूर्णता प्रमाण पत्र (पंजीकरण सं. G-65)।',
+    descriptionHi: 'डॉ. रोहित गड़करी द्वारा रणधीर सिंह जी को एडवांस न्यूमेरोलॉजी कोर्स पूरा करने पर दिया गया ऑफिशियल सर्टिफिकेट (Reg: G-65)।',
     tags: ['Reg G-65', 'Advance Numerology', 'DD Consultants', 'Dr. Rohit Gadkari']
   },
   {
     id: 'p_cert_advanced_wristwatch',
     titleEn: 'Advanced Wrist Watch Course Certificate of Achievement (Reg: A-H 44)',
-    titleHi: 'उन्नत कलाई घड़ी (रिस्ट वॉच) विश्लेषण उपलब्धि प्रमाण-पत्र',
+    titleHi: 'एडवांस रिस्ट वॉच कोर्स सर्टिफिकेट (Reg: A-H 44)',
     category: 'certificates',
     categoryLabel: 'Horology Credential',
     imageUrl: '/assets/certificates/certificate-advanced-wristwatch.svg',
     descriptionEn: 'Certificate of Achievement acknowledging and honoring Randhir Singh for successfully completing the Advanced Wrist Watch Course on 24 NOV 2024 under Dr. Rohit Gadkari (REG NO: A-H 44).',
-    descriptionHi: 'डॉ. रोहित गड़करी द्वारा 24 नवंबर 2024 को प्रदान किया गया कलाई घड़ी विश्लेषण उपलब्धि प्रमाण पत्र (REG NO: A-H 44)।',
+    descriptionHi: 'डॉ. रोहित गड़करी द्वारा 24 नवंबर 2024 को दिया गया कलाई घड़ी (रिस्ट वॉच) एनालिसिस का उपलब्धि सर्टिफिकेट (Reg: A-H 44)।',
     tags: ['Reg A-H 44', 'Advanced Wrist Watch', 'Radial Pulse', 'Dr. Rohit Gadkari']
   },
   {
     id: 'p_cert_advance_name_correction',
     titleEn: 'Advance Name Correction Course Certificate (Reg: A-F 55)',
-    titleHi: 'उन्नत नाम सुधार (नेम करेक्शन) पाठ्यक्रम अधिकृत प्रमाण-पत्र',
+    titleHi: 'एडवांस नेम करेक्शन कोर्स सर्टिफिकेट (Reg: A-F 55)',
     category: 'certificates',
     categoryLabel: 'Name Frequency',
     imageUrl: '/assets/certificates/certificate-advance-name-correction.svg',
     descriptionEn: 'Official Credential acknowledging and honoring Randhir Singh for successfully completing the Advance Name Correction Course on 22 NOV 2024 under Dr. Rohit Gadkari (REG NO: A-F 55).',
-    descriptionHi: 'डॉ. रोहित गड़करी द्वारा 22 नवंबर 2024 को प्रदत्त उन्नत नाम सुधार पाठ्यक्रम प्रमाण पत्र (REG NO: A-F 55)।',
+    descriptionHi: 'डॉ. रोहित गड़करी द्वारा 22 नवंबर 2024 को दिया गया नाम सुधार (नेम करेक्शन) कोर्स का ऑफिशियल सर्टिफिकेट (Reg: A-F 55)।',
     tags: ['Reg A-F 55', 'Name Correction', 'Chaldean', 'Dr. Rohit Gadkari']
   },
   {
@@ -208,9 +208,9 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     titleHi: 'विक्टोरिनॉक्स 18K गोल्ड स्विस डाइव वॉच (रॉयल ब्लू डायल)',
     category: 'watches',
     categoryLabel: 'Swiss Dive Watch',
-    imageUrl: '/assets/watches/victorinox-swiss-dive-watch-gold.svg',
+    imageUrl: '/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png',
     descriptionEn: 'Victorinox Swiss Dive Watch in solid 18K yellow gold casing and bracelet with deep azure ceramic rotating bezel, horizontal textured blue dial, Swiss Made automatic movement, and Master Date aperture at 6 o’clock.',
-    descriptionHi: 'विक्टोरिनॉक्स स्विस डाइव वॉच — 18K येलो गोल्ड केस व ब्रेसलेट, डीप अज़ूर सिरेमिक बेज़ल, हॉरिजॉन्टल टेक्सचर्ड ब्लू डायल और 6 बजे दिनांक विंडो युक्त उत्कृष्ट स्विस घड़ी।',
+    descriptionHi: 'विक्टोरिनॉक्स स्विस डाइव वॉच — 18K येलो गोल्ड केस व ब्रेसलेट, ब्लू बेज़ल, टेक्सचर्ड ब्लू डायल और 6 बजे डेट विंडो युक्त उत्कृष्ट स्विस घड़ी।',
     tags: ['18K Gold Case', 'Azure Bezel', 'Swiss Made', 'Dive Watch']
   },
   {
@@ -219,9 +219,9 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     titleHi: 'विक्टोरिनॉक्स स्विस स्टेनलेस स्टील वॉच (क्लासिक ब्लू डायल)',
     category: 'watches',
     categoryLabel: 'Stainless Steel Edition',
-    imageUrl: '/assets/watches/victorinox-swiss-dive-watch-steel.svg',
+    imageUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
     descriptionEn: 'Classic Victorinox Swiss dive watch with solid brushed stainless steel case and 3-link bracelet, deep navy rotating dive bezel, luminous hands, and date at 6 o’clock. The baseline diagnostic standard for pulse and horological balance.',
-    descriptionHi: 'सॉलिड ब्रश स्टेनलेस स्टील केस व 3-लिंक ब्रेसलेट, डीप नेवी रोटेटिंग बेज़ल एवं ल्यूमिनस हैंड्स युक्त विक्टोरिनॉक्स स्विस डाइव घड़ी।',
+    descriptionHi: 'स्टेनलेस स्टील केस व ब्रेसलेट, नेवी बेज़ल एवं ल्यूमिनस हैंड्स युक्त विक्टोरिनॉक्स स्विस घड़ी, जो पल्स और समय संतुलन का बेहतरीन आधार है।',
     tags: ['Stainless Steel', 'Navy Bezel', 'Swiss Army', 'Luminescent']
   }
 ];
@@ -230,7 +230,7 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
   {
     id: 'v_convocation',
     titleEn: '2nd Mega Convocation Keynote: "Number of Numerologists to Explore the World"',
-    titleHi: 'द्वितीय विशाल दीक्षांत समारोह: "दुनिया भर में अंक ज्योतिष का प्रसार"',
+    titleHi: '2nd मेगा कन्वोकेशन में मुख्य भाषण: अंक ज्योतिष का प्रसार',
     category: 'convocation',
     categoryLabel: 'Convocation Keynote Video',
     duration: '28:50 mins',
@@ -238,46 +238,46 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     thumbnailUrl: '/assets/about/numerologists-mega-convocation-speech.svg',
     embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     descriptionEn: 'Live recorded address by Numerologist & Healer · Randhir Singh from the podium at Radisson Blu (16th June 2024). Inspiring hundreds of certified numerologists on ethics, karmic alignment, and global outreach.',
-    descriptionHi: '16 जून 2024, रेडिसन ब्लू से लाइव रिकॉर्डेड मुख्य व्याख्यान: सैकड़ों प्रमाणित अंक शास्त्रियों को संबोधित करते हुए कर्म सिद्धांत, सत्यनिष्ठा और वैश्विक प्रसार का संदेश।',
+    descriptionHi: '16 जून 2024, रेडिसन ब्लू से लाइव रिकॉर्डेड भाषण: सैकड़ों सर्टिफाइड न्यूमेरोलॉजिस्ट्स को संबोधित करते हुए सही मार्गदर्शन, ईमानदारी और सेवा का संदेश।',
     keyTakeaways: [
-      'The sacred duty of a numerologist: guiding human destiny without fear-mongering',
-      'Why modern business leaders urgently require vibrational watch analysis and date balancing',
-      'The global roadmap for Vedic and Lo-Shu consciousness across 24 world languages'
+      'The divine duty of a numerologist: guiding people with care and truth',
+      'Why modern business leaders benefit from wristwatch analysis and date balancing',
+      'The global roadmap for Vedic and Lo-Shu numerology across world languages'
     ]
   },
   {
     id: 'v_excellence',
     titleEn: 'Grand Certificate Conferral & Excellence Felicitation Ceremony',
-    titleHi: 'भव्य प्रमाण-पत्र वितरण एवं प्रतिभा सम्मान समारोह',
+    titleHi: 'सर्टिफिकेट वितरण एवं सम्मान समारोह',
     category: 'convocation',
     categoryLabel: 'Ceremony Highlights',
     duration: '21:18 mins',
     views: '42K+ Views',
-    thumbnailUrl: '/assets/about/certificate-celebration-ceremony.svg',
+    thumbnailUrl: '/assets/about/Certificate Celebration Ceremony.png',
     embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     descriptionEn: 'Highlights of the Advance Placement and Certificate of Excellence conferrals, felicitation of top performing practitioners, flower showers, and convocation blessings.',
-    descriptionHi: 'उन्नत दिशात्मक स्थापन (प्लेसमेंट) पूर्णता प्रमाण पत्र एवं एक्सीलेंस अवॉर्ड्स का गरिमामय वितरण, मंच अलंकरण और साधकों को आशीर्वाद।',
+    descriptionHi: 'एडवांस प्लेसमेंट सर्टिफिकेट और एक्सीलेंस अवॉर्ड्स का वितरण, स्टेज पर सम्मान और मेंटर्स का आशीर्वाद।',
     keyTakeaways: [
       'Official credentials presentation to practitioners who mastered the 3x3 Lo-Shu matrix',
       'Case study demonstrations on correcting chronic life obstacles through name vibrations',
-      'Oath of sacred confidentiality and ethical counseling taken by certified healers'
+      'Oath of complete confidentiality and honest counseling taken by certified healers'
     ]
   },
   {
     id: 'v1',
-    titleEn: 'The Science of Watch Analysis & Therapy Watches',
-    titleHi: 'वॉच एनालिसिस और थेरेपी घड़ियों का रहस्य',
+    titleEn: 'Watch Analysis & Therapeutic Watch Consultation Masterclass',
+    titleHi: 'घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श',
     category: 'watch',
     categoryLabel: 'Specialty Masterclass',
     duration: '18:42 mins',
     views: '24K+ Views',
     thumbnailUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
     embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
-    descriptionEn: 'Numerologist & Healer · Randhir Singh reveals how your wristwatch dial geometry, colors, and radial artery contact subtly influence your financial income, career promotions, and sleep.',
-    descriptionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह द्वारा विस्तृत व्याख्या: कलाई की घड़ी आपकी नब्ज और अवचेतन मन से जुड़कर किस प्रकार करियर में गति या रुकावट लाती है।',
+    descriptionEn: 'Numerologist & Healer · Randhir Singh explains how your wristwatch build, dial geometry, colors, and numbers connect to your personal habits, mindset, and life direction.',
+    descriptionHi: 'आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है। इस विशेष वीडियो में घड़ी की मजबूती, आकार, डिज़ाइन, रंग, डायल और अंकों की संरचना का विश्लेषण समझें।',
     keyTakeaways: [
-      'Why round dials promote harmony while octagonal dials unlock multidirectional wealth',
-      'The silent damage of wearing a stopped or scratched watch',
+      'Understanding how dial shape and colors reflect your personal mindset and daily focus',
+      'The silent damage of wearing a stopped, broken or scratched watch',
       'Active (Right) vs Receptive (Left) wrist polarity dynamics'
     ]
   },
@@ -292,7 +292,7 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     thumbnailUrl: '/assets/about/randhir-singh-collage-wall.svg',
     embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     descriptionEn: 'Step-by-step masterclass explaining the 8 planes of consciousness, Mulank (Driver), Bhagyank (Conductor), and the Golden Raj Yoga (4-5-6).',
-    descriptionHi: 'मूलांक, भाग्यांक, 8 प्लेन्स (माइंड, हार्ट, प्रैक्टिकल) तथा 4-5-6 गोल्डन राजयोग की संपूर्ण गणना और व्यावहारिक उपाय।',
+    descriptionHi: 'मूलांक, भाग्यांक, 8 प्लेन्स (माइंड, हार्ट, प्रैक्टिकल) तथा 4-5-6 गोल्डन राजयोग की पूरी गणना और आसान उपाय।',
     keyTakeaways: [
       'How to calculate your exact Driver and Conductor numbers in seconds',
       'Identifying which elemental planes are active or dormant in your life',
@@ -302,7 +302,7 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
   {
     id: 'v3',
     titleEn: 'Himalayan Salt Cleansing Ritual: Step-by-Step Guide',
-    titleHi: 'हिमालयन रॉक सॉल्ट पाद-स्नान एवं औरा शुद्धि विधि',
+    titleHi: 'सेंधा नमक से औरा शुद्धि और आसान विधि',
     category: 'salt',
     categoryLabel: 'Holistic Ritual',
     duration: '14:10 mins',
@@ -310,17 +310,17 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     thumbnailUrl: '/assets/aistudio/Card-Back_682c94ca.jpg',
     embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     descriptionEn: 'Learn the exact authentic technique of the evening Himalayan Rock Salt foot soak (Padabhyanga) to drain emotional fatigue and negative static.',
-    descriptionHi: 'संध्याकाल में सेंधा नमक द्वारा पाद-प्रक्षालन स्नान का संपूर्ण विधान, जो मानसिक तनाव व बुरी नजर को तुरंत समाप्त करता है।',
+    descriptionHi: 'शाम को सेंधा नमक के गुनगुने पानी में पैर रखने (फुट सोक) का आसान तरीका, जो पूरे दिन का तनाव और नेगेटिविटी दूर करता है।',
     keyTakeaways: [
       'Correct proportion of rock salt to warm water',
-      'Mindful intention setting to discharge static nervous tension',
+      'Simple intention to clear stress and heavy thoughts',
       'Why salt mopping must never be performed on Thursdays'
     ]
   },
   {
     id: 'v4',
     titleEn: 'Crystals for Wealth & Career: Pyrite, Citrine & Aventurine',
-    titleHi: 'व्यापार व करियर वृद्धि हेतु चमत्कारी क्रिस्टल्स',
+    titleHi: 'व्यापार व करियर में तरक्की के लिए लकी क्रिस्टल्स',
     category: 'crystals',
     categoryLabel: 'Crystal Therapy',
     duration: '16:30 mins',
@@ -328,11 +328,11 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     thumbnailUrl: '/assets/about/proud-convocation-achievement-delhi.svg',
     embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     descriptionEn: 'A guide to authentic raw crystals for entrepreneurs and professionals. How to cleanse with dry salt, charge with sunlight, and wear on the correct wrist.',
-    descriptionHi: 'व्यापारियों और नौकरीपेशा साधकों के लिए पाइराइट, सिट्रीन एवं ग्रीन एवेंट्यूरिन की प्राण-प्रतिष्ठा एवं सही हाथ में धारण करने का नियम।',
+    descriptionHi: 'बिजनेस और नौकरी करने वालों के लिए पाइराइट, सिट्रीन और ग्रीन एवेंट्यूरिन को साफ करने, धूप में चार्ज करने और सही हाथ में पहनने के नियम।',
     keyTakeaways: [
       'How Pyrite cluster attracts sales orders and prevents financial leakage',
-      'Activating your solar plexus chakra for decisive executive authority',
-      'Step-by-step method to cleanse crystals without chemical damage'
+      'Activating confidence and clarity for strong decision making',
+      'Step-by-step method to cleanse crystals safely at home'
     ]
   }
 ];

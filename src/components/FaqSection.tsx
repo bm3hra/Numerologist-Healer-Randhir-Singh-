@@ -19,36 +19,36 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'booking',
     categoryLabel: 'Online Consultations',
     questionEn: 'How do online consultations with Numerologist & Healer · Randhir Singh work?',
-    questionHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह के साथ ऑनलाइन परामर्श कैसे आयोजित होते हैं?',
-    answerEn: 'All sessions are conducted seamlessly via high-definition Google Meet, Zoom, or WhatsApp video call. You receive an instant confirmation and preparation guide once booked. Distance does not diminish the accuracy or potency of spiritual and numerological consultations.',
-    answerHi: 'सभी सत्र हाई-डेफिनिशन गूगल मीट, ज़ूम या व्हाट्सएप वीडियो कॉल द्वारा आयोजित होते हैं। बुकिंग के तुरंत बाद पुष्टि और तैयारी निर्देश प्राप्त होते हैं। दूरी आध्यात्मिक एवं अंक ज्योतिषीय परामर्श की प्रभावशीलता को कम नहीं करती।'
+    questionHi: 'रणधीर सिंह जी के साथ ऑनलाइन कंसल्टेशन कैसे होता है?',
+    answerEn: 'All sessions are conducted seamlessly via Google Meet, Zoom, or WhatsApp video call. You receive an instant confirmation and preparation guide once booked. Distance does not reduce the accuracy or benefits of spiritual and numerology guidance.',
+    answerHi: 'सभी सेशन गूगल मीट, ज़ूम या व्हाट्सएप वीडियो कॉल पर आसानी से होते हैं। बुकिंग के तुरंत बाद आपको समय और जरूरी जानकारी मिल जाती है। दूरी से आपके मार्गदर्शन या उपायों पर कोई फर्क नहीं पड़ता।'
   },
   {
     id: 'c2',
     category: 'numerology',
     categoryLabel: 'Vedic Numerology',
     questionEn: 'What details are needed for a Vedic Numerology reading?',
-    questionHi: 'वैदिक अंक ज्योतिष परामर्श के लिए किन जानकारियों की आवश्यकता होती है?',
-    answerEn: 'Only your exact Date of Birth (Day, Month, Year) and the official spelling of your full name. Unlike astrology, exact birth time is not required, making numerological readings accessible and accurate for everyone.',
-    answerHi: 'केवल आपकी सटीक जन्म तिथि (दिन, माह, वर्ष) और आपके पूरे नाम की वर्तनी। ज्योतिष के विपरीत, अंक गणना हेतु जन्म समय अनिवार्य नहीं है।'
+    questionHi: 'अंक ज्योतिष (न्यूमेरोलॉजी) के लिए क्या-क्या जानकारी चाहिए?',
+    answerEn: 'Only your exact Date of Birth (Day, Month, Year) and the spelling of your full name. Unlike astrology, exact birth time is not required, making numerological readings accessible and accurate for everyone.',
+    answerHi: 'सिर्फ आपकी सही जन्मतिथि (दिन, महीना, साल) और आपके नाम की सही स्पेलिंग। ज्योतिष की तरह इसमें जन्म के सही समय की जरूरत नहीं होती, इसलिए यह सबके लिए आसान और सटीक है।'
   },
   {
     id: 'c3',
     category: 'ethics',
     categoryLabel: 'Intuitive Tarot',
     questionEn: 'What is the difference between Tarot and Fortune Telling?',
-    questionHi: 'टैरो कार्ड रीडिंग और भविष्य कथन (Fortune Telling) में क्या अंतर है?',
-    answerEn: 'Fortune telling implies rigid fatalism, whereas intuitive Tarot is a sacred mirror reflecting subconscious patterns, energetic crossroads, and empowered choices to help you shape your destiny with conscious clarity.',
-    answerHi: 'भविष्य कथन एक पूर्वनिर्धारित भाग्य का दावा करता है, जबकि अंतर्ज्ञानी टैरो आपके अवचेतन मन और ऊर्जावान चौराहों का पावन दर्पण है, जो आपको सचेत निर्णयों से अपना भविष्य संवारने में समर्थ बनाता है।'
+    questionHi: 'टैरो कार्ड रीडिंग और भविष्य बताने में क्या फर्क है?',
+    answerEn: 'Fortune telling claims everything is rigidly fixed, whereas intuitive Tarot is a mirror reflecting your energy patterns and choices, empowering you to shape your future with clarity.',
+    answerHi: 'भविष्य बताना यह कहता है कि सब कुछ पहले से तय है, जबकि टैरो कार्ड आपके मन, ऊर्जा और सही फैसले लेने का रास्ता दिखाते हैं ताकि आप अपना भविष्य खुद बेहतर बना सकें।'
   },
   {
     id: 'c4',
     category: 'salt_crystal',
     categoryLabel: 'Distance Healing',
     questionEn: 'Can Energy Healing work remotely?',
-    questionHi: 'क्या ऊर्जा उपचार (Energy Healing) दूर बैठकर भी प्रभावी रूप से कार्य कर सकता है?',
-    answerEn: 'Yes, completely. In quantum and Pranic energy sciences, subtle consciousness and life prana transcend physical space. Remote sessions channel focused intentional frequency and chakra rebalancing without physical touch.',
-    answerHi: 'हाँ, शत-प्रतिशत। क्वांटम और प्राणिक ऊर्जा विज्ञान में प्राण और चेतना भौतिक दूरी से परे कार्य करते हैं। दूरस्थ सत्रों द्वारा चक्र संतुलन और मानसिक शांति समान प्रभाव से प्राप्त होती है।'
+    questionHi: 'क्या दूर बैठे भी एनर्जी हीलिंग काम करती है?',
+    answerEn: 'Yes, completely. In Pranic energy healing, life prana transcends physical distance. Remote sessions balance your chakras and calm your anxiety without needing to be physically present.',
+    answerHi: 'हाँ, बिल्कुल। प्राणिक ऊर्जा और हीलिंग में दूरी कोई रुकावट नहीं होती। डिस्टेंस हीलिंग से आपके चक्रों का संतुलन और मन को गहरी शांति आसानी से मिलती है।'
   },
 
   // Booking & Process
@@ -57,27 +57,27 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'booking',
     categoryLabel: 'Booking & Consultations',
     questionEn: 'How does the consultation session work, and can I consult from outside Jaipur / internationally?',
-    questionHi: 'परामर्श सत्र कैसे आयोजित होता है और क्या मैं जयपुर से बाहर या विदेश से भी परामर्श ले सकता हूँ?',
-    answerEn: 'Yes, absolutely. We serve clients across Jaipur, all states of India, and internationally (USA, UK, Canada, UAE, Australia, etc.). Consultations are held either in-person at our Jaipur Spiritual Clinic (H.No. 45, Mahadev Nagar, Jagatpura, PIN- 302017) or via high-definition 1-on-1 WhatsApp video/audio call. Both formats offer the exact same personalized analysis, live chart calculation, and remedy guidance.',
-    answerHi: 'हाँ, बिल्कुल। हम जयपुर, पूरे भारत एवं विदेशों (अमेरिका, ब्रिटेन, कनाडा, यूएई, ऑस्ट्रेलिया आदि) के साधकों को परामर्श प्रदान करते हैं। आप हमारे जयपुर केंद्र (जगतपुरा) में प्रत्यक्ष आ सकते हैं अथवा 1-ऑन-1 व्हाट्सएप वीडियो/ऑडियो कॉल द्वारा घर बैठे संपूर्ण परामर्श प्राप्त कर सकते हैं।'
+    questionHi: 'कंसल्टेशन सेशन कैसे होता है? क्या मैं जयपुर से बाहर या विदेश से भी बात कर सकता हूँ?',
+    answerEn: 'Yes, absolutely. We serve clients across Jaipur, all states of India, and internationally (USA, UK, Canada, UAE, Australia, etc.). Consultations are held either in-person at our Jaipur Clinic (H.No. 45, Mahadev Nagar, Jagatpura, PIN- 302017) or via 1-on-1 WhatsApp video/audio call. Both formats offer the exact same personalized analysis, live chart calculation, and remedy guidance.',
+    answerHi: 'हाँ, बिल्कुल। हमारे क्लाइंट्स जयपुर, पूरे भारत और विदेशों (अमेरिका, यूके, कनाडा, दुबई आदि) से जुड़े हैं। आप जयपुर क्लिनिक (जगतपुरा) में आकर मिल सकते हैं या व्हाट्सएप वीडियो कॉल पर घर बैठे पूरी बात कर सकते हैं। दोनों में एक जैसी पूरी जांच और उपाय बताए जाते हैं।'
   },
   {
     id: 'b2',
     category: 'booking',
     categoryLabel: 'Booking & Consultations',
     questionEn: 'How do I claim one of the 5 FREE Sunday Consultation slots?',
-    questionHi: 'रविवार के 5 निःशुल्क परामर्श स्लॉट में से एक कैसे प्राप्त करें?',
-    answerEn: 'Every Sunday, Numerologist & Healer · Randhir Singh offers the first 5 consultations 100% FREE for 20 minutes as a sacred service. Slots are granted strictly on a first-come, first-served basis upon prior appointment. Simply click "Claim Free Sunday Slot" on this website or message on WhatsApp at +91-9509593150 with your Name and Date of Birth to secure an available time slot for the upcoming Sunday.',
-    answerHi: 'प्रत्येक रविवार प्रथम 5 परामर्श (20 मिनट) पूर्णतः निःशुल्क दिए जाते हैं। यह स्लॉट पूर्व अपॉइंटमेंट के आधार पर पहले आओ-पहले पाओ के नियम पर मिलते हैं। वेबसाइट पर "फ्री संडे स्लॉट" बटन दबाकर या व्हाट्सएप (+91-9509593150) पर अपना नाम व जन्म तिथि भेजकर अपनी सीट आरक्षित कर सकते हैं।'
+    questionHi: 'रविवार को मिलने वाले 5 फ्री स्लॉट कैसे बुक करें?',
+    answerEn: 'Every Sunday, Numerologist & Healer · Randhir Singh offers the first 5 consultations 100% FREE for 20 minutes. Slots are allocated on a first-come, first-served basis upon advance appointment. Simply click "Claim Free Sunday Slot" on this website or message on WhatsApp at +91-9509593150 with your Name and Date of Birth to secure your slot.',
+    answerHi: 'हर रविवार रणधीर सिंह जी पहले 5 लोगों को 20 मिनट का कंसल्टेशन फ्री में देते हैं। यह पहले आओ-पहले पाओ के आधार पर होता है। आप वेबसाइट पर "फ्री स्लॉट बुक करें" बटन दबाकर या व्हाट्सएप (+91-9509593150) पर अपना नाम और जन्मतिथि भेजकर बुक कर सकते हैं।'
   },
   {
     id: 'b3',
     category: 'booking',
     categoryLabel: 'Booking & Consultations',
     questionEn: 'What is the payment procedure and how do I verify my booking?',
-    questionHi: 'भुगतान की प्रक्रिया क्या है और बुकिंग की पुष्टि कैसे होती है?',
+    questionHi: 'पेमेंट कैसे करें और बुकिंग कैसे पक्की (कन्फर्म) होगी?',
     answerEn: 'You can transfer the applicable consultation fee directly via UPI (PhonePe, Google Pay, Paytm, BHIM) to our official number +91-9509593150 (Account Name: RANDHIR SINGH). Once transferred, please take a screenshot of the payment receipt and share it via WhatsApp (+91-9509593150) along with your Full Name and Date of Birth. Our team will promptly confirm your locked appointment timing.',
-    answerHi: 'आप हमारे आधिकारिक यूपीआई नंबर +91-9509593150 (खाताधारक: रणधीर सिंह) पर PhonePe, Google Pay, Paytm या BHIM द्वारा सीधे शुल्क भेज सकते हैं। इसके बाद रसीद का स्क्रीनशॉट अपने नाम और जन्म तिथि के साथ व्हाट्सएप पर साझा करें। हमारी टीम तुरंत आपका स्लॉट कन्फर्म कर देगी।'
+    answerHi: 'आप तय फीस हमारे ऑफिशियल यूपीआई नंबर +91-9509593150 (नाम: RANDHIR SINGH) पर PhonePe, Google Pay या Paytm से भेज सकते हैं। इसके बाद पेमेंट का स्क्रीनशॉट अपने नाम और जन्मतिथि के साथ व्हाट्सएप पर भेज दें। हमारी टीम तुरंत आपका समय कन्फर्म कर देगी।'
   },
 
   // Numerology & Lo-Shu
@@ -86,47 +86,47 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'numerology',
     categoryLabel: 'Numerology & Lo-Shu Grid',
     questionEn: 'Do I need my exact birth time for Numerology or only the Date of Birth?',
-    questionHi: 'क्या अंक ज्योतिष के लिए जन्म समय आवश्यक है या केवल जन्म तिथि?',
-    answerEn: 'Vedic and Lo-Shu Numerology primarily requires your exact Date of Birth (Day, Month, and Year). An exact birth time is not mandatory for calculating your Mulank (Driver), Bhagyank (Conductor), Kua Number, or the 3x3 Magic Grid. If you do know your birth time, it can provide subtle additional insights into your planetary hora.',
-    answerHi: 'वैदिक एवं लो-शू अंक ज्योतिष में केवल जन्म तिथि (दिन, माह, वर्ष) ही पर्याप्त होती है। मूलांक, भाग्यांक, कुआ अंक और 3x3 ग्रिड हेतु जन्म समय अनिवार्य नहीं है। यदि समय ज्ञात हो, तो होरा विश्लेषण में सहायक होता है।'
+    questionHi: 'क्या अंक ज्योतिष के लिए जन्म का सही समय भी चाहिए?',
+    answerEn: 'Vedic and Lo-Shu Numerology primarily requires your exact Date of Birth (Day, Month, and Year). An exact birth time is not mandatory for calculating your Mulank (Driver), Bhagyank (Conductor), Kua Number, or the 3x3 Magic Grid.',
+    answerHi: 'नहीं, सिर्फ आपकी जन्मतिथि (दिन, महीना, साल) ही काफी है। मूलांक, भाग्यांक और लो-शू ग्रिड निकालने के लिए जन्म के समय की जरूरत नहीं होती।'
   },
   {
     id: 'n2',
     category: 'numerology',
     categoryLabel: 'Numerology & Lo-Shu Grid',
     questionEn: 'What happens if I have multiple missing numbers in my Lo-Shu Grid?',
-    questionHi: 'यदि मेरे लो-शू ग्रिड में कई अंक गायब (Missing) हैं तो क्या होगा?',
-    answerEn: 'Almost every human birth chart has 2 to 4 missing numbers. Missing numbers do not mean misfortune; they merely indicate life lessons or elemental vibrations that need external supplementation. Randhir Singh Ji specializes in practical, non-invasive remedies—such as Therapy Watches, consecrated crystal combinations, specific colors, and salt rituals—that replenish the energetic balance without disruption.',
-    answerHi: 'लगभग हर व्यक्ति की जन्म तिथि में 2 से 4 अंक लुप्त होते हैं। इसका अर्थ दुर्भाग्य नहीं, बल्कि यह है कि उन विशिष्ट तत्वों की ऊर्जा को बाहरी उपायों (जैसे थेरेपी घड़ी, क्रिस्टल, विशेष रंग व सॉल्ट थेरेपी) द्वारा संतुलित करने की आवश्यकता है।'
+    questionHi: 'अगर मेरी जन्मतिथि में कुछ नंबर मिसिंग (गायब) हों, तो क्या परेशानी होगी?',
+    answerEn: 'Almost every person has 2 to 4 missing numbers in their birth chart. Missing numbers do not mean misfortune; they merely indicate areas that benefit from simple remedies—such as a suitable Therapy Watch, crystals, specific colors, and salt therapy to bring energetic balance.',
+    answerHi: 'लगभग हर इंसान की जन्मतिथि में 2 से 4 नंबर नहीं होते। इसका मतलब कोई बुरा भाग्य नहीं है। इसका सिर्फ यह मतलब है कि उन नंबरों की कमी को आसान उपायों, जैसे थेरेपी वॉच (सही घड़ी), क्रिस्टल, सही रंग और सॉल्ट थेरेपी से पूरा किया जा सकता है।'
   },
   {
     id: 'n3',
     category: 'numerology',
     categoryLabel: 'Numerology & Lo-Shu Grid',
     questionEn: 'Does a Chaldean Name Correction require legally changing my name on government IDs and passports?',
-    questionHi: 'क्या नाम सुधार (Chaldean Correction) के लिए पासपोर्ट या सरकारी दस्तावेजों में कानूनी बदलाव जरूरी है?',
-    answerEn: 'No! You do NOT need to change your official passport, Aadhaar, or bank documents. In vibrational numerology, energy responds to conscious daily repetition. You only need to use the corrected spelling in your daily signature, social media profiles, email sign-offs, business cards, and on a dedicated affirmation notebook for 21 to 45 days to align your subconscious field with the higher frequency.',
-    answerHi: 'बिल्कुल नहीं! आपको सरकारी दस्तावेजों या पासपोर्ट में कानूनी बदलाव की आवश्यकता नहीं है। सुधरे हुए नाम का उपयोग केवल दैनिक हस्ताक्षर, सोशल मीडिया, विजिटिंग कार्ड और अभ्यास डायरी में 21 से 45 दिन करने से ही अवचेतन मन उस सकारात्मक आवृत्ति को ग्रहण कर लेता है।'
+    questionHi: 'क्या नाम की स्पेलिंग बदलने के लिए आधार कार्ड या पासपोर्ट में भी बदलाव करना पड़ेगा?',
+    answerEn: 'No! You do NOT need to change your official passport, Aadhaar, or bank documents. You only need to use the corrected spelling in your daily signature, social media profiles, email sign-offs, and an affirmation notebook for 21 to 45 days to align your subconscious mind with the positive frequency.',
+    answerHi: 'बिल्कुल नहीं! आपको किसी सरकारी दस्तावेज या पासपोर्ट में नाम बदलने की जरूरत नहीं है। सुधरे हुए नाम का इस्तेमाल बस अपने रोज के सिग्नेचर, सोशल मीडिया, विजिटिंग कार्ड और डायरी में 21 से 45 दिन तक करना होता है।'
   },
 
   // Watch Analysis & Therapeutic Watch Consultation
   {
     id: 'w1',
     category: 'watch',
-    categoryLabel: 'Watch Analysis & Therapeutic Watch Consultation',
+    categoryLabel: 'Watch Analysis & Guidance',
     questionEn: 'How does a wristwatch influence my subconscious mind, career, and finances?',
-    questionHi: 'कलाई घड़ी मेरे अवचेतन मन, करियर और धन प्रवाह को कैसे प्रभावित करती है?',
-    answerEn: 'Your watch rests directly over the radial artery and wrist pulse points—the primary physiological and energetic pathway communicating continuous rhythmic micro-vibrations to the heart meridian and nervous system. The dial geometry (round, square, octagonal), metallic conductive properties, dial color frequency, and ticking tempo subtly imprint your subconscious perception of deadlines, opportunities, and financial punctuality 24 hours a day.',
-    answerHi: 'आपकी घड़ी सीधे रेडियल नाड़ी (Radial Artery) पर बंधी होती है, जो हृदय और तंत्रिका तंत्र से जुड़ी है। घड़ी का आकार (गोल, चौकोर, अष्टकोणीय), रंग और धातु हर पल आपके मस्तिष्क को संकेत भेजते हैं, जिससे समयबद्धता, निर्णय क्षमता और धन का प्रवाह निर्धारित होता है।'
+    questionHi: 'हाथ की घड़ी मेरे काम, करियर और पैसों को कैसे प्रभावित करती है?',
+    answerEn: 'Your watch rests directly over the wrist pulse points and radial artery. The dial shape (round, square), dial color, and metal send continuous signals to your subconscious mind, influencing decision-making, focus, and financial punctuality.',
+    answerHi: 'आपकी घड़ी कलाई की नाड़ी पर बंधी होती है, जो दिल और दिमाग से जुड़ी है। घड़ी का डायल (गोल या चौकोर), उसका रंग और धातु हर पल दिमाग को ऊर्जा देते हैं, जिससे समय पर सही फैसले लेने और तरक्की में मदद मिलती है।'
   },
   {
     id: 'w2',
     category: 'watch',
-    categoryLabel: 'Watch Analysis & Therapeutic Watch Consultation',
+    categoryLabel: 'Watch Analysis & Guidance',
     questionEn: 'Can I keep wearing my existing watch, or do I necessarily need a new Therapy Watch?',
-    questionHi: 'क्या मैं अपनी पुरानी घड़ी पहन सकता हूँ या नई थेरेपी वॉच लेना जरूरी है?',
-    answerEn: 'During a Watch Analysis session, Randhir Singh Ji first audits your existing watches. If your current watch’s shape, color, and metal already align with your birth grid and goals, he will simply advise minor adjustments (such as switching the wrist from left to right, replacing a worn leather strap with a metallic mesh, or activating it during an auspicious planetary Hora). A new Therapy Watch is only prescribed if your existing watch exhibits severe negative energetic friction or stops intermittently.',
-    answerHi: 'परामर्श में पहले आपकी मौजूदा घड़ियों का विश्लेषण किया जाता है। यदि वे आपके अनुकूल हैं, तो केवल कलाई बदलने (दाएं से बाएं) या पट्टा बदलने जैसे सामान्य सुझाव दिए जाते हैं। नई थेरेपी वॉच की सलाह तभी दी जाती है जब पुरानी घड़ी में भारी दोष या बार-बार रुकने की समस्या हो।'
+    questionHi: 'क्या मुझे अपनी पुरानी घड़ी बदलनी पड़ेगी या नई थेरेपी वॉच लेनी होगी?',
+    answerEn: 'During a Watch Analysis session, Randhir Singh Ji first checks your current watches. If your existing watch is already suitable, he simply recommends minor adjustments (like wearing it on the other hand or changing the strap). A new Therapy Watch is only suggested if your existing watch stops frequently or clashes with your birth numbers.',
+    answerHi: 'पहले आपकी पुरानी घड़ी की जांच की जाती है। अगर वह आपके लिए ठीक है, तो सिर्फ हाथ बदलने (दाएं से बाएं) या स्ट्रैप बदलने की सरल सलाह दी जाती है। नई घड़ी तभी सुझाई जाती है जब पुरानी घड़ी बार-बार रुकती हो या आपके अंकों के बिल्कुल विपरीत हो।'
   },
 
   // Salt & Crystal Therapy
@@ -135,27 +135,27 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'salt_crystal',
     categoryLabel: 'Salt Therapy & Crystals',
     questionEn: 'How does Negativity Removal & Salt Therapy work and can I do it at home?',
-    questionHi: 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी) कैसे कार्य करती है और क्या इसे घर पर किया जा सकता है?',
-    answerEn: 'Unprocessed Himalayan Rock Salt (Sendha Namak) and sea salt have been revered in Vedic Vastu and esoteric healing as unmatched bio-energetic absorbers of heavy atmospheric static, astral fatigue, and envy (Nazar). Yes, our DIY home rituals—such as the Himalayan Rock Salt Foot Soak and Doorway Threshold Bowls—are simple, safe, and can be done at home. For stubborn chronic disputes or heavy emotional fatigue, Numerologist & Healer · Randhir Singh also prepares specially consecrated herbal salt blends.',
-    answerHi: 'सेंधा नमक और समुद्री नमक नकारात्मक ऊर्जा और नजर दोष को सोखने का सबसे प्राकृतिक माध्यम हैं। हमारे बताए गए रॉक सॉल्ट फुट सोक और चौखट शुद्धिकरण को आप आसानी से घर पर कर सकते हैं। अधिक पुरानी परेशानियों के लिए विशेष रूप से अभिमंत्रित लवण मिश्रण भी उपलब्ध कराया जाता है।'
+    questionHi: 'सॉल्ट थेरेपी (नमक के उपाय) कैसे काम करती है और क्या इसे घर पर कर सकते हैं?',
+    answerEn: 'Himalayan Rock Salt (Sendha Namak) and sea salt naturally absorb negative energies, heavy stress, and evil eye (nazar). Yes, simple DIY rituals like rock salt foot soaks and doorway salt bowls are easy, safe, and can be done at home.',
+    answerHi: 'सेंधा नमक और समुद्री नमक घर और शरीर की सारी नकारात्मक ऊर्जा (नेगेटिव वाइब्स व नजर दोष) को सोख लेते हैं। गुनगुने पानी में नमक डालकर पैर धोना या मुख्य दरवाजे पर नमक रखना बहुत आसान है और आप इसे खुद घर पर कर सकते हैं।'
   },
   {
     id: 's2',
     category: 'salt_crystal',
     categoryLabel: 'Salt Therapy & Crystals',
     questionEn: 'Why is salt mopping strictly avoided on Thursdays?',
-    questionHi: 'गुरुवार को नमक का पोछा लगाना क्यों वर्जित माना जाता है?',
-    answerEn: 'In traditional Vedic Vastu and astrological wisdom, Thursday is ruled by Devaguru Brihaspati (Jupiter), the planet of spiritual elevation, family wisdom, and golden prosperity. Salt represents Rahu/Ketu absorbent oceanic energy, and using it on Thursday can symbolically dissipate the benevolent blessings of Jupiter in household spaces. Tuesday and Saturday are the ideal days for salt purification.',
-    answerHi: 'गुरुवार देवगुरु बृहस्पति का दिन है, जो ज्ञान, समृद्धि और परिवार के कारक हैं। नमक का संबंध राहु-केतु से माना जाता है, इसलिए गुरुवार को नमक का पोछा लगाने से गुरु का शुभ प्रभाव कम हो सकता है। यह विधान मंगलवार या शनिवार को करना सर्वोत्तम है।'
+    questionHi: 'गुरुवार को नमक का पोछा क्यों नहीं लगाना चाहिए?',
+    answerEn: 'Thursday is ruled by Jupiter (Brihaspati), the planet of wisdom and family prosperity. Salt has an absorbent energy associated with Rahu, so using salt on Thursdays can symbolically diminish the positive blessings of Jupiter. Tuesday and Saturday are the best days for salt mopping.',
+    answerHi: 'गुरुवार देवगुरु बृहस्पति का दिन है, जो सुख-समृद्धि और ज्ञान के स्वामी हैं। नमक का संबंध राहु से माना जाता है, इसलिए गुरुवार को नमक का पोछा नहीं लगाया जाता। इसके लिए मंगलवार और शनिवार का दिन सबसे अच्छा होता है।'
   },
   {
     id: 's3',
     category: 'salt_crystal',
     categoryLabel: 'Salt Therapy & Crystals',
     questionEn: 'How do I know which crystal is right for my profession (e.g. Pyrite vs Citrine vs Amethyst)?',
-    questionHi: 'मुझे कैसे पता चलेगा कि मेरे पेशे के लिए कौन सा क्रिस्टल सही है?',
-    answerEn: 'Crystals hold crystalline geometric frequencies that vibrate in resonance with specific occupational goals. For example, Pyrite & Citrine are master wealth magnets ideal for businessmen, traders, and real estate developers; Green Aventurine is favored for career interviewees and corporate promotions; Amethyst is ideal for doctors, healers, and stressed executives; while Black Tourmaline shields high-exposure professionals from psychic fatigue and digital EMF. Randhir Singh Ji provides precise matching based on your birth numbers.',
-    answerHi: 'प्रत्येक क्रिस्टल की अपनी ऊर्जा होती है। जैसे व्यापारियों के लिए पाइराइट व सिट्रीन धन और ग्राहक वृद्धि के लिए श्रेष्ठ हैं; नौकरीपेशा लोगों के लिए ग्रीन एवेंट्यूरिन; डॉक्टरों व तनावग्रस्त व्यक्तियों के लिए अमेथिस्ट (कटैला); तथा नकारात्मकता से रक्षा हेतु ब्लैक टूमलाइन उत्तम है। परामर्श में आपकी जन्म तिथि अनुसार सटीक मिलान किया जाता है।'
+    questionHi: 'मुझे कैसे पता चलेगा कि मेरे काम या बिजनेस के लिए कौन सा क्रिस्टल सही है?',
+    answerEn: 'Each crystal has a specific natural frequency. Pyrite and Citrine attract money and clients for businessmen; Green Aventurine helps job growth and interviews; Amethyst calms anxiety and stress; and Black Tourmaline protects against negativity. Randhir Singh Ji selects the right crystal matching your date of birth.',
+    answerHi: 'हर क्रिस्टल का अलग असर होता है। जैसे बिजनेस और धन के लिए पायराइट और सिट्रीन बहुत अच्छे हैं; नौकरी में तरक्की के लिए ग्रीन एवेंच्यूरिन; और मन की शांति व तनाव दूर करने के लिए एमेथिस्ट। रणधीर सिंह जी आपकी जन्मतिथि देखकर सही क्रिस्टल बताते हैं।'
   },
 
   // Ethics & Trust
@@ -164,18 +164,18 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'ethics',
     categoryLabel: 'Confidentiality & Ethics',
     questionEn: 'Is my personal information and consultation completely confidential?',
-    questionHi: 'क्या मेरी व्यक्तिगत जानकारी और परामर्श पूर्णतः गोपनीय रहेगा?',
-    answerEn: 'Yes, 100%. We adhere to strict sacred confidentiality. Your date of birth, personal questions, relationship queries, business deliberations, and session discussions are never shared, published, or stored on public servers. Your sacred space is honored with complete dignity and trust.',
-    answerHi: 'जी हाँ, शत-प्रतिशत। आपकी जन्म तिथि, पारिवारिक या व्यावसायिक बातचीत और परामर्श से जुड़ी प्रत्येक जानकारी पूर्णतः गोपनीय रखी जाती है। इसे किसी तीसरे पक्ष से कभी साझा नहीं किया जाता।'
+    questionHi: 'क्या मेरी निजी बातें और जानकारी पूरी तरह से प्राइवेट (गोपनीय) रहेंगी?',
+    answerEn: 'Yes, 100%. Your date of birth, family matters, and discussions are kept strictly private and never shared with anyone.',
+    answerHi: 'हाँ, 100% प्राइवेट। आपकी जन्मतिथि, परिवार की बातें और समस्याएं पूरी तरह गुप्त रखी जाती हैं और कभी किसी तीसरे व्यक्ति से साझा नहीं की जाती हैं।'
   },
   {
     id: 'e2',
     category: 'ethics',
     categoryLabel: 'Confidentiality & Ethics',
     questionEn: 'Do your healing sessions substitute for medical, psychiatric, or legal counsel?',
-    questionHi: 'क्या ये आध्यात्मिक परामर्श चिकित्सीय या कानूनी सलाह का विकल्प हैं?',
-    answerEn: 'No. As clearly stated in our ethical disclaimer, our numerology calculations, watch analyses, salt cleansings, and energy healing sessions are designed purely for personal reflection, spiritual insight, and conscious self-development. They do not substitute for licensed medical diagnosis, psychiatric therapy, financial auditing, or legal representation.',
-    answerHi: 'नहीं। जैसा कि हमारी आचार संहिता में स्पष्ट है, ये सत्र व्यक्तिगत आत्म-विकास, मानसिक शांति और आध्यात्मिक मार्गदर्शन के लिए हैं। यह किसी योग्य चिकित्सक, मनोचिकित्सक या कानूनी सलाहकार के परामर्श का विकल्प नहीं हैं।'
+    questionHi: 'क्या यह आध्यात्मिक सलाह डॉक्टर या कानूनी सलाह का विकल्प है?',
+    answerEn: 'No. Our numerology, watch guidance, and energy healing sessions are designed for personal clarity, self-growth, and peace of mind. They do not replace certified medical treatments, psychiatric therapy, or legal counsel.',
+    answerHi: 'नहीं। यह सलाह मन की शांति, आत्म-विश्वास और जीवन को सही दिशा देने के लिए है। यह किसी मेडिकल डॉक्टर, इलाज या कानूनी वकील का विकल्प नहीं है।'
   }
 ];
 
@@ -222,18 +222,18 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <HelpCircle className="w-3.5 h-3.5 text-amber-700" />
-            <span>Clarifications &amp; Questions</span>
+            <span>{lang === 'hi' ? 'सवाल और जवाब' : 'Clarifications & Questions'}</span>
           </div>
 
           <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-            FREQUENTLY ASKED QUESTIONS
+            {lang === 'hi' ? 'अक्सर पूछे जाने वाले सवाल (FAQ)' : 'FREQUENTLY ASKED QUESTIONS'}
           </h2>
           <p className="font-medium text-amber-900 text-sm sm:text-base mt-2">
-            Everything you need to know about scheduling, confidentiality, and what to expect.
+            {lang === 'hi' ? 'परामर्श, प्राइवेसी और बुकिंग से जुड़ी सभी जरूरी बातें' : 'Everything you need to know about scheduling, confidentiality, and what to expect.'}
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
             {lang === 'hi'
-              ? 'अपॉइंटमेंट शेड्यूलिंग, गोपनीयता, सत्र की कार्यप्रणाली एवं उपचार से संबंधित आपके सभी सामान्य प्रश्नों के स्पष्ट और प्रामाणिक उत्तर।'
+              ? 'अपॉइंटमेंट कैसे बुक करें, जन्मतिथि का विश्लेषण, हाथ की घड़ी (वॉच थेरेपी) और नमक के उपायों से जुड़े आपके सभी सवालों के आसान जवाब।'
               : 'Clear answers on how online and in-person sessions work, details required, tarot reflections, and remote energy healing.'}
           </p>
         </div>
@@ -242,12 +242,12 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
           <div className="flex flex-wrap items-center gap-1.5">
             {[
-              { id: 'all', label: 'All FAQs' },
-              { id: 'booking', label: 'Booking & Sunday Free' },
-              { id: 'numerology', label: 'Numerology & DOB' },
-              { id: 'watch', label: 'Watch Analysis & Consultation' },
-              { id: 'salt_crystal', label: 'Salt & Crystals' },
-              { id: 'ethics', label: 'Trust & Ethics' }
+              { id: 'all', label: lang === 'hi' ? 'सभी सवाल' : 'All FAQs' },
+              { id: 'booking', label: lang === 'hi' ? 'बुकिंग व रविवार फ्री स्लॉट' : 'Booking & Sunday Free' },
+              { id: 'numerology', label: lang === 'hi' ? 'अंक ज्योतिष व जन्मतिथि' : 'Numerology & DOB' },
+              { id: 'watch', label: lang === 'hi' ? 'हाथ की घड़ी (वॉच थेरेपी)' : 'Watch Analysis & Guidance' },
+              { id: 'salt_crystal', label: lang === 'hi' ? 'सॉल्ट थेरेपी व क्रिस्टल' : 'Salt & Crystals' },
+              { id: 'ethics', label: lang === 'hi' ? 'प्राइवेसी और विश्वास' : 'Trust & Ethics' }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -267,7 +267,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
             <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search questions..."
+              placeholder={lang === 'hi' ? 'सवाल खोजें...' : 'Search questions...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-stone-300 bg-white focus:outline-none focus:ring-1 focus:ring-amber-500"
@@ -279,7 +279,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
         <div className="space-y-3 mb-12">
           {filteredFaqs.length === 0 ? (
             <div className="bg-white rounded-xl p-8 text-center border border-stone-200 text-stone-500 text-xs">
-              No matching questions found. Please try another search term or ask us directly on WhatsApp.
+              {lang === 'hi' ? 'कोई सवाल नहीं मिला। कृपया दूसरा शब्द खोजें या हमें व्हाट्सएप पर पूछें।' : 'No matching questions found. Please try another search term or ask us directly on WhatsApp.'}
             </div>
           ) : (
             filteredFaqs.map((faq) => {
@@ -336,13 +336,13 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
           <div className="space-y-1.5">
             <span className="text-[11px] font-bold uppercase tracking-widest text-amber-300 flex items-center justify-center sm:justify-start gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
-              Direct Personal Support
+              {lang === 'hi' ? 'सीधी सहायता' : 'Direct Personal Support'}
             </span>
             <h3 className="font-sacred text-lg sm:text-2xl font-bold text-white">
-              Still have questions or special requirements?
+              {lang === 'hi' ? 'क्या आपका कोई और सवाल है?' : 'Still have questions or special requirements?'}
             </h3>
             <p className="text-xs sm:text-sm text-amber-200/80 max-w-xl leading-relaxed">
-              Connect directly with our team. We are happy to clarify any questions prior to booking.
+              {lang === 'hi' ? 'हमारी टीम से सीधे व्हाट्सएप पर बात करें। हम आपके हर सवाल का जवाब देने के लिए तैयार हैं।' : 'Connect directly with our team. We are happy to clarify any questions prior to booking.'}
             </p>
           </div>
 
@@ -354,14 +354,14 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-5 rounded-xl text-xs sm:text-sm shadow-md transition-all"
             >
               <MessageCircle className="w-4 h-4 text-emerald-200" />
-              <span>Chat on WhatsApp (+91-9509593150)</span>
+              <span>{lang === 'hi' ? 'व्हाट्सएप पर बात करें (+91-9509593150)' : 'Chat on WhatsApp (+91-9509593150)'}</span>
             </a>
 
             <button
               onClick={onOpenBooking}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold py-3 px-5 rounded-xl text-xs sm:text-sm shadow-md transition-all"
             >
-              <span>Book Appointment</span>
+              <span>{lang === 'hi' ? 'अपॉइंटमेंट बुक करें' : 'Book Appointment'}</span>
             </button>
           </div>
         </div>

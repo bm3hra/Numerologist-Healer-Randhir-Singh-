@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Phone, Mail, MapPin, Clock, MessageCircle, Heart, ShieldCheck } from 'lucide-react';
+import { Compass, Phone, Mail, MapPin, Clock, MessageCircle, Heart, ShieldCheck, CreditCard, Star } from 'lucide-react';
 import { Language } from '../types';
 import { getTranslation } from '../i18n/languages';
 
@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
   return (
     <footer className="bg-stone-950 text-stone-300 border-t-2 border-amber-500/70 pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Sacred Strip */}
+        {/* Top Divine Strip */}
         <div className="text-center pb-8 border-b border-stone-800">
           <div className="inline-flex items-center gap-2 text-amber-400 font-sacred text-sm font-bold tracking-widest">
             <span>卐</span>
@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
             <span>卐</span>
           </div>
           <p className="text-xs text-stone-400 font-serif italic mt-1">
-            {lang === 'hi' ? '“अपनी राह पहचानें। अपना जीवन रूपांतरित करें।”' : '“Discover Your Path. Transform Your Life.”'}
+            {lang === 'hi' ? '“अपनी सही राह पहचानें। अपने जीवन को नई दिशा दें।”' : '“Discover Your Path. Transform Your Life.”'}
           </p>
         </div>
 
@@ -36,13 +36,13 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                 <Compass className="w-5 h-5" />
               </div>
               <span className="font-sacred text-lg font-bold text-white tracking-wide">
-                {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}
+                {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'A Numerologist and Healer · Randhir Singh Ji Jaipur'}
               </span>
             </div>
             <p className="text-xs text-stone-400 leading-relaxed">
               {lang === 'hi'
-                ? 'रणधीर सिंह जी का आधिकारिक डिजिटल मंच — अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर। अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।'
-                : 'Official digital platform for Randhir Singh — Numerologist & Healer · Randhir Singh | Jaipur. DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.'}
+                ? 'रणधीर सिंह जी का आधिकारिक डिजिटल मंच — अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर। अपनी जन्मतिथि को समझें। अपने जीवन के पैटर्न को पहचानें। आत्मविश्वास के साथ आगे बढ़ें।'
+                : 'Official digital platform for Randhir Singh — A Numerologist and Healer · Randhir Singh Ji Jaipur. Understand your Date of Birth. Recognize your life patterns. Move forward with confidence.'}
             </p>
             <div className="text-xs text-amber-400 font-medium">
               {lang === 'hi'
@@ -57,6 +57,16 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
               {lang === 'hi' ? 'प्रमुख सेवाएँ' : 'Explore Services'}
             </h4>
             <ul className="space-y-2 text-xs text-stone-400">
+              <li className="pb-1.5 mb-1.5 border-b border-stone-800">
+                <a
+                  href="#tariff"
+                  onClick={(e) => { e.preventDefault(); onNavigate('tariff'); }}
+                  className="inline-flex items-center gap-1.5 text-amber-300 hover:text-amber-200 font-bold transition-colors"
+                >
+                  <CreditCard className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span>{lang === 'hi' ? 'परामर्श एवं हीलिंग सेवाएं फीस (Tariff)' : 'Consultancy & Healing Services Fees'}</span>
+                </a>
+              </li>
               <li>
                 <a
                   href="#dob"
@@ -72,7 +82,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   onClick={(e) => { e.preventDefault(); onNavigate('watch'); }}
                   className="hover:text-amber-300 transition-colors block"
                 >
-                  {lang === 'hi' ? 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श' : 'Watch Analysis & Therapeutic Watch Consultation'}
+                  {lang === 'hi' ? 'घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श' : 'Watch Analysis & Therapeutic Watch Consultation'}
                 </a>
               </li>
               <li>
@@ -126,7 +136,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
                   className="hover:text-amber-300 transition-colors block"
                 >
-                  {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'All 16 Sacred Services'}
+                  {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'All 16 Divine Services'}
                 </a>
               </li>
               <li>
@@ -163,6 +173,16 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   className="hover:text-amber-300 transition-colors block"
                 >
                   {lang === 'hi' ? 'अक्सर पूछे जाने वाले प्रश्न (FAQ)' : 'Frequently Asked Questions (FAQ)'}
+                </a>
+              </li>
+              <li className="pt-1 border-t border-stone-800/80">
+                <a
+                  href="#reviews"
+                  onClick={(e) => { e.preventDefault(); onNavigate('reviews'); }}
+                  className="hover:text-amber-200 text-amber-300 font-bold transition-colors flex items-center gap-1"
+                >
+                  <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400 shrink-0" />
+                  <span>{lang === 'hi' ? 'ग्राहकों के अनुभव एवं कहानियाँ (Reviews)' : 'Client Reviews & Stories'}</span>
                 </a>
               </li>
             </ul>
@@ -222,6 +242,15 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                 <MessageCircle className="w-3.5 h-3.5 text-amber-200" />
                 <span>{lang === 'hi' ? 'परामर्श बुक करें' : 'Book Consultation'}</span>
               </button>
+
+              <button
+                onClick={() => onNavigate('tariff')}
+                className="w-full inline-flex items-center justify-center gap-1.5 bg-amber-950/80 hover:bg-stone-900 text-amber-300 hover:text-white font-bold py-2 px-3 rounded-lg text-xs border border-amber-500/40 transition-colors shadow-2xs mt-1.5 cursor-pointer"
+                title={lang === 'hi' ? 'परामर्श एवं हीलिंग सेवाएं फीस' : 'Consultancy & Healing Services Fees'}
+              >
+                <CreditCard className="w-3.5 h-3.5 text-amber-400" />
+                <span>{lang === 'hi' ? 'परामर्श व हीलिंग फीस सूची' : 'Consultancy & Healing Fees'}</span>
+              </button>
             </div>
           </div>
         </div>
@@ -233,12 +262,22 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
           </p>
         </div>
 
-        {/* Copyright */}
+        {/* Copyright & Admin Portal Link */}
         <div className="border-t border-stone-900 pt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-2">
           <span>{t.copyright}</span>
-          <span className="font-mono text-[11px] text-amber-500/80">
-            numerologywithrandhirsingh.vercel.app
-          </span>
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-[11px] text-amber-500/80">
+              numerologywithrandhirsingh.vercel.app
+            </span>
+            <button
+              onClick={() => onNavigate('admin')}
+              className="inline-flex items-center gap-1 text-[11px] text-stone-500 hover:text-amber-400 transition cursor-pointer"
+              title="Administrator CMS Portal"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-500/80" />
+              <span>Admin CMS</span>
+            </button>
+          </div>
         </div>
       </div>
     </footer>

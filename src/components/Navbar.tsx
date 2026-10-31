@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Phone, MessageCircle, Clock, Menu, X, Compass, ShieldCheck, ChevronDown } from 'lucide-react';
-import { Language } from '../types';
+import { Sparkles, Phone, MessageCircle, Clock, Menu, X, Compass, ShieldCheck, ChevronDown, FileText, CreditCard } from 'lucide-react';
+import { Language, CMSPage } from '../types';
+import { getPublishedPages } from '../lib/cmsService';
 
 interface NavbarProps {
   currentTab: string;
@@ -21,7 +22,21 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
+  const [dynamicNavPages, setDynamicNavPages] = useState<CMSPage[]>([]);
   const moreDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Load published pages dynamically for navbar
+  useEffect(() => {
+    async function loadNavPages() {
+      try {
+        const pages = await getPublishedPages();
+        setDynamicNavPages(pages.filter((p) => p.showInNav));
+      } catch (e) {
+        // Soft fallback
+      }
+    }
+    loadNavPages();
+  }, []);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -36,56 +51,61 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Primary navigation tabs shown on 1024px+ screens
   const primaryNavLinks = [
-    { id: 'home', labelEn: 'Home', labelHi: 'मुख्य पृष्ठ' },
+    { id: 'home', labelEn: 'Home', labelHi: 'होम' },
+    { id: 'tariff', labelEn: 'Fees & Tariff', labelHi: 'परामर्श व फीस' },
     { id: 'about-randhir', labelEn: 'About Randhir Singh', labelHi: 'रणधीर सिंह जी' },
-    { id: 'dob', labelEn: 'DOB & Lo-Shu', labelHi: 'जन्म तिथि व ग्रिड' },
-    { id: 'watch', labelEn: 'Watch Analysis', labelHi: 'घड़ी का विश्लेषण' },
-    { id: 'awards', labelEn: 'Honors & Awards', labelHi: 'पुरस्कार व सम्मान' },
-    { id: 'salt', labelEn: 'Salt & Crystals', labelHi: 'नमक शुद्धि व क्रिस्टल', hideOnLg: true },
-    { id: 'services', labelEn: 'All Services', labelHi: 'सभी सेवाएँ', hideOnLg: true },
+    { id: 'dob', labelEn: 'DOB & Lo-Shu', labelHi: 'जन्मतिथि और ग्रिड' },
+    { id: 'watch', labelEn: 'Watch Therapy', labelHi: 'हाथ की घड़ी (वॉच थेरेपी)' },
+    { id: 'awards', labelEn: 'Honors & Awards', labelHi: 'अवॉर्ड और सम्मान' },
+    { id: 'salt', labelEn: 'Salt & Crystals', labelHi: 'सॉल्ट थेरेपी व क्रिस्टल', hideOnLg: true },
+    { id: 'services', labelEn: 'All Services', labelHi: 'सभी 16 सेवाएँ', hideOnLg: true },
   ];
 
   // Secondary navigation tabs placed in "More" dropdown on desktop
   const secondaryNavLinks = [
-    { id: 'about-randhir', labelEn: '★ About Numerologist & Healer · Randhir Singh (18 Photos)', labelHi: '★ अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह परिचय (18 फ़ोटो)' },
-    { id: 'services', labelEn: '★ All 16 Sacred Services (Individual Pages)', labelHi: '★ सभी 16 पवित्र सेवाएँ (व्यक्तिगत पृष्ठ)' },
-    { id: 'yantra-healings', labelEn: '★ Yantra Healings (Detailed Page)', labelHi: '★ यंत्र हीलिंग विज्ञान (विस्तृत पृष्ठ)' },
-    { id: 'special-yantras', labelEn: '★ Special Yantras (Business, Job, Desires)', labelHi: '★ विशेष यंत्र (व्यापार, नौकरी, मनोरथ)' },
-    { id: 'dob-yantras', labelEn: '★ Yantras as per Date of Birth', labelHi: '★ जन्मतिथि अनुसार यंत्र विधान' },
+    { id: 'tariff', labelEn: '💳 Consultancy & Healing Services Fees (Complete Tariff)', labelHi: '💳 परामर्श एवं हीलिंग सेवाएं फीस (सम्पूर्ण टैरिफ)' },
+    { id: 'about-randhir', labelEn: '★ About Numerologist & Healer · Randhir Singh (18 Photos)', labelHi: '★ रणधीर सिंह जी का परिचय (18 फोटो)' },
+    { id: 'services', labelEn: '★ All 16 Divine Services (Individual Pages)', labelHi: '★ सभी 16 सेवाएँ (विस्तार से)' },
+    { id: 'yantra-healings', labelEn: '★ Yantra Healings (Detailed Page)', labelHi: '★ सिद्ध यंत्र और हीलिंग' },
+    { id: 'special-yantras', labelEn: '★ Special Yantras (Business, Job, Desires)', labelHi: '★ खास यंत्र (व्यापार, नौकरी, मनोकामना)' },
+    { id: 'dob-yantras', labelEn: '★ Yantras as per Date of Birth', labelHi: '★ जन्मतिथि के अनुसार लकी यंत्र' },
     { id: 'kundli-milan', labelEn: '★ Kundli Milan as per Numerology', labelHi: '★ अंक ज्योतिष कुंडली मिलान' },
-    { id: 'and-more', labelEn: '★ And More.... (Remedies Vault)', labelHi: '★ और भी... (वैदिक उपाय एवं हीलिंग)' },
-    { id: 'salt', labelEn: 'Negativity Removal & Salt Therapy', labelHi: 'नमक चिकित्सा (सॉल्ट थेरेपी)' },
-    { id: 'services', labelEn: 'All 16 Sacred Services', labelHi: 'सभी 16 पवित्र सेवाएँ', showOnLgOnly: true },
-    { id: 'lunar', labelEn: 'Lunar Energy & Numerology', labelHi: 'चंद्र व अंक ज्योतिष' },
-    { id: 'crystal', labelEn: 'Crystal Therapy Guidance', labelHi: 'क्रिस्टल थेरेपी' },
-    { id: 'mobile_name', labelEn: 'Lucky Mobile & Name Correction', labelHi: 'मोबाइल व नाम सुधार' },
-    { id: 'compatibility', labelEn: '3x3 Grid Compatibility', labelHi: 'ग्रिड मिलान' },
-    { id: 'remedies', labelEn: 'Yantras, Codes & Switchwords', labelHi: 'यंत्र, हीलिंग कोड एवं स्विचवर्ड्स' },
-    { id: 'assets', labelEn: 'Official Certificates & Assets Vault', labelHi: 'प्रमाण-पत्र एवं सम्मान' },
-    { id: 'media', labelEn: 'Photos & Video Masterclasses', labelHi: 'फ़ोटो व वीडियो' },
-    { id: 'faq', labelEn: 'Frequently Asked Questions', labelHi: 'अक्सर पूछे जाने वाले सवाल' },
+    { id: 'and-more', labelEn: '★ And More.... (Remedies Vault)', labelHi: '★ और भी सरल उपाय...' },
+    { id: 'salt', labelEn: 'Negativity Removal & Salt Therapy', labelHi: 'नेगेटिविटी हटाएँ (सॉल्ट थेरेपी)' },
+    { id: 'services', labelEn: 'All 16 Divine Services', labelHi: 'सभी 16 सेवाएँ', showOnLgOnly: true },
+    { id: 'lunar', labelEn: 'Lunar Energy & Numerology', labelHi: 'चंद्रमा और अंक ज्योतिष' },
+    { id: 'crystal', labelEn: 'Crystal Therapy Guidance', labelHi: 'क्रिस्टल थेरेपी की सलाह' },
+    { id: 'mobile_name', labelEn: 'Lucky Mobile & Name Correction', labelHi: 'लकी मोबाइल नंबर व नाम सुधार' },
+    { id: 'compatibility', labelEn: '3x3 Grid Compatibility', labelHi: '3x3 ग्रिड से मैचिंग' },
+    { id: 'remedies', labelEn: 'Yantras, Codes & Switchwords', labelHi: 'यंत्र, हीलिंग कोड और स्विचवर्ड्स' },
+    { id: 'assets', labelEn: 'Official Certificates & Assets Vault', labelHi: 'सर्टिफिकेट्स व डिग्री' },
+    { id: 'media', labelEn: 'Photos & Video Masterclasses', labelHi: 'फोटो और वीडियो क्लास' },
+    { id: 'faq', labelEn: 'Frequently Asked Questions', labelHi: 'अक्सर पूछे जाने वाले सवाल (FAQ)' },
+    { id: 'client-reviews-stories', labelEn: '★ Client Reviews & Stories (Instant Submit)', labelHi: '★ ग्राहकों के अनुभव एवं कहानियाँ' },
   ];
 
   // All links combined for the full mobile menu
   const allNavLinks = [
-    { id: 'home', labelEn: 'Home', labelHi: 'मुख्य पृष्ठ' },
-    { id: 'about-randhir', labelEn: 'About Randhir Singh (18 Photos)', labelHi: 'रणधीर सिंह परिचय (18 फ़ोटो)' },
-    { id: 'dob', labelEn: 'DOB & Lo-Shu', labelHi: 'जन्म तिथि व ग्रिड' },
-    { id: 'yantra-healings', labelEn: 'Yantra Healings Page', labelHi: 'यंत्र हीलिंग पृष्ठ' },
-    { id: 'special-yantras', labelEn: 'Special Yantras (Business/Job)', labelHi: 'विशेष यंत्र (व्यापार/नौकरी)' },
-    { id: 'dob-yantras', labelEn: 'Yantras as per DOB', labelHi: 'जन्मतिथि अनुसार यंत्र' },
+    { id: 'home', labelEn: 'Home', labelHi: 'होम' },
+    { id: 'tariff', labelEn: '💳 Consultancy & Healing Services Fees', labelHi: '💳 परामर्श एवं हीलिंग सेवाएं फीस' },
+    { id: 'about-randhir', labelEn: 'About Randhir Singh (18 Photos)', labelHi: 'रणधीर सिंह जी (18 फोटो)' },
+    { id: 'dob', labelEn: 'DOB & Lo-Shu Grid', labelHi: 'जन्मतिथि और ग्रिड' },
+    { id: 'yantra-healings', labelEn: 'Yantra Healings Page', labelHi: 'सिद्ध यंत्र और हीलिंग' },
+    { id: 'special-yantras', labelEn: 'Special Yantras (Business/Job)', labelHi: 'खास यंत्र (व्यापार/नौकरी)' },
+    { id: 'dob-yantras', labelEn: 'Yantras as per DOB', labelHi: 'जन्मतिथि अनुसार लकी यंत्र' },
     { id: 'kundli-milan', labelEn: 'Kundli Milan (36 Guna)', labelHi: 'कुंडली मिलान' },
-    { id: 'and-more', labelEn: 'And More.... (Remedies)', labelHi: 'और भी... (वैदिक उपाय)' },
-    { id: 'watch', labelEn: 'Watch Analysis & Consultation', labelHi: 'घड़ी का विश्लेषण एवं चिकित्सीय परामर्श' },
-    { id: 'salt', labelEn: 'Negativity Removal & Salt Therapy', labelHi: 'नमक चिकित्सा (सॉल्ट थेरेपी)' },
+    { id: 'and-more', labelEn: 'And More.... (Remedies)', labelHi: 'और भी उपाय...' },
+    { id: 'watch', labelEn: 'Watch Therapy & Guidance', labelHi: 'हाथ की घड़ी (वॉच थेरेपी)' },
+    { id: 'salt', labelEn: 'Negativity Removal & Salt Therapy', labelHi: 'सॉल्ट थेरेपी (नमक के उपाय)' },
     { id: 'crystal', labelEn: 'Crystal Guidance', labelHi: 'क्रिस्टल थेरेपी' },
-    { id: 'mobile_name', labelEn: 'Mobile & Name', labelHi: 'मोबाइल व नाम' },
+    { id: 'mobile_name', labelEn: 'Mobile & Name Correction', labelHi: 'लकी मोबाइल व नाम सुधार' },
     { id: 'compatibility', labelEn: 'Grid Matching', labelHi: 'ग्रिड मिलान' },
-    { id: 'remedies', labelEn: 'Yantras, Codes & Switchwords', labelHi: 'यंत्र, हीलिंग कोड एवं स्विचवर्ड्स' },
+    { id: 'remedies', labelEn: 'Yantras, Codes & Switchwords', labelHi: 'यंत्र, हीलिंग कोड और स्विचवर्ड्स' },
     { id: 'awards', labelEn: 'Honors & Awards', labelHi: 'पुरस्कार व सम्मान' },
-    { id: 'assets', labelEn: 'Certificates & Assets', labelHi: 'प्रमाण-पत्र' },
-    { id: 'services', labelEn: 'All 16 Sacred Services', labelHi: 'सभी 16 पवित्र सेवाएँ' },
-    { id: 'faq', labelEn: 'FAQs', labelHi: 'प्रश्नोत्तरी' },
+    { id: 'assets', labelEn: 'Certificates & Assets', labelHi: 'सर्टिफिकेट्स' },
+    { id: 'services', labelEn: 'All 16 Divine Services', labelHi: 'सभी 16 सेवाएँ' },
+    { id: 'faq', labelEn: 'FAQs', labelHi: 'अक्सर पूछे जाने वाले सवाल' },
+    { id: 'client-reviews-stories', labelEn: 'Client Reviews & Stories (Submit)', labelHi: 'ग्राहकों के अनुभव एवं समीक्षाएँ' },
   ];
 
   const handleNavClick = (id: string, e?: React.MouseEvent) => {
@@ -101,17 +121,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-50 bg-[#faf7f0]/95 backdrop-blur-md border-b border-amber-200/60 shadow-xs w-full">
-      {/* Top sacred invocation strip */}
+      {/* Top divine invocation strip */}
       <div className="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-950 text-amber-100 text-xs py-1 px-2.5 sm:px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-1.5 sm:gap-3">
-          {/* Sacred Ganesh Invocation & Brand Location */}
+          {/* Divine Ganesh Invocation & Brand Location */}
           <div className="flex items-center gap-1 sm:gap-2 min-w-0">
             <span className="font-sacred text-amber-300 font-bold tracking-wider text-[10px] sm:text-xs shrink-0 whitespace-nowrap">
               ॥ ॐ श्री गणेशाय नमः ॥
             </span>
             <span className="hidden md:inline text-amber-200/70">·</span>
             <span className="hidden md:inline text-amber-200/90 font-medium text-xs truncate">
-              {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}
+              {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'A Numerologist and Healer · Randhir Singh Ji Jaipur'}
             </span>
           </div>
 
@@ -121,16 +141,38 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => onOpenBooking('Sunday Free Consultation')}
               className="hidden xs:inline-flex items-center gap-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-400/40 px-1.5 sm:px-2.5 py-0.5 rounded text-[10px] sm:text-[11px] font-medium transition-colors shrink-0 whitespace-nowrap"
-              title={lang === 'hi' ? 'रविवार: प्रथम 5 परामर्श निःशुल्क' : 'Sunday: First 5 Consultations FREE'}
+              title={lang === 'hi' ? 'रविवार: पहले 5 कंसल्टेशन फ्री' : 'Sunday: First 5 Consultations FREE'}
             >
               <Clock className="w-3 h-3 text-amber-300 shrink-0" />
               <span className="hidden sm:inline">
-                {lang === 'hi' ? 'रविवार: प्रथम 5 परामर्श निःशुल्क' : 'Sunday: First 5 Consultations FREE'}
+                {lang === 'hi' ? 'रविवार: पहले 5 कंसल्टेशन फ्री' : 'Sunday: First 5 Consultations FREE'}
               </span>
               <span className="sm:hidden">
                 {lang === 'hi' ? 'रविवार: 5 फ्री' : 'Sunday 5 Free'}
               </span>
             </button>
+
+            {/* Direct Fees Link in Top Bar */}
+            <a
+              href="#tariff"
+              onClick={(e) => handleNavClick('tariff', e)}
+              className="inline-flex items-center gap-1 bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 hover:text-white border border-amber-400/50 px-2 sm:px-2.5 py-0.5 rounded text-[10px] sm:text-[11px] font-bold transition-all shrink-0 whitespace-nowrap shadow-2xs"
+              title={lang === 'hi' ? 'परामर्श एवं हीलिंग सेवाएं फीस (Consultancy & Healing Services Fees)' : 'Consultancy & Healing Services Fees'}
+            >
+              <CreditCard className="w-3 h-3 text-amber-300 shrink-0" />
+              <span>{lang === 'hi' ? 'सेवा फीस (Tariff)' : 'Fees & Tariff'}</span>
+            </a>
+
+            {/* Direct Admin Access Button */}
+            <a
+              href="#admin"
+              onClick={(e) => handleNavClick('admin', e)}
+              className="inline-flex items-center gap-1 bg-amber-950/80 hover:bg-stone-950 text-amber-300 hover:text-amber-200 border border-amber-500/40 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold transition-all shrink-0 whitespace-nowrap shadow-2xs group"
+              title="व्यवस्थापक CMS पैनल खोलें (/admin)"
+            >
+              <ShieldCheck className="w-3 h-3 text-amber-400 group-hover:rotate-12 transition-transform" />
+              <span>Admin</span>
+            </a>
 
             {/* Language switch */}
             <div className="flex items-center bg-black/30 rounded p-0.5 border border-amber-500/30 text-[10px] sm:text-[11px] shrink-0">
@@ -171,10 +213,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div className="min-w-0">
               <div className="font-sacred text-xs sm:text-base lg:text-lg font-bold tracking-tight text-amber-950 group-hover:text-amber-800 transition-colors truncate">
-                {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}
+                {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'A Numerologist and Healer · Randhir Singh Ji Jaipur'}
               </div>
               <p className="text-[10px] sm:text-[11px] text-amber-800/80 font-medium tracking-wide truncate hidden md:block">
-                {lang === 'hi' ? 'अपनी जन्मतिथि के रहस्यों को जानें। अपने जीवन को समझें और अपने भविष्य को नई दिशा दें।' : 'DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.'}
+                {lang === 'hi' ? 'अपनी जन्मतिथि को समझें, अपनी ज़िंदगी और भविष्य को बेहतर बनाएँ।' : 'DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.'}
               </p>
             </div>
           </a>
@@ -198,6 +240,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               </a>
             ))}
 
+            {/* Dedicated "विशेष पृष्ठ (Pages)" Dropdown */}
+            {dynamicNavPages.length > 0 && (
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setMoreDropdownOpen(true)}
+                  className="inline-flex items-center gap-1 px-2 xl:px-2.5 py-1.5 text-xs font-semibold rounded-md text-amber-900 bg-amber-50 hover:bg-amber-100/80 border border-amber-300/80 transition-all whitespace-nowrap shadow-2xs"
+                >
+                  <FileText className="w-3.5 h-3.5 text-amber-700" />
+                  <span>{lang === 'hi' ? 'विशेष पृष्ठ' : 'Pages'}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                  <ChevronDown className="w-3 h-3 text-amber-700" />
+                </button>
+              </div>
+            )}
+
             {/* "More / अन्य" Dropdown */}
             <div className="relative" ref={moreDropdownRef}>
               <button
@@ -214,9 +272,33 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
 
               {moreDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-amber-200/90 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                <div className="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-amber-200/90 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150 max-h-[80vh] overflow-y-auto">
+                  {dynamicNavPages.length > 0 && (
+                    <>
+                      <div className="px-3 py-1.5 text-[10px] font-bold text-amber-900/90 uppercase tracking-wider bg-amber-50/70 border-b border-amber-200/50 flex items-center gap-1.5">
+                        <FileText className="w-3 h-3 text-amber-700" />
+                        <span>{lang === 'hi' ? 'विशेष नए पेज व लेख' : 'Published Articles & Guides'}</span>
+                      </div>
+                      {dynamicNavPages.map((page) => (
+                        <a
+                          key={page.id}
+                          href={`#pages/${page.slug}`}
+                          onClick={(e) => handleNavClick(`pages/${page.slug}`, e)}
+                          className={`w-full text-left px-3.5 py-2 text-xs transition-colors flex items-center justify-between block ${
+                            currentTab === `pages/${page.slug}`
+                              ? 'bg-amber-100/70 text-amber-950 font-bold'
+                              : 'text-amber-900 font-medium hover:bg-amber-50/80'
+                          }`}
+                        >
+                          <span className="truncate">{lang === 'hi' && page.titleHi ? page.titleHi : page.title}</span>
+                          <span className="text-[10px] text-amber-600 font-mono">/page</span>
+                        </a>
+                      ))}
+                    </>
+                  )}
+
                   <div className="px-3 py-1.5 text-[10px] font-bold text-amber-900/70 uppercase tracking-wider border-b border-stone-100">
-                    {lang === 'hi' ? 'अतिरिक्त विशेषताएँ' : 'Specialized Tools & Vault'}
+                    {lang === 'hi' ? 'खास टूल्स और सेवाएँ' : 'Specialized Tools & Vault'}
                   </div>
                   {secondaryNavLinks.map((link) => (
                     <a
@@ -235,6 +317,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                       )}
                     </a>
                   ))}
+
+                  <div className="pt-2 mt-2 border-t border-stone-100 px-3">
+                    <a
+                      href="#admin"
+                      onClick={(e) => handleNavClick('admin', e)}
+                      className="w-full py-1.5 px-2.5 rounded-lg bg-stone-900 hover:bg-amber-950 text-amber-300 text-xs font-semibold flex items-center justify-between transition"
+                    >
+                      <span className="flex items-center gap-1.5">
+                        <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                        Admin CMS Portal
+                      </span>
+                      <span className="text-[10px] text-amber-400/80">/admin</span>
+                    </a>
+                  </div>
                 </div>
               )}
             </div>
@@ -325,6 +421,41 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {lang === 'hi' ? link.labelHi : link.labelEn}
               </a>
             ))}
+          </div>
+
+          {dynamicNavPages.length > 0 && (
+            <div className="mb-3 p-2 bg-amber-50/70 rounded-xl border border-amber-200/60">
+              <div className="text-[10px] font-bold text-amber-900 uppercase tracking-wider mb-1 flex items-center gap-1">
+                <FileText className="w-3 h-3 text-amber-700" />
+                <span>{lang === 'hi' ? 'विशेष नए लेख व पेज' : 'Published Articles & Guides'}</span>
+              </div>
+              <div className="space-y-1">
+                {dynamicNavPages.map((page) => (
+                  <a
+                    key={page.id}
+                    href={`#pages/${page.slug}`}
+                    onClick={(e) => handleNavClick(`pages/${page.slug}`, e)}
+                    className="block text-xs font-medium text-amber-950 hover:text-amber-800 py-1 px-1.5 rounded hover:bg-amber-100/50 truncate"
+                  >
+                    • {lang === 'hi' && page.titleHi ? page.titleHi : page.title}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mb-2">
+            <a
+              href="#admin"
+              onClick={(e) => handleNavClick('admin', e)}
+              className="w-full py-2 px-3 rounded-lg bg-stone-900 text-amber-300 text-xs font-bold flex items-center justify-between"
+            >
+              <span className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-amber-400" />
+                Admin CMS Portal
+              </span>
+              <span className="text-[10px] text-amber-400 font-mono">/admin</span>
+            </a>
           </div>
 
           <div className="pt-2 border-t border-amber-200/60 flex flex-col gap-2">
