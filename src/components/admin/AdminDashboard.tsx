@@ -29,7 +29,8 @@ import {
   FolderOpen,
   Settings,
   HardDrive,
-  Sparkles
+  Sparkles,
+  Video
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -59,6 +60,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState<'all' | 'published' | 'draft'>('all');
   const [filterCategory, setFilterCategory] = useState<'all' | 'homepage' | 'dedicated' | 'service' | 'custom'>('all');
+  const [filterMediaType, setFilterMediaType] = useState<'all' | 'photos' | 'videos'>('all');
 
   // Modes: dashboard | builder | media | settings
   const [viewMode, setViewMode] = useState<'dashboard' | 'builder' | 'media' | 'settings'>('dashboard');
@@ -82,6 +84,27 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     } finally {
       setLoading(false);
     }
+  };
+
+  // Helper to extract media and text metrics for each page
+  const getPageMediaSummary = (page: CMSPage) => {
+    let photoCount = 0;
+    let videoCount = 0;
+    let textBlocks = 0;
+    let words = 0;
+
+    (page.blocks || []).forEach((b) => {
+      if (b.type === 'image' && b.imageUrl) photoCount++;
+      if (b.type === 'hero' && b.imageUrl) photoCount++;
+      if (b.type === 'gallery' && b.images) photoCount += b.images.length;
+      if (b.type === 'video' && b.videoUrl) videoCount++;
+      if (b.type === 'text' || b.content) {
+        textBlocks++;
+        words += (b.content || '').trim().split(/\s+/).filter(Boolean).length;
+      }
+    });
+
+    return { photoCount, videoCount, textBlocks, words };
   };
 
   const handleCreateNewPage = () => {
@@ -140,17 +163,25 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       (filterCategory === 'service' && p.category === 'service') ||
       (filterCategory === 'custom' && (p.category === 'custom' || !p.category));
 
+    const media = getPageMediaSummary(p);
+    const matchesMedia =
+      filterMediaType === 'all' ||
+      (filterMediaType === 'photos' && media.photoCount > 0) ||
+      (filterMediaType === 'videos' && media.videoCount > 0);
+
     const matchesSearch =
       p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.slug.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (p.titleHi && p.titleHi.includes(searchQuery));
-    return matchesStatus && matchesCategory && matchesSearch;
+    return matchesStatus && matchesCategory && matchesMedia && matchesSearch;
   });
 
   const homepageCount = pagesList.filter((p) => p.category === 'homepage').length;
   const dedicatedCount = pagesList.filter((p) => p.category === 'dedicated').length;
   const serviceCount = pagesList.filter((p) => p.category === 'service').length;
   const customCount = pagesList.filter((p) => p.category === 'custom' || !p.category).length;
+  const withPhotosCount = pagesList.filter((p) => getPageMediaSummary(p).photoCount > 0).length;
+  const withVideosCount = pagesList.filter((p) => getPageMediaSummary(p).videoCount > 0).length;
 
   // Render PageBuilder when in 'builder' view
   if (viewMode === 'builder') {
@@ -503,6 +534,41 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 {customCount}
               </span>
             </button>
+
+            <div className="w-[1px] h-5 bg-stone-800 mx-1 shrink-0" />
+
+            {/* Media Filter Tabs */}
+            <button
+              onClick={() => setFilterMediaType(filterMediaType === 'photos' ? 'all' : 'photos')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1.5 ${
+                filterMediaType === 'photos'
+                  ? 'bg-amber-400 text-stone-950 font-bold shadow'
+                  : 'bg-stone-950 text-amber-300/80 hover:text-amber-200 border border-amber-500/30'
+              }`}
+              title="केवल फोटो वाले पृष्ठ दिखाएँ"
+            >
+              <ImageIcon className="w-3.5 h-3.5" />
+              <span>फोटो वाले पेज</span>
+              <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-black/30 font-mono">
+                {withPhotosCount}
+              </span>
+            </button>
+
+            <button
+              onClick={() => setFilterMediaType(filterMediaType === 'videos' ? 'all' : 'videos')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1.5 ${
+                filterMediaType === 'videos'
+                  ? 'bg-purple-400 text-stone-950 font-bold shadow'
+                  : 'bg-stone-950 text-purple-300/80 hover:text-purple-200 border border-purple-500/30'
+              }`}
+              title="केवल वीडियो वाले पृष्ठ दिखाएँ"
+            >
+              <Video className="w-3.5 h-3.5" />
+              <span>वीडियो वाले पेज</span>
+              <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-black/30 font-mono">
+                {withVideosCount}
+              </span>
+            </button>
           </div>
 
           {/* Table List */}
@@ -528,7 +594,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             </div>
           ) : (
             <div className="divide-y divide-stone-800/80">
-              {filteredPages.map((page) => (
+              {filteredPages.map((page) => {
+                const media = getPageMediaSummary(page);
+                return (
                 <div
                   key={page.id}
                   className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-stone-950/40 transition group"
@@ -574,6 +642,32 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                         {page.title}
                       </p>
                     )}
+
+                    {/* Media & Content Breakdown Badges */}
+                    <div className="flex items-center gap-2 pt-0.5 flex-wrap">
+                      {media.photoCount > 0 ? (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium bg-amber-950/60 text-amber-300 border border-amber-700/40" title={`${media.photoCount} चित्र / फोटो संलग्न हैं`}>
+                          <ImageIcon className="w-3 h-3 text-amber-400" />
+                          <span>{media.photoCount} फोटो</span>
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] text-stone-500 bg-stone-950 border border-stone-800">
+                          0 फोटो
+                        </span>
+                      )}
+
+                      {media.videoCount > 0 && (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium bg-purple-950/70 text-purple-300 border border-purple-700/40" title={`${media.videoCount} वीडियो प्लेयर जुड़े हैं`}>
+                          <Video className="w-3 h-3 text-purple-400" />
+                          <span>{media.videoCount} वीडियो</span>
+                        </span>
+                      )}
+
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] text-stone-400 bg-stone-950 border border-stone-800" title={`${media.words} शब्द / ${media.textBlocks} टेक्स्ट खंड`}>
+                        <FileText className="w-3 h-3 text-stone-500" />
+                        <span>{media.words} शब्द</span>
+                      </span>
+                    </div>
 
                     <div className="flex items-center gap-3 text-[11px] text-stone-500 pt-0.5 flex-wrap">
                       <span className="font-mono text-amber-400/80">
@@ -650,7 +744,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     </button>
                   </div>
                 </div>
-              ))}
+              );
+            })}
             </div>
           )}
         </div>

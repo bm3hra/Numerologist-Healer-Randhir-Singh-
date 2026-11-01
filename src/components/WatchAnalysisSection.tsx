@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Watch, Clock, CheckCircle2, AlertTriangle, Sparkles, ArrowRight, Compass, Shield, Zap, Crown, Award } from 'lucide-react';
+import { Watch, Clock, CheckCircle2, AlertTriangle, Sparkles, ArrowRight, Compass, Shield, Zap, Crown, Award, X, ZoomIn, Eye } from 'lucide-react';
 import { WATCH_SHAPES, WATCH_DIAL_COLORS, WATCH_PRINCIPLES, diagnoseWatch } from '../data/watchTherapyData';
 import { PLANETARY_ARCHETYPES } from '../data/numerologyData';
 import { WatchAnalysisInput, Language } from '../types';
@@ -9,6 +9,31 @@ interface WatchAnalysisSectionProps {
   lang: Language;
   onBookWatchConsultation: () => void;
 }
+
+export const WATCH_EDITIONS = [
+  {
+    id: 'gold_azure',
+    titleEn: '18K Gold & Royal Azure Blue Victorinox Therapy Watch',
+    titleHi: '18K गोल्ड व रॉयल एज़्योर ब्लू विक्टोरिनॉक्स थेरेपी वॉच',
+    subtitleEn: 'Royal Azure Blue Rotating Bezel · Central Consecrated ॐ · Master 22 Date',
+    subtitleHi: 'डीप रॉयल ब्लू रोटेटिंग बेज़ल · प्राण-प्रतिष्ठित स्वर्ण ॐ · मास्टर नंबर 22 दिनांक',
+    imageUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
+    badge: 'ROYAL BLUE · MASTER 22',
+    shortLabelEn: 'Royal Azure Blue',
+    shortLabelHi: 'रॉयल ब्लू एडिशन'
+  },
+  {
+    id: 'gold_white_ceramic',
+    titleEn: '18K Solid Yellow Gold & Pearl White Ceramic Master 22 Watch',
+    titleHi: '18K सॉलिड येलो गोल्ड व पर्ल व्हाइट सिरेमिक मास्टर 22 वॉच',
+    subtitleEn: 'Pristine White Ceramic Bezel & Guilloche Dial · Master No. 22 Aperture · Lotus',
+    subtitleHi: 'व्हाइट सिरेमिक बेज़ल · गिलोशे डायल · मास्टर नंबर 22 दिनांक विंडो एवं स्वर्ण कमल',
+    imageUrl: '/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png',
+    badge: 'PEARL CERAMIC · MASTER 22',
+    shortLabelEn: 'Pearl White Gold (Master 22)',
+    shortLabelHi: 'पर्ल व्हाइट गोल्ड (मास्टर 22)'
+  }
+];
 
 export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
   lang,
@@ -21,7 +46,13 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
   const heroImageBlock = cmsPage?.blocks?.find((b) => b.type === 'image');
   const videoBlock = cmsPage?.blocks?.find((b) => b.type === 'video');
 
-  const watchImageUrl = heroImageBlock?.imageUrl || '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png';
+  const [selectedEditionIndex, setSelectedEditionIndex] = useState<number>(0);
+  const [isImageModalOpen, setIsImageModalOpen] = useState<boolean>(false);
+
+  const activeWatch = WATCH_EDITIONS[selectedEditionIndex] || WATCH_EDITIONS[0];
+  const watchImageUrl = selectedEditionIndex === 0
+    ? (heroImageBlock?.imageUrl || activeWatch.imageUrl)
+    : activeWatch.imageUrl;
   const watchSectionTitle = lang === 'hi' 
     ? (cmsPage?.titleHi || headingBlock?.title || 'घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श')
     : (cmsPage?.title || headingBlock?.title || 'Watch Analysis & Therapeutic Watch Consultation');
@@ -139,20 +170,70 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Left Column: Authentic Watch High-Res Visual */}
               <div className="lg:col-span-5 flex flex-col items-center">
-                <div className="relative w-64 sm:w-76 md:w-84 aspect-square rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-[0_0_40px_rgba(245,158,11,0.25)] group bg-stone-950 p-2">
+                <div
+                  onClick={() => setIsImageModalOpen(true)}
+                  className="relative w-64 sm:w-76 md:w-84 aspect-square rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-[0_0_40px_rgba(245,158,11,0.25)] group bg-stone-950 p-2 cursor-pointer"
+                  title={lang === 'hi' ? 'बड़ी फोटो देखने के लिए क्लिक करें' : 'Click to view high-resolution photo'}
+                >
                   <img
                     src={watchImageUrl}
-                    alt="Numerologist & Healer · Randhir Singh Luxury Watch"
+                    alt={lang === 'hi' ? activeWatch.titleHi : activeWatch.titleEn}
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
                     loading="lazy"
                   />
                   <div className="absolute top-3 left-3 bg-stone-950/80 backdrop-blur-md border border-amber-400/50 px-2.5 py-1 rounded text-[10px] font-bold tracking-wider uppercase text-amber-300">
                     VICTORINOX EDITION
                   </div>
-                  <div className="absolute bottom-3 right-3 bg-blue-950/90 backdrop-blur-md border border-blue-400/50 px-2.5 py-1 rounded text-[10px] font-bold text-blue-200">
-                    MASTER NO. 22 · ॐ
+                  <div className="absolute bottom-3 right-3 bg-blue-950/90 backdrop-blur-md border border-blue-400/50 px-2.5 py-1 rounded text-[10px] font-bold text-blue-200 shadow-sm">
+                    {activeWatch.badge} · ॐ
+                  </div>
+                  <div className="absolute bottom-3 left-3 bg-stone-950/80 backdrop-blur-md border border-amber-400/40 px-2.5 py-1 rounded text-[9.5px] font-medium text-amber-300 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ZoomIn className="w-3.5 h-3.5 text-amber-400" />
+                    <span>{lang === 'hi' ? 'बड़ा करें' : 'Enlarge'}</span>
                   </div>
                 </div>
+
+                {/* Below Box: Watch Photos & Edition Switcher */}
+                <div className="mt-4 w-full max-w-sm bg-stone-900/90 border border-amber-500/40 rounded-2xl p-3 shadow-lg">
+                  <div className="text-[11px] font-bold text-amber-300 uppercase tracking-wider mb-2 text-center flex items-center justify-center gap-1.5 border-b border-amber-500/20 pb-1.5">
+                    <Watch className="w-3.5 h-3.5 text-amber-400" />
+                    <span>{lang === 'hi' ? 'थेरेपी वॉच फोटो चयन (Select Watch Photo):' : 'Select Therapy Watch Photo:'}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {WATCH_EDITIONS.map((edition, idx) => {
+                      const isSelected = selectedEditionIndex === idx;
+                      return (
+                        <button
+                          key={edition.id}
+                          type="button"
+                          onClick={() => setSelectedEditionIndex(idx)}
+                          className={`p-2 rounded-xl border text-left transition-all cursor-pointer flex items-center gap-2 ${
+                            isSelected
+                              ? 'bg-gradient-to-r from-amber-500/25 to-blue-500/20 border-amber-400 ring-2 ring-amber-400/60 shadow-md'
+                              : 'bg-stone-950/80 border-stone-800 hover:border-amber-400/50 hover:bg-stone-800'
+                          }`}
+                        >
+                          <div className="w-12 h-12 rounded-lg bg-black border border-amber-400/50 p-0.5 shrink-0 overflow-hidden">
+                            <img
+                              src={edition.imageUrl}
+                              alt={edition.titleEn}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <span className="text-[10px] font-bold text-white block truncate leading-tight">
+                              {lang === 'hi' ? edition.shortLabelHi : edition.shortLabelEn}
+                            </span>
+                            <span className="text-[8.5px] text-amber-300/80 block truncate mt-0.5">
+                              {idx === 0 ? 'Royal Azure' : 'Master 22 Date'}
+                            </span>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
                 <div className="mt-3 text-center">
                   <span className="text-[11px] text-amber-300/90 font-medium">
                     {lang === 'hi'
@@ -195,7 +276,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                     </p>
                   </div>
 
-                  {/* Feature 3: Master Number 22 Date Window */}
+                  {/* Feature 3: Master Number 22 Date Window with Photo */}
                   <div className="bg-stone-900/90 border border-amber-500/30 rounded-xl p-3.5 hover:border-amber-400/70 transition-colors">
                     <div className="flex items-center gap-2 mb-1">
                       <span className="text-amber-400 font-mono font-bold text-xs">22</span>
@@ -208,6 +289,34 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
                         ? '6 बजे स्वर्ण फ्रेम में मास्टर नंबर 22 (मास्टर बिल्डर) स्थापित है, जो बड़े व्यापारिक लक्ष्यों और साम्राज्य निर्माण को गति देता है।'
                         : 'Framed in gold at 6 o’clock; Master Builder 22 vibration grounds high-level ambitions into tangible physical wealth and enterprise.'}
                     </p>
+
+                    {/* Master Number 22 Watch Visual Thumbnail */}
+                    <div
+                      onClick={() => {
+                        setSelectedEditionIndex(1);
+                        setIsImageModalOpen(true);
+                      }}
+                      className="mt-2.5 pt-2 border-t border-amber-500/30 flex items-center gap-2.5 cursor-pointer bg-stone-950/70 p-2 rounded-lg border border-amber-400/30 hover:border-amber-400 transition-all group/m22"
+                    >
+                      <div className="w-12 h-12 rounded-md bg-stone-900 border border-amber-400/60 p-0.5 shrink-0 overflow-hidden shadow-inner group-hover/m22:scale-105 transition-transform">
+                        <img
+                          src="/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png"
+                          alt="Master Number 22 Watch Visual"
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div className="text-[10px] leading-tight">
+                        <span className="font-bold text-amber-300 block flex items-center gap-1">
+                          <span>{lang === 'hi' ? 'मास्टर 22 वॉच फोटो (देखें)' : 'Master 22 Watch Photo (View)'}</span>
+                          <ZoomIn className="w-3 h-3 text-amber-400" />
+                        </span>
+                        <span className="text-stone-300 text-[9px] block mt-0.5">
+                          {lang === 'hi'
+                            ? '6 बजे अंक 22 एवं स्वर्ण कमल की पावन फोटो'
+                            : 'Gold 18K watch with Date 22 aperture & blooming lotus'}
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Feature 4: Blooming Lotus */}
@@ -852,6 +961,71 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Fullscreen High-Res Watch Modal */}
+      {isImageModalOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setIsImageModalOpen(false)}
+        >
+          <div
+            className="relative max-w-2xl w-full bg-stone-950 rounded-2xl border-2 border-amber-400 p-5 sm:p-6 text-white shadow-2xl flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsImageModalOpen(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-stone-900 text-stone-300 hover:text-white hover:bg-stone-800 transition-colors cursor-pointer border border-stone-700"
+              aria-label="Close modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="text-center mb-3">
+              <span className="text-xs uppercase tracking-widest text-amber-400 font-bold bg-amber-500/20 px-3 py-1 rounded-full border border-amber-400/40 inline-block mb-1">
+                {activeWatch.badge}
+              </span>
+              <h3 className="font-sacred text-lg sm:text-2xl font-bold text-white mt-1">
+                {lang === 'hi' ? activeWatch.titleHi : activeWatch.titleEn}
+              </h3>
+              <p className="text-xs text-stone-300 mt-0.5">
+                {lang === 'hi' ? activeWatch.subtitleHi : activeWatch.subtitleEn}
+              </p>
+            </div>
+
+            <div className="relative w-72 sm:w-88 md:w-96 aspect-square bg-stone-900/60 rounded-xl p-3 border border-amber-500/30 flex items-center justify-center overflow-hidden my-2">
+              <img
+                src={activeWatch.imageUrl}
+                alt={activeWatch.titleEn}
+                className="w-full h-full object-contain drop-shadow-[0_10px_30px_rgba(245,158,11,0.35)]"
+              />
+            </div>
+
+            {/* Switcher within Modal */}
+            <div className="mt-3 flex items-center gap-3">
+              {WATCH_EDITIONS.map((ed, idx) => (
+                <button
+                  key={ed.id}
+                  type="button"
+                  onClick={() => setSelectedEditionIndex(idx)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-2 border ${
+                    selectedEditionIndex === idx
+                      ? 'bg-amber-600 text-white border-amber-400 ring-2 ring-amber-400/50 shadow-md'
+                      : 'bg-stone-900 text-stone-300 border-stone-700 hover:border-amber-400/50'
+                  }`}
+                >
+                  <div className="w-5 h-5 rounded overflow-hidden bg-black shrink-0 border border-amber-400/30">
+                    <img src={ed.imageUrl} alt={ed.titleEn} className="w-full h-full object-contain" />
+                  </div>
+                  <span>{idx === 0 ? 'Royal Azure Blue' : 'Master No. 22 Pearl Gold'}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

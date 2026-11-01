@@ -43,6 +43,13 @@ export interface NumerologyProfile {
   neutralNumbers: number[];
   digitSources?: Record<number, string[]>; // origins of each number in the grid (e.g. Day, Driver, Conductor, Kua)
   includeKua?: boolean;
+  // Authentic Vedic Grid (शताब्दी अंक 19/20 निष्कासित) properties
+  vedicCounts: Record<number, number>; // counts in the Vedic Grid without century digits
+  vedicPresentNumbers: number[];
+  vedicMissingNumbers: number[];
+  vedicDigitSources?: Record<number, string[]>;
+  vedicYearDigits: number[]; // Last 2 digits of the year (e.g. [7, 2] for 1972)
+  excludedCenturyDigits: number[]; // Excluded century digits (e.g. [1, 9] for 1972 or [2, 0] for 2005)
 }
 
 export interface WatchAnalysisInput {
@@ -158,7 +165,7 @@ export interface PageBlock {
   contentHi?: string;
   imageUrl?: string;
   imageAlt?: string;
-  alignment?: 'center' | 'full';
+  alignment?: 'center' | 'full' | 'left';
   columns?: 2 | 3 | 4;
   images?: Array<{ url: string; caption?: string; alt?: string }>;
   videoUrl?: string;
