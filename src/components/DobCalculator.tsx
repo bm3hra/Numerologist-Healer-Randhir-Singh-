@@ -11,6 +11,7 @@ import {
   VedicPlaneInfo
 } from '../data/numerologyData';
 import { Language, NumerologyProfile } from '../types';
+import { SocialShareBar } from './seo/SocialShareBar';
 
 interface DobCalculatorProps {
   lang: Language;
@@ -1239,6 +1240,23 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                   <span>{lang === 'hi' ? 'व्यक्तिगत 1-on-1 परामर्श बुक करें' : 'Book Detailed 1-on-1 Consultation'}</span>
                 </button>
               </div>
+            </div>
+
+            {/* Social Sharing & Promotion Bar */}
+            <div className="mt-6 pt-4 border-t border-amber-200">
+              <SocialShareBar
+                title={
+                  lang === 'hi'
+                    ? `मेरी जन्मतिथि का मूलांक ${profile.driverNumber} और भाग्यांक ${profile.conductorNumber} है!`
+                    : `My Numerology Driver (Mulank) is ${profile.driverNumber} and Conductor (Bhagyank) is ${profile.conductorNumber}!`
+                }
+                description={
+                  lang === 'hi'
+                    ? `रणधीर सिंह जी के वैदिक अंक कैलकुलेटर पर अपनी जन्मतिथि, 3×3 लो-शू व वैदिक ग्रिड जांचें।`
+                    : `Decode your Date of Birth, Driver, Conductor & 3x3 Vedic Grid with Numerologist Randhir Singh.`
+                }
+                lang={lang}
+              />
             </div>
           </div>
         </div>

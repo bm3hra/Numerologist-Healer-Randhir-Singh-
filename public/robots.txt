@@ -1,0 +1,46 @@
+# robots.txt for DecodeYourDestiny - Numerologist & Healer Randhir Singh Ji Jaipur
+# Official Canonical Domain: https://decodeyourdestiny.in
+# Allows all legitimate search engine bots to crawl public content
+
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /uploads/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Disallow private administrative and authentication endpoints
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/admin/
+Disallow: /pages/*?preview=true
+
+# Search Engine Specific Optimization
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /uploads/
+Allow: /*.png$
+Allow: /*.jpg$
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Canonical XML Sitemap
+Sitemap: https://decodeyourdestiny.in/sitemap.xml

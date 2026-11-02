@@ -195,6 +195,11 @@ export interface CMSPage {
   focusKeywords?: string;
   ogImage?: string;
   featuredImage?: string;
+  canonicalUrl?: string;
+  noIndex?: boolean;
+  inSitemap?: boolean;
+  changefreq?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly';
+  priority?: number; // 0.1 to 1.0
   description?: string;
   blocks: PageBlock[];
   createdAt: string;
@@ -205,6 +210,28 @@ export interface CMSPage {
   navOrder?: number;
   viewCount?: number;
 }
+
+export interface SiteSeoConfig {
+  siteName: string;
+  siteTitle: string;
+  metaDescription: string;
+  canonicalHost: string;
+  defaultOgImage: string;
+  googleVerificationCode?: string;
+  bingVerificationCode?: string;
+  ga4MeasurementId?: string;
+  gtmId?: string;
+  clarityId?: string;
+  indexNowKey?: string;
+  twitterHandle?: string;
+  facebookUrl?: string;
+  instagramUrl?: string;
+  youtubeUrl?: string;
+  enableDynamicSitemap?: boolean;
+  enableIndexNow?: boolean;
+  lastSitemapUpdate?: string;
+}
+
 
 export interface CMSMediaItem {
   id: string;

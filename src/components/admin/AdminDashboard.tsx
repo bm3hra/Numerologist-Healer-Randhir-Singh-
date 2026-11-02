@@ -10,6 +10,7 @@ import {
 import { PageBuilder } from './PageBuilder';
 import { MediaLibrary } from './MediaLibrary';
 import { AdminSettings } from './AdminSettings';
+import { SeoDashboard } from './SeoDashboard';
 import {
   FileText,
   Globe,
@@ -62,8 +63,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [filterCategory, setFilterCategory] = useState<'all' | 'homepage' | 'dedicated' | 'service' | 'custom'>('all');
   const [filterMediaType, setFilterMediaType] = useState<'all' | 'photos' | 'videos'>('all');
 
-  // Modes: dashboard | builder | media | settings
-  const [viewMode, setViewMode] = useState<'dashboard' | 'builder' | 'media' | 'settings'>('dashboard');
+  // Modes: dashboard | builder | media | settings | seo
+  const [viewMode, setViewMode] = useState<'dashboard' | 'builder' | 'media' | 'settings' | 'seo'>('dashboard');
   const [pageToEdit, setPageToEdit] = useState<CMSPage | null>(null);
 
   useEffect(() => {
@@ -233,6 +234,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     );
   }
 
+  // Render SeoDashboard when in 'seo' view
+  if (viewMode === 'seo') {
+    return (
+      <SeoDashboard
+        onBack={() => {
+          setViewMode('dashboard');
+          loadDashboardData();
+        }}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#0e0e11] text-stone-100 flex flex-col">
       {/* Top Navbar */}
@@ -256,7 +269,16 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          <button
+            onClick={() => setViewMode('seo')}
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold transition cursor-pointer shadow-xs"
+            title="SEO व गूगल इंडेक्सिंग पोर्टल (SEO & Google Indexing)"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <span className="hidden md:inline">SEO &amp; गूगल इंडेक्सिंग</span>
+          </button>
+
           <button
             onClick={() => setViewMode('settings')}
             className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-300 text-xs font-semibold transition cursor-pointer"
@@ -359,6 +381,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5">
+            <button
+              onClick={() => setViewMode('seo')}
+              className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 font-bold text-xs transition cursor-pointer shadow-sm"
+            >
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>SEO व गूगल इंडेक्सिंग</span>
+            </button>
+
             <button
               onClick={() => setViewMode('settings')}
               className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-xs transition cursor-pointer shadow-sm"

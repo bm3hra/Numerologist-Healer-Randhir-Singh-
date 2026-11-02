@@ -31,9 +31,14 @@ import { KundliMilanPage } from './components/pages/KundliMilanPage';
 import { IndividualServicePage } from './components/pages/IndividualServicePage';
 import { DynamicPageViewer } from './components/pages/DynamicPageViewer';
 
+// SEO & Social Promotion Components
+import { SeoHead } from './components/seo/SeoHead';
+import { BreadcrumbNav } from './components/seo/BreadcrumbNav';
+import { SocialShareBar } from './components/seo/SocialShareBar';
+
 // Admin CMS & Auth
 import { AdminAuthProvider, useAdminAuth } from './context/AdminAuthContext';
-import { CmsPageProvider } from './context/CmsPageContext';
+import { CmsPageProvider, useCmsPages } from './context/CmsPageContext';
 import { AdminLogin } from './components/admin/AdminLogin';
 import { AdminDashboard } from './components/admin/AdminDashboard';
 
@@ -101,6 +106,11 @@ function MainAppContent() {
     }
     return 'home';
   });
+
+  const { getPageBySlug } = useCmsPages();
+  const currentCmsPage = currentTab.startsWith('pages/')
+    ? getPageBySlug(currentTab.replace('pages/', ''))
+    : undefined;
 
   // Booking Modal State
   const [isBookingOpen, setIsBookingOpen] = useState<boolean>(false);
@@ -299,17 +309,23 @@ function MainAppContent() {
     }
     if (isAdmin) {
       return (
-        <AdminDashboard
-          onBackToSite={() => handleNavigate('home')}
-          onViewLivePage={(slug) => handleNavigate(`pages/${slug}`)}
-        />
+        <>
+          <SeoHead currentTab="admin" lang={lang} />
+          <AdminDashboard
+            onBackToSite={() => handleNavigate('home')}
+            onViewLivePage={(slug) => handleNavigate(`pages/${slug}`)}
+          />
+        </>
       );
     }
     return (
-      <AdminLogin
-        onBackToSite={() => handleNavigate('home')}
-        onSuccess={() => handleNavigate('admin')}
-      />
+      <>
+        <SeoHead currentTab="admin" lang={lang} />
+        <AdminLogin
+          onBackToSite={() => handleNavigate('home')}
+          onSuccess={() => handleNavigate('admin')}
+        />
+      </>
     );
   }
 
@@ -321,6 +337,13 @@ function MainAppContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fdfbf7] text-stone-900">
+      {/* Dynamic SEO Meta Tags, Canonicals, OpenGraph & Structured Data */}
+      <SeoHead
+        currentTab={currentTab}
+        lang={lang}
+        cmsPage={currentCmsPage}
+      />
+
       {/* Subtle Viewport Top Reading Progress Bar */}
       <ReadingProgressBar />
 
@@ -389,10 +412,15 @@ function MainAppContent() {
         {/* ROUTE 6: About Numerologist & Healer · Randhir Singh Dedicated Page (18 Photos & Credentials) */}
         {currentTab === 'about-randhir' && (
           <div className="py-6">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <BreadcrumbNav
+                items={[{ label: lang === 'hi' ? 'रणधीर सिंह जी का परिचय' : 'About Randhir Singh', isCurrent: true }]}
+                lang={lang}
+                onNavigate={handleNavigate}
+              />
               <button
                 onClick={() => handleNavigate('home')}
-                className="inline-flex items-center gap-2 text-xs font-bold text-amber-900 bg-amber-100/90 border border-amber-300 px-4 py-2 rounded-xl hover:bg-amber-200 transition-colors shadow-2xs"
+                className="inline-flex items-center gap-2 text-xs font-bold text-amber-900 bg-amber-100/90 border border-amber-300 px-4 py-2 rounded-xl hover:bg-amber-200 transition-colors shadow-2xs self-start sm:self-auto cursor-pointer"
               >
                 <span>← {lang === 'hi' ? 'मुख्य पृष्ठ पर वापस जाएं' : 'Back to Main Page'}</span>
               </button>
@@ -401,16 +429,27 @@ function MainAppContent() {
               lang={lang as Language}
               onOpenBooking={(svc) => handleOpenBooking(svc)}
             />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+              <SocialShareBar
+                title={lang === 'hi' ? 'रणधीर सिंह जी का परिचय · सुप्रसिद्ध वैदिक अंक ज्योतिष विशेषज्ञ एवं हीलर' : 'About Randhir Singh · Renowned Vedic Numerologist & Spiritual Healer in Jaipur'}
+                lang={lang}
+              />
+            </div>
           </div>
         )}
 
         {/* ROUTE 6B: Dedicated Page for Client Reviews & Stories */}
         {currentTab === 'client-reviews-stories' && (
-          <div>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+          <div className="py-6">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <BreadcrumbNav
+                items={[{ label: lang === 'hi' ? 'ग्राहकों के अनुभव एवं समीक्षाएं' : 'Client Reviews & Stories', isCurrent: true }]}
+                lang={lang}
+                onNavigate={handleNavigate}
+              />
               <button
                 onClick={() => handleNavigate('home')}
-                className="inline-flex items-center gap-2 text-xs font-bold text-amber-900 bg-amber-100/80 hover:bg-amber-200 px-3.5 py-1.5 rounded-full border border-amber-300 transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 text-xs font-bold text-amber-900 bg-amber-100/80 hover:bg-amber-200 px-3.5 py-1.5 rounded-full border border-amber-300 transition-colors cursor-pointer self-start sm:self-auto"
               >
                 <span>← {lang === 'hi' ? 'मुख्य पृष्ठ पर वापस जाएं' : 'Back to Main Page'}</span>
               </button>
@@ -419,6 +458,12 @@ function MainAppContent() {
               lang={lang as Language}
               onOpenBooking={(svc) => handleOpenBooking(svc)}
             />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+              <SocialShareBar
+                title={lang === 'hi' ? 'ग्राहकों के अनुभव एवं जीवन परिवर्तन की कहानियाँ | रणधीर सिंह' : 'Client Reviews & Transformational Stories | Numerologist & Healer Randhir Singh'}
+                lang={lang}
+              />
+            </div>
           </div>
         )}
 

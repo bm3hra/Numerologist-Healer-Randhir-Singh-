@@ -90,6 +90,11 @@ export const PageBuilder: React.FC<PageBuilderProps> = ({
   const [seoDescription, setSeoDescription] = useState(initialPage?.seoDescription || '');
   const [focusKeywords, setFocusKeywords] = useState(initialPage?.focusKeywords || '');
   const [ogImage, setOgImage] = useState(initialPage?.ogImage || '');
+  const [canonicalUrl, setCanonicalUrl] = useState(initialPage?.canonicalUrl || '');
+  const [noIndex, setNoIndex] = useState(initialPage?.noIndex ?? false);
+  const [inSitemap, setInSitemap] = useState(initialPage?.inSitemap ?? true);
+  const [changefreq, setChangefreq] = useState<CMSPage['changefreq']>(initialPage?.changefreq || 'weekly');
+  const [priority, setPriority] = useState<number>(initialPage?.priority ?? 0.8);
   const [showInNav, setShowInNav] = useState(initialPage?.showInNav ?? false);
   const [navOrder, setNavOrder] = useState<number>(initialPage?.navOrder ?? 0);
 
@@ -366,6 +371,11 @@ export const PageBuilder: React.FC<PageBuilderProps> = ({
       seoDescription: seoDescription.trim(),
       focusKeywords: focusKeywords.trim(),
       ogImage: ogImage.trim(),
+      canonicalUrl: canonicalUrl.trim(),
+      noIndex,
+      inSitemap,
+      changefreq,
+      priority: Number(priority) || 0.8,
       blocks,
       showInNav,
       navOrder: Number(navOrder) || 0
@@ -1792,6 +1802,91 @@ export const PageBuilder: React.FC<PageBuilderProps> = ({
                   </button>
                 </div>
               </div>
+
+              {/* Canonical URL */}
+              <div>
+                <label className="block text-xs font-semibold text-stone-300 mb-1">
+                  कैनोनिकल URL (Canonical URL - वैकल्पिक)
+                </label>
+                <input
+                  type="text"
+                  value={canonicalUrl}
+                  onChange={(e) => setCanonicalUrl(e.target.value)}
+                  placeholder="https://decodeyourdestiny.in/pages/your-page (रिक्त छोड़ने पर स्वतः उत्पन्न होगा)"
+                  className="w-full px-3.5 py-2 rounded-xl bg-stone-950 border border-stone-800 text-xs font-mono text-stone-200 focus:border-amber-500 outline-none"
+                />
+              </div>
+
+              {/* Indexing & Sitemap Controls */}
+              <div className="pt-4 border-t border-stone-800 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Index / Noindex Toggle */}
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-stone-950 border border-stone-800">
+                  <input
+                    type="checkbox"
+                    id="noIndexToggle"
+                    checked={noIndex}
+                    onChange={(e) => setNoIndex(e.target.checked)}
+                    className="w-4 h-4 rounded text-red-600 focus:ring-red-500 bg-stone-900 border-stone-700 cursor-pointer"
+                  />
+                  <label htmlFor="noIndexToggle" className="text-xs text-stone-200 cursor-pointer">
+                    <span className="font-semibold block text-stone-100">सर्च इंजन से छिपाएँ (noindex)</span>
+                    <span className="text-stone-400">Googlebot को इस पेज को इंडेक्स करने से रोकें</span>
+                  </label>
+                </div>
+
+                {/* XML Sitemap Inclusion Toggle */}
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-stone-950 border border-stone-800">
+                  <input
+                    type="checkbox"
+                    id="inSitemapToggle"
+                    checked={inSitemap}
+                    onChange={(e) => setInSitemap(e.target.checked)}
+                    className="w-4 h-4 rounded text-amber-600 focus:ring-amber-500 bg-stone-900 border-stone-700 cursor-pointer"
+                  />
+                  <label htmlFor="inSitemapToggle" className="text-xs text-stone-200 cursor-pointer">
+                    <span className="font-semibold block text-stone-100">XML साइटमैप में शामिल करें</span>
+                    <span className="text-stone-400">sitemap.xml में स्वचालित रूप से जोड़ें</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Sitemap Priority and Change Frequency */}
+              {inSitemap && !noIndex && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-xl bg-amber-950/20 border border-amber-500/20">
+                  <div>
+                    <label className="block text-xs font-semibold text-amber-300 mb-1">
+                      साइटमैप प्राथमिकता (Sitemap Priority: 0.1 - 1.0)
+                    </label>
+                    <select
+                      value={priority}
+                      onChange={(e) => setPriority(Number(e.target.value))}
+                      className="w-full px-3 py-1.5 rounded-lg bg-stone-900 border border-stone-700 text-xs text-stone-200"
+                    >
+                      <option value={1.0}>1.0 (सर्वोच्च प्राथमिकता)</option>
+                      <option value={0.9}>0.9 (उच्च प्राथमिकता - सेवाएं व गणना)</option>
+                      <option value={0.8}>0.8 (सामान्य प्राथमिकता - मानक पेज)</option>
+                      <option value={0.6}>0.6 (मध्यम प्राथमिकता)</option>
+                      <option value={0.4}>0.4 (निम्न प्राथमिकता)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-amber-300 mb-1">
+                      बदलाव की आवृत्ति (Change Frequency)
+                    </label>
+                    <select
+                      value={changefreq}
+                      onChange={(e) => setChangefreq(e.target.value as any)}
+                      className="w-full px-3 py-1.5 rounded-lg bg-stone-900 border border-stone-700 text-xs text-stone-200"
+                    >
+                      <option value="daily">Daily (प्रतिदिन)</option>
+                      <option value="weekly">Weekly (साप्ताहिक)</option>
+                      <option value="monthly">Monthly (मासिक)</option>
+                      <option value="yearly">Yearly (वार्षिक)</option>
+                    </select>
+                  </div>
+                </div>
+              )}
 
               {/* Navigation Options */}
               <div className="pt-4 border-t border-stone-800 grid grid-cols-1 md:grid-cols-2 gap-4">

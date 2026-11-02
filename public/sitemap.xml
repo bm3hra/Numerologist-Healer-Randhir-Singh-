@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- 1. Home / Decode Your Destiny Main Hub -->
+  <url>
+    <loc>https://decodeyourdestiny.in/</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://decodeyourdestiny.in/?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://decodeyourdestiny.in/?lang=en" />
+    <image:image>
+      <image:loc>https://decodeyourdestiny.in/Randhir%20Singh.png</image:loc>
+      <image:title>Numerologist and Healer Randhir Singh Ji Jaipur</image:title>
+      <image:caption>Renowned Vedic Numerologist and Spiritual Healer in Jaipur, Rajasthan</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 2. Date of Birth & Lo-Shu Grid Calculator -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#dob-calculator</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 3. Wristwatch Analysis & Victorinox Therapy Watch -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#watch-analysis</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://decodeyourdestiny.in/Luxury%20Gold%20Numerology%20Watch.png</image:loc>
+      <image:title>Randhir Singh Signature Victorinox Therapy Watch</image:title>
+      <image:caption>18K yellow gold finish, royal azure blue bezel, consecrated central Om mandala</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 4. Negativity Removal & Traditional Salt Therapy -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#salt-therapy</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 5. Crystal & Gemstone Vibration Therapy -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#crystal-therapy</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 6. Consultancy & Healing Services Fees -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#tariff-about</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 7. Client Reviews & Transformational Stories -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#reviews</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 8. About Numerologist & Healer Randhir Singh -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#about-randhir</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://decodeyourdestiny.in/Certificate%20Celebration%20Ceremony.png</image:loc>
+      <image:title>Convocation & Excellence Awards Ceremony</image:title>
+      <image:caption>Keynote Speaker at 2nd Mega Convocation, Radisson Blu, Jaipur</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 9. Dedicated Page: Yantra Healings -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#yantra-healings</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 10. Dedicated Page: Special Yantras -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#special-yantras</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 11. Dedicated Page: Date of Birth Yantras -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#dob-yantras</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 12. Dedicated Page: Kundli Milan & 36 Guna Match -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#kundli-milan</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 13. Dedicated Page: And More Remedies -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#and-more</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- 14. Divine Watch & Numerology Guide -->
+  <url>
+    <loc>https://decodeyourdestiny.in/pages/divine-watch-and-numerology-guide</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- 15. Individual Services 1 to 16 -->
+  <url>
+    <loc>https://decodeyourdestiny.in/#service-1</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://decodeyourdestiny.in/#service-2</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://decodeyourdestiny.in/#service-3</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://decodeyourdestiny.in/#service-4</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://decodeyourdestiny.in/#service-5</loc>
+    <lastmod>2026-04-01T00:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+</urlset>
