@@ -13,7 +13,6 @@ import { SwitchwordsAndYantras } from './components/SwitchwordsAndYantras';
 import { AllServicesSection } from './components/AllServicesSection';
 import { AboutRandhirSinghSection } from './components/AboutRandhirSinghSection';
 import { AboutAndTariffSection } from './components/AboutAndTariffSection';
-import { AwardsSection } from './components/AwardsSection';
 import { FaqSection } from './components/FaqSection';
 import { MediaGallerySection } from './components/MediaGallerySection';
 import { ReadingProgressBar } from './components/ReadingProgressBar';
@@ -408,7 +407,7 @@ function MainAppContent() {
           />
         )}
 
-        {/* ROUTE 6: About Numerologist & Healer · Randhir Singh Dedicated Page (18 Photos & Credentials) */}
+        {/* ROUTE 6: About Numerologist & Healer · Randhir Singh Dedicated Page */}
         {currentTab === 'about-randhir' && (
           <div className="py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -711,7 +710,7 @@ function MainAppContent() {
               onOpenBooking={(svcName) => handleOpenBooking(svcName)}
             />
 
-            {/* 10. Dedicated About Numerologist & Healer · Randhir Singh Section (Featuring 18 Photos & Credentials) */}
+            {/* 10. Dedicated About Numerologist & Healer · Randhir Singh Section */}
             <AboutRandhirSinghSection
               lang={lang as Language}
               onOpenBooking={(svc) => handleOpenBooking(svc)}
@@ -723,13 +722,7 @@ function MainAppContent() {
               onBookService={(title, price) => handleOpenBooking(title, price)}
             />
 
-            {/* 11. Prestigious Honors & Felicitations */}
-            <AwardsSection
-              lang={lang as Language}
-              onOpenBooking={() => handleOpenBooking('Personalized Spiritual Consultation', '₹5,100')}
-            />
-
-            {/* 12. Photos & Video Showcase */}
+            {/* 12. Photos and Certificate Showcase */}
             <MediaGallerySection
               lang={lang as Language}
               onOpenBooking={(svc) => handleOpenBooking(svc)}

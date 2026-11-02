@@ -141,20 +141,11 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
               </li>
               <li>
                 <a
-                  href="#awards"
-                  onClick={(e) => { e.preventDefault(); onNavigate('awards'); }}
-                  className="hover:text-amber-300 transition-colors block"
-                >
-                  {lang === 'hi' ? 'पुरस्कार एवं राष्ट्रीय सम्मान' : 'Honors & National Awards'}
-                </a>
-              </li>
-              <li>
-                <a
                   href="#media"
                   onClick={(e) => { e.preventDefault(); onNavigate('media'); }}
                   className="hover:text-amber-300 transition-colors block"
                 >
-                  {lang === 'hi' ? 'फ़ोटो व वीडियो गैलरी' : 'Photos & Video Showcase'}
+                  {lang === 'hi' ? 'फोटो एवं सर्टिफिकेट्स शोकेस' : 'Photos and Certificate Showcase'}
                 </a>
               </li>
               <li>

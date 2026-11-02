@@ -143,7 +143,7 @@ export const AwardsSection: React.FC<AwardsSectionProps> = ({ lang, onOpenBookin
       subtitleEn: '"NUMBER OF NUMEROLOGISTS TO EXPLORE THE WORLD"',
       subtitleHi: '"विश्व भर में अंक शास्त्रियों का प्रसार एवं जन-कल्याण"',
       imageUrl: '/assets/certificates/radisson-blu-convocation-crest.svg',
-      altImageUrl: '/assets/awards/numerologists-mega-convocation-speech.svg',
+      altImageUrl: '/assets/aistudio/Numerologists__Mega_Convocation_Speech_3be65ab9.png',
       altLabelEn: 'View Keynote Speech from Podium',
       altLabelHi: 'मंच से मुख्य भाषण दृश्य देखें',
       yearEn: '16th June 2024',

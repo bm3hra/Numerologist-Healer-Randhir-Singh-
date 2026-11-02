@@ -56,7 +56,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'about-randhir', labelEn: 'About Randhir Singh', labelHi: 'रणधीर सिंह जी' },
     { id: 'dob', labelEn: 'DOB & Lo-Shu', labelHi: 'जन्मतिथि और ग्रिड' },
     { id: 'watch', labelEn: 'Watch Therapy', labelHi: 'हाथ की घड़ी (वॉच थेरेपी)' },
-    { id: 'awards', labelEn: 'Honors & Awards', labelHi: 'अवॉर्ड और सम्मान' },
     { id: 'salt', labelEn: 'Salt & Crystals', labelHi: 'सॉल्ट थेरेपी व क्रिस्टल', hideOnLg: true },
     { id: 'services', labelEn: 'All Services', labelHi: 'सभी 16 सेवाएँ', hideOnLg: true },
   ];
@@ -64,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   // Secondary navigation tabs placed in "More" dropdown on desktop
   const secondaryNavLinks = [
     { id: 'tariff', labelEn: '💳 Consultancy & Healing Services Fees (Complete Tariff)', labelHi: '💳 परामर्श एवं हीलिंग सेवाएं फीस (सम्पूर्ण टैरिफ)' },
-    { id: 'about-randhir', labelEn: '★ About Numerologist & Healer · Randhir Singh (18 Photos)', labelHi: '★ रणधीर सिंह जी का परिचय (18 फोटो)' },
+    { id: 'about-randhir', labelEn: '★ About Numerologist & Healer · Randhir Singh', labelHi: '★ रणधीर सिंह जी का परिचय' },
     { id: 'services', labelEn: '★ All 16 Divine Services (Individual Pages)', labelHi: '★ सभी 16 सेवाएँ (विस्तार से)' },
     { id: 'yantra-healings', labelEn: '★ Yantra Healings (Detailed Page)', labelHi: '★ सिद्ध यंत्र और हीलिंग' },
     { id: 'special-yantras', labelEn: '★ Special Yantras (Business, Job, Desires)', labelHi: '★ खास यंत्र (व्यापार, नौकरी, मनोकामना)' },
@@ -78,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'mobile_name', labelEn: 'Lucky Mobile & Name Correction', labelHi: 'लकी मोबाइल नंबर व नाम सुधार' },
     { id: 'compatibility', labelEn: '3x3 Grid Compatibility', labelHi: '3x3 ग्रिड से मैचिंग' },
     { id: 'remedies', labelEn: 'Yantras, Codes & Switchwords', labelHi: 'यंत्र, हीलिंग कोड और स्विचवर्ड्स' },
-    { id: 'media', labelEn: 'Photos & Video Masterclasses', labelHi: 'फोटो और वीडियो क्लास' },
+    { id: 'media', labelEn: 'Photos and Certificate Showcase', labelHi: 'फोटो एवं सर्टिफिकेट्स शोकेस' },
     { id: 'faq', labelEn: 'Frequently Asked Questions', labelHi: 'अक्सर पूछे जाने वाले सवाल (FAQ)' },
     { id: 'client-reviews-stories', labelEn: '★ Client Reviews & Stories (Instant Submit)', labelHi: '★ ग्राहकों के अनुभव एवं कहानियाँ' },
   ];
@@ -87,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const allNavLinks = [
     { id: 'home', labelEn: 'Home', labelHi: 'होम' },
     { id: 'tariff', labelEn: '💳 Consultancy & Healing Services Fees', labelHi: '💳 परामर्श एवं हीलिंग सेवाएं फीस' },
-    { id: 'about-randhir', labelEn: 'About Randhir Singh (18 Photos)', labelHi: 'रणधीर सिंह जी (18 फोटो)' },
+    { id: 'about-randhir', labelEn: 'About Randhir Singh', labelHi: 'रणधीर सिंह जी' },
     { id: 'dob', labelEn: 'DOB & Lo-Shu Grid', labelHi: 'जन्मतिथि और ग्रिड' },
     { id: 'yantra-healings', labelEn: 'Yantra Healings Page', labelHi: 'सिद्ध यंत्र और हीलिंग' },
     { id: 'special-yantras', labelEn: 'Special Yantras (Business/Job)', labelHi: 'खास यंत्र (व्यापार/नौकरी)' },
@@ -100,7 +99,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'mobile_name', labelEn: 'Mobile & Name Correction', labelHi: 'लकी मोबाइल व नाम सुधार' },
     { id: 'compatibility', labelEn: 'Grid Matching', labelHi: 'ग्रिड मिलान' },
     { id: 'remedies', labelEn: 'Yantras, Codes & Switchwords', labelHi: 'यंत्र, हीलिंग कोड और स्विचवर्ड्स' },
-    { id: 'awards', labelEn: 'Honors & Awards', labelHi: 'पुरस्कार व सम्मान' },
     { id: 'services', labelEn: 'All 16 Divine Services', labelHi: 'सभी 16 सेवाएँ' },
     { id: 'faq', labelEn: 'FAQs', labelHi: 'अक्सर पूछे जाने वाले सवाल' },
     { id: 'client-reviews-stories', labelEn: 'Client Reviews & Stories (Submit)', labelHi: 'ग्राहकों के अनुभव एवं समीक्षाएँ' },

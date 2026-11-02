@@ -90,7 +90,7 @@
         "imageAlt": "Victorinox Swiss Dive Watch",
         "title": "विक्टोरिनॉक्स स्विस डाइव वॉच",
         "subtitle": "डायल आकार, अंक संरचना और धातु की तरंगों का सूक्ष्म संतुलन",
-        alignment: "center"
+        "alignment": "center"
       },
       {
         "id": "watch_blk_3",
