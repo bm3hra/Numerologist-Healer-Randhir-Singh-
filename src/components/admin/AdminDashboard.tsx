@@ -11,6 +11,8 @@ import { PageBuilder } from './PageBuilder';
 import { MediaLibrary } from './MediaLibrary';
 import { AdminSettings } from './AdminSettings';
 import { SeoDashboard } from './SeoDashboard';
+import { DuplicateCleaner } from './DuplicateCleaner';
+import { ConfirmDeleteModal } from './ConfirmDeleteModal';
 import {
   FileText,
   Globe,
@@ -63,9 +65,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [filterCategory, setFilterCategory] = useState<'all' | 'homepage' | 'dedicated' | 'service' | 'custom'>('all');
   const [filterMediaType, setFilterMediaType] = useState<'all' | 'photos' | 'videos'>('all');
 
-  // Modes: dashboard | builder | media | settings | seo
-  const [viewMode, setViewMode] = useState<'dashboard' | 'builder' | 'media' | 'settings' | 'seo'>('dashboard');
+  // Modes: dashboard | builder | media | settings | seo | duplicates
+  const [viewMode, setViewMode] = useState<'dashboard' | 'builder' | 'media' | 'settings' | 'seo' | 'duplicates'>('dashboard');
   const [pageToEdit, setPageToEdit] = useState<CMSPage | null>(null);
+
+  // Yes / No Delete Confirmation Modal state
+  const [pageToDelete, setPageToDelete] = useState<CMSPage | null>(null);
+  const [deleteLoading, setDeleteLoading] = useState(false);
 
   useEffect(() => {
     loadDashboardData();
@@ -139,19 +145,26 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     }
   };
 
-  const handleDeletePage = async (page: CMSPage) => {
+  const handleDeletePage = (page: CMSPage) => {
     if (page.isSystemPage) {
       alert('यह मुख्य वेबसाइट का अनिवार्य पृष्ठ/अनुभाग है। इसे हटाया नहीं जा सकता, केवल संपादित या अपडेट किया जा सकता है।');
       return;
     }
-    if (!window.confirm(`Delete page "${page.title}" (/pages/${page.slug})? This cannot be undone.`)) {
-      return;
-    }
+    // Open Yes / No Confirmation Modal
+    setPageToDelete(page);
+  };
+
+  const handleConfirmDeletePage = async () => {
+    if (!pageToDelete) return;
+    setDeleteLoading(true);
     try {
-      await deletePage(page.id);
+      await deletePage(pageToDelete.id);
+      setPageToDelete(null);
       await loadDashboardData();
     } catch (err: any) {
-      alert(`Delete failed: ${err.message}`);
+      alert(`हटाने में त्रुटि: ${err.message}`);
+    } finally {
+      setDeleteLoading(false);
     }
   };
 
@@ -246,6 +259,19 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     );
   }
 
+  // Render DuplicateCleaner when in 'duplicates' view
+  if (viewMode === 'duplicates') {
+    return (
+      <DuplicateCleaner
+        onBack={() => {
+          setViewMode('dashboard');
+          loadDashboardData();
+        }}
+        onRefreshData={loadDashboardData}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#0e0e11] text-stone-100 flex flex-col">
       {/* Top Navbar */}
@@ -270,6 +296,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </div>
 
         <div className="flex items-center gap-2 sm:gap-2.5">
+          <button
+            onClick={() => setViewMode('duplicates')}
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/40 text-purple-300 text-xs font-bold transition cursor-pointer shadow-xs"
+            title="प्रमाण-पत्र, फ़ोटो एवं डुप्लीकेट क्लीनर (Certificates & Duplicates Cleanup)"
+          >
+            <Copy className="w-3.5 h-3.5 text-purple-400" />
+            <span className="hidden md:inline">सर्टिफिकेट व डुप्लीकेट क्लीनर</span>
+          </button>
+
           <button
             onClick={() => setViewMode('seo')}
             className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold transition cursor-pointer shadow-xs"
@@ -381,6 +416,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5">
+            <button
+              onClick={() => setViewMode('duplicates')}
+              className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/40 text-purple-300 font-bold text-xs transition cursor-pointer shadow-sm"
+              title="प्रमाण-पत्र, फ़ोटो एवं डुप्लीकेट क्लीनर"
+            >
+              <Copy className="w-4 h-4 text-purple-400" />
+              <span>प्रमाण-पत्र व डुप्लीकेट क्लीनर</span>
+            </button>
+
             <button
               onClick={() => setViewMode('seo')}
               className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 font-bold text-xs transition cursor-pointer shadow-sm"
@@ -780,6 +824,25 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           )}
         </div>
       </main>
+
+      {/* Yes / No Delete Confirmation Modal for Pages */}
+      <ConfirmDeleteModal
+        isOpen={Boolean(pageToDelete)}
+        title="पेज हटाने की पुष्टि करें (Confirm Page Deletion)"
+        message={`क्या आप वाकई पृष्ठ "${pageToDelete?.title}" को स्थायी रूप से हटाना चाहते हैं?`}
+        subMessage="यह क्रिया अपरिवर्तनीय है। हटाने के बाद यह पृष्ठ और इसके सभी ब्लॉक वेबसाइट से हमेशा के लिए हट जाएंगे।"
+        itemDetails={[
+          { label: 'पेज शीर्षक (Title)', value: pageToDelete?.title || '' },
+          { label: 'URL स्लग (Slug)', value: `/pages/${pageToDelete?.slug || ''}` },
+          { label: 'स्थिति (Status)', value: pageToDelete?.status || 'draft' }
+        ]}
+        confirmText="हाँ, हटाएं (Yes, Delete)"
+        cancelText="नहीं, रद्द करें (No, Cancel)"
+        isDestructive={true}
+        loading={deleteLoading}
+        onConfirm={handleConfirmDeletePage}
+        onCancel={() => setPageToDelete(null)}
+      />
     </div>
   );
 };

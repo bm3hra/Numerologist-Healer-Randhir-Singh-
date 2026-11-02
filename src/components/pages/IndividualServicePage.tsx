@@ -73,7 +73,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
 
   const displayFullDesc = cmsTextBlock?.content || (lang === 'hi' ? service.fullDescHi : service.fullDescEn);
   const displayTariff = cmsCardBlock?.price || service.suggestedTariff || '₹5,100';
-  const displayImage = cmsHeroBlock?.imageUrl || (validId === 2 ? '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png' : '/Randhir Singh.png');
+  const displayImage = cmsHeroBlock?.imageUrl || (validId === 2 ? '/assets/watches/victorinox-swiss-dive-watch-gold.svg' : '/Randhir Singh.png');
 
   // Quick Interactive Mini-Tools State per service
   const [interactiveInput, setInteractiveInput] = useState<string>('');

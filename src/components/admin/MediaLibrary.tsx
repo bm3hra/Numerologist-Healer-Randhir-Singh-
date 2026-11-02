@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CMSMediaItem } from '../../types';
 import { getAllMedia, uploadMediaItem, deleteMediaItem } from '../../lib/cmsService';
+import { ConfirmDeleteModal } from './ConfirmDeleteModal';
 import {
   Upload,
   Image as ImageIcon,
@@ -120,18 +121,29 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
     }
   };
 
-  const handleDelete = async (id: string, name: string) => {
-    if (!window.confirm(`Are you sure you want to delete "${name}"? This action cannot be undone.`)) {
-      return;
-    }
+  // Yes / No Delete Confirmation Modal state
+  const [mediaToDelete, setMediaToDelete] = useState<CMSMediaItem | null>(null);
+  const [deleteLoading, setDeleteLoading] = useState(false);
+
+  const handleDelete = (item: CMSMediaItem) => {
+    // Open Yes / No Confirmation Modal
+    setMediaToDelete(item);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!mediaToDelete) return;
+    setDeleteLoading(true);
     try {
-      await deleteMediaItem(id);
-      setMediaList((prev) => prev.filter((m) => m.id !== id));
-      if (previewMedia?.id === id) {
+      await deleteMediaItem(mediaToDelete.id);
+      setMediaList((prev) => prev.filter((m) => m.id !== mediaToDelete.id));
+      if (previewMedia?.id === mediaToDelete.id) {
         setPreviewMedia(null);
       }
+      setMediaToDelete(null);
     } catch (err: any) {
-      alert(`Delete failed: ${err.message}`);
+      setError(`Delete failed: ${err.message}`);
+    } finally {
+      setDeleteLoading(false);
     }
   };
 
@@ -318,7 +330,7 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
                       )}
                     </button>
                     <button
-                      onClick={() => handleDelete(item.id, item.name)}
+                      onClick={() => handleDelete(item)}
                       className="p-1.5 rounded-lg bg-red-950/80 hover:bg-red-900 text-red-300 transition"
                       title="Delete Asset"
                     >
@@ -534,8 +546,8 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
 
               <div className="pt-4 flex items-center justify-between border-t border-stone-800 mt-4">
                 <button
-                  onClick={() => handleDelete(previewMedia.id, previewMedia.name)}
-                  className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1.5"
+                  onClick={() => handleDelete(previewMedia)}
+                  className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1.5 cursor-pointer"
                 >
                   <Trash2 className="w-4 h-4" /> Delete Asset
                 </button>
@@ -555,6 +567,25 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
           </div>
         </div>
       )}
+
+      {/* Yes / No Delete Confirmation Modal for Media Items */}
+      <ConfirmDeleteModal
+        isOpen={Boolean(mediaToDelete)}
+        title="फ़ाइल हटाने की पुष्टि करें (Confirm Asset Deletion)"
+        message={`क्या आप वाकई इस फ़ाइल "${mediaToDelete?.name}" को स्थायी रूप से हटाना चाहते हैं?`}
+        subMessage="यह क्रिया अपरिवर्तनीय है। हटाने के बाद यह छवि/वीडियो सर्वर डिस्क से हटा दिया जाएगा।"
+        itemDetails={[
+          { label: 'फ़ाइल नाम', value: mediaToDelete?.name || '' },
+          { label: 'प्रकार (Type)', value: mediaToDelete?.type || 'image' },
+          { label: 'आकार (Size)', value: mediaToDelete ? `${Math.round(mediaToDelete.size / 1024)} KB` : '' }
+        ]}
+        confirmText="हाँ, हटाएं (Yes, Delete)"
+        cancelText="नहीं, रद्द करें (No, Cancel)"
+        isDestructive={true}
+        loading={deleteLoading}
+        onConfirm={handleConfirmDelete}
+        onCancel={() => setMediaToDelete(null)}
+      />
     </div>
   );
 

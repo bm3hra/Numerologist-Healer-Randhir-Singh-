@@ -218,33 +218,6 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     tags: ['Reg A-G 62', 'Advance Placement', 'Dr. Rohit Gadkari', '23 Nov 2024', 'ISO-9001:2015']
   },
 
-  // 15. Luxury Gold and Blue Victorinox Numerology Watch
-  {
-    id: 'photo_watch_gold_blue',
-    titleEn: 'Luxury Gold & Royal Blue Victorinox Precision Therapy Watch',
-    titleHi: 'विक्टोरिनॉक्स 18K गोल्ड व रॉयल ब्लू थेरेपी वॉच',
-    category: 'watches',
-    categoryLabelEn: 'Therapy Watch',
-    categoryLabelHi: 'थेरेपी वॉच',
-    imageUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
-    captionEn: 'Numerologist & Healer · Randhir Singh’s consecrated Victorinox 18K Gold & Royal Azure Precision Therapy Watch. Designed with central golden Om (ॐ) mandala, dual protective inscriptions "NUMEROLOGY GUIDANCE" and "HEALING ENERGY POSITIVITY", Master Number 22 date aperture, and a divine golden blooming lotus at 6 o\'clock.',
-    captionHi: 'रणधीर सिंह जी द्वारा तैयार विक्टोरिनॉक्स 18K गोल्ड और रॉयल ब्लू थेरेपी वॉच। डायल पर स्वर्ण ॐ यंत्र, सुरक्षा मंत्र, लकी नंबर 22 और कमल का फूल बना है।',
-    tags: ['Victorinox Gold & Blue', 'Om Mandala', 'Master Number 22', 'Radial Pulse', 'Lotus 6 O\'Clock']
-  },
-
-  // 16. Luxury Gold and Pearl White Ceramic Victorinox Watch
-  {
-    id: 'photo_watch_gold_white',
-    titleEn: 'Luxury Gold & Pearl White Ceramic Victorinox Diagnostic Watch',
-    titleHi: 'विक्टोरिनॉक्स पर्ल व्हाइट व 18K गोल्ड थेरेपी वॉच',
-    category: 'watches',
-    categoryLabelEn: 'Diagnostic Station',
-    categoryLabelHi: 'थेरेपी वॉच',
-    imageUrl: '/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png',
-    captionEn: 'Numerologist & Healer · Randhir Singh’s bespoke Victorinox precision diagnostic watch in solid 18K yellow gold with pristine ceramic pearl white bezel and textured Guilloche dial. Features central golden Om (ॐ) 12-petal yantra mandala, dual protective mantras, and Master Number 22 date aperture.',
-    captionHi: 'विक्टोरिनॉक्स 18K गोल्ड और व्हाइट सिरेमिक थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, सुरक्षा मंत्र और कमल का निशान है।',
-    tags: ['Pearl White Ceramic', '18K Yellow Gold', 'Guilloche Dial', 'Om ॐ Yantra', 'Master 22']
-  },
 
   // 17. Luxury Gold and Blue Swiss Dive Watch
   {
@@ -254,7 +227,7 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     category: 'watches',
     categoryLabelEn: 'Swiss Dive Watch',
     categoryLabelHi: 'स्विस वॉच',
-    imageUrl: '/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png',
+    imageUrl: '/assets/watches/victorinox-swiss-dive-watch-gold.svg',
     captionEn: 'Victorinox Swiss Dive Watch in solid 18K yellow gold casing and bracelet with deep azure ceramic rotating bezel, horizontal textured blue dial, Swiss Made automatic movement, and Master Date aperture at 6 o’clock.',
     captionHi: 'विक्टोरिनॉक्स स्विस डाइव वॉच — 18K येलो गोल्ड केस व ब्रेसलेट, ब्लू बेज़ल, टेक्सचर्ड ब्लू डायल और 6 बजे डेट विंडो युक्त उत्कृष्ट स्विस घड़ी।',
     tags: ['18K Gold Case', 'Azure Bezel', 'Swiss Made', 'Dive Watch', 'Automatic']
@@ -268,7 +241,7 @@ export const ABOUT_PHOTOS: AboutPhotoItem[] = [
     category: 'watches',
     categoryLabelEn: 'Stainless Steel Edition',
     categoryLabelHi: 'स्टेनलेस स्टील',
-    imageUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
+    imageUrl: '/assets/watches/victorinox-swiss-dive-watch-steel.svg',
     captionEn: 'Classic Victorinox Swiss dive watch with solid brushed stainless steel case and 3-link bracelet, deep navy rotating dive bezel, luminous hands, and date at 6 o’clock. The baseline diagnostic standard for pulse and horological balance.',
     captionHi: 'स्टेनलेस स्टील केस व ब्रेसलेट, नेवी बेज़ल एवं ल्यूमिनस हैंड्स युक्त विक्टोरिनॉक्स स्विस घड़ी, जो पल्स और समय संतुलन का बेहतरीन आधार है।',
     tags: ['Stainless Steel', 'Navy Bezel', 'Swiss Army', 'Luminescent', 'Horology Baseline']

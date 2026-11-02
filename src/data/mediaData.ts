@@ -81,28 +81,7 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     descriptionHi: 'डॉ. रोहित गड़करी द्वारा 23 नवंबर 2024 को दिया गया मूल सर्टिफिकेट (Reg: A-G 62), जो सही दिशा और उपायों के प्लेसमेंट को प्रमाणित करता है।',
     tags: ['Advance Placement', 'Dr. Rohit Gadkari', 'REG: A-G 62', 'ISO-9001:2015']
   },
-  {
-    id: 'p_watch_victorinox',
-    titleEn: 'Precision Therapy Watches Exhibition — Victorinox Gold & Royal Azure Edition',
-    titleHi: 'विक्टोरिनॉक्स 18K गोल्ड व रॉयल ब्लू थेरेपी वॉच',
-    category: 'watches',
-    categoryLabel: 'Therapy Watches',
-    imageUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
-    descriptionEn: 'Consecrated Victorinox 18K Gold & Royal Azure Blue Precision Therapy Watch personally energized by Numerologist & Healer · Randhir Singh. Engineered with a sunburst cosmic dial, central Golden Om (ॐ) mandala, "NUMEROLOGY GUIDANCE" and "HEALING ENERGY POSITIVITY" divine inscriptions, Master Number 22 date aperture, and a divine golden blooming lotus at 6 o\'clock. Calibrated to transmit steady wealth vibration, career promotion, and mental clarity through the radial artery pulse meridian.',
-    descriptionHi: 'रणधीर सिंह जी द्वारा तैयार विक्टोरिनॉक्स 18K गोल्ड और रॉयल ब्लू थेरेपी वॉच। डायल पर स्वर्ण ॐ यंत्र, सुरक्षा मंत्र, लकी नंबर 22 और कमल का फूल बना है।',
-    tags: ['Therapy Watches', 'Victorinox Gold & Blue', 'Om Mandala', 'Master Number 22', 'Radial Pulse']
-  },
-  {
-    id: 'p_watch_pearl_gold',
-    titleEn: 'Watch Dial Diagnostic Station — Consecrated Victorinox Pearl White & 18K Gold Edition',
-    titleHi: 'विक्टोरिनॉक्स पर्ल व्हाइट व 18K गोल्ड थेरेपी वॉच',
-    category: 'watches',
-    categoryLabel: 'Therapy Watches',
-    imageUrl: '/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png',
-    descriptionEn: 'Numerologist & Healer · Randhir Singh’s bespoke Victorinox precision diagnostic therapy watch crafted in solid 18K yellow gold with a pristine ceramic pearl white bezel and textured white Guilloche dial. Features a divine central Golden Om (ॐ) 12-petal yantra mandala, dual protective inscriptions "NUMEROLOGY GUIDANCE" & "HEALING ENERGY POSITIVITY", Master Number 22 date aperture at 6 o’clock, and an auspicious golden blooming lotus.',
-    descriptionHi: 'विक्टोरिनॉक्स 18K गोल्ड और व्हाइट सिरेमिक थेरेपी वॉच। डायल पर केंद्र में स्वर्ण ॐ यंत्र, सुरक्षा मंत्र और कमल का निशान है।',
-    tags: ['Watch Diagnostic', 'Pearl White & Gold', 'Om Mandala', 'Master Number 22', 'Radial Pulse']
-  },
+
   {
     id: 'p_graduation_tassel',
     titleEn: 'Proud Graduation Portrait with Golden Tassel',
@@ -208,7 +187,7 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     titleHi: 'विक्टोरिनॉक्स 18K गोल्ड स्विस डाइव वॉच (रॉयल ब्लू डायल)',
     category: 'watches',
     categoryLabel: 'Swiss Dive Watch',
-    imageUrl: '/assets/aistudio/Luxury_Gold_Numerology_Watch_0e113989.png',
+    imageUrl: '/assets/watches/victorinox-swiss-dive-watch-gold.svg',
     descriptionEn: 'Victorinox Swiss Dive Watch in solid 18K yellow gold casing and bracelet with deep azure ceramic rotating bezel, horizontal textured blue dial, Swiss Made automatic movement, and Master Date aperture at 6 o’clock.',
     descriptionHi: 'विक्टोरिनॉक्स स्विस डाइव वॉच — 18K येलो गोल्ड केस व ब्रेसलेट, ब्लू बेज़ल, टेक्सचर्ड ब्लू डायल और 6 बजे डेट विंडो युक्त उत्कृष्ट स्विस घड़ी।',
     tags: ['18K Gold Case', 'Azure Bezel', 'Swiss Made', 'Dive Watch']
@@ -219,7 +198,7 @@ export const PHOTO_GALLERY: PhotoItem[] = [
     titleHi: 'विक्टोरिनॉक्स स्विस स्टेनलेस स्टील वॉच (क्लासिक ब्लू डायल)',
     category: 'watches',
     categoryLabel: 'Stainless Steel Edition',
-    imageUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
+    imageUrl: '/assets/watches/victorinox-swiss-dive-watch-steel.svg',
     descriptionEn: 'Classic Victorinox Swiss dive watch with solid brushed stainless steel case and 3-link bracelet, deep navy rotating dive bezel, luminous hands, and date at 6 o’clock. The baseline diagnostic standard for pulse and horological balance.',
     descriptionHi: 'स्टेनलेस स्टील केस व ब्रेसलेट, नेवी बेज़ल एवं ल्यूमिनस हैंड्स युक्त विक्टोरिनॉक्स स्विस घड़ी, जो पल्स और समय संतुलन का बेहतरीन आधार है।',
     tags: ['Stainless Steel', 'Navy Bezel', 'Swiss Army', 'Luminescent']
@@ -271,7 +250,7 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     categoryLabel: 'Specialty Masterclass',
     duration: '18:42 mins',
     views: '24K+ Views',
-    thumbnailUrl: '/assets/aistudio/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png',
+    thumbnailUrl: '/assets/watches/victorinox-swiss-dive-watch-gold.svg',
     embedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     descriptionEn: 'Numerologist & Healer · Randhir Singh explains how your wristwatch build, dial geometry, colors, and numbers connect to your personal habits, mindset, and life direction.',
     descriptionHi: 'आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है। इस विशेष वीडियो में घड़ी की मजबूती, आकार, डिज़ाइन, रंग, डायल और अंकों की संरचना का विश्लेषण समझें।',

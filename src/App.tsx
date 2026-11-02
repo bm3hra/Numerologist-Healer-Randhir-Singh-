@@ -14,7 +14,6 @@ import { AllServicesSection } from './components/AllServicesSection';
 import { AboutRandhirSinghSection } from './components/AboutRandhirSinghSection';
 import { AboutAndTariffSection } from './components/AboutAndTariffSection';
 import { AwardsSection } from './components/AwardsSection';
-import { AssetsCertificatesSection } from './components/AssetsCertificatesSection';
 import { FaqSection } from './components/FaqSection';
 import { MediaGallerySection } from './components/MediaGallerySection';
 import { ReadingProgressBar } from './components/ReadingProgressBar';
@@ -153,8 +152,8 @@ function MainAppContent() {
     'media-gallery': 'media-gallery',
     awards: 'awards-recognition',
     'awards-recognition': 'awards-recognition',
-    assets: 'assets-certificates',
-    'assets-certificates': 'assets-certificates',
+    assets: 'awards-recognition',
+    'assets-certificates': 'awards-recognition',
     faq: 'faq-section',
     'faq-section': 'faq-section',
     reviews: 'reviews',
@@ -730,13 +729,7 @@ function MainAppContent() {
               onOpenBooking={() => handleOpenBooking('Personalized Spiritual Consultation', '₹5,100')}
             />
 
-            {/* 12. Official Certificates & Assets Vault (featuring the 4 new certificates) */}
-            <AssetsCertificatesSection
-              lang={lang as Language}
-              onOpenBooking={(svc, price) => handleOpenBooking(svc, price)}
-            />
-
-            {/* 13. Photos & Video Showcase */}
+            {/* 12. Photos & Video Showcase */}
             <MediaGallerySection
               lang={lang as Language}
               onOpenBooking={(svc) => handleOpenBooking(svc)}

@@ -65,8 +65,8 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
     status: 'published',
     seoTitle: 'Watch Analysis & Horological Therapy | Randhir Singh Jaipur',
     seoDescription: 'आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।',
-    ogImage: '/Luxury_Gold_Numerology_Watch_0e113989.png',
-    featuredImage: '/Luxury_Gold_Numerology_Watch_0e113989.png',
+    ogImage: '/assets/watches/victorinox-swiss-dive-watch-gold.svg',
+    featuredImage: '/assets/watches/victorinox-swiss-dive-watch-gold.svg',
     showInNav: true,
     navOrder: 2,
     viewCount: 1150,
@@ -83,9 +83,9 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
       {
         id: 'watch_blk_2',
         type: 'image',
-        imageUrl: '/Luxury_Gold_Numerology_Watch_0e113989.png',
-        imageAlt: 'Luxury Gold Numerology Watch',
-        title: 'लक्ज़री गोल्ड न्यूमेरोलॉजी वॉच',
+        imageUrl: '/assets/watches/victorinox-swiss-dive-watch-gold.svg',
+        imageAlt: 'Victorinox Swiss Dive Watch',
+        title: 'विक्टोरिनॉक्स स्विस डाइव वॉच',
         subtitle: 'डायल आकार, अंक संरचना और धातु की तरंगों का सूक्ष्म संतुलन',
         alignment: 'center'
       },
@@ -100,8 +100,8 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
         type: 'gallery',
         title: 'अनुशंसित वैदिक घड़ियाँ',
         images: [
-          { url: '/Luxury_Gold_Numerology_Watch_0e113989.png', caption: 'स्वर्ण फ्रेम एवं अंक संरेखण घड़ी' },
-          { url: '/Luxury_Gold-and-Blue_Numerology_Watch_e1bbd5f5.png', caption: 'नीला डायल एवं जल तत्व संतुलन घड़ी' }
+          { url: '/assets/watches/victorinox-swiss-dive-watch-gold.svg', caption: 'स्वर्ण फ्रेम एवं अंक संरेखण घड़ी' },
+          { url: '/assets/watches/victorinox-swiss-dive-watch-steel.svg', caption: 'नीला डायल एवं जल तत्व संतुलन घड़ी' }
         ],
         columns: 2
       },
@@ -456,43 +456,6 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
     ]
   },
   {
-    id: 'page_assets_certificates',
-    slug: 'assets-certificates',
-    title: 'Certificates Celebration Ceremony',
-    titleHi: 'सर्टिफिकेट दीक्षांत समारोह एवं मान्यताएँ (Certificates)',
-    category: 'homepage',
-    sectionId: 'assets-certificates',
-    isSystemPage: true,
-    status: 'published',
-    seoTitle: 'Official Certificates & Accreditations | Randhir Singh Jaipur',
-    seoDescription: 'Advance Numerology, Wrist Watch Therapy एवं Advance Placement अधिकृत प्रमाण पत्र।',
-    ogImage: '/Certificate Celebration Ceremony.png',
-    featuredImage: '/Certificate Celebration Ceremony.png',
-    showInNav: true,
-    navOrder: 14,
-    viewCount: 1250,
-    authorEmail: 'admin@randhir.com',
-    createdAt: '2026-10-29T00:00:00.000Z',
-    updatedAt: '2026-10-29T00:00:00.000Z',
-    blocks: [
-      {
-        id: 'cert_blk_1',
-        type: 'heading',
-        title: 'प्रमाणित शैक्षिक योग्यता एवं आधिकारिक मान्यताएँ',
-        subtitle: 'ISO 9001:2015 एवं UDYAM अधिकृत राष्ट्रीय अंक ज्योतिष प्रमाण पत्र'
-      },
-      {
-        id: 'cert_blk_2',
-        type: 'image',
-        imageUrl: '/Certificate Celebration Ceremony.png',
-        imageAlt: 'Certificate Celebration Ceremony with Randhir Singh',
-        title: 'Certificate Celebration Ceremony',
-        subtitle: 'दीक्षांत समारोह में सम्मान एवं प्रमाण पत्र वितरण क्षण',
-        alignment: 'center'
-      }
-    ]
-  },
-  {
     id: 'page_faq_section',
     slug: 'faq-section',
     title: 'Frequently Asked Questions (FAQs)',
@@ -755,7 +718,7 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
           type: 'hero' as const,
           title: svc.titleHi,
           subtitle: svc.taglineHi,
-          imageUrl: svc.id === 2 ? '/Luxury_Gold_Numerology_Watch_0e113989.png' : '/Randhir Singh.png',
+          imageUrl: svc.id === 2 ? '/assets/watches/victorinox-swiss-dive-watch-gold.svg' : '/Randhir Singh.png',
           buttonText: `परामर्श बुक करें (${svc.suggestedTariff})`,
           buttonLink: '#tariff',
           buttonStyle: 'primary' as const

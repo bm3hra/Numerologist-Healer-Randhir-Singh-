@@ -1222,6 +1222,409 @@ app.post('/api/admin/indexnow', requireAdmin, async (req: Request, res: Response
 });
 
 // ==========================================
+// 18. DUPLICATE PAGES & IMAGES MANAGEMENT API
+// ==========================================
+
+// Helper to compute MD5 hash of file
+function computeFileHash(filePath: string): string | null {
+  try {
+    const data = fs.readFileSync(filePath);
+    return crypto.createHash('md5').update(data).digest('hex');
+  } catch {
+    return null;
+  }
+}
+
+// Recursive file scanner for public images
+function scanPublicImages(dir: string): Array<{ fullPath: string; relPath: string; size: number; hash: string }> {
+  let results: Array<{ fullPath: string; relPath: string; size: number; hash: string }> = [];
+  try {
+    const list = fs.readdirSync(dir);
+    for (const item of list) {
+      const fullPath = path.join(dir, item);
+      const stat = fs.statSync(fullPath);
+      if (stat.isDirectory()) {
+        if (item !== 'node_modules' && item !== 'dist' && item !== '.git') {
+          results = results.concat(scanPublicImages(fullPath));
+        }
+      } else if (/\.(png|jpg|jpeg|webp|gif|svg)$/i.test(item)) {
+        const hash = computeFileHash(fullPath);
+        if (hash) {
+          results.push({
+            fullPath,
+            relPath: path.relative(path.resolve(process.cwd(), 'public'), fullPath).replace(/\\/g, '/'),
+            size: stat.size,
+            hash
+          });
+        }
+      }
+    }
+  } catch (err) {
+    console.error('Error scanning public images:', err);
+  }
+  return results;
+}
+
+// GET /api/admin/duplicates/scan - Scan for duplicate images & pages
+app.get('/api/admin/duplicates/scan', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const publicDir = path.resolve(process.cwd(), 'public');
+    const images = scanPublicImages(publicDir);
+
+    // Group images by MD5 hash
+    const hashMap = new Map<string, Array<{ fullPath: string; relPath: string; size: number }>>();
+    for (const img of images) {
+      if (!hashMap.has(img.hash)) {
+        hashMap.set(img.hash, []);
+      }
+      hashMap.get(img.hash)!.push(img);
+    }
+
+    const duplicateImageGroups: Array<{
+      hash: string;
+      size: number;
+      sizeFormatted: string;
+      primary: { relPath: string; url: string };
+      duplicates: Array<{ relPath: string; url: string; size: number }>;
+      totalWastedBytes: number;
+    }> = [];
+
+    let totalWastedImageBytes = 0;
+
+    for (const [hash, list] of hashMap.entries()) {
+      if (list.length > 1) {
+        // Sort to pick primary: prioritize clean non-bracket name and shortest path
+        list.sort((a, b) => {
+          const aHasParen = a.relPath.includes('(') || a.relPath.includes('copy');
+          const bHasParen = b.relPath.includes('(') || b.relPath.includes('copy');
+          if (aHasParen && !bHasParen) return 1;
+          if (!aHasParen && bHasParen) return -1;
+          return a.relPath.length - b.relPath.length;
+        });
+
+        const primary = list[0];
+        const duplicates = list.slice(1);
+        const wasted = duplicates.reduce((acc, curr) => acc + curr.size, 0);
+        totalWastedImageBytes += wasted;
+
+        duplicateImageGroups.push({
+          hash,
+          size: primary.size,
+          sizeFormatted: `${(primary.size / 1024).toFixed(1)} KB`,
+          primary: {
+            relPath: primary.relPath,
+            url: `/${primary.relPath}`
+          },
+          duplicates: duplicates.map((d) => ({
+            relPath: d.relPath,
+            url: `/${d.relPath}`,
+            size: d.size
+          })),
+          totalWastedBytes: wasted
+        });
+      }
+    }
+
+    // Scan for duplicate pages
+    const pages = readJsonFile<any[]>(pagesFile, initialPages);
+    const duplicatePages: Array<{
+      id: string;
+      title: string;
+      slug: string;
+      status: string;
+      reason: string;
+    }> = [];
+
+    const slugMap = new Map<string, any[]>();
+    for (const p of pages || []) {
+      const slug = (p.slug || '').toLowerCase().trim();
+      if (!slugMap.has(slug)) slugMap.set(slug, []);
+      slugMap.get(slug)!.push(p);
+
+      // Flag copy slugs
+      if (slug.includes('-copy') || p.title.includes('(Copy)') || p.title.includes('प्रतिलिपि')) {
+        duplicatePages.push({
+          id: p.id,
+          title: p.title,
+          slug: p.slug,
+          status: p.status,
+          reason: 'Duplicate/Copy created via Admin dashboard'
+        });
+      }
+    }
+
+    for (const [slug, list] of slugMap.entries()) {
+      if (list.length > 1) {
+        list.slice(1).forEach((dup) => {
+          if (!duplicatePages.some((x) => x.id === dup.id)) {
+            duplicatePages.push({
+              id: dup.id,
+              title: dup.title,
+              slug: dup.slug,
+              status: dup.status,
+              reason: 'Exact duplicate URL slug'
+            });
+          }
+        });
+      }
+    }
+
+    // Scan for multi-published certificates, photos, and media across CMS pages
+    const mediaUsageMap = new Map<string, Array<{
+      pageId: string;
+      pageTitle: string;
+      pageSlug: string;
+      type: 'ogImage' | 'featuredImage' | 'hero' | 'image' | 'gallery';
+      blockId?: string;
+      blockTitle?: string;
+    }>>();
+
+    (pages || []).forEach((p) => {
+      const pageInfo = { pageId: p.id, pageTitle: p.title || p.titleHi || p.slug, pageSlug: p.slug };
+
+      if (p.ogImage && typeof p.ogImage === 'string') {
+        const norm = p.ogImage.trim();
+        if (norm) {
+          if (!mediaUsageMap.has(norm)) mediaUsageMap.set(norm, []);
+          mediaUsageMap.get(norm)!.push({ ...pageInfo, type: 'ogImage' });
+        }
+      }
+
+      if (p.featuredImage && typeof p.featuredImage === 'string' && p.featuredImage !== p.ogImage) {
+        const norm = p.featuredImage.trim();
+        if (norm) {
+          if (!mediaUsageMap.has(norm)) mediaUsageMap.set(norm, []);
+          mediaUsageMap.get(norm)!.push({ ...pageInfo, type: 'featuredImage' });
+        }
+      }
+
+      (p.blocks || []).forEach((b: any) => {
+        if (b.imageUrl && typeof b.imageUrl === 'string') {
+          const norm = b.imageUrl.trim();
+          if (norm) {
+            if (!mediaUsageMap.has(norm)) mediaUsageMap.set(norm, []);
+            mediaUsageMap.get(norm)!.push({
+              ...pageInfo,
+              type: b.type === 'hero' ? 'hero' : 'image',
+              blockId: b.id,
+              blockTitle: b.title || b.imageAlt || `${b.type} block`
+            });
+          }
+        }
+      });
+    });
+
+    const multiPublishedMedia: Array<{
+      url: string;
+      name: string;
+      category: 'certificate' | 'photo' | 'watch' | 'general';
+      totalCount: number;
+      primaryLocation: {
+        pageId: string;
+        pageTitle: string;
+        pageSlug: string;
+        type: string;
+        blockTitle?: string;
+      };
+      duplicateLocations: Array<{
+        pageId: string;
+        pageTitle: string;
+        pageSlug: string;
+        type: string;
+        blockId?: string;
+        blockTitle?: string;
+      }>;
+    }> = [];
+
+    for (const [url, locations] of mediaUsageMap.entries()) {
+      if (locations.length > 1) {
+        // Categorize media
+        const lowerUrl = url.toLowerCase();
+        let category: 'certificate' | 'photo' | 'watch' | 'general' = 'general';
+        if (lowerUrl.includes('cert') || lowerUrl.includes('celebration') || lowerUrl.includes('award') || lowerUrl.includes('diploma')) {
+          category = 'certificate';
+        } else if (lowerUrl.includes('randhir') || lowerUrl.includes('portrait') || lowerUrl.includes('photo') || lowerUrl.includes('profile')) {
+          category = 'photo';
+        } else if (lowerUrl.includes('watch') || lowerUrl.includes('dial')) {
+          category = 'watch';
+        }
+
+        // Determine primary location based on page relevance
+        let primaryIdx = 0;
+        if (category === 'certificate') {
+          const certIdx = locations.findIndex(
+            (l) => l.pageId === 'page_assets_certificates' || l.pageSlug === 'assets-certificates' || l.pageSlug.includes('cert')
+          );
+          if (certIdx !== -1) primaryIdx = certIdx;
+        } else if (category === 'photo') {
+          const heroIdx = locations.findIndex(
+            (l) => l.pageId === 'page_hero_section' || l.pageId === 'page_about_randhir'
+          );
+          if (heroIdx !== -1) primaryIdx = heroIdx;
+        } else if (category === 'watch') {
+          const watchIdx = locations.findIndex(
+            (l) => l.pageId === 'page_watch_analysis' || l.pageSlug === 'watch-analysis'
+          );
+          if (watchIdx !== -1) primaryIdx = watchIdx;
+        }
+
+        const primaryLocation = locations[primaryIdx];
+        const duplicateLocations = locations.filter((_, idx) => idx !== primaryIdx);
+
+        multiPublishedMedia.push({
+          url,
+          name: path.basename(url),
+          category,
+          totalCount: locations.length,
+          primaryLocation,
+          duplicateLocations
+        });
+      }
+    }
+
+    // Sort multi-published media: certificates first, then photos
+    multiPublishedMedia.sort((a, b) => {
+      const order = { certificate: 0, photo: 1, watch: 2, general: 3 };
+      return order[a.category] - order[b.category] || b.totalCount - a.totalCount;
+    });
+
+    res.json({
+      success: true,
+      duplicateImageGroups,
+      totalDuplicateImages: duplicateImageGroups.reduce((acc, g) => acc + g.duplicates.length, 0),
+      totalWastedImageBytes,
+      totalWastedFormatted: `${(totalWastedImageBytes / (1024 * 1024)).toFixed(2)} MB`,
+      duplicatePages,
+      totalDuplicatePages: duplicatePages.length,
+      multiPublishedMedia,
+      totalMultiPublishedCount: multiPublishedMedia.length
+    });
+  } catch (err: any) {
+    console.error('Error scanning duplicates:', err);
+    res.status(500).json({ error: 'डुप्लीकेट स्कैन करने में विफल।' });
+  }
+});
+
+// POST /api/admin/duplicates/unpublish-media - Unpublish duplicate occurrences of certificate/photo from redundant pages
+app.post('/api/admin/duplicates/unpublish-media', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const { url, targetLocations, confirm } = req.body;
+
+    if (!confirm) {
+      return res.status(400).json({
+        error: 'हटाने से पहले पुष्टि आवश्यक है (Confirmation required with confirm=true).'
+      });
+    }
+
+    if (!url || !Array.isArray(targetLocations) || targetLocations.length === 0) {
+      return res.status(400).json({
+        error: 'अमान्य अनुरोध: url और targetLocations आवश्यक हैं।'
+      });
+    }
+
+    const pages = readJsonFile<any[]>(pagesFile, initialPages);
+    let removedOccurrences = 0;
+
+    targetLocations.forEach((target: { pageId: string; type: string; blockId?: string }) => {
+      const page = pages.find((p) => p.id === target.pageId);
+      if (!page) return;
+
+      if (target.type === 'ogImage' && page.ogImage === url) {
+        page.ogImage = '';
+        removedOccurrences++;
+      } else if (target.type === 'featuredImage' && page.featuredImage === url) {
+        page.featuredImage = '';
+        removedOccurrences++;
+      } else if (target.type === 'image' || target.type === 'hero') {
+        if (Array.isArray(page.blocks)) {
+          const initialLen = page.blocks.length;
+          page.blocks = page.blocks.filter((b: any) => {
+            if (target.blockId && b.id === target.blockId) {
+              return false;
+            }
+            if (!target.blockId && b.imageUrl === url && b.type === 'image') {
+              return false;
+            }
+            return true;
+          });
+          removedOccurrences += initialLen - page.blocks.length;
+        }
+      }
+      page.updatedAt = new Date().toISOString();
+    });
+
+    writeJsonFile(pagesFile, pages);
+
+    res.json({
+      success: true,
+      message: `सफलतापूर्वक ${removedOccurrences} अतिरिक्त प्रकाशन हटा दिए गए। मुख्य स्थान पर मूल छवि सुरक्षित है।`,
+      removedOccurrences
+    });
+  } catch (err: any) {
+    console.error('Error unpublishing duplicate media:', err);
+    res.status(500).json({ error: 'डुप्लीकेट प्रकाशन हटाने में त्रुटि।' });
+  }
+});
+
+// POST /api/admin/duplicates/clean - Permanently delete confirmed duplicates
+app.post('/api/admin/duplicates/clean', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const { removePaths, removePageIds, confirm } = req.body;
+
+    if (!confirm) {
+      return res.status(400).json({
+        error: 'हटाने से पहले पुष्टि आवश्यक है (Confirmation required with confirm=true).'
+      });
+    }
+
+    const publicDir = path.resolve(process.cwd(), 'public');
+    let removedImagesCount = 0;
+    let freedBytes = 0;
+
+    // Delete confirmed duplicate image paths
+    if (Array.isArray(removePaths)) {
+      for (const rel of removePaths) {
+        const safeRel = rel.replace(/^\/+/, '').replace(/\.\.\//g, '');
+        const targetPath = path.resolve(publicDir, safeRel);
+        if (targetPath.startsWith(publicDir) && fs.existsSync(targetPath)) {
+          const stat = fs.statSync(targetPath);
+          freedBytes += stat.size;
+          fs.unlinkSync(targetPath);
+          removedImagesCount++;
+        }
+      }
+    }
+
+    // Delete confirmed duplicate pages
+    let removedPagesCount = 0;
+    if (Array.isArray(removePageIds) && removePageIds.length > 0) {
+      const pages = readJsonFile<any[]>(pagesFile, initialPages);
+      const filtered = pages.filter((p) => {
+        if (removePageIds.includes(p.id)) {
+          removedPagesCount++;
+          return false;
+        }
+        return true;
+      });
+      writeJsonFile(pagesFile, filtered);
+    }
+
+    const freedMb = (freedBytes / (1024 * 1024)).toFixed(2);
+    res.json({
+      success: true,
+      message: `सफलतापूर्वक ${removedImagesCount} डुप्लीकेट छवियाँ और ${removedPagesCount} डुप्लीकेट पेज हटा दिए गए। मुक्त स्पेस: ${freedMb} MB.`,
+      removedImagesCount,
+      removedPagesCount,
+      freedBytes,
+      freedMb: `${freedMb} MB`
+    });
+  } catch (err: any) {
+    console.error('Error cleaning duplicates:', err);
+    res.status(500).json({ error: 'डुप्लीकेट हटाने में त्रुटि।' });
+  }
+});
+
+// ==========================================
 // FRONTEND INTEGRATION & VITE DEV SERVER
 // ==========================================
 async function startServer() {
