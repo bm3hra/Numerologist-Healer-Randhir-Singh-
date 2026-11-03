@@ -96,14 +96,14 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
     synergyPoints.push(
       lang === 'hi'
         ? `शुभ मूलांक मैत्री: व्यक्ति A (अंक ${driverA} - ${VEDIC_PLANETARY_DEITIES[driverA]?.nameHi || 'ग्रह'}) और व्यक्ति B (अंक ${driverB} - ${VEDIC_PLANETARY_DEITIES[driverB]?.nameHi || 'ग्रह'}) स्वाभाविक रूप से एक-दूसरे के स्वभाव का सम्मान करते हैं।`
-        : `Harmonious Driver Chemistry: Person A (Number ${driverA} - ${PLANETARY_ARCHETYPES[driverA].planet}) and Person B (Number ${driverB} - ${PLANETARY_ARCHETYPES[driverB].planet}) naturally support each other's core temperaments.`
+        : `Harmonious Lucky Number (Birth Number) Chemistry: Person A (Number ${driverA} - ${PLANETARY_ARCHETYPES[driverA].planet}) and Person B (Number ${driverB} - ${PLANETARY_ARCHETYPES[driverB].planet}) naturally support each other's core temperaments.`
     );
   } else if (PLANETARY_ARCHETYPES[driverA].enemy.includes(driverB)) {
     score -= 12;
     frictionPoints.push(
       lang === 'hi'
         ? `विरोधी मूलांक प्रभाव: अंक ${driverA} और अंक ${driverB} में अहं का टकराव संभव है। रणधीर जी इसके लिए विशेष नामांक या भोजपत्र यंत्र उपाय की सलाह देते हैं।`
-        : `Driver Opposition: Number ${driverA} and Number ${driverB} may experience clashes of ego and stubborn viewpoints if remedies are not implemented.`
+        : `Lucky Number (Birth Number) Opposition: Number ${driverA} and Number ${driverB} may experience clashes of ego and stubborn viewpoints if remedies are not implemented.`
     );
   }
 
@@ -113,7 +113,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
     synergyPoints.push(
       lang === 'hi'
         ? `भाग्यांक समन्वय: भाग्यांक ${conductorA} और ${conductorB} जीवन के लक्ष्यों और लंबी अवधि की योजनाओं में एकरूपता लाते हैं।`
-        : `Aligned Destiny Paths: Conductors ${conductorA} and ${conductorB} navigate life milestones in synchronicity.`
+        : `Aligned Destiny Paths: Destiny Numbers ${conductorA} and ${conductorB} navigate life milestones in synchronicity.`
     );
   }
 
@@ -312,9 +312,9 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
               </div>
 
               <div className="p-3 bg-stone-50 rounded-lg text-xs text-stone-700 leading-relaxed border border-stone-200">
-                <strong>{lang === 'hi' ? 'मूलांक (Driver):' : 'Driver:'}</strong> {profileA.driverNumber} (
+                <strong>{lang === 'hi' ? 'मूलांक (लकी नंबर - जन्म अंक):' : 'Lucky Number (Birth Number):'}</strong> {profileA.driverNumber} (
                 {lang === 'hi' ? (VEDIC_PLANETARY_DEITIES[profileA.driverNumber]?.nameHi || 'ग्रह') : PLANETARY_ARCHETYPES[profileA.driverNumber].planet}
-                ) · <strong>{lang === 'hi' ? 'भाग्यांक:' : 'Conductor:'}</strong> {profileA.conductorNumber} · <strong>{lang === 'hi' ? 'कुआ अंक:' : 'Kua:'}</strong> {profileA.kuaNumber}
+                ) · <strong>{lang === 'hi' ? 'भाग्यांक (डेस्टिनी नंबर):' : 'Destiny Number:'}</strong> {profileA.conductorNumber} · <strong>{lang === 'hi' ? 'कुआ अंक:' : 'Kua:'}</strong> {profileA.kuaNumber}
                 <div className="text-[11px] text-amber-900 font-medium mt-1">
                   {lang === 'hi' ? 'वैदिक वर्ष अंक (शताब्दी 19 छोड़ कर):' : 'Vedic Year Digits (Century Excluded):'}{' '}
                   [{profileA.vedicYearDigits.join(', ')}]
@@ -383,9 +383,9 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
               </div>
 
               <div className="p-3 bg-stone-50 rounded-lg text-xs text-stone-700 leading-relaxed border border-stone-200">
-                <strong>{lang === 'hi' ? 'मूलांक (Driver):' : 'Driver:'}</strong> {profileB.driverNumber} (
+                <strong>{lang === 'hi' ? 'मूलांक (लकी नंबर - जन्म अंक):' : 'Lucky Number (Birth Number):'}</strong> {profileB.driverNumber} (
                 {lang === 'hi' ? (VEDIC_PLANETARY_DEITIES[profileB.driverNumber]?.nameHi || 'ग्रह') : PLANETARY_ARCHETYPES[profileB.driverNumber].planet}
-                ) · <strong>{lang === 'hi' ? 'भाग्यांक:' : 'Conductor:'}</strong> {profileB.conductorNumber} · <strong>{lang === 'hi' ? 'कुआ अंक:' : 'Kua:'}</strong> {profileB.kuaNumber}
+                ) · <strong>{lang === 'hi' ? 'भाग्यांक (डेस्टिनी नंबर):' : 'Destiny Number:'}</strong> {profileB.conductorNumber} · <strong>{lang === 'hi' ? 'कुआ अंक:' : 'Kua:'}</strong> {profileB.kuaNumber}
                 <div className="text-[11px] text-amber-900 font-medium mt-1">
                   {lang === 'hi' ? 'वैदिक वर्ष अंक (शताब्दी 19 छोड़ कर):' : 'Vedic Year Digits (Century Excluded):'}{' '}
                   [{profileB.vedicYearDigits.join(', ')}]
@@ -458,7 +458,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                     </div>
                   </div>
                   <span className="text-[10px] font-bold bg-amber-200 text-amber-900 px-2 py-0.5 rounded">
-                    {lang === 'hi' ? 'मूलांक:' : 'Driver:'} {profileA.driverNumber}
+                    {lang === 'hi' ? 'मूलांक (लकी नंबर):' : 'Lucky No.:'} {profileA.driverNumber}
                   </span>
                 </div>
 
@@ -501,8 +501,8 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                           </div>
 
                           <div className="w-full text-center text-[7.5px] font-bold leading-none">
-                            {isDriver && <span className="text-amber-200">Driver</span>}
-                            {isConductor && !isDriver && <span className="text-amber-300">Cond</span>}
+                            {isDriver && <span className="text-amber-200">Lucky</span>}
+                            {isConductor && !isDriver && <span className="text-amber-300">Destiny</span>}
                             {isFillsFromB && (
                               <span className="text-emerald-700 bg-emerald-100 px-1 py-0.2 rounded font-black">
                                 {lang === 'hi' ? 'B द्वारा पूर्ण' : 'Healed by B'}
@@ -546,7 +546,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                     </div>
                   </div>
                   <span className="text-[10px] font-bold bg-amber-200 text-amber-900 px-2 py-0.5 rounded">
-                    {lang === 'hi' ? 'मूलांक:' : 'Driver:'} {profileB.driverNumber}
+                    {lang === 'hi' ? 'मूलांक (लकी नंबर):' : 'Lucky No.:'} {profileB.driverNumber}
                   </span>
                 </div>
 
@@ -589,8 +589,8 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                           </div>
 
                           <div className="w-full text-center text-[7.5px] font-bold leading-none">
-                            {isDriver && <span className="text-amber-300">Driver</span>}
-                            {isConductor && !isDriver && <span className="text-amber-400">Cond</span>}
+                            {isDriver && <span className="text-amber-300">Lucky</span>}
+                            {isConductor && !isDriver && <span className="text-amber-400">Destiny</span>}
                             {isFillsFromA && (
                               <span className="text-emerald-700 bg-emerald-100 px-1 py-0.2 rounded font-black">
                                 {lang === 'hi' ? 'A द्वारा पूर्ण' : 'Healed by A'}
@@ -755,8 +755,8 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                           <span className="text-sm font-black">
                             {count > 0 ? Array.from({ length: count }, () => num).join('') : isFillsFromB ? `+${num}` : '-'}
                           </span>
-                          {isDriver && <span className="text-[7px] text-amber-200 leading-none">Driver</span>}
-                          {isConductor && !isDriver && <span className="text-[7px] text-amber-200 leading-none">Cond</span>}
+                          {isDriver && <span className="text-[7px] text-amber-200 leading-none">Lucky</span>}
+                          {isConductor && !isDriver && <span className="text-[7px] text-amber-200 leading-none">Destiny</span>}
                           {isFillsFromB && (
                             <span className="text-[7px] text-emerald-800 font-bold leading-none">
                               {lang === 'hi' ? 'B द्वारा' : 'By B'}
@@ -807,8 +807,8 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                           <span className="text-sm font-black">
                             {count > 0 ? Array.from({ length: count }, () => num).join('') : isFillsFromA ? `+${num}` : '-'}
                           </span>
-                          {isDriver && <span className="text-[7px] text-amber-300 leading-none">Driver</span>}
-                          {isConductor && !isDriver && <span className="text-[7px] text-amber-300 leading-none">Cond</span>}
+                          {isDriver && <span className="text-[7px] text-amber-300 leading-none">Lucky</span>}
+                          {isConductor && !isDriver && <span className="text-[7px] text-amber-300 leading-none">Destiny</span>}
                           {isFillsFromA && (
                             <span className="text-[7px] text-emerald-800 font-bold leading-none">
                               {lang === 'hi' ? 'A द्वारा' : 'By A'}

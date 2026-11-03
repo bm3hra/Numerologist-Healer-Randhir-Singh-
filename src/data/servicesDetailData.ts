@@ -54,13 +54,13 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Complete blueprint of your life’s core numbers, karmic patterns, and upcoming golden periods.',
     taglineHi: 'मूलांक, भाग्यांक, कुआ नंबर एवं जीवन के स्वर्णिम काल का प्रामाणिक वैदिक अंक ज्योतिषीय विश्लेषण।',
     shortDesc: 'Complete blueprint of your life’s core numbers, karmic patterns, and upcoming golden periods.',
-    fullDescEn: 'A personalized one-on-one consultation with Numerologist & Healer · Randhir Singh decoding your complete numerical matrix: Driver (Mulank), Conductor (Bhagyank), Name Vibration (Namank), and Kua Number. This comprehensive reading maps out your life purpose, hidden talents, karmic debt numbers, personal year transitions, and optimal timing for major life decisions like marriage, investments, and career shifts.',
+    fullDescEn: 'A personalized one-on-one consultation with Numerologist & Healer · Randhir Singh decoding your complete numerical matrix: Lucky Number (Birth Number / Mulank), Destiny Number (Bhagyank), Name Vibration (Namank), and Kua Number. This comprehensive reading maps out your life purpose, hidden talents, karmic debt numbers, personal year transitions, and optimal timing for major life decisions like marriage, investments, and career shifts.',
     fullDescHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी के साथ व्यक्तिगत एक-पर-एक परामर्श, जिसमें आपके मूलांक, भाग्यांक, नामांक एवं कुआ नंबर का गूढ़ अध्ययन किया जाता है। यह परामर्श आपके जीवन के उद्देश्य, अंतर्निहित प्रतिभाओं, कार्मिक ऋणों, महादशा-अंतर्दशा तथा विवाह, व्यापार एवं निवेश हेतु अत्यंत शुभ समयावधि का अचूक मार्गदर्शन प्रदान करता है।',
     sciencePrinciples: [
       {
-        titleEn: 'Driver (Mulank) & Conductor (Bhagyank) Synergy',
+        titleEn: 'Lucky Number (Birth Number) & Destiny Number Synergy',
         titleHi: 'मूलांक एवं भाग्यांक का तात्विक संतुलन',
-        descEn: 'Your birth date reflects your raw soul frequency (Mulank), while the full sum of Day + Month + Year reveals your life destiny path (Bhagyank). When these two numbers clash, friction ensues.',
+        descEn: 'Your birth date reflects your raw soul frequency (Lucky Number / Mulank), while the full sum of Day + Month + Year reveals your life destiny path (Destiny Number / Bhagyank). When these two numbers clash, friction ensues.',
         descHi: 'जन्म तिथि आपकी आत्मा की मूल प्रकृति (मूलांक) दर्शाती है, जबकि पूर्ण योग जीवन के अंतिम गंतव्य (भाग्यांक) का बोध कराता है। इनका संतुलित होना परम आवश्यक है।'
       },
       {
@@ -323,13 +323,13 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     taglineEn: 'Vedic numerological planning for planned deliveries to bestow a harmonious destiny upon your newborn.',
     taglineHi: 'नियोजित प्रसव (C-Section) हेतु शुभ तिथि, वार एवं नक्षत्र का चयन ताकि नवजात को मिले स्वर्णिम भविष्य।',
     shortDesc: 'Vedic numerological planning for planned deliveries to bestow a harmonious destiny upon your newborn.',
-    fullDescEn: 'When medical conditions necessitate a planned delivery or caesarean section within a recommended clinical window, selecting the exact date and hour becomes a divine parental responsibility. Numerologist & Healer · Randhir Singh cross-calculates the candidate delivery dates against parental charts to identify dates with high-frequency Driver-Conductor synergy (such as 1-1, 1-5, 3-3, 5-1, or 6-3), avoiding conflicting enemy numbers (like 1-8, 2-8, or 4-8) and ensuring the newborn is blessed with vibrant health, intellectual brilliance, and filial affection.',
+    fullDescEn: 'When medical conditions necessitate a planned delivery or caesarean section within a recommended clinical window, selecting the exact date and hour becomes a divine parental responsibility. Numerologist & Healer · Randhir Singh cross-calculates the candidate delivery dates against parental charts to identify dates with high-frequency Lucky & Destiny Number synergy (such as 1-1, 1-5, 3-3, 5-1, or 6-3), avoiding conflicting enemy numbers (like 1-8, 2-8, or 4-8) and ensuring the newborn is blessed with vibrant health, intellectual brilliance, and filial affection.',
     fullDescHi: 'जब चिकित्सीय कारणों से सी-सेक्शन (नियोजित प्रसव) की सलाह दी जाती है, तब उस अनुशंसित समयावधि में से सर्वोत्तम शुभ तिथि एवं समय का चयन करना संतान के उज्ज्वल भविष्य का आधार बनता है। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी माता-पिता के अंकों के साथ तालमेल बिठाते हुए ऐसे शुभ मूलांक-भाग्यांक (जैसे 1-1, 1-5, 3-3, 5-1, 6-3) का चयन करते हैं, जो शत्रु अंकों (जैसे 1-8, 2-8, 4-8) से मुक्त हों और नवजात को उत्तम स्वास्थ्य, दीर्घायु, कुशाग्र बुद्धि एवं पारिवारिक प्रेम प्रदान करें।',
     sciencePrinciples: [
       {
-        titleEn: 'Driver-Conductor Harmonic Affinity',
+        titleEn: 'Lucky & Destiny Number Harmonic Affinity',
         titleHi: 'मूलांक-भाग्यांक की मैत्रीपूर्ण युति',
-        descEn: 'The newborn’s Driver (day of birth) and Conductor (total sum) must be mutual friends. A harmonious combination guarantees a smooth life path without unnecessary early struggles.',
+        descEn: 'The newborn’s Lucky Number (day of birth) and Destiny Number (total sum) must be mutual friends. A harmonious combination guarantees a smooth life path without unnecessary early struggles.',
         descHi: 'जन्म दिवस एवं कुल योग के स्वामी ग्रह परस्पर मित्र होने चाहिए, जिससे बालक का जीवन संघर्षों से परे और प्रगतिशील बने।'
       },
       {
@@ -633,7 +633,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
         descHi: 'यदि एक के पास अंक 5 (स्थिरता) नहीं है और दूसरे के पास है, तो दोनों मिलकर पूर्ण होते हैं। यदि दोनों में एक ही अंक गायब हो, तो विशेष उपाय आवश्यक होते हैं।'
       },
       {
-        titleEn: 'Driver-Conductor Cross Resonance',
+        titleEn: 'Lucky & Destiny Number Cross Resonance',
         titleHi: 'मूलांक-भाग्यांक का द्विपक्षीय तालमेल',
         descEn: 'Evaluating mutual harmony across 4 critical axes: Intellectual resonance, Emotional vulnerability, Financial trust, and Physical longevity.',
         descHi: 'बौद्धिक समझ, भावनात्मक संवेदनशीलता, आर्थिक ईमानदारी एवं दांपत्य सुख—इन 4 आधारों पर गहन परीक्षण।'

@@ -65,7 +65,7 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
   };
 
   const handleWhatsAppShare = () => {
-    const text = `Namaste Randhir Ji, I calculated my Date of Birth (${day}/${month}/${year}) on DecodeYourDestiny:\n- Driver (Mulank): ${profile.driverNumber}\n- Conductor (Bhagyank): ${profile.conductorNumber}\n- Kua Number: ${profile.kuaNumber}\n- Missing Numbers: ${profile.missingNumbers.join(', ')}\nI would like to consult with you for personal remedies and watch analysis.`;
+    const text = `Namaste Randhir Ji, I calculated my Date of Birth (${day}/${month}/${year}) on DecodeYourDestiny:\n- Lucky Number (Birth Number): ${profile.driverNumber}\n- Destiny Number: ${profile.conductorNumber}\n- Kua Number: ${profile.kuaNumber}\n- Missing Numbers: ${profile.missingNumbers.join(', ')}\nI would like to consult with you for personal remedies and watch analysis.`;
     const link = document.createElement('a');
     link.href = `https://wa.me/919509593150?text=${encodeURIComponent(text)}`;
     link.target = '_blank';
@@ -95,8 +95,8 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
             {lang === 'hi'
-              ? 'Enter your exact date of birth to reveal your Driver (Mulank), Conductor (Bhagyank), Kua Number, 8 Planes of Destiny, and Missing Number remedies. Divine Geometric Matrix (अपनी जन्म तिथि दर्ज करें और मूलांक, भाग्यांक, कुआ अंक, 8 भाग्य तल एवं अनुपस्थित अंकों के वैदिक उपाय प्राप्त करें)'
-              : 'Enter your exact date of birth to reveal your Driver (Mulank), Conductor (Bhagyank), Kua Number, 8 Planes of Destiny, and Missing Number remedies. Divine Geometric Matrix'}
+              ? 'Enter your exact date of birth to reveal your Lucky Number (Birth Number), Destiny Number, Kua Number, 8 Planes of Destiny, and Missing Number remedies. Divine Geometric Matrix (अपनी जन्म तिथि दर्ज करें और मूलांक (लकी नंबर / जन्म अंक), भाग्यांक (डेस्टिनी नंबर), कुआ अंक, 8 भाग्य तल एवं अनुपस्थित अंकों के वैदिक उपाय प्राप्त करें)'
+              : 'Enter your exact date of birth to reveal your Lucky Number (Birth Number), Destiny Number, Kua Number, 8 Planes of Destiny, and Missing Number remedies. Divine Geometric Matrix'}
           </p>
 
           <div className="mt-4 flex items-center justify-center">
@@ -319,14 +319,14 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
         <div className="space-y-8">
           {/* Top 3 Core Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* Driver / Mulank */}
+            {/* Lucky Number (Birth Number) / Mulank */}
             <div className="bg-white rounded-xl p-6 border-2 border-amber-300/80 shadow-md flex items-center gap-5">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 text-white flex items-center justify-center text-3xl font-black font-sacred shadow-sm shrink-0">
                 {profile.driverNumber}
               </div>
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                  {lang === 'hi' ? 'मूलांक (Driver Number)' : 'Driver / Mulank (मूलांक)'}
+                  {lang === 'hi' ? 'मूलांक (Lucky Number - Birth Number)' : 'Lucky Number (Birth Number) / Mulank'}
                 </span>
                 <h3 className="font-sacred font-bold text-stone-900 text-lg mt-1">
                   {PLANETARY_ARCHETYPES[profile.driverNumber].planet}
@@ -339,14 +339,14 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
               </div>
             </div>
 
-            {/* Conductor / Bhagyank */}
+            {/* Destiny Number / Bhagyank */}
             <div className="bg-white rounded-xl p-6 border-2 border-amber-300/80 shadow-md flex items-center gap-5">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-stone-800 to-stone-950 text-amber-300 flex items-center justify-center text-3xl font-black font-sacred shadow-sm shrink-0">
                 {profile.conductorNumber}
               </div>
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                  {lang === 'hi' ? 'भाग्यांक (Conductor Number)' : 'Conductor / Bhagyank (भाग्यांक)'}
+                  {lang === 'hi' ? 'भाग्यांक (Destiny Number)' : 'Destiny Number / Bhagyank'}
                 </span>
                 <h3 className="font-sacred font-bold text-stone-900 text-lg mt-1">
                   {PLANETARY_ARCHETYPES[profile.conductorNumber].planet}
@@ -485,15 +485,15 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                           <div className="flex flex-wrap items-center justify-center gap-0.5 mt-1">
                             {isDriver && isConductor ? (
                               <span className="text-[8px] font-bold bg-amber-300 text-amber-950 px-1 py-0.2 rounded-full leading-none shadow-2xs">
-                                ★ {lang === 'hi' ? 'मूलांक व भाग्यांक' : 'Driver & Conductor'}
+                                ★ {lang === 'hi' ? 'मूलांक व भाग्यांक' : 'Lucky & Destiny No.'}
                               </span>
                             ) : isDriver ? (
                               <span className="text-[8px] font-bold bg-amber-300 text-amber-950 px-1 py-0.2 rounded-full leading-none shadow-2xs">
-                                ★ {lang === 'hi' ? 'मूलांक' : 'Driver (मूलांक)'}
+                                ★ {lang === 'hi' ? 'मूलांक' : 'Lucky No. (Birth)'}
                               </span>
                             ) : isConductor ? (
                               <span className="text-[8px] font-bold bg-stone-900/80 text-amber-200 px-1 py-0.2 rounded-full leading-none border border-amber-400/40">
-                                ✦ {lang === 'hi' ? 'भाग्यांक' : 'Conductor'}
+                                ✦ {lang === 'hi' ? 'भाग्यांक' : 'Destiny No.'}
                               </span>
                             ) : isKua ? (
                               <span className="text-[8px] font-bold bg-amber-800 text-amber-100 px-1 py-0.2 rounded-full leading-none">
@@ -558,11 +558,11 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                     <strong className="text-stone-800">{day}/{month}/{year}</strong>
                   </div>
                   <div>
-                    <span className="text-stone-500">{lang === 'hi' ? '• मूलांक (Driver):' : '• Driver (Mulank):'}</span>{' '}
+                    <span className="text-stone-500">{lang === 'hi' ? '• मूलांक (Lucky Number):' : '• Lucky Number (Birth Number):'}</span>{' '}
                     <strong className="text-amber-900 font-bold">{profile.driverNumber} ({PLANETARY_ARCHETYPES[profile.driverNumber].planet.split(' ')[0]})</strong>
                   </div>
                   <div>
-                    <span className="text-stone-500">{lang === 'hi' ? '• भाग्यांक (Conductor):' : '• Conductor (Bhagyank):'}</span>{' '}
+                    <span className="text-stone-500">{lang === 'hi' ? '• भाग्यांक (Destiny Number):' : '• Destiny Number (Bhagyank):'}</span>{' '}
                     <strong className="text-amber-900 font-bold">{profile.conductorNumber} ({PLANETARY_ARCHETYPES[profile.conductorNumber].planet.split(' ')[0]})</strong>
                   </div>
                   <div>
@@ -578,11 +578,11 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                   <div>
                     {lang === 'hi' ? (
                       <span>
-                        ✓ <strong>मूलांक {profile.driverNumber} सत्यापन:</strong> आपकी जन्म तारीख {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}) के अनुसार आपका मूलांक <strong>{profile.driverNumber}</strong> है। यह अंक 3×3 लो-शू ग्रिड में <strong>सक्रिय (Active)</strong> स्थान प्राप्त करता है और <strong>अनुपस्थित (Missing) नहीं</strong> है।
+                        ✓ <strong>मूलांक {profile.driverNumber} सत्यापन:</strong> आपकी जन्म तारीख {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}) के अनुसार आपका लकी नंबर / जन्म अंक (मूलांक) <strong>{profile.driverNumber}</strong> है। यह अंक 3×3 लो-शू ग्रिड में <strong>सक्रिय (Active)</strong> स्थान प्राप्त करता है और <strong>अनुपस्थित (Missing) नहीं</strong> है।
                       </span>
                     ) : (
                       <span>
-                        ✓ <strong>Driver {profile.driverNumber} Verified:</strong> For Day {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}), your Driver (Mulank) is <strong>{profile.driverNumber}</strong>. It is placed directly in your 3×3 Lo-Shu Grid as an <strong>Active</strong> soul frequency, so <strong>{profile.driverNumber} is NOT missing</strong>!
+                        ✓ <strong>Lucky Number (Birth Number) {profile.driverNumber} Verified:</strong> For Day {day} ({Math.floor(day / 10)}+{day % 10} = {profile.driverNumber}), your Lucky Number (Birth Number) is <strong>{profile.driverNumber}</strong>. It is placed directly in your 3×3 Lo-Shu Grid as an <strong>Active</strong> soul frequency, so <strong>{profile.driverNumber} is NOT missing</strong>!
                       </span>
                     )}
                   </div>
@@ -685,8 +685,8 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
               </p>
               <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto leading-relaxed">
                 {lang === 'hi'
-                  ? 'सनातन वैदिक अंक शास्त्र में 3×3 ग्रिड नवग्रहों (सूर्य, चंद्र, मंगल, बुध, गुरु, शुक्र, शनि, राहु, केतु) की ऊर्जा पर आधारित है। यह आपकी जन्मतिथि, मूलांक व भाग्यांक से धर्म, अर्थ, काम एवं महायोगों का सटीक फलकथन प्रकट करता है।'
-                  : 'The Ancient Indian 3×3 Vedic Grid maps your Date of Birth digits, Driver (Mulank), and Conductor (Bhagyank) into sacred planetary houses [3, 1, 9] / [6, 7, 5] / [2, 8, 4], revealing your Dharmic foresight, material prosperity, karmic perseverance, and occult Raj Yogas.'}
+                  ? 'सनातन वैदिक अंक शास्त्र में 3×3 ग्रिड नवग्रहों (सूर्य, चंद्र, मंगल, बुध, गुरु, शुक्र, शनि, राहु, केतु) की ऊर्जा पर आधारित है। यह आपकी जन्मतिथि, मूलांक (लकी नंबर) व भाग्यांक (डेस्टिनी नंबर) से धर्म, अर्थ, काम एवं महायोगों का सटीक फलकथन प्रकट करता है।'
+                  : 'The Ancient Indian 3×3 Vedic Grid maps your Date of Birth digits, Lucky Number (Birth Number), and Destiny Number into sacred planetary houses [3, 1, 9] / [6, 7, 5] / [2, 8, 4], revealing your Dharmic foresight, material prosperity, karmic perseverance, and occult Raj Yogas.'}
               </p>
             </div>
 
@@ -761,20 +761,20 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
                                 : (lang === 'hi' ? 'अनुपस्थित' : 'Missing')}
                             </span>
 
-                            {/* Driver / Conductor / Kua Badges */}
+                            {/* Lucky Number / Destiny Number / Kua Badges */}
                             {isPresent && (
                               <div className="flex flex-wrap items-center justify-center gap-0.5 mt-0.5">
                                 {isDriver && isConductor ? (
                                   <span className="text-[7.5px] font-bold bg-amber-300 text-amber-950 px-1 py-0.2 rounded-full leading-none shadow-2xs">
-                                    ★ {lang === 'hi' ? 'मूलांक व भाग्यांक' : 'Driver & Conductor'}
+                                    ★ {lang === 'hi' ? 'मूलांक व भाग्यांक' : 'Lucky & Destiny No.'}
                                   </span>
                                 ) : isDriver ? (
                                   <span className="text-[7.5px] font-bold bg-amber-300 text-amber-950 px-1 py-0.2 rounded-full leading-none shadow-2xs">
-                                    ★ {lang === 'hi' ? 'मूलांक' : 'Driver'}
+                                    ★ {lang === 'hi' ? 'मूलांक' : 'Lucky No.'}
                                   </span>
                                 ) : isConductor ? (
                                   <span className="text-[7.5px] font-bold bg-stone-900/90 text-amber-200 px-1 py-0.2 rounded-full leading-none border border-amber-400/50">
-                                    ✦ {lang === 'hi' ? 'भाग्यांक' : 'Conductor'}
+                                    ✦ {lang === 'hi' ? 'भाग्यांक' : 'Destiny No.'}
                                   </span>
                                 ) : isKua ? (
                                   <span className="text-[7.5px] font-bold bg-amber-900 text-amber-100 px-1 py-0.2 rounded-full leading-none">
@@ -836,16 +836,16 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
 
                     <div className="p-2 bg-white/90 rounded-lg border border-amber-200 space-y-1">
                       <div className="font-bold text-amber-900 flex items-center gap-1">
-                        <span>2. {lang === 'hi' ? 'मूलांक / आत्मा कारक (Driver - Mulank):' : 'Driver / Mulank (Soul Frequency):'}</span>
+                        <span>2. {lang === 'hi' ? 'मूलांक / जन्म अंक (Lucky Number - Birth Number):' : 'Lucky Number (Birth Number) / Mulank:'}</span>
                       </div>
                       <p className="text-stone-600 text-[10.5px]">
                         {lang === 'hi' ? (
                           <span>
-                            तारीख का एकल अंक योग: <strong>{profile.driverNumber}</strong> ({VEDIC_PLANETARY_DEITIES[profile.driverNumber]?.nameHi})। संयुक्त तिथियों (11-31) में मूल तिथि अंकों के साथ मूलांक भी वैदिक ग्रिड में सक्रिय होकर प्रवेश करता है।
+                            तारीख का एकल अंक योग: <strong>{profile.driverNumber}</strong> ({VEDIC_PLANETARY_DEITIES[profile.driverNumber]?.nameHi})। संयुक्त तिथियों (11-31) में मूल तिथि अंकों के साथ लकी नंबर (जन्म अंक) भी वैदिक ग्रिड में सक्रिय होकर प्रवेश करता है।
                           </span>
                         ) : (
                           <span>
-                            Day reduced to single digit = <strong>{profile.driverNumber}</strong> ({VEDIC_PLANETARY_DEITIES[profile.driverNumber]?.name}). For compound dates, the Driver is directly placed in its house as the sovereign soul vibration.
+                            Day reduced to single digit = <strong>{profile.driverNumber}</strong> ({VEDIC_PLANETARY_DEITIES[profile.driverNumber]?.name}). For compound dates, the Lucky Number (Birth Number) is directly placed in its house as the sovereign soul vibration.
                           </span>
                         )}
                       </p>
@@ -895,16 +895,16 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
 
                     <div className="p-2 bg-white/90 rounded-lg border border-amber-200 space-y-1">
                       <div className="font-bold text-amber-900 flex items-center gap-1">
-                        <span>4. {lang === 'hi' ? 'भाग्यांक / जीवन पथ कारक (Conductor - Bhagyank):' : 'Conductor / Bhagyank (Destiny Path):'}</span>
+                        <span>4. {lang === 'hi' ? 'भाग्यांक / जीवन पथ कारक (Destiny Number - Bhagyank):' : 'Destiny Number / Bhagyank (Destiny Path):'}</span>
                       </div>
                       <p className="text-stone-600 text-[10.5px]">
                         {lang === 'hi' ? (
                           <span>
-                            समस्त जन्मतिथि अंकों का कुल महायोग (DD + MM + YYYY) = <strong>{profile.conductorNumber}</strong> ({VEDIC_PLANETARY_DEITIES[profile.conductorNumber]?.nameHi})। यह भाग्यांक अंक कक्ष <strong>{profile.conductorNumber}</strong> में स्थापित होकर आपके भाग्य की दिशा तय करता है।
+                            समस्त जन्मतिथि अंकों का कुल महायोग (DD + MM + YYYY) = <strong>{profile.conductorNumber}</strong> ({VEDIC_PLANETARY_DEITIES[profile.conductorNumber]?.nameHi})। यह भाग्यांक (डेस्टिनी नंबर) अंक कक्ष <strong>{profile.conductorNumber}</strong> में स्थापित होकर आपके भाग्य की दिशा तय करता है।
                           </span>
                         ) : (
                           <span>
-                            Total sum of all digits (DD + MM + YYYY) reduced to single digit = <strong>{profile.conductorNumber}</strong> ({VEDIC_PLANETARY_DEITIES[profile.conductorNumber]?.name}). Placed into house {profile.conductorNumber} to steer your destiny.
+                            Total sum of all digits (DD + MM + YYYY) reduced to single digit = <strong>{profile.conductorNumber}</strong> ({VEDIC_PLANETARY_DEITIES[profile.conductorNumber]?.name}). Placed into house {profile.conductorNumber} as Destiny Number to steer your life path.
                           </span>
                         )}
                       </p>
@@ -1247,13 +1247,13 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
               <SocialShareBar
                 title={
                   lang === 'hi'
-                    ? `मेरी जन्मतिथि का मूलांक ${profile.driverNumber} और भाग्यांक ${profile.conductorNumber} है!`
-                    : `My Numerology Driver (Mulank) is ${profile.driverNumber} and Conductor (Bhagyank) is ${profile.conductorNumber}!`
+                    ? `मेरी जन्मतिथि का मूलांक (लकी नंबर) ${profile.driverNumber} और भाग्यांक (डेस्टिनी नंबर) ${profile.conductorNumber} है!`
+                    : `My Numerology Lucky Number (Birth Number) is ${profile.driverNumber} and Destiny Number is ${profile.conductorNumber}!`
                 }
                 description={
                   lang === 'hi'
                     ? `रणधीर सिंह जी के वैदिक अंक कैलकुलेटर पर अपनी जन्मतिथि, 3×3 लो-शू व वैदिक ग्रिड जांचें।`
-                    : `Decode your Date of Birth, Driver, Conductor & 3x3 Vedic Grid with Numerologist Randhir Singh.`
+                    : `Decode your Date of Birth, Lucky Number (Birth Number), Destiny Number & 3x3 Vedic Grid with Numerologist Randhir Singh.`
                 }
                 lang={lang}
               />

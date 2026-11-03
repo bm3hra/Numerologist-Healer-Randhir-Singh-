@@ -7,7 +7,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     titleHi: 'अंक ज्योतिष (न्यूमेरोलॉजी) कंसल्टेशन',
     category: 'numerology',
     shortDesc: 'Complete blueprint of your life’s core numbers, strengths, and upcoming golden periods.',
-    fullDesc: 'Comprehensive one-on-one session decoding your Driver, Conductor, Kua, and Personal Year. Unveils timing for crucial business moves, career shifts, investments, and life milestones.',
+    fullDesc: 'Comprehensive one-on-one session decoding your Lucky Number (Birth Number), Destiny Number, Kua, and Personal Year. Unveils timing for crucial business moves, career shifts, investments, and life milestones.',
     badge: 'Popular',
     iconName: 'Sparkles'
   },
@@ -47,7 +47,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     titleHi: 'बच्चे के जन्म की शुभ तारीख (मुहूर्त)',
     category: 'numerology',
     shortDesc: 'Vedic numerology planning for planned deliveries to give your child an auspicious start.',
-    fullDesc: 'Careful date and time calculation ensuring optimal Driver-Conductor harmony, positive planetary vibes, and a peaceful, successful future for your child.',
+    fullDesc: 'Careful date and time calculation ensuring optimal Lucky Number and Destiny Number harmony, positive planetary vibes, and a peaceful, successful future for your child.',
     badge: 'Family Blessing',
     iconName: 'Baby'
   },
@@ -77,7 +77,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     titleHi: 'नाम सुधार और विश्लेषण (लकी नाम)',
     category: 'numerology',
     shortDesc: 'Align your name spelling with your birth numbers using Chaldean numerology.',
-    fullDesc: 'Small subtle spelling changes bring your name into harmony with your Driver and Conductor numbers, opening doors to career promotions, respect, and financial growth without legal hassle.',
+    fullDesc: 'Small subtle spelling changes bring your name into harmony with your Lucky Number (Birth Number) and Destiny Number, opening doors to career promotions, respect, and financial growth without legal hassle.',
     badge: 'Transformational',
     iconName: 'FileSignature'
   },

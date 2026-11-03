@@ -87,8 +87,8 @@ export const FAQ_ITEMS: FaqItem[] = [
     categoryLabel: 'Numerology & Lo-Shu Grid',
     questionEn: 'Do I need my exact birth time for Numerology or only the Date of Birth?',
     questionHi: 'क्या अंक ज्योतिष के लिए जन्म का सही समय भी चाहिए?',
-    answerEn: 'Vedic and Lo-Shu Numerology primarily requires your exact Date of Birth (Day, Month, and Year). An exact birth time is not mandatory for calculating your Mulank (Driver), Bhagyank (Conductor), Kua Number, or the 3x3 Magic Grid.',
-    answerHi: 'नहीं, सिर्फ आपकी जन्मतिथि (दिन, महीना, साल) ही काफी है। मूलांक, भाग्यांक और लो-शू ग्रिड निकालने के लिए जन्म के समय की जरूरत नहीं होती।'
+    answerEn: 'Vedic and Lo-Shu Numerology primarily requires your exact Date of Birth (Day, Month, and Year). An exact birth time is not mandatory for calculating your Mulank / Lucky Number (Birth Number), Bhagyank / Destiny Number, Kua Number, or the 3x3 Magic Grid.',
+    answerHi: 'नहीं, सिर्फ आपकी जन्मतिथि (दिन, महीना, साल) ही काफी है। मूलांक (लकी नंबर / जन्म अंक), भाग्यांक (डेस्टिनी नंबर) और लो-शू ग्रिड निकालने के लिए जन्म के समय की जरूरत नहीं होती।'
   },
   {
     id: 'n2',

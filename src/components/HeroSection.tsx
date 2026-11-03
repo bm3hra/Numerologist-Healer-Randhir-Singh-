@@ -333,8 +333,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </h3>
             <p className="text-xs text-stone-600 mt-1 line-clamp-2">
               {lang === 'hi'
-                ? 'अपनी जन्मतिथि डालकर अपना मूलांक (ड्राइवर), भाग्यांक (कंडक्टर) और लकी नंबर तुरंत जानें।'
-                : 'Enter your date of birth to discover your Driver number, Conductor number, and lucky grid planes.'}
+                ? 'अपनी जन्मतिथि डालकर अपना मूलांक (लकी नंबर / जन्म अंक), भाग्यांक (डेस्टिनी नंबर) और ग्रिड प्रभाव तुरंत जानें।'
+                : 'Enter your date of birth to discover your Lucky Number (Birth Number), Destiny Number, and lucky grid planes.'}
             </p>
             <div className="mt-3 text-xs font-semibold text-amber-800 flex items-center gap-1">
               <span>{lang === 'hi' ? 'नंबर जानें →' : 'Check Your Numbers →'}</span>

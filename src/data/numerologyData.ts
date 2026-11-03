@@ -864,22 +864,22 @@ export function calculateNumerologyProfile(
     // Add Driver / Mulank for compound dates (e.g., 14 -> 5, 23 -> 5, 15 -> 6)
     if (day !== 10 && day !== 20 && day !== 30 && driverNumber > 0) {
       loshuDigits.push(driverNumber);
-      digitSources[driverNumber].push(`Driver / Mulank (${driverNumber})`);
+      digitSources[driverNumber].push(`Lucky Number (Birth Number) / Mulank (${driverNumber})`);
 
       vedicDigits.push(driverNumber);
-      vedicDigitSources[driverNumber].push(`Driver / Mulank (${driverNumber})`);
+      vedicDigitSources[driverNumber].push(`Lucky Number (Birth Number) / Mulank (${driverNumber})`);
     } else if (driverNumber > 0) {
-      digitSources[driverNumber].push(`Driver / Mulank (${driverNumber})`);
-      vedicDigitSources[driverNumber].push(`Driver / Mulank (${driverNumber})`);
+      digitSources[driverNumber].push(`Lucky Number (Birth Number) / Mulank (${driverNumber})`);
+      vedicDigitSources[driverNumber].push(`Lucky Number (Birth Number) / Mulank (${driverNumber})`);
     }
   } else {
-    // Single-digit birth day (1-9): Day itself embodies the Driver / Mulank
+    // Single-digit birth day (1-9): Day itself embodies the Lucky Number (Birth Number) / Mulank
     if (driverNumber > 0) {
       loshuDigits.push(driverNumber);
-      digitSources[driverNumber].push(`Day & Driver (${driverNumber})`);
+      digitSources[driverNumber].push(`Day & Lucky Number (Birth Number) (${driverNumber})`);
 
       vedicDigits.push(driverNumber);
-      vedicDigitSources[driverNumber].push(`Day & Driver (${driverNumber})`);
+      vedicDigitSources[driverNumber].push(`Day & Lucky Number (Birth Number) (${driverNumber})`);
     }
   }
 
@@ -914,10 +914,10 @@ export function calculateNumerologyProfile(
   // D. Conductor (Bhagyank)
   if (conductorNumber > 0) {
     loshuDigits.push(conductorNumber);
-    digitSources[conductorNumber].push(`Conductor / Bhagyank (${conductorNumber})`);
+    digitSources[conductorNumber].push(`Destiny Number / Bhagyank (${conductorNumber})`);
 
     vedicDigits.push(conductorNumber);
-    vedicDigitSources[conductorNumber].push(`Conductor / Bhagyank (${conductorNumber})`);
+    vedicDigitSources[conductorNumber].push(`Destiny Number / Bhagyank (${conductorNumber})`);
   }
 
   // E. Optional Kua Number
@@ -969,14 +969,14 @@ export function calculateNumerologyProfile(
   const conductorData = PLANETARY_ARCHETYPES[conductorNumber];
 
   const strengths = [
-    `Driver ${driverNumber} (${driverData.planet}): Endowed with innate ${driverData.traits.slice(0, 3).join(', ')}.`,
-    `Conductor ${conductorNumber} (${conductorData.planet}): Life destiny is steered towards ${conductorData.traits.slice(0, 3).join(', ')}.`,
+    `Lucky Number (Birth Number) ${driverNumber} (${driverData.planet}): Endowed with innate ${driverData.traits.slice(0, 3).join(', ')}.`,
+    `Destiny Number ${conductorNumber} (${conductorData.planet}): Life destiny is steered towards ${conductorData.traits.slice(0, 3).join(', ')}.`,
     ...presentNumbers.slice(0, 3).map(num => `Active Vibration ${num}: Boosts ${PLANETARY_ARCHETYPES[num].planet} energy in your life grid.`)
   ];
 
   const challenges: string[] = [];
   if (driverData.enemy.includes(conductorNumber)) {
-    challenges.push(`Driver ${driverNumber} and Conductor ${conductorNumber} are in natural friction. Name correction and remedy watches are strongly advised to bridge this vibration.`);
+    challenges.push(`Lucky Number (Birth Number) ${driverNumber} and Destiny Number ${conductorNumber} are in natural friction. Name correction and remedy watches are strongly advised to bridge this vibration.`);
   }
   missingNumbers.forEach(m => {
     challenges.push(`Missing Number ${m}: May cause gaps in ${PLANETARY_ARCHETYPES[m].element} element and ${PLANETARY_ARCHETYPES[m].traits[0]} attributes.`);
