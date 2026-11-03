@@ -36,7 +36,7 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     categoryLabel: 'Mega Convocation Keynote',
     thumbnailUrl: '/assets/aistudio/Numerologists__Mega_Convocation_Speech_3be65ab9.png',
     descriptionEn: 'Authentic photograph of Numerologist & Healer · Randhir Singh presiding at the official podium at Radisson Blu (16th June 2024), delivering the historic keynote address "NUMBER OF NUMEROLOGISTS TO EXPLORE THE WORLD" before international delegates.',
-    descriptionHi: '16 जून 2024, रेडिसन ब्लू नई दिल्ली में आयोजित भव्य द्वितीय मेगा दीक्षांत समारोह के मंच से "Number of Numerologists to Explore the World" विषय पर मुख्य व्याख्यान प्रस्तुत करते हुए रणधीर सिंह जी की मूल फोटो।',
+    descriptionHi: '16 जून 2024, रेडिसन ब्लू नई दिल्ली में आयोजित भव्य द्वितीय मेगा कन्वोकेशन व सम्मान समारोह के मंच से "Number of Numerologists to Explore the World" विषय पर मुख्य भाषण देते हुए रणधीर सिंह जी की मूल फोटो।',
     keyTakeaways: [
       'Venue & Date: Radisson Blu Grand Ballroom · 16th June 2024',
       'Keynote Topic: Number of Numerologists to Explore the World',
@@ -81,7 +81,7 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     categoryLabel: 'Advance Numerology Credential',
     thumbnailUrl: '/assets/aistudio/Certificate-1_9a231948.jpeg',
     descriptionEn: 'Official Certificate of Completion awarded to Mr. RANDHIR SINGH JI for successfully completing the Advance Numerology Course under Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist). Certified under UDYAM-GJ-22-0158332 and ISO-9001:2015 (Reg: G-65, DD Consultants) authorizing professional practice and consultation in 3x3 Lo-Shu grid matrices.',
-    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा श्री रणधीर सिंह जी को एडवांस न्यूमेरोलॉजी कोर्स सफलतापूर्वक संपन्न करने पर प्रदत्त अधिकृत प्रमाण-पत्र (Reg: G-65)। यह ISO-9001:2015 एवं UDYAM-GJ-22-0158332 के तहत 3x3 ग्रिड विश्लेषण एवं अंक ज्योतिषीय परामर्श हेतु पूर्ण मान्यता प्रदान करता है।',
+    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा श्री रणधीर सिंह जी को एडवांस न्यूमेरोलॉजी कोर्स सफलतापूर्वक पूरा करने पर प्राप्त अधिकृत प्रमाण-पत्र (Reg: G-65)। यह ISO-9001:2015 एवं UDYAM-GJ-22-0158332 के तहत 3x3 ग्रिड विश्लेषण एवं अंक ज्योतिषीय परामर्श हेतु पूर्ण मान्यता प्रदान करता है।',
     keyTakeaways: [
       'Reg. No: G-65 · Conferred by Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist)',
       'Accredited under UDYAM-GJ-22-0158332 & ISO-9001: 2015 (DD Consultants)',
@@ -96,7 +96,7 @@ export const VIDEO_SHOWCASE: VideoItem[] = [
     categoryLabel: 'Name Vibration Credential',
     thumbnailUrl: '/assets/aistudio/Certificate-3_816dda7e.jpeg',
     descriptionEn: 'Official Certificate of Achievement honoring RANDHIR SINGH for successfully completing the Advance Name Correction Course on 22 NOV 2024 under Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist). Validated under UDYAM-GJ-22-0158332 and ISO-9001:2015 (REG NO: A-F 55) for precision Chaldean and phonetic name alignment.',
-    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा श्री रणधीर सिंह जी को 22 नवंबर 2024 को एडवांस नेम करेक्शन (नाम सुधार) कोर्स सफलतापूर्वक पूरा करने पर प्रदत्त मूल प्रमाण-पत्र (REG NO: A-F 55, ISO-9001:2015)। यह कील्डियन एवं पाइथागोरियन अंक गणना द्वारा नाम सुधार की आधिकारिक विशेषज्ञता प्रमाणित करता है।',
+    descriptionHi: 'डॉ. रोहित गड़करी (पीएचडी गोल्ड मेडलिस्ट) द्वारा श्री रणधीर सिंह जी को 22 नवंबर 2024 को एडवांस नेम करेक्शन (नाम सुधार) कोर्स सफलतापूर्वक पूरा करने पर प्राप्त मूल प्रमाण-पत्र (REG NO: A-F 55, ISO-9001:2015)। यह कील्डियन एवं पाइथागोरियन अंक गणना द्वारा नाम सुधार की आधिकारिक विशेषज्ञता प्रमाणित करता है।',
     keyTakeaways: [
       'Registration No: A-F 55 · Date of Issue: 22 NOV 2024',
       'Conferred by Dr. Rohit Gadkari (Ace Numerologer, PHD Gold Medalist)',

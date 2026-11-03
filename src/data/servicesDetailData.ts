@@ -268,7 +268,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     sciencePrinciples: [
       {
         titleEn: 'Continuous Pulse Energy Entrainment',
-        titleHi: 'नाड़ी स्पंदन के साथ सतत ऊर्जा सामंजस्य',
+        titleHi: 'हाथ की नब्ज और धड़कन के साथ शुभ ऊर्जा का तालमेल',
         descEn: 'The human radial pulse beats ~100,000 times a day. Wearing a consecrated therapy watch subjects this vital blood-flow conduit to auspicious frequencies with every heartbeat.',
         descHi: 'मानव नाड़ी प्रतिदिन लगभग 1 लाख बार धड़कती है। सिद्ध थेरेपी घड़ी पहनने से प्रत्येक स्पंदन के साथ शुभ ऊर्जा शरीर व मस्तिष्क में प्रवाहित होती है।'
       },
@@ -334,7 +334,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
       },
       {
         titleEn: 'Parental Synastry Integration',
-        titleHi: 'माता-पिता के साथ भाग्य सामंजस्य',
+        titleHi: 'माता-पिता के साथ शुभ तालमेल',
         descEn: 'The chosen birth date must not conflict with either the mother’s or the father’s ruling numbers, fostering lifelong mutual respect, peace, and domestic blessing.',
         descHi: 'चुनी गई तिथि माता व पिता दोनों के मूलांक के अनुकूल होनी चाहिए, ताकि परिवार में सौभाग्य, शांति व स्नेह बना रहे।'
       }
@@ -441,20 +441,20 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     iconName: 'ShieldAlert',
     suggestedTariff: '₹5,100',
     taglineEn: 'Traditional salt-cleansing rituals and auric shielding for peaceful spaces and positive mindsets.',
-    taglineHi: 'प्राकृतिक सेंधा व समुद्री लवण द्वारा नकारात्मक ऊर्जा, नजर दोष एवं वास्तु अवरोधों का संपूर्ण निवारण।',
+    taglineHi: 'सेंधा और समुद्री नमक द्वारा नकारात्मक ऊर्जा, नजर दोष एवं घर-दुकान की रुकावटों का सरल समाधान।',
     shortDesc: 'Traditional salt-cleansing rituals and auric shielding for peaceful spaces and positive mindsets.',
     fullDescEn: 'For thousands of years, Vedic sages and traditional healers have revered authentic Rock Salt (Sendha Namak) and Sea Salt (Samudri Namak) for their unyielding ionic capacity to absorb psychic debris, the evil eye (Nazar dosha), etheric fatigue, and geopathic stress. Numerologist & Healer · Randhir Singh prescribes personalized salt rituals, threshold barrier placements, auric foot bath protocols, and consecrated salt water glass traps to purge stuck negative vibrations from homes, offices, and human bio-fields.',
-    fullDescHi: 'हजारों वर्षों से वैदिक ऋषि एवं पारम्परिक हीलर सेंधा व समुद्री नमक को नकारात्मक ऊर्जा, नजर दोष, मानसिक अशांति एवं घर के भारीपन को सोखने का सबसे शक्तिशाली प्राकृतिक माध्यम मानते आए हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी व्यक्तिगत परामर्श के आधार पर नमक के पोछे, मुख्य द्वार पर रक्षा पोटली, चरण लवण स्नान तथा कांच के पात्र में जल-नमक के विशेष उपाय बताते हैं, जिससे घर व कार्यस्थल की नकारात्मकता तुरंत समाप्त होती है।',
+    fullDescHi: 'हजारों वर्षों से वैदिक ऋषि एवं पारम्परिक हीलर सेंधा व समुद्री नमक को नकारात्मक ऊर्जा, नजर दोष, मानसिक अशांति एवं घर के भारीपन को सोखने का सबसे शक्तिशाली प्राकृतिक माध्यम मानते आए हैं। अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह जी व्यक्तिगत परामर्श के आधार पर नमक के पोछे, मुख्य द्वार पर रक्षा पोटली, नमक के पानी में पैर भिगोना (फुट सोक) तथा कांच के पात्र में जल-नमक के विशेष उपाय बताते हैं, जिससे घर व कार्यस्थल की नकारात्मकता तुरंत समाप्त होती है।',
     sciencePrinciples: [
       {
         titleEn: 'Ionic Absorption of Psychic & Etheric Residue',
-        titleHi: 'नकारात्मक तरंगों का प्राकृतिक आयनिक अवशोषण',
+        titleHi: 'नेगेटिविटी सोखने की प्राकृतिक क्षमता',
         descEn: 'Raw crystalline salt creates a natural negative ion micro-climate that neutralizes heavy static electromagnetic and emotional fields in living spaces.',
         descHi: 'कच्चा सेंधा नमक प्राकृतिक नकारात्मक आयन उत्पन्न करता है, जो घर के भारी विद्युत-चुंबकीय व भावनात्मक तनाव को सोख लेता है।'
       },
       {
         titleEn: 'Threshold Auric Shielding',
-        titleHi: 'चौखट रक्षा एवं ऊर्जा अवरोधक विधि',
+        titleHi: 'मुख्य द्वार पर नकारात्मक ऊर्जा रोकने का उपाय',
         descEn: 'Placing consecrated rock salt bowls at the main entrance traps jealousy and toxic vibrations before they cross your home threshold.',
         descHi: 'मुख्य द्वार की चौखट पर अभिमंत्रित नमक रखने से ईर्ष्या, नजर दोष व बाहरी क्लेश घर के भीतर प्रवेश नहीं कर पाते।'
       }
@@ -462,7 +462,7 @@ export const SERVICES_DETAIL_DATA: Record<number, ServiceDetailItem> = {
     deliverables: [
       {
         titleEn: 'Personalized 21-Day Salt Cleansing Protocol',
-        titleHi: '21-दिवसीय लवण शुद्धि कार्ययोजना',
+        titleHi: '21 दिनों की नमक शुद्धि कार्ययोजना',
         descEn: 'Day-by-day instructions on morning threshold washes, evening aura foot soaks, and disposal protocols.',
         descHi: 'प्रतिदिन सुबह मुख्य द्वार पोछा, संध्या समय औरा शुद्धि एवं नमक विसर्जन की सम्पूर्ण चरणबद्ध विधि।'
       },

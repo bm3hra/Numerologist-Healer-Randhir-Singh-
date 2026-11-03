@@ -132,7 +132,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
   } else {
     frictionPoints.push(
       lang === 'hi'
-        ? `विपरीत कुआ दिशाएं: कुआ ${profileA.kuaNumber} (${isEastGroup(profileA.kuaNumber) ? 'पूर्व समूह' : 'पश्चिम समूह'}) और कुआ ${profileB.kuaNumber} (${isEastGroup(profileB.kuaNumber) ? 'पूर्व समूह' : 'पश्चिम समूह'})। शयनकक्ष में सिरहाने की दिशा के लिए उपचारात्मक संरेखण आवश्यक है।`
+        ? `विपरीत कुआ दिशाएं: कुआ ${profileA.kuaNumber} (${isEastGroup(profileA.kuaNumber) ? 'पूर्व समूह' : 'पश्चिम समूह'}) और कुआ ${profileB.kuaNumber} (${isEastGroup(profileB.kuaNumber) ? 'पूर्व समूह' : 'पश्चिम समूह'})। बेडरूम में सिरहाने की सही दिशा के लिए सरल वास्तु उपाय की सलाह दी जाती है।`
         : `Opposite Kua Directions: Kua ${profileA.kuaNumber} (${isEastGroup(profileA.kuaNumber) ? 'East Group' : 'West Group'}) and Kua ${profileB.kuaNumber} (${isEastGroup(profileB.kuaNumber) ? 'East Group' : 'West Group'}). Randhir Ji advises a directional remedy for bedroom headboard alignment.`
     );
   }
@@ -142,7 +142,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
     score += Math.min(8, loshuBFillsA.length * 2.5);
     synergyPoints.push(
       lang === 'hi'
-        ? `लो-शू पूरक ऊर्जा: पार्टनर B पार्टनर A के लो-शू ग्रिड के रिक्त अंक [${loshuBFillsA.join(', ')}] को पूर्ण करता है।`
+        ? `लो-शू पूरक ऊर्जा: पार्टनर B पार्टनर A के लो-शू ग्रिड के मिसिंग (खाली) अंक [${loshuBFillsA.join(', ')}] की कमी को पूरा करता है।`
         : `Lo-Shu Mutual Grid Blessing: Person B fills missing numbers [${loshuBFillsA.join(', ')}] in Person A's grid, creating psychological wholeness.`
     );
   }
@@ -150,7 +150,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
     score += Math.min(8, loshuAFillsB.length * 2.5);
     synergyPoints.push(
       lang === 'hi'
-        ? `लो-शू परस्पर संतुलन: पार्टनर A पार्टनर B के लो-शू ग्रिड के रिक्त अंक [${loshuAFillsB.join(', ')}] को सक्रिय करता है।`
+        ? `लो-शू परस्पर संतुलन: पार्टनर A पार्टनर B के लो-शू ग्रिड के मिसिंग (खाली) अंक [${loshuAFillsB.join(', ')}] को पूरा करता है।`
         : `Lo-Shu Mutual Balance: Person A activates missing numbers [${loshuAFillsB.join(', ')}] in Person B's grid.`
     );
   }
@@ -160,7 +160,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
     score += Math.min(8, vedicBFillsA.length * 2.5);
     synergyPoints.push(
       lang === 'hi'
-        ? `वैदिक नवग्रह पूरकता: पार्टनर B पार्टनर A के वैदिक ग्रिड के रिक्त कक्ष [${vedicBFillsA.map((n) => `${n} - ${VEDIC_PLANETARY_DEITIES[n]?.nameHi}`).join(', ')}] को जागृत करता है।`
+        ? `वैदिक नवग्रह पूरकता: पार्टनर B पार्टनर A के वैदिक ग्रिड के खाली ग्रह घरों [${vedicBFillsA.map((n) => `${n} - ${VEDIC_PLANETARY_DEITIES[n]?.nameHi}`).join(', ')}] को अपनी ऊर्जा से पूरा करता है।`
         : `Vedic Navagraha Synergy: Partner B awakens missing houses [${vedicBFillsA.map((n) => `${n} - ${VEDIC_PLANETARY_DEITIES[n]?.name}`).join(', ')}] in Partner A's Vedic Kundali.`
     );
   }
@@ -168,7 +168,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
     score += Math.min(8, vedicAFillsB.length * 2.5);
     synergyPoints.push(
       lang === 'hi'
-        ? `वैदिक नवग्रह संवर्धन: पार्टनर A पार्टनर B के वैदिक ग्रिड के रिक्त कक्ष [${vedicAFillsB.map((n) => `${n} - ${VEDIC_PLANETARY_DEITIES[n]?.nameHi}`).join(', ')}] को अपनी ऊर्जा से पूर्ण करता है।`
+        ? `वैदिक नवग्रह संवर्धन: पार्टनर A पार्टनर B के वैदिक ग्रिड के खाली ग्रह घरों [${vedicAFillsB.map((n) => `${n} - ${VEDIC_PLANETARY_DEITIES[n]?.nameHi}`).join(', ')}] की ऊर्जा को पूरा करता है।`
         : `Vedic House Enhancement: Partner A completes missing houses [${vedicAFillsB.map((n) => `${n} - ${VEDIC_PLANETARY_DEITIES[n]?.name}`).join(', ')}] in Partner B's chart.`
     );
   }
@@ -179,7 +179,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
     newlyFormedVedicPlanes.forEach(({ plane }) => {
       synergyPoints.push(
         lang === 'hi'
-          ? `पारस्परिक संयोग से वैदिक महायोग पूर्ण: दोनों मिलकर "${plane.nameHi}" बनाते हैं! ${plane.predictionFullHi}`
+          ? `दोनों के मिलने से शुभ महायोग पूर्ण: दोनों मिलकर "${plane.nameHi}" बनाते हैं! ${plane.predictionFullHi}`
           : `Sacred Vedic Yoga Formed Jointly: Together, both unite to form "${plane.name}"! ${plane.predictionFull}`
       );
     });
@@ -216,7 +216,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
           </p>
           <p className="text-xs sm:text-sm text-stone-600 mt-2 max-w-2xl mx-auto">
             {lang === 'hi'
-              ? 'दो व्यक्तियों की जन्म तिथियों का सनातन वैदिक अंक कुंडली (3×3) एवं लो-शू ग्रिड द्वारा तुलनात्मक मिलान। देखें कि एक-दूसरे के रिक्त ग्रह कक्ष कैसे पूर्ण होते हैं और कौन-से दिव्य योग बनते हैं।'
+              ? 'दो व्यक्तियों की जन्मतिथियों का वैदिक अंक कुंडली (3×3) और लो-शू ग्रिड द्वारा आसान मिलान। देखें कि दोनों एक-दूसरे की कमियों को कैसे पूरा करते हैं और मिलकर कौन-सा शुभ योग बनाते हैं।'
               : 'Cross-analyze two birth charts using both the Sanatan 3×3 Vedic Grid and the classic Lo-Shu Matrix. Discover how missing planetary houses are healed and which sacred Yogas are formed jointly.'}
           </p>
         </div>
@@ -439,7 +439,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
               </div>
               <div className="text-left sm:text-right">
                 <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-300 inline-block">
-                  {lang === 'hi' ? 'हरे रंग के कक्ष = साथी द्वारा पूर्ण' : 'Green cells = Void healed by partner'}
+                  {lang === 'hi' ? 'हरे रंग के खाने = साथी द्वारा पूरी हुई कमी' : 'Green cells = Void healed by partner'}
                 </span>
               </div>
             </div>
@@ -668,23 +668,23 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                       {isNewlyCompletedTogether ? (
                         <span className="text-emerald-700 flex items-center gap-1 font-bold">
                           <Check className="w-3 h-3 text-emerald-600" />
-                          {lang === 'hi' ? '★ दोनों के मिलन से सिद्ध!' : '★ Manifested Jointly!'}
+                          {lang === 'hi' ? '★ दोनों के मिलने से पूरा हुआ योग!' : '★ Manifested Jointly!'}
                         </span>
                       ) : isAComplete && isBComplete ? (
                         <span className="text-amber-800">
-                          {lang === 'hi' ? 'दोनों में स्वतंत्र रूप से पूर्ण' : 'Present in both charts'}
+                          {lang === 'hi' ? 'दोनों में पहले से मौजूद' : 'Present in both charts'}
                         </span>
                       ) : isAComplete ? (
                         <span className="text-stone-700">
-                          {lang === 'hi' ? 'पार्टनर A में पूर्ण' : 'Complete in Partner A'}
+                          {lang === 'hi' ? 'पार्टनर A में पूरा' : 'Complete in Partner A'}
                         </span>
                       ) : isBComplete ? (
                         <span className="text-stone-700">
-                          {lang === 'hi' ? 'पार्टनर B में पूर्ण' : 'Complete in Partner B'}
+                          {lang === 'hi' ? 'पार्टनर B में पूरा' : 'Complete in Partner B'}
                         </span>
                       ) : (
                         <span className="text-stone-400">
-                          {lang === 'hi' ? 'अपूर्ण (उपाय अनुशंसित)' : 'Incomplete (Remedy advised)'}
+                          {lang === 'hi' ? 'अधूरा (सरल उपाय की सलाह)' : 'Incomplete (Remedy advised)'}
                         </span>
                       )}
                     </div>
@@ -715,7 +715,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
               </div>
               <div className="text-left sm:text-right">
                 <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-300 inline-block">
-                  {lang === 'hi' ? 'हरे रंग के अंक = दूसरे साथी द्वारा उपहार' : 'Green numbers = Gifted by partner'}
+                  {lang === 'hi' ? 'हरे रंग के अंक = साथी द्वारा पूरी हुई कमी' : 'Green numbers = Gifted by partner'}
                 </span>
               </div>
             </div>
@@ -769,7 +769,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                 </div>
 
                 <div className="text-[11px] text-stone-600 mt-3 pt-2 border-t border-amber-200">
-                  {lang === 'hi' ? 'लो-शू रिक्त अंक:' : 'Lo-Shu Missing:'} [{profileA.missingNumbers.join(', ')}]
+                  {lang === 'hi' ? 'लो-शू मिसिंग (खाली) अंक:' : 'Lo-Shu Missing:'} [{profileA.missingNumbers.join(', ')}]
                 </div>
               </div>
 
@@ -821,7 +821,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                 </div>
 
                 <div className="text-[11px] text-stone-600 mt-3 pt-2 border-t border-amber-200">
-                  {lang === 'hi' ? 'लो-शू रिक्त अंक:' : 'Lo-Shu Missing:'} [{profileB.missingNumbers.join(', ')}]
+                  {lang === 'hi' ? 'लो-शू मिसिंग (खाली) अंक:' : 'Lo-Shu Missing:'} [{profileB.missingNumbers.join(', ')}]
                 </div>
               </div>
             </div>
@@ -833,19 +833,19 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-200 pb-4 mb-6 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                {lang === 'hi' ? 'पारस्परिक अंक मिलान निर्णय' : 'Mutual Compatibility Verdict'}
+                {lang === 'hi' ? 'आपसी अंक मिलान का नतीजा' : 'Mutual Compatibility Verdict'}
               </span>
               <h3 className="font-sacred text-xl sm:text-2xl font-bold text-stone-900 mt-0.5">
                 {score >= 82
                   ? lang === 'hi'
-                    ? 'अति शुभ दैवीय सामंजस्य (Highly Auspicious Karmic Resonance)'
+                    ? 'अति शुभ व उत्तम तालमेल (Auspicious Compatibility)'
                     : 'Highly Auspicious Karmic Resonance'
                   : score >= 68
                   ? lang === 'hi'
-                    ? 'अनुकूल तालमेल व सकारात्मक साझेदारी (Favorable Synergy with Minor Balancing)'
+                    ? 'अनुकूल तालमेल व अच्छी साझेदारी'
                     : 'Favorable Synergy with Minor Balancing'
                   : lang === 'hi'
-                  ? 'सतर्क संरेखण व उपचारात्मक मार्गदर्शन आवश्यक (Needs Conscious Remedies)'
+                  ? 'सावधानी व सरल उपायों की आवश्यकता'
                   : 'Needs Conscious Remedy & Clear Boundaries'}
               </h3>
             </div>
@@ -855,7 +855,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                 {score}%
               </span>
               <div className="text-[11px] text-stone-500 font-medium">
-                {lang === 'hi' ? 'कुल सामंजस्य अंक (Synergy)' : 'Synergy Score'}
+                {lang === 'hi' ? 'तालमेल स्कोर (Synergy Score)' : 'Synergy Score'}
               </div>
             </div>
           </div>
@@ -864,7 +864,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
             <div className="space-y-2">
               <span className="text-xs font-bold text-emerald-900 flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                {lang === 'hi' ? 'सकारात्मक ऊर्जा व शुभ संयोग (Key Harmonious Vibrations):' : 'Key Harmonious Vibrations:'}
+                {lang === 'hi' ? 'सकारात्मक खूबियाँ व शुभ संयोग (Key Strengths):' : 'Key Harmonious Vibrations:'}
               </span>
               <ul className="text-xs text-stone-700 space-y-2 pl-5 list-disc">
                 {synergyPoints.map((pt, idx) => (
@@ -878,7 +878,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                 <span className="font-bold flex items-center gap-1.5 text-amber-900">
                   <ShieldAlert className="w-4 h-4 text-amber-700" />
                   {lang === 'hi'
-                    ? 'सावधानी व उपचारात्मक संरेखण के क्षेत्र (Areas Requiring Conscious Alignment):'
+                    ? 'सावधानी व उपाय वाले क्षेत्र (जहाँ ध्यान देने की जरूरत है):'
                     : 'Areas Requiring Conscious Alignment:'}
                 </span>
                 <ul className="space-y-1.5 pl-5 list-disc">
@@ -888,7 +888,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
                 </ul>
                 <div className="text-[11px] text-stone-600 pt-1 border-t border-amber-200">
                   {lang === 'hi'
-                    ? '💡 रणधीर जी का परामर्श: इन विसंगतियों को नाम सुधार (Name Correction), 22-कैलिबर थेरेपी घड़ी, एवं भोजपत्र यंत्र द्वारा शत-प्रतिशत संतुलित किया जा सकता है।'
+                    ? '💡 रणधीर जी का सुझाव: इन छोटी-मोटी कमियों को नाम सुधार (Name Correction), थेरेपी घड़ी, एवं सिद्ध भोजपत्र यंत्र के आसान उपायों से पूरी तरह ठीक किया जा सकता है।'
                     : '💡 Healer Randhir Singh\'s Note: These friction points are effectively neutralized through custom Name Correction, Consecrated Victorinox Therapy Watch, and energized Bhojpatra Yantras.'}
                 </div>
               </div>

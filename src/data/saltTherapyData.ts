@@ -4,7 +4,7 @@ export const SALT_THERAPY_RITUALS: SaltTherapyRitual[] = [
   {
     id: 'padabhyanga_foot_soak',
     titleEn: 'Himalayan Rock Salt Foot Cleansing Soak',
-    titleHi: 'हिमालयन रॉक सॉल्ट पद-प्रक्षालन स्नान',
+    titleHi: 'सेंधा नमक के पानी में पैर भिगोना (फुट सोक)',
     purpose: 'Drains heavy psychic fatigue, dissolves negative thoughts accumulated throughout the day, and grounds anxious restlessness.',
     ingredients: [
       '2 generous tablespoons of unprocessed Himalayan Pink or Natural Rock Salt (Sendha Namak)',
@@ -34,7 +34,7 @@ export const SALT_THERAPY_RITUALS: SaltTherapyRitual[] = [
   {
     id: 'space_clearing_threshold',
     titleEn: 'Threshold Energy Shield & Room Corner Cleansing',
-    titleHi: 'मुख्य द्वार एवं गृह-कोण ऊर्जा शुद्धिकरण',
+    titleHi: 'मुख्य द्वार और कमरों के कोनों से नेगेटिविटी हटाने का उपाय',
     purpose: 'Absorbs stagnant, envious (Nazar), or heavy atmospheric energies in residential spaces, shops, and offices.',
     ingredients: [
       'Small unglazed clay bowls or clear glass tumblers',
@@ -64,7 +64,7 @@ export const SALT_THERAPY_RITUALS: SaltTherapyRitual[] = [
   {
     id: 'aura_mist_spray',
     titleEn: 'Pranic Salt & Camphor Aura Shield Spray',
-    titleHi: 'प्राणिक सॉल्ट एवं कपूर आभा-मंडल स्प्रे',
+    titleHi: 'सेंधा नमक और कपूर का ऊर्जा शुद्धि स्प्रे (Aura Spray)',
     purpose: 'Instantly resets your personal electromagnetic field after returning from crowded hospitals, funerals, courtrooms, or dispute meetings.',
     ingredients: [
       '100 ml pure distilled water or divine Ganga Jal',
@@ -93,7 +93,7 @@ export const SALT_THERAPY_RITUALS: SaltTherapyRitual[] = [
   {
     id: 'floor_mop_purification',
     titleEn: 'Weekly Salt Mopping Ritual (Griha Shuddhi)',
-    titleHi: 'साप्ताहिक गृह शुद्धि — पोछा विधान',
+    titleHi: 'घर में नमक के पानी का पोछा लगाने का आसान नियम',
     purpose: 'Cleanses the flooring of past tenant energies, chronic illnesses residue, and geometric blockages.',
     ingredients: [
       '1 bucket of mopping water',

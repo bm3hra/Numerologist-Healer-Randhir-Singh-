@@ -140,7 +140,7 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
         id: 'salt_blk_1',
         type: 'heading',
         title: 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी)',
-        subtitle: 'प्राकृतिक सेंधा नमक एवं समुद्री लवण द्वारा सूक्ष्म आभामंडल (Aura) की गहरी सफाई'
+        subtitle: 'प्राकृतिक सेंधा नमक और खड़े समुद्री नमक द्वारा औरा (ऊर्जा घेरे) की शुद्धि'
       },
       {
         id: 'salt_blk_2',
@@ -428,7 +428,7 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
     isSystemPage: true,
     status: 'published',
     seoTitle: '40+ National Awards & Honors | Randhir Singh Jaipur',
-    seoDescription: 'राष्ट्रीय ज्योतिष रत्न, महा दीक्षांत समारोह एवं 40 से अधिक प्रतिष्ठित सम्मान।',
+    seoDescription: 'राष्ट्रीय ज्योतिष रत्न, मेगा कन्वोकेशन व 40 से अधिक प्रतिष्ठित सम्मान।',
     ogImage: '/Certificate Celebration Ceremony.png',
     featuredImage: '/Certificate Celebration Ceremony.png',
     showInNav: true,
@@ -447,9 +447,9 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
       {
         id: 'awd_blk_2',
         type: 'gallery',
-        title: 'सम्मान एवं दीक्षांत समारोह',
+        title: 'सम्मान एवं कन्वोकेशन समारोह',
         images: [
-          { url: '/Certificate Celebration Ceremony.png', caption: 'सर्टिफिकेट दीक्षांत समारोह सम्मान' }
+          { url: '/Certificate Celebration Ceremony.png', caption: 'सर्टिफिकेट व सम्मान समारोह' }
         ],
         columns: 2
       }
@@ -519,7 +519,7 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
     isSystemPage: true,
     status: 'published',
     seoTitle: 'Media Gallery & Videos | Randhir Singh Jaipur',
-    seoDescription: 'दीक्षांत समारोह, टीवी साक्षात्कार, यूट्यूब पॉडकास्ट और प्रेस कवरेज।',
+    seoDescription: 'कन्वोकेशन व सम्मान समारोह, टीवी इंटरव्यू, यूट्यूब पॉडकास्ट और प्रेस कवरेज।',
     ogImage: '/Certificate Celebration Ceremony.png',
     featuredImage: '/Certificate Celebration Ceremony.png',
     showInNav: true,
@@ -532,7 +532,7 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
       {
         id: 'med_blk_1',
         type: 'heading',
-        title: 'मीडिया, वीडियो एवं दीक्षांत समारोह गैलरी',
+        title: 'फोटो, वीडियो एवं कन्वोकेशन गैलरी',
         subtitle: 'विभिन्न सम्मेलनों, कार्यशालाओं और समारोहों के ऐतिहासिक दृश्य'
       },
       {
@@ -540,7 +540,7 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
         type: 'gallery',
         title: 'समारोह छायाचित्र',
         images: [
-          { url: '/Certificate Celebration Ceremony.png', caption: 'सर्टिफिकेट दीक्षांत समारोह' },
+          { url: '/Certificate Celebration Ceremony.png', caption: 'सर्टिफिकेट व सम्मान समारोह' },
           { url: '/Randhir Singh.png', caption: 'रणधीर सिंह जी का आधिकारिक पोर्ट्रेट' }
         ],
         columns: 2
