@@ -25,12 +25,25 @@ import {
 } from 'firebase/auth';
 import configJson from '../../firebase-applet-config.json';
 
+// Support environment variables with fallback to local configuration
+const activeFirebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || configJson.apiKey,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || configJson.authDomain,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || configJson.projectId,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || configJson.storageBucket,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || configJson.messagingSenderId,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || configJson.appId,
+  measurementId: (import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || configJson.measurementId) || undefined,
+};
+
+const targetDatabaseId = import.meta.env.VITE_FIREBASE_DATABASE_ID || configJson.firestoreDatabaseId;
+
 // Initialize Firebase App singleton
-export const firebaseApp = getApps().length === 0 ? initializeApp(configJson) : getApp();
+export const firebaseApp = getApps().length === 0 ? initializeApp(activeFirebaseConfig) : getApp();
 
 // Target provisioned firestore database
-export const db = configJson.firestoreDatabaseId
-  ? getFirestore(firebaseApp, configJson.firestoreDatabaseId)
+export const db = targetDatabaseId
+  ? getFirestore(firebaseApp, targetDatabaseId)
   : getFirestore(firebaseApp);
 
 export const auth = getAuth(firebaseApp);

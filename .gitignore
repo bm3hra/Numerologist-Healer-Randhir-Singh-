@@ -6,3 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Firebase configuration file containing web API key (prevents GitHub secret scanning alerts)
+firebase-applet-config.json
