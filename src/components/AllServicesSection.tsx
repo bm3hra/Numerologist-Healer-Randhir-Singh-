@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Sparkles, Watch, Calendar, Clock, Baby, PhoneCall, ShieldAlert, FileSignature, HeartHandshake, Users, Volume2, Sun, Binary, Grid, Trophy, Gem, ArrowRight, Search, CreditCard } from 'lucide-react';
 import { ALL_SERVICES } from '../data/servicesData';
+import { SERVICES_DETAIL_DATA } from '../data/servicesDetailData';
 import { Language, ServiceItem } from '../types';
 
 interface AllServicesSectionProps {
   lang: Language;
   onSelectService: (service: ServiceItem) => void;
   onNavigateToService?: (serviceId: number) => void;
-  onOpenBooking?: (serviceName?: string) => void;
+  onOpenBooking?: (serviceName?: string, price?: string) => void;
 }
 
 export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
@@ -141,6 +142,9 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredServices.map((service) => {
             const Icon = getServiceIcon(service.iconName);
+            const detail = SERVICES_DETAIL_DATA[service.id];
+            const price = detail?.suggestedTariff || '₹5,100';
+
             return (
               <div
                 key={service.id}
@@ -149,9 +153,14 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="w-8 h-8 rounded-lg bg-amber-100 text-amber-900 font-bold text-xs flex items-center justify-center font-mono">
-                      {service.id < 10 ? `0${service.id}` : service.id}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="w-8 h-8 rounded-lg bg-amber-100 text-amber-900 font-bold text-xs flex items-center justify-center font-mono">
+                        {service.id < 10 ? `0${service.id}` : service.id}
+                      </span>
+                      <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-mono">
+                        {price}
+                      </span>
+                    </div>
 
                     {service.badge && (
                       <span className="text-[10px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
@@ -194,22 +203,27 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
-                  <span className="text-[11px] font-bold text-amber-900 group-hover:underline flex items-center gap-1">
-                    <span>{lang === 'hi' ? 'विस्तृत पृष्ठ देखें' : 'Dedicated Page'}</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="text-[11px] font-bold text-amber-900 group-hover:underline flex items-center gap-1">
+                      <span>{lang === 'hi' ? 'विस्तृत पृष्ठ' : 'Dedicated Page'}</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <span className="inline-flex items-center text-[11px] font-black text-amber-950 bg-amber-100/90 border border-amber-300 px-2 py-0.5 rounded-md font-mono shadow-2xs">
+                      {price}
+                    </span>
+                  </div>
 
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       if (onOpenBooking) {
-                        onOpenBooking(service.titleEn);
+                        onOpenBooking(service.titleEn, price);
                       } else {
                         onSelectService(service);
                       }
                     }}
-                    className="text-[11px] font-bold text-stone-600 hover:text-white bg-stone-100 hover:bg-amber-800 px-2.5 py-1 rounded-md transition-colors"
+                    className="text-[11px] font-bold text-stone-700 hover:text-white bg-stone-100 hover:bg-amber-800 px-2.5 py-1 rounded-md transition-colors shrink-0"
                   >
                     {lang === 'hi' ? 'परामर्श' : 'Consult Now'}
                   </button>

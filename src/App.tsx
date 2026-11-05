@@ -707,7 +707,7 @@ function MainAppContent() {
               lang={lang as Language}
               onSelectService={(svc) => handleNavigate(`service-${svc.id}`)}
               onNavigateToService={(svcId) => handleNavigate(`service-${svcId}`)}
-              onOpenBooking={(svcName) => handleOpenBooking(svcName)}
+              onOpenBooking={(svcName, price) => handleOpenBooking(svcName, price)}
             />
 
             {/* 10. Dedicated About Numerologist & Healer · Randhir Singh Section */}
