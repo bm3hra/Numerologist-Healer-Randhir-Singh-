@@ -52,26 +52,25 @@ export const Navbar: React.FC<NavbarProps> = ({
   // Primary navigation tabs shown on 1024px+ screens
   const primaryNavLinks = [
     { id: 'home', labelEn: 'Home', labelHi: 'होम' },
-    { id: 'tariff', labelEn: 'Fees & Tariff', labelHi: 'परामर्श व फीस' },
+    { id: 'services', labelEn: '16 Divine Services & Fees', labelHi: '16 सेवाएँ व फीस' },
+    { id: 'specialized-services', labelEn: '11 Specialized Healing', labelHi: '11 विशिष्ट हीलिंग सेवाएं' },
     { id: 'about-randhir', labelEn: 'About Randhir Singh', labelHi: 'रणधीर सिंह जी' },
     { id: 'dob', labelEn: 'DOB & Lo-Shu', labelHi: 'जन्मतिथि और ग्रिड' },
     { id: 'watch', labelEn: 'Watch Therapy', labelHi: 'हाथ की घड़ी (वॉच थेरेपी)' },
     { id: 'salt', labelEn: 'Salt & Crystals', labelHi: 'सॉल्ट थेरेपी व क्रिस्टल', hideOnLg: true },
-    { id: 'services', labelEn: 'All Services', labelHi: 'सभी 16 सेवाएँ', hideOnLg: true },
   ];
 
   // Secondary navigation tabs placed in "More" dropdown on desktop
   const secondaryNavLinks = [
-    { id: 'tariff', labelEn: '💳 Consultancy & Healing Services Fees (Complete Tariff)', labelHi: '💳 परामर्श एवं हीलिंग सेवाएं फीस (सम्पूर्ण टैरिफ)' },
+    { id: 'services', labelEn: '★ ALL 16 DIVINE SERVICES & CONSULTANCY FEES', labelHi: '★ सभी 16 पवित्र सेवाएँ एवं परामर्श फीस' },
+    { id: 'specialized-services', labelEn: '★ 11 Specialized Healing & Correction Services', labelHi: '★ 11 विशिष्ट हीलिंग एवं सुधार सेवाएं' },
     { id: 'about-randhir', labelEn: '★ About Numerologist & Healer · Randhir Singh', labelHi: '★ रणधीर सिंह जी का परिचय' },
-    { id: 'services', labelEn: '★ All 16 Divine Services (Individual Pages)', labelHi: '★ सभी 16 सेवाएँ (विस्तार से)' },
     { id: 'yantra-healings', labelEn: '★ Yantra Healings (Detailed Page)', labelHi: '★ सिद्ध यंत्र और हीलिंग' },
     { id: 'special-yantras', labelEn: '★ Special Yantras (Business, Job, Desires)', labelHi: '★ खास यंत्र (व्यापार, नौकरी, मनोकामना)' },
     { id: 'dob-yantras', labelEn: '★ Yantras as per Date of Birth', labelHi: '★ जन्मतिथि के अनुसार लकी यंत्र' },
     { id: 'kundli-milan', labelEn: '★ Kundli Milan as per Numerology', labelHi: '★ अंक ज्योतिष कुंडली मिलान' },
     { id: 'and-more', labelEn: '★ And More.... (Remedies Vault)', labelHi: '★ और भी सरल उपाय...' },
     { id: 'salt', labelEn: 'Negativity Removal & Salt Therapy', labelHi: 'नेगेटिविटी हटाएँ (सॉल्ट थेरेपी)' },
-    { id: 'services', labelEn: 'All 16 Divine Services', labelHi: 'सभी 16 सेवाएँ', showOnLgOnly: true },
     { id: 'lunar', labelEn: 'Lunar Energy & Numerology', labelHi: 'चंद्रमा और अंक ज्योतिष' },
     { id: 'crystal', labelEn: 'Crystal Therapy Guidance', labelHi: 'क्रिस्टल थेरेपी की सलाह' },
     { id: 'mobile_name', labelEn: 'Lucky Mobile & Name Correction', labelHi: 'लकी मोबाइल नंबर व नाम सुधार' },
@@ -85,7 +84,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   // All links combined for the full mobile menu
   const allNavLinks = [
     { id: 'home', labelEn: 'Home', labelHi: 'होम' },
-    { id: 'tariff', labelEn: '💳 Consultancy & Healing Services Fees', labelHi: '💳 परामर्श एवं हीलिंग सेवाएं फीस' },
+    { id: 'services', labelEn: 'ALL 16 DIVINE SERVICES & CONSULTANCY FEES', labelHi: 'सभी 16 पवित्र सेवाएँ एवं परामर्श फीस' },
+    { id: 'specialized-services', labelEn: '11 Specialized Healing & Correction Services', labelHi: '11 विशिष्ट हीलिंग एवं सुधार सेवाएं' },
     { id: 'about-randhir', labelEn: 'About Randhir Singh', labelHi: 'रणधीर सिंह जी' },
     { id: 'dob', labelEn: 'DOB & Lo-Shu Grid', labelHi: 'जन्मतिथि और ग्रिड' },
     { id: 'yantra-healings', labelEn: 'Yantra Healings Page', labelHi: 'सिद्ध यंत्र और हीलिंग' },
@@ -99,7 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'mobile_name', labelEn: 'Mobile & Name Correction', labelHi: 'लकी मोबाइल व नाम सुधार' },
     { id: 'compatibility', labelEn: 'Grid Matching', labelHi: 'ग्रिड मिलान' },
     { id: 'remedies', labelEn: 'Yantras, Codes & Switchwords', labelHi: 'यंत्र, हीलिंग कोड और स्विचवर्ड्स' },
-    { id: 'services', labelEn: 'All 16 Divine Services', labelHi: 'सभी 16 सेवाएँ' },
+    { id: 'media', labelEn: 'Photos & Certificates Showcase', labelHi: 'फोटो एवं सर्टिफिकेट्स शोकेस' },
     { id: 'faq', labelEn: 'FAQs', labelHi: 'अक्सर पूछे जाने वाले सवाल' },
     { id: 'client-reviews-stories', labelEn: 'Client Reviews & Stories (Submit)', labelHi: 'ग्राहकों के अनुभव एवं समीक्षाएँ' },
   ];
@@ -150,13 +150,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Direct Fees Link in Top Bar */}
             <a
-              href="#tariff"
-              onClick={(e) => handleNavClick('tariff', e)}
+              href="#services"
+              onClick={(e) => handleNavClick('services', e)}
               className="inline-flex items-center gap-1 bg-amber-400/20 hover:bg-amber-400/30 text-amber-200 hover:text-white border border-amber-400/50 px-2 sm:px-2.5 py-0.5 rounded text-[10px] sm:text-[11px] font-bold transition-all shrink-0 whitespace-nowrap shadow-2xs"
-              title={lang === 'hi' ? 'परामर्श एवं हीलिंग सेवाएं फीस (Consultancy & Healing Services Fees)' : 'Consultancy & Healing Services Fees'}
+              title={lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ एवं परामर्श फीस (ALL 16 DIVINE SERVICES & CONSULTANCY FEES)' : 'ALL 16 DIVINE SERVICES & CONSULTANCY FEES'}
             >
               <CreditCard className="w-3 h-3 text-amber-300 shrink-0" />
-              <span>{lang === 'hi' ? 'सेवा फीस (Tariff)' : 'Fees & Tariff'}</span>
+              <span>{lang === 'hi' ? '16 सेवाएँ व फीस' : '16 Services & Fees'}</span>
             </a>
 
             {/* Direct Admin Access Button */}

@@ -153,8 +153,8 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 16,
-    titleEn: 'Best Crystals for Profession & Growth',
-    titleHi: 'करियर और तरक्की के लिए लकी क्रिस्टल्स',
+    titleEn: 'Best Crystals for Your Profession & Growth its include Cleaning',
+    titleHi: 'करियर और तरक्की के लिए लकी क्रिस्टल्स (क्लीनिंग सहित)',
     category: 'crystal',
     shortDesc: 'Profession-matched gemstones and crystal bracelets (Pyrite, Citrine, Aventurine, Amethyst).',
     fullDesc: 'Personalized crystal guidance matching your career and birth chart. Includes simple tips on salt cleansing, sun/moon charging, and how to wear them.',

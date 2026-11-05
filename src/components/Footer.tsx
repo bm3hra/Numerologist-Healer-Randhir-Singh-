@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Phone, Mail, MapPin, Clock, MessageCircle, Heart, ShieldCheck, CreditCard, Star } from 'lucide-react';
+import { Compass, Phone, Mail, MapPin, Clock, MessageCircle, Heart, ShieldCheck, CreditCard, Star, QrCode, Sparkles } from 'lucide-react';
 import { Language } from '../types';
 import { getTranslation } from '../i18n/languages';
 
@@ -59,12 +59,22 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
             <ul className="space-y-2 text-xs text-stone-400">
               <li className="pb-1.5 mb-1.5 border-b border-stone-800">
                 <a
-                  href="#tariff"
-                  onClick={(e) => { e.preventDefault(); onNavigate('tariff'); }}
+                  href="#services"
+                  onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
                   className="inline-flex items-center gap-1.5 text-amber-300 hover:text-amber-200 font-bold transition-colors"
                 >
                   <CreditCard className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>{lang === 'hi' ? 'परामर्श एवं हीलिंग सेवाएं फीस (Tariff)' : 'Consultancy & Healing Services Fees'}</span>
+                  <span>{lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ एवं परामर्श फीस' : 'ALL 16 DIVINE SERVICES & CONSULTANCY FEES'}</span>
+                </a>
+              </li>
+              <li className="pb-1.5 mb-1.5 border-b border-stone-800">
+                <a
+                  href="#specialized-services"
+                  onClick={(e) => { e.preventDefault(); onNavigate('specialized-services'); }}
+                  className="inline-flex items-center gap-1.5 text-amber-300 hover:text-amber-200 font-bold transition-colors"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span>{lang === 'hi' ? '11 विशिष्ट हीलिंग एवं सुधार सेवाएं' : '11 Specialized Healing & Correction Services'}</span>
                 </a>
               </li>
               <li>
@@ -128,15 +138,6 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   className="hover:text-amber-300 transition-colors block"
                 >
                   {lang === 'hi' ? 'यंत्र, हीलिंग कोड एवं स्विचवर्ड्स' : 'Yantras, Healing Codes & Switchwords'}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  onClick={(e) => { e.preventDefault(); onNavigate('services'); }}
-                  className="hover:text-amber-300 transition-colors block"
-                >
-                  {lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ' : 'All 16 Divine Services'}
                 </a>
               </li>
               <li>
@@ -206,32 +207,39 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate, onOpenBooking 
                   ? 'अपॉइंटमेंट बुकिंग व परामर्श संबंधी प्रश्नों के लिए सीधा संपर्क करें:'
                   : 'Connect directly for appointment reservations & online queries:'}
               </p>
-              <div className="p-3 bg-stone-900 rounded-xl border border-stone-800 space-y-1">
-                <div className="text-amber-300 font-bold text-xs">
-                  {lang === 'hi' ? 'व्हाट्सएप / कॉल व UPI:' : 'WhatsApp / Call & UPI:'}
+              <div className="p-3 bg-stone-900 rounded-xl border border-stone-800 space-y-1.5">
+                <div className="flex items-center justify-between text-amber-300 font-bold text-xs">
+                  <span>{lang === 'hi' ? 'व्हाट्सएप / कॉल व UPI:' : 'WhatsApp / Call & UPI:'}</span>
+                  <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+                    <ShieldCheck className="w-3 h-3" /> Verified
+                  </span>
                 </div>
                 <div className="text-sm font-bold font-mono text-white">
                   +91-9509593150
                 </div>
-                <div className="text-[10px] text-stone-400">
-                  PhonePe · GPay · Paytm · BHIM
+                <div className="text-[10px] text-stone-300 font-mono space-y-0.5 pt-1.5 border-t border-stone-800/80">
+                  <div className="truncate"><span className="text-amber-400">Paytm:</span> randhir.150@ptyes</div>
+                  <div className="truncate"><span className="text-blue-400">GPay:</span> randhirjpr-6@okicici</div>
+                  <div className="truncate"><span className="text-purple-400">PhonePe:</span> 9509593150-3@ybl</div>
                 </div>
               </div>
-              <button
-                onClick={onOpenBooking}
-                className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-amber-800 hover:from-amber-700 text-white font-bold py-2 px-3 rounded-lg text-xs transition-colors shadow-xs"
+
+              <a
+                href="#bank"
+                onClick={() => onNavigate('tariff')}
+                className="w-full inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-amber-900 to-stone-900 hover:from-amber-800 text-amber-200 hover:text-white font-bold py-2 px-3 rounded-lg text-xs border border-amber-500/40 transition-colors shadow-2xs mt-1 cursor-pointer"
+                title={lang === 'hi' ? 'ऑफिशियल QR कोड्स और बैंक विवरण' : 'Scan Official QR Codes'}
               >
-                <MessageCircle className="w-3.5 h-3.5 text-amber-200" />
-                <span>{lang === 'hi' ? 'परामर्श बुक करें' : 'Book Consultation'}</span>
-              </button>
+                <QrCode className="w-3.5 h-3.5 text-amber-300" />
+                <span>{lang === 'hi' ? 'तीनों QR कोड व UPI से भुगतान' : 'Scan 3 QR Codes & Pay'}</span>
+              </a>
 
               <button
-                onClick={() => onNavigate('tariff')}
-                className="w-full inline-flex items-center justify-center gap-1.5 bg-amber-950/80 hover:bg-stone-900 text-amber-300 hover:text-white font-bold py-2 px-3 rounded-lg text-xs border border-amber-500/40 transition-colors shadow-2xs mt-1.5 cursor-pointer"
-                title={lang === 'hi' ? 'परामर्श एवं हीलिंग सेवाएं फीस' : 'Consultancy & Healing Services Fees'}
+                onClick={onOpenBooking}
+                className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-700 to-emerald-900 hover:from-emerald-800 text-white font-bold py-2 px-3 rounded-lg text-xs transition-colors shadow-xs mt-1"
               >
-                <CreditCard className="w-3.5 h-3.5 text-amber-400" />
-                <span>{lang === 'hi' ? 'परामर्श व हीलिंग फीस सूची' : 'Consultancy & Healing Fees'}</span>
+                <MessageCircle className="w-3.5 h-3.5 text-emerald-200" />
+                <span>{lang === 'hi' ? 'परामर्श बुक करें' : 'Book Consultation'}</span>
               </button>
             </div>
           </div>

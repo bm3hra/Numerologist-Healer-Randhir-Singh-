@@ -159,12 +159,18 @@ function MainAppContent() {
     'client-reviews-stories': 'reviews',
     'client-reviews': 'reviews',
     testimonials: 'reviews',
-    tariff: 'tariff-about',
-    'tariff-about': 'tariff-about',
-    fees: 'tariff-about',
-    'consultancy-fees': 'tariff-about',
-    'healing-fees': 'tariff-about',
-    'consultancy-healing-fees': 'tariff-about',
+    tariff: 'all-services',
+    'tariff-about': 'all-services',
+    fees: 'all-services',
+    'consultancy-fees': 'all-services',
+    'healing-fees': 'all-services',
+    'consultancy-healing-fees': 'all-services',
+    'specialized-services': 'specialized-services',
+    '11-specialized-healing-services': 'specialized-services',
+    'specialized-healing': 'specialized-services',
+    specialized: 'specialized-services',
+    bank: 'bank',
+    payment: 'bank',
     about: 'about-randhir',
     'about-randhir': 'about-randhir',
     'randhir-singh': 'about-randhir'
@@ -662,7 +668,7 @@ function MainAppContent() {
             <WatchAnalysisSection
               lang={lang as Language}
               onBookWatchConsultation={() =>
-                handleOpenBooking('Watch Analysis & Therapeutic Watch Consultation', '₹1,800')
+                handleOpenBooking('Watch Analysis & Therapeutic Watch Consultation', '₹2,100')
               }
             />
 
@@ -678,7 +684,7 @@ function MainAppContent() {
             <CrystalTherapySection
               lang={lang as Language}
               onBookCrystalSession={(name) =>
-                handleOpenBooking(name ? `Crystal Guidance: ${name}` : 'Personalized Crystal Guidance')
+                handleOpenBooking(name ? `Crystal Guidance (${name})` : 'Best Crystals for Your Profession & Growth its include Cleaning', '₹5,100')
               }
             />
 
@@ -719,6 +725,7 @@ function MainAppContent() {
             {/* 11. Spiritual Guidance & Healing Tariff */}
             <AboutAndTariffSection
               lang={lang as Language}
+              currentTab={currentTab}
               onBookService={(title, price) => handleOpenBooking(title, price)}
             />
 

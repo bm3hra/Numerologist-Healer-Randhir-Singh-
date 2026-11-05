@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, ShieldCheck, QrCode, CreditCard, Sparkles, Star, CheckCircle, ArrowRight, Phone, MessageCircle, MapPin, Clock, Heart, Filter, Shield, AlertCircle } from 'lucide-react';
+import { Award, ShieldCheck, QrCode, CreditCard, Sparkles, Star, CheckCircle, ArrowRight, Phone, MessageCircle, MapPin, Clock, Heart, Filter, Shield, AlertCircle, Copy, Check, ZoomIn, Smartphone, ExternalLink, X } from 'lucide-react';
 import { Language, PageBlock } from '../types';
 import { getTranslation } from '../i18n/languages';
 import { useCmsPages } from '../context/CmsPageContext';
@@ -7,6 +7,7 @@ import { useCmsPages } from '../context/CmsPageContext';
 interface AboutAndTariffSectionProps {
   lang: Language;
   onBookService: (serviceTitle: string, price: string) => void;
+  currentTab?: string;
 }
 
 export interface SpecializedHealingService {
@@ -36,7 +37,7 @@ export const SPECIALIZED_SERVICES_11: SpecializedHealingService[] = [
     categoryLabelHi: 'एनर्जी और हीलिंग',
     name: 'Aura Cleaning',
     nameHi: 'औरा क्लीनिंग (Aura Cleaning)',
-    price: '₹3,100',
+    price: '₹5,100',
     duration: '20 minutes',
     durationHi: '20 मिनट',
     description: 'Aura cleaning balances your subtle personal energy, clearing dense and negative vibrations to restore peace, clarity, and positivity.',
@@ -97,7 +98,7 @@ export const SPECIALIZED_SERVICES_11: SpecializedHealingService[] = [
     price: '₹11,000',
     duration: 'Detailed Analysis',
     durationHi: 'विस्तृत विश्लेषण',
-    description: 'Careful study of name letters and sound frequencies to align your name vibration with your birth Driver and Conductor numbers.',
+    description: 'Careful study of name letters and sound frequencies to align your name vibration with your Lucky Number (Birth Number) and Destiny Number.',
     descriptionHi: 'जन्मतिथि के अनुसार नाम की स्पेलिंग में हल्का बदलाव करके किस्मत और सफलता के नए रास्ते खोलना।',
     confidential: true
   },
@@ -195,20 +196,60 @@ export const SPECIALIZED_SERVICES_11: SpecializedHealingService[] = [
 
 export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
   lang,
-  onBookService
+  onBookService,
+  currentTab
 }) => {
   const t = getTranslation(lang);
   const { getPageBySectionId } = useCmsPages();
   const cmsTariff = getPageBySectionId('tariff-about');
-  const [activeTab, setActiveTab] = useState<'tariff' | 'about' | 'bank' | 'testimonials'>('tariff');
+  const [activeTab, setActiveTab] = useState<'specialized' | 'about' | 'bank' | 'testimonials'>('specialized');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [copiedUpi, setCopiedUpi] = useState<string | null>(null);
+  const [activeQrTab, setActiveQrTab] = useState<'all' | 'phonepe' | 'gpay' | 'paytm'>('all');
+  const [zoomedQr, setZoomedQr] = useState<{ title: string; image: string; upiId: string } | null>(null);
+
+  const handleCopy = (text: string, key: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedUpi(key);
+    setTimeout(() => {
+      setCopiedUpi(null);
+    }, 2500);
+  };
+
+  // Sync tab with currentTab prop or URL hash
+  React.useEffect(() => {
+    const target = (currentTab || window.location.hash.replace('#', '')).toLowerCase().trim();
+    if (
+      target === 'specialized-services' ||
+      target === '11-specialized-healing-services' ||
+      target === 'specialized' ||
+      target === 'specialized-healing' ||
+      target === 'healing' ||
+      target === 'healing-fees'
+    ) {
+      setActiveTab('specialized');
+    } else if (target === 'bank' || target === 'payment') {
+      setActiveTab('bank');
+    } else if (target === 'about' || target === 'randhir-singh') {
+      setActiveTab('about');
+    } else if (target === 'testimonials' || target === 'reviews') {
+      setActiveTab('testimonials');
+    }
+  }, [currentTab]);
 
   // Listen to window hash changes to activate corresponding tab
   React.useEffect(() => {
     const checkHash = () => {
       const hash = window.location.hash.toLowerCase().replace('#', '').trim();
-      if (hash === 'tariff' || hash === 'fees' || hash === 'consultancy-fees' || hash === 'healing-fees') {
-        setActiveTab('tariff');
+      if (
+        hash === 'specialized-services' ||
+        hash === '11-specialized-healing-services' ||
+        hash === 'specialized' ||
+        hash === 'specialized-healing' ||
+        hash === 'healing' ||
+        hash === 'healing-fees'
+      ) {
+        setActiveTab('specialized');
       } else if (hash === 'bank' || hash === 'payment') {
         setActiveTab('bank');
       } else if (hash === 'about' || hash === 'randhir-singh') {
@@ -285,15 +326,16 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
   return (
     <section id="tariff-about" className="relative py-12 sm:py-16 bg-[#faf7f0] border-b border-amber-200/80">
       {/* Anchor targets for direct URL jumps */}
-      <div id="tariff" className="absolute -top-20 left-0 pointer-events-none" />
-      <div id="fees" className="absolute -top-20 left-0 pointer-events-none" />
-      <div id="consultancy-fees" className="absolute -top-20 left-0 pointer-events-none" />
-      <div id="healing-fees" className="absolute -top-20 left-0 pointer-events-none" />
+      <div id="specialized-services" className="absolute -top-20 left-0 pointer-events-none" />
+      <div id="11-specialized-healing-services" className="absolute -top-20 left-0 pointer-events-none" />
+      <div id="specialized-healing" className="absolute -top-20 left-0 pointer-events-none" />
+      <div id="bank" className="absolute -top-20 left-0 pointer-events-none" />
+      <div id="payment" className="absolute -top-20 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           {[
-            { id: 'tariff', label: lang === 'hi' ? 'परामर्श और हीलिंग फीस' : 'Consultancy & Healing Fees', icon: Sparkles },
+            { id: 'specialized', label: lang === 'hi' ? '11 विशिष्ट हीलिंग एवं सुधार सेवाएं' : '11 Specialized Healing & Correction Services', icon: Sparkles },
             { id: 'about', label: lang === 'hi' ? 'रणधीर सिंह जी के बारे में' : 'About Randhir Singh Ji', icon: Award },
             { id: 'bank', label: lang === 'hi' ? 'बैंक और UPI से पेमेंट' : 'Bank & UPI Details', icon: CreditCard },
             { id: 'testimonials', label: lang === 'hi' ? 'लोगों के अनुभव (रिव्यू)' : 'Client Reviews & Stories', icon: Star }
@@ -303,7 +345,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   activeTab === tab.id
                     ? 'bg-amber-900 text-white shadow-md ring-2 ring-amber-600'
                     : 'bg-white text-stone-700 border border-stone-200 hover:border-amber-300'
@@ -316,208 +358,65 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
           })}
         </div>
 
-        {/* TAB 1: CONSULTANCY & HEALING SERVICES TARIFF */}
-        {activeTab === 'tariff' && (
-          <div className="space-y-12 animate-in fade-in duration-200">
+        {/* TAB 1: 11 SPECIALIZED HEALING & CORRECTION SERVICES */}
+        {activeTab === 'specialized' && (
+          <div className="space-y-8 animate-in fade-in duration-200">
             {/* Header */}
             <div className="text-center max-w-3xl mx-auto">
               <span className="text-xs font-bold uppercase tracking-widest text-amber-900 bg-amber-100 px-3 py-1 rounded-md border border-amber-300">
-                {lang === 'hi' ? 'आध्यात्मिक सलाह और हीलिंग सेवाएँ' : 'Spiritual Guidance & Healing Services'}
+                {lang === 'hi' ? 'गहन उपचारात्मक एवं सुधारात्मक सत्र' : 'Targeted Restorative Sessions'}
               </span>
               <h2 className="font-sacred text-2xl sm:text-4xl font-extrabold text-stone-900 mt-3">
-                {lang === 'hi' ? 'परामर्श और हीलिंग फीस लिस्ट' : 'Consultancy & Healing Services Fees'}
+                {lang === 'hi' ? '11 विशिष्ट हीलिंग एवं सुधार सेवाएं' : '11 Specialized Healing & Correction Services'}
               </h2>
               <p className="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
                 {lang === 'hi'
-                  ? 'पर्सनल 1-on-1 बातचीत, पूरी प्राइवेसी, पॉजिटिव एनर्जी और सरल वैदिक उपायों के साथ।'
-                  : 'Dedicated 1-on-1 sessions designed with complete confidentiality, divine awareness, and simple practical guidance.'}
+                  ? 'औरा शुद्धि, चक्र संतुलन, ध्वनि ध्यान, काल्डियन नाम संशोधन, लकी मोबाइल सुधार, सॉल्ट थेरेपी एवं पास्ट लाइफ रिग्रेशन — 11 विशिष्ट प्रमाणित उपचार।'
+                  : 'Aura cleaning, chakra alignment, Tibetan sound healing, Chaldean name & mobile corrections, salt therapy, and Past Life Regression — 11 targeted restorative sessions.'}
               </p>
 
-              {/* 3 Value Pillars */}
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mt-5 text-xs font-semibold text-stone-700">
-                <span className="flex items-center gap-1.5 text-emerald-800">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  {lang === 'hi' ? '100% प्राइवेट व गोपनीय' : '100% Confidential'}
-                </span>
-                <span className="flex items-center gap-1.5 text-amber-900">
-                  <Clock className="w-4 h-4 text-amber-700" />
-                  {lang === 'hi' ? 'पहले से बुक किया गया समय' : 'Pre-scheduled Confirmed Sessions'}
-                </span>
-                <span className="flex items-center gap-1.5 text-blue-900">
-                  <CreditCard className="w-4 h-4 text-blue-700" />
-                  {lang === 'hi' ? 'UPI, QR कोड व बैंक ट्रांसफर' : 'UPI, QR & Direct Bank Transfer'}
-                </span>
-              </div>
-            </div>
-
-            {/* Sunday Free Highlight & Flagship Consultation */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              {/* Sunday Free Slot Card */}
-              <div className="lg:col-span-5 bg-gradient-to-br from-amber-950 via-stone-900 to-amber-950 text-amber-100 rounded-2xl p-6 sm:p-7 border-2 border-amber-400/90 shadow-xl flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-amber-300 bg-white/10 px-2.5 py-1 rounded border border-white/20">
-                      {lang === 'hi' ? 'रविवार की फ्री सेवा' : 'Sunday Free Privilege'}
-                    </span>
-                    <span className="text-xs text-amber-300 font-mono font-bold">
-                      {lang === 'hi' ? 'जयपुर व ऑनलाइन' : 'Jaipur & Online'}
-                    </span>
-                  </div>
-
-                  <h3 className="font-sacred text-xl sm:text-2xl font-bold text-white leading-snug">
-                    {lang === 'hi' ? 'रविवार को फ्री 1-on-1 कंसल्टेशन' : 'Sunday Free 1-on-1 Consultation'}
-                  </h3>
-                  <p className="text-xs text-amber-200/80 mt-2 leading-relaxed">
-                    {lang === 'hi'
-                      ? 'हर रविवार, रणधीर सिंह जी पहले 5 लोगों को फ्री में सलाह (कंसल्टेशन) देते हैं। इसमें जन्मतिथि और लो-शू ग्रिड की पूरी जांच शामिल है।'
-                      : 'Every Sunday, Numerologist & Healer · Randhir Singh offers the first 5 consultations 100% FREE on appointment. Includes complete Date of Birth & Lo-Shu diagnosis.'}
-                  </p>
-
-                  <div className="my-5 flex items-baseline gap-2">
-                    <span className="text-3xl font-black text-amber-300">{lang === 'hi' ? 'निःशुल्क (FREE)' : 'FREE'}</span>
-                    <span className="text-xs text-amber-200/60 line-through">{lang === 'hi' ? 'नियमित ₹2,100' : 'Regular ₹2,100'}</span>
-                  </div>
-
-                  <ul className="text-xs text-amber-100 space-y-2 mb-6">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>{lang === 'hi' ? 'समय: 20 मिनट (ऑनलाइन या जयपुर क्लिनिक में)' : 'Duration: 20 Minutes (Virtual or Jaipur Clinic)'}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>{lang === 'hi' ? 'मूलांक, भाग्यांक और मिसिंग नंबर की जांच' : 'Driver, Conductor & Missing numbers identification'}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span>{lang === 'hi' ? 'पहले आओ, पहले पाओ के आधार पर' : 'Allocated strictly on first-come confirmed booking'}</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <button
-                  onClick={() => onBookService('Sunday Free Consultation', 'FREE')}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 text-stone-950 font-bold py-3 px-4 rounded-xl text-xs sm:text-sm shadow-md transition-all"
+              {/* Navigation link to All 16 Divine Services & Fees */}
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
+                <a
+                  href="#services"
+                  className="inline-flex items-center gap-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all shadow-2xs"
                 >
-                  <Sparkles className="w-4 h-4 text-stone-900" />
-                  <span>{lang === 'hi' ? 'रविवार का फ्री स्लॉट बुक करें' : 'Claim Sunday Free Slot Now'}</span>
-                  <ArrowRight className="w-4 h-4 text-stone-900" />
+                  <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+                  <span>{lang === 'hi' ? 'सभी 16 पवित्र सेवाएँ एवं परामर्श फीस देखें →' : 'View ALL 16 DIVINE SERVICES & FEES →'}</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('bank')}
+                  className="inline-flex items-center gap-1.5 text-blue-900 bg-blue-50 hover:bg-blue-100 border border-blue-300 px-3.5 py-1.5 rounded-full text-xs font-bold cursor-pointer transition-colors shadow-2xs"
+                >
+                  <QrCode className="w-3.5 h-3.5 text-blue-700" />
+                  <span>{lang === 'hi' ? 'तीनों QR कोड व UPI विवरण देखें' : 'View 3 QR Codes & UPI'}</span>
                 </button>
               </div>
-
-              {/* Flagship Most Popular: Personalized Spiritual Consultation */}
-              <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-7 border-2 border-amber-500 shadow-xl relative flex flex-col justify-between">
-                <div className="absolute -top-3.5 right-6 bg-gradient-to-r from-amber-600 to-amber-800 text-white text-[11px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full shadow-sm">
-                  ★ {lang === 'hi' ? 'सबसे ज्यादा लोकप्रिय' : 'Most Popular'}
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2 text-stone-500 text-xs mb-2">
-                    <Clock className="w-4 h-4 text-amber-700" />
-                    <span>{lang === 'hi' ? 'समय: 45-60 मिनट' : 'Duration: 45-60 mins'}</span>
-                    <span>·</span>
-                    <span className="text-amber-900 font-semibold">{lang === 'hi' ? 'विस्तार से व्यक्तिगत बातचीत' : 'Personalized In-depth Analysis'}</span>
-                  </div>
-
-                  <h3 className="font-sacred text-xl sm:text-2xl font-bold text-stone-900">
-                    {lang === 'hi' ? 'पर्सनल अंक ज्योतिष एवं लाइफ गाइडेंस' : 'Personalized Spiritual & Numerology Consultation'}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
-                    {lang === 'hi'
-                      ? 'एक संपूर्ण 1-on-1 सेशन जिसमें आपकी जन्मतिथि, हाथ की घड़ी (वॉच थेरेपी) और आसान उपायों द्वारा नौकरी, व्यापार, शादी और जीवन की समस्याओं का समाधान किया जाता है।'
-                      : 'A personalized 1-on-1 consultation session dedicated to understanding your queries, life circumstances, and life path through Vedic wisdom, Watch Analysis & Therapy Watch Guidance, and Simple Remedial Guidance.'}
-                  </p>
-
-                  <div className="my-5 p-4 bg-amber-50/80 rounded-xl border border-amber-200 flex items-center justify-between">
-                    <div>
-                      <span className="text-[11px] font-bold uppercase text-stone-500 block">
-                        {lang === 'hi' ? 'कंसल्टेशन फीस' : 'Consultancy Fee'}
-                      </span>
-                      <div className="text-3xl font-black text-amber-900">
-                        {cmsTariff?.blocks?.find((b: PageBlock) => b.type === 'consultation')?.price || '₹5,100'}
-                      </div>
-                      <span className="text-[11px] text-stone-500">
-                        {lang === 'hi' ? 'प्रति सेशन (वीडियो कॉल / फोन / क्लिनिक)' : 'Per session (Virtual / Phone / In-Person)'}
-                      </span>
-                    </div>
-
-                    <div className="text-right text-xs text-stone-600">
-                      <span className="block font-bold text-amber-950">{lang === 'hi' ? 'सत्र में शामिल:' : 'Includes:'}</span>
-                      <span>{lang === 'hi' ? 'जन्मतिथि + घड़ी + नाम की जांच' : 'DOB + Watch + Name review'}</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 mb-6 text-xs text-stone-700">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{lang === 'hi' ? 'पूरा लो-शू 3×3 ग्रिड और 8 योग (तलों) का विश्लेषण' : 'Full Lo-Shu 3x3 Magic Grid and 8 Planes evaluation'}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{lang === 'hi' ? 'आपके लिए लकी थेरेपी वॉच का सही मॉडल व रंग का सुझाव' : 'Signature Therapy Watch prescription & color frequencies'}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{lang === 'hi' ? 'करियर, व्यापार, शादी व सेहत के लिए आसान व असरदार उपाय' : 'Personalized remedies for marriage, health, and career growth'}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row items-center gap-3">
-                  <button
-                    onClick={() => onBookService('Personalized Spiritual Consultation', '₹5,100')}
-                    className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 text-white font-bold py-3 px-5 rounded-xl text-xs sm:text-sm shadow-md transition-all"
-                  >
-                    <MessageCircle className="w-4 h-4 text-amber-300" />
-                    <span>{lang === 'hi' ? 'परामर्श बुक करें (₹5,100)' : 'Book Consultation (₹5,100)'}</span>
-                    <ArrowRight className="w-4 h-4 text-amber-300" />
-                  </button>
-
-                  <button
-                    onClick={() => setActiveTab('bank')}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl border border-stone-300 text-stone-700 hover:bg-stone-50 text-xs font-semibold"
-                  >
-                    <CreditCard className="w-4 h-4 text-stone-600" />
-                    <span>{lang === 'hi' ? 'पेमेंट का विवरण' : 'Payment Info'}</span>
-                  </button>
-                </div>
-              </div>
             </div>
 
-            {/* 11 Specialized Healing & Correction Services */}
-            <div>
-              <div className="border-t border-amber-200/80 pt-10 mb-6 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
-                    {lang === 'hi' ? 'खास समाधान और हीलिंग' : 'Targeted Restorative Sessions'}
-                  </span>
-                  <h3 className="font-sacred text-xl sm:text-2xl font-bold text-stone-900">
-                    {lang === 'hi' ? '11 खास हीलिंग और सुधार सेवाएँ' : '11 Specialized Healing & Correction Services'}
-                  </h3>
-                </div>
-
-                {/* Filter Pills */}
-                <div className="flex flex-wrap items-center gap-1.5">
-                  {[
-                    { id: 'all', labelEn: 'All Services (11)', labelHi: 'सभी सेवाएँ (11)' },
-                    { id: 'energy', labelEn: 'Energy & Healing (5)', labelHi: 'ऊर्जा और हीलिंग (5)' },
-                    { id: 'numerology', labelEn: 'Numerology Corrections (2)', labelHi: 'अंक ज्योतिष सुधार (2)' },
-                    { id: 'mind', labelEn: 'Mind Balance & Therapy (3)', labelHi: 'मन की शांति और थेरेपी (3)' },
-                    { id: 'plr', labelEn: 'Past Life Therapy (1)', labelHi: 'पूर्व जन्म थेरेपी (PLR) (1)' }
-                  ].map((f) => (
-                    <button
-                      key={f.id}
-                      onClick={() => setSelectedCategory(f.id)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                        selectedCategory === f.id
-                          ? 'bg-amber-900 text-white shadow-2xs'
-                          : 'bg-white text-stone-700 border border-stone-200 hover:border-amber-300'
-                      }`}
-                    >
-                      {lang === 'hi' ? f.labelHi : f.labelEn}
-                    </button>
-                  ))}
-                </div>
-              </div>
+            {/* Filter Pills */}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 border-b border-amber-200/60 pb-4">
+              {[
+                { id: 'all', labelEn: 'All Services (11)', labelHi: 'सभी सेवाएँ (11)' },
+                { id: 'energy', labelEn: 'Energy & Healing (5)', labelHi: 'ऊर्जा और हीलिंग (5)' },
+                { id: 'numerology', labelEn: 'Numerology Corrections (2)', labelHi: 'अंक ज्योतिष सुधार (2)' },
+                { id: 'mind', labelEn: 'Mind Balance & Therapy (3)', labelHi: 'मन की शांति और थेरेपी (3)' },
+                { id: 'plr', labelEn: 'Past Life Therapy (1)', labelHi: 'पूर्व जन्म थेरेपी (PLR) (1)' }
+              ].map((f) => (
+                <button
+                  key={f.id}
+                  onClick={() => setSelectedCategory(f.id)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                    selectedCategory === f.id
+                      ? 'bg-amber-900 text-white shadow-2xs'
+                      : 'bg-white text-stone-700 border border-stone-200 hover:border-amber-300'
+                  }`}
+                >
+                  {lang === 'hi' ? f.labelHi : f.labelEn}
+                </button>
+              ))}
+            </div>
 
               {/* 11 Services Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -588,7 +487,6 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                   </div>
                 ))}
               </div>
-            </div>
           </div>
         )}
 
@@ -675,80 +573,518 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
 
         {/* TAB 3: BANK & UPI PAYMENT DETAILS */}
         {activeTab === 'bank' && (
-          <div className="bg-white rounded-2xl border-2 border-amber-300 p-6 sm:p-10 shadow-lg max-w-3xl mx-auto animate-in fade-in duration-200">
-            <div className="text-center max-w-md mx-auto mb-8">
+          <div className="bg-white rounded-2xl border-2 border-amber-300 p-6 sm:p-10 shadow-lg max-w-4xl mx-auto animate-in fade-in duration-200">
+            {/* Header */}
+            <div className="text-center max-w-xl mx-auto mb-8">
               <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center mx-auto mb-3 shadow-xs">
                 <QrCode className="w-6 h-6 text-amber-800" />
               </div>
-              <h3 className="font-sacred text-2xl font-bold text-stone-900">
+              <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-300 mb-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                <span>{lang === 'hi' ? 'ऑफिशियल अधिकृत पेमेंट क्रेडेंशियल्स' : 'Official Verified Payment Credentials'}</span>
+              </div>
+              <h3 className="font-sacred text-2xl sm:text-3xl font-bold text-stone-900">
                 {lang === 'hi' ? 'बैंक और UPI पेमेंट की जानकारी' : 'Bank & UPI Payment Details'}
               </h3>
-              <p className="text-xs text-stone-600 mt-1">
+              <p className="text-xs sm:text-sm text-stone-600 mt-2">
                 {lang === 'hi'
-                  ? 'फीस, थेरेपी वॉच या यंत्र मंगवाने के लिए सही और सुरक्षित पेमेंट डिटेल्स।'
-                  : 'Direct and verified payment credentials for consultancy fees, therapy watches, and materials.'}
+                  ? 'परामर्श फीस, थेरेपी वॉच या सिद्ध भोजपत्र यंत्र हेतु सुरक्षित एवं अधिकृत UPI विवरण व QR कोड।'
+                  : 'Verified credentials & authentic QR codes for consultation bookings, therapy watches, and yantras.'}
               </p>
             </div>
 
-            {/* UPI Box */}
-            <div className="bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-100 rounded-2xl p-6 sm:p-8 border border-amber-400/50 mb-6 shadow-md">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300">
-                    {lang === 'hi' ? 'ऑफिशियल UPI नंबर' : 'Official Instant UPI Number'}
-                  </span>
-                  <div className="text-2xl sm:text-3xl font-black font-mono text-white mt-1">
-                    +91-9509593150
+            {/* Primary Verified Account Banner */}
+            <div className="bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-100 rounded-2xl p-6 sm:p-8 border border-amber-400/50 mb-8 shadow-md">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-amber-300 bg-amber-400/20 px-2.5 py-0.5 rounded border border-amber-400/30">
+                      {lang === 'hi' ? 'ऑफिशियल अधिकृत खाता' : 'Official Certified Account'}
+                    </span>
+                    <span className="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                      <Check className="w-3.5 h-3.5" /> {lang === 'hi' ? 'सत्यापित' : 'Verified'}
+                    </span>
                   </div>
-                  <p className="text-xs text-amber-200/80 mt-1">
-                    {lang === 'hi' ? 'खाता धारक:' : 'Account Name:'} <strong>RANDHIR SINGH</strong>
-                  </p>
-                  <div className="flex flex-wrap items-center gap-2 mt-3 text-[11px] text-amber-300 font-semibold">
-                    <span className="bg-white/10 px-2 py-0.5 rounded border border-white/20">PhonePe</span>
-                    <span className="bg-white/10 px-2 py-0.5 rounded border border-white/20">Google Pay (GPay)</span>
-                    <span className="bg-white/10 px-2 py-0.5 rounded border border-white/20">Paytm</span>
-                    <span className="bg-white/10 px-2 py-0.5 rounded border border-white/20">BHIM UPI</span>
+                  <div className="text-xl sm:text-2xl font-bold text-white tracking-wide">
+                    {lang === 'hi' ? 'खाता धारक:' : 'Account Name:'} <span className="text-amber-300">RANDHIR SINGH</span>
+                  </div>
+                  <div className="text-xs text-amber-200/80">
+                    A NUMEROLOGIST AND HEALER · Jaipur Sanctuary
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 pt-2 text-[11px] text-amber-200">
+                    <span className="bg-white/10 px-2.5 py-1 rounded border border-white/20 font-medium">PhonePe</span>
+                    <span className="bg-white/10 px-2.5 py-1 rounded border border-white/20 font-medium">Google Pay</span>
+                    <span className="bg-white/10 px-2.5 py-1 rounded border border-white/20 font-medium">Paytm UPI</span>
+                    <span className="bg-white/10 px-2.5 py-1 rounded border border-white/20 font-medium">BHIM UPI</span>
                   </div>
                 </div>
 
-                <div className="shrink-0 bg-white p-3 rounded-xl border-2 border-amber-400 text-center shadow-md">
-                  <div className="w-28 h-28 bg-stone-100 flex flex-col items-center justify-center rounded border border-stone-200 text-stone-700 text-xs font-mono">
-                    <QrCode className="w-16 h-16 text-stone-900 mb-1" />
-                    <span className="text-[9px] font-bold">{lang === 'hi' ? 'स्कैन कर भुगतान करें' : 'SCAN & PAY'}</span>
-                  </div>
-                  <span className="text-[10px] text-stone-600 font-mono mt-1 block">
-                    9509593150@upi
+                {/* Mobile / Direct UPI Number Card */}
+                <div className="w-full md:w-auto shrink-0 bg-white/10 backdrop-blur-xs p-4 sm:p-5 rounded-xl border border-amber-400/30 text-left md:text-right">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300 block mb-1">
+                    {lang === 'hi' ? 'ऑफिशियल मोबाइल / UPI नंबर' : 'Official Mobile / UPI Number'}
                   </span>
+                  <div className="text-2xl sm:text-3xl font-black font-mono text-white tracking-wider">
+                    9509593150
+                  </div>
+                  <span className="text-[11px] text-amber-200/70 block mt-0.5 mb-3 font-mono">
+                    +91-9509593150
+                  </span>
+                  <div className="flex items-center gap-2 md:justify-end">
+                    <button
+                      onClick={() => handleCopy('9509593150', 'tab-mobile')}
+                      className="inline-flex items-center gap-1.5 bg-amber-400 hover:bg-amber-300 text-stone-950 font-bold px-3 py-1.5 rounded-lg text-xs shadow-xs transition-colors cursor-pointer"
+                    >
+                      {copiedUpi === 'tab-mobile' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-800" />
+                          <span className="text-emerald-900">{lang === 'hi' ? 'कॉपी हुआ!' : 'Copied!'}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-stone-950" />
+                          <span>{lang === 'hi' ? 'नंबर कॉपी करें' : 'Copy Number'}</span>
+                        </>
+                      )}
+                    </button>
+                    <a
+                      href="tel:+919509593150"
+                      className="inline-flex items-center gap-1.5 bg-white/20 hover:bg-white/30 text-white font-semibold px-3 py-1.5 rounded-lg text-xs transition-colors"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-amber-300" />
+                      <span>{lang === 'hi' ? 'कॉल करें' : 'Call'}</span>
+                    </a>
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            {/* 3 UPI IDs Section */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="font-sacred text-base sm:text-lg font-bold text-stone-900">
+                  {lang === 'hi' ? 'तीनों अधिकृत UPI आईडी (One-Click Copy)' : 'Official 3 UPI IDs (Click to Copy)'}
+                </h4>
+                <span className="text-[11px] text-stone-500">
+                  {lang === 'hi' ? 'किसी भी ऐप में पेस्ट कर भुगतान करें' : 'Use in any UPI application'}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                {/* 1. Paytm */}
+                <div className="bg-sky-50/60 border border-sky-200 hover:border-sky-400 rounded-xl p-4 transition-all flex flex-col justify-between shadow-2xs">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="bg-[#002e6e] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                        Paytm UPI
+                      </span>
+                      <span className="text-[10px] text-sky-800 font-semibold">Randhir Singh</span>
+                    </div>
+                    <div className="bg-white border border-sky-200 rounded-lg p-2.5 font-mono text-xs font-extrabold text-stone-900 select-all break-all mb-2 shadow-2xs">
+                      randhir.150@ptyes
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 pt-2 border-t border-sky-100">
+                    <button
+                      onClick={() => handleCopy('randhir.150@ptyes', 'paytm-id')}
+                      className="flex-1 inline-flex items-center justify-center gap-1 bg-white hover:bg-sky-100 text-sky-950 font-bold py-1.5 px-2 rounded-lg border border-sky-300 text-xs transition-colors cursor-pointer"
+                    >
+                      {copiedUpi === 'paytm-id' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-700">{lang === 'hi' ? 'कॉपी हुआ!' : 'Copied!'}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-sky-700" />
+                          <span>{lang === 'hi' ? 'कॉपी करें' : 'Copy'}</span>
+                        </>
+                      )}
+                    </button>
+                    <a
+                      href="upi://pay?pa=randhir.150@ptyes&pn=Randhir%20Singh&cu=INR"
+                      className="inline-flex items-center justify-center gap-1 bg-[#002e6e] hover:bg-[#001d47] text-white font-bold py-1.5 px-3 rounded-lg text-xs transition-colors"
+                      title="Open in Paytm"
+                    >
+                      <Smartphone className="w-3.5 h-3.5 text-sky-300" />
+                      <span>{lang === 'hi' ? 'पे' : 'Pay'}</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* 2. Google Pay */}
+                <div className="bg-blue-50/60 border border-blue-200 hover:border-blue-400 rounded-xl p-4 transition-all flex flex-col justify-between shadow-2xs">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="bg-[#1a73e8] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                        Google Pay
+                      </span>
+                      <span className="text-[10px] text-blue-800 font-semibold">GPay Certified</span>
+                    </div>
+                    <div className="bg-white border border-blue-200 rounded-lg p-2.5 font-mono text-xs font-extrabold text-stone-900 select-all break-all mb-2 shadow-2xs">
+                      randhirjpr-6@okicici
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 pt-2 border-t border-blue-100">
+                    <button
+                      onClick={() => handleCopy('randhirjpr-6@okicici', 'gpay-id')}
+                      className="flex-1 inline-flex items-center justify-center gap-1 bg-white hover:bg-blue-100 text-blue-950 font-bold py-1.5 px-2 rounded-lg border border-blue-300 text-xs transition-colors cursor-pointer"
+                    >
+                      {copiedUpi === 'gpay-id' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-700">{lang === 'hi' ? 'कॉपी हुआ!' : 'Copied!'}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-blue-700" />
+                          <span>{lang === 'hi' ? 'कॉपी करें' : 'Copy'}</span>
+                        </>
+                      )}
+                    </button>
+                    <a
+                      href="upi://pay?pa=randhirjpr-6@okicici&pn=Randhir%20Singh&cu=INR"
+                      className="inline-flex items-center justify-center gap-1 bg-[#1a73e8] hover:bg-[#1557b0] text-white font-bold py-1.5 px-3 rounded-lg text-xs transition-colors"
+                      title="Open in Google Pay"
+                    >
+                      <Smartphone className="w-3.5 h-3.5 text-blue-200" />
+                      <span>{lang === 'hi' ? 'पे' : 'Pay'}</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* 3. PhonePe */}
+                <div className="bg-purple-50/60 border border-purple-200 hover:border-purple-400 rounded-xl p-4 transition-all flex flex-col justify-between shadow-2xs">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="bg-[#5f259f] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                        PhonePe
+                      </span>
+                      <span className="text-[10px] text-purple-800 font-semibold">Randhir Singh</span>
+                    </div>
+                    <div className="bg-white border border-purple-200 rounded-lg p-2.5 font-mono text-xs font-extrabold text-stone-900 select-all break-all mb-2 shadow-2xs">
+                      9509593150-3@ybl
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 pt-2 border-t border-purple-100">
+                    <button
+                      onClick={() => handleCopy('9509593150-3@ybl', 'phonepe-id')}
+                      className="flex-1 inline-flex items-center justify-center gap-1 bg-white hover:bg-purple-100 text-purple-950 font-bold py-1.5 px-2 rounded-lg border border-purple-300 text-xs transition-colors cursor-pointer"
+                    >
+                      {copiedUpi === 'phonepe-id' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-700">{lang === 'hi' ? 'कॉपी हुआ!' : 'Copied!'}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-purple-700" />
+                          <span>{lang === 'hi' ? 'कॉपी करें' : 'Copy'}</span>
+                        </>
+                      )}
+                    </button>
+                    <a
+                      href="upi://pay?pa=9509593150-3@ybl&pn=Randhir%20Singh&cu=INR"
+                      className="inline-flex items-center justify-center gap-1 bg-[#5f259f] hover:bg-[#4a1c7d] text-white font-bold py-1.5 px-3 rounded-lg text-xs transition-colors"
+                      title="Open in PhonePe"
+                    >
+                      <Smartphone className="w-3.5 h-3.5 text-purple-200" />
+                      <span>{lang === 'hi' ? 'पे' : 'Pay'}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Authentic QR Codes Showcase */}
+            <div className="mb-8">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div>
+                  <h4 className="font-sacred text-base sm:text-lg font-bold text-stone-900">
+                    {lang === 'hi' ? 'ऑफिशियल QR कोड्स (Scan & Pay)' : 'Official QR Code Showcase (Scan & Pay)'}
+                  </h4>
+                  <p className="text-xs text-stone-600">
+                    {lang === 'hi'
+                      ? 'किसी भी कैमरा या UPI ऐप (Paytm, GPay, PhonePe, BHIM) से सीधे स्कैन करें।'
+                      : 'Scan directly with any UPI scanner app on your smartphone.'}
+                  </p>
+                </div>
+
+                {/* Filter buttons */}
+                <div className="flex items-center gap-1 bg-stone-100 p-1 rounded-xl border border-stone-200 self-start sm:self-auto">
+                  {[
+                    { id: 'all', label: lang === 'hi' ? 'सभी 3 QR' : 'All 3 QR' },
+                    { id: 'phonepe', label: 'PhonePe' },
+                    { id: 'gpay', label: 'Google Pay' },
+                    { id: 'paytm', label: 'Paytm' }
+                  ].map((btn) => (
+                    <button
+                      key={btn.id}
+                      onClick={() => setActiveQrTab(btn.id as any)}
+                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                        activeQrTab === btn.id
+                          ? 'bg-amber-900 text-white shadow-2xs'
+                          : 'text-stone-600 hover:text-stone-900'
+                      }`}
+                    >
+                      {btn.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* QR Cards Display */}
+              <div className={`grid gap-4 ${activeQrTab === 'all' ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 max-w-sm mx-auto'}`}>
+                {/* PhonePe QR Card */}
+                {(activeQrTab === 'all' || activeQrTab === 'phonepe') && (
+                  <div className="bg-white rounded-2xl border-2 border-purple-300 p-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between text-center group">
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="bg-[#5f259f] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                          PhonePe
+                        </span>
+                        <button
+                          onClick={() => setZoomedQr({ title: 'PhonePe QR Code', image: '/assets/aistudio/phonepe_4220b648.jpeg', upiId: '9509593150-3@ybl' })}
+                          className="text-stone-400 hover:text-purple-800 p-1 rounded cursor-pointer"
+                          title={lang === 'hi' ? 'बड़ा देखें' : 'Zoom In'}
+                        >
+                          <ZoomIn className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      <div
+                        onClick={() => setZoomedQr({ title: 'PhonePe QR Code', image: '/assets/aistudio/phonepe_4220b648.jpeg', upiId: '9509593150-3@ybl' })}
+                        className="bg-stone-50 border border-purple-200 rounded-xl p-2 mb-3 cursor-pointer relative overflow-hidden"
+                      >
+                        <img
+                          src="/assets/aistudio/phonepe_4220b648.jpeg"
+                          alt="PhonePe QR Code - Randhir Singh"
+                          className="w-full h-56 sm:h-48 object-contain mx-auto group-hover:scale-102 transition-transform duration-200"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <span className="bg-stone-900/80 text-white text-[10px] font-semibold px-2 py-1 rounded backdrop-blur-xs flex items-center gap-1">
+                            <ZoomIn className="w-3 h-3" /> {lang === 'hi' ? 'बड़ा करें' : 'Click to Zoom'}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="font-mono text-xs font-bold text-purple-950 mb-1">
+                        9509593150-3@ybl
+                      </div>
+                      <p className="text-[10px] text-stone-500 mb-3">
+                        RANDHIR SINGH · PhonePe Official
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => handleCopy('9509593150-3@ybl', 'qr-phonepe')}
+                      className="w-full inline-flex items-center justify-center gap-1.5 bg-purple-50 hover:bg-purple-100 text-purple-900 font-bold py-2 rounded-lg border border-purple-300 text-xs transition-colors cursor-pointer"
+                    >
+                      {copiedUpi === 'qr-phonepe' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-700">{lang === 'hi' ? 'कॉपी हुआ!' : 'Copied!'}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-purple-700" />
+                          <span>{lang === 'hi' ? 'UPI आईडी कॉपी' : 'Copy UPI ID'}</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                )}
+
+                {/* Google Pay QR Card */}
+                {(activeQrTab === 'all' || activeQrTab === 'gpay') && (
+                  <div className="bg-white rounded-2xl border-2 border-blue-300 p-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between text-center group">
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="bg-[#1a73e8] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                          Google Pay
+                        </span>
+                        <button
+                          onClick={() => setZoomedQr({ title: 'Google Pay (GPay) QR Code', image: '/assets/aistudio/randhir-upi_60fbe7e9.jpg', upiId: 'randhirjpr-6@okicici' })}
+                          className="text-stone-400 hover:text-blue-800 p-1 rounded cursor-pointer"
+                          title={lang === 'hi' ? 'बड़ा देखें' : 'Zoom In'}
+                        >
+                          <ZoomIn className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      <div
+                        onClick={() => setZoomedQr({ title: 'Google Pay (GPay) QR Code', image: '/assets/aistudio/randhir-upi_60fbe7e9.jpg', upiId: 'randhirjpr-6@okicici' })}
+                        className="bg-stone-50 border border-blue-200 rounded-xl p-2 mb-3 cursor-pointer relative overflow-hidden"
+                      >
+                        <img
+                          src="/assets/aistudio/randhir-upi_60fbe7e9.jpg"
+                          alt="Google Pay QR Code - Randhir Singh"
+                          className="w-full h-56 sm:h-48 object-contain mx-auto group-hover:scale-102 transition-transform duration-200"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <span className="bg-stone-900/80 text-white text-[10px] font-semibold px-2 py-1 rounded backdrop-blur-xs flex items-center gap-1">
+                            <ZoomIn className="w-3 h-3" /> {lang === 'hi' ? 'बड़ा करें' : 'Click to Zoom'}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="font-mono text-xs font-bold text-blue-950 mb-1">
+                        randhirjpr-6@okicici
+                      </div>
+                      <p className="text-[10px] text-stone-500 mb-3">
+                        A Numerologist & Healer. Randhir Singh
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => handleCopy('randhirjpr-6@okicici', 'qr-gpay')}
+                      className="w-full inline-flex items-center justify-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-blue-900 font-bold py-2 rounded-lg border border-blue-300 text-xs transition-colors cursor-pointer"
+                    >
+                      {copiedUpi === 'qr-gpay' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-700">{lang === 'hi' ? 'कॉपी हुआ!' : 'Copied!'}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-blue-700" />
+                          <span>{lang === 'hi' ? 'UPI आईडी कॉपी' : 'Copy UPI ID'}</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                )}
+
+                {/* Paytm QR Card */}
+                {(activeQrTab === 'all' || activeQrTab === 'paytm') && (
+                  <div className="bg-white rounded-2xl border-2 border-sky-300 p-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between text-center group">
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="bg-[#002e6e] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                          Paytm UPI
+                        </span>
+                        <button
+                          onClick={() => setZoomedQr({ title: 'Paytm UPI QR Code', image: '/assets/aistudio/paytm-upi_fe2f911c.jpg', upiId: 'randhir.150@ptyes' })}
+                          className="text-stone-400 hover:text-sky-800 p-1 rounded cursor-pointer"
+                          title={lang === 'hi' ? 'बड़ा देखें' : 'Zoom In'}
+                        >
+                          <ZoomIn className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      <div
+                        onClick={() => setZoomedQr({ title: 'Paytm UPI QR Code', image: '/assets/aistudio/paytm-upi_fe2f911c.jpg', upiId: 'randhir.150@ptyes' })}
+                        className="bg-stone-50 border border-sky-200 rounded-xl p-2 mb-3 cursor-pointer relative overflow-hidden"
+                      >
+                        <img
+                          src="/assets/aistudio/paytm-upi_fe2f911c.jpg"
+                          alt="Paytm UPI QR Code - Randhir Singh"
+                          className="w-full h-56 sm:h-48 object-contain mx-auto group-hover:scale-102 transition-transform duration-200"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-sky-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <span className="bg-stone-900/80 text-white text-[10px] font-semibold px-2 py-1 rounded backdrop-blur-xs flex items-center gap-1">
+                            <ZoomIn className="w-3 h-3" /> {lang === 'hi' ? 'बड़ा करें' : 'Click to Zoom'}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="font-mono text-xs font-bold text-sky-950 mb-1">
+                        randhir.150@ptyes
+                      </div>
+                      <p className="text-[10px] text-stone-500 mb-3">
+                        Randhir Singh · Paytm Verified
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => handleCopy('randhir.150@ptyes', 'qr-paytm')}
+                      className="w-full inline-flex items-center justify-center gap-1.5 bg-sky-50 hover:bg-sky-100 text-sky-900 font-bold py-2 rounded-lg border border-sky-300 text-xs transition-colors cursor-pointer"
+                    >
+                      {copiedUpi === 'qr-paytm' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-700">{lang === 'hi' ? 'कॉपी हुआ!' : 'Copied!'}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-sky-700" />
+                          <span>{lang === 'hi' ? 'UPI आईडी कॉपी' : 'Copy UPI ID'}</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
 
             {/* Verification Instructions */}
-            <div className="bg-stone-50 rounded-xl p-5 border border-stone-200 text-xs text-stone-700 space-y-2">
-              <span className="font-bold text-stone-900 block flex items-center gap-1.5">
+            <div className="bg-stone-50 rounded-2xl p-5 sm:p-6 border border-stone-200 text-xs text-stone-700 space-y-3 mb-6">
+              <span className="font-bold text-stone-900 block flex items-center gap-2 text-sm">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                {lang === 'hi' ? 'अपॉइंटमेंट कैसे पक्की (कन्फर्म) करें:' : 'How to Confirm Your Appointment:'}
+                {lang === 'hi' ? 'अपॉइंटमेंट कैसे पक्की (कन्फर्म) करें — 4 आसान चरण:' : 'How to Confirm Your Appointment — 4 Easy Steps:'}
               </span>
-              <p>
-                {lang === 'hi'
-                  ? '1. तय की गई फीस UPI नंबर +91-9509593150 पर भेजें।'
-                  : '1. Transfer the applicable consultancy fee using UPI to +91-9509593150.'}
-              </p>
-              <p>
-                {lang === 'hi'
-                  ? '2. पेमेंट का स्क्रीनशॉट ले लें।'
-                  : '2. Take a screenshot of the completed payment transaction receipt.'}
-              </p>
-              <p>
-                {lang === 'hi'
-                  ? '3. स्क्रीनशॉट, अपना नाम और जन्मतिथि व्हाट्सएप (+91-9509593150) पर भेजें।'
-                  : '3. Share the screenshot along with your Full Name and Date of Birth directly on WhatsApp at +91-9509593150.'}
-              </p>
-              <p>
-                {lang === 'hi'
-                  ? '4. हमारी टीम तुरंत आपको समय स्लॉट देकर कन्फर्मेशन भेज देगी।'
-                  : '4. Our team will verify and lock in your priority appointment slot and confirm time.'}
-              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-stone-700">
+                <div className="bg-white p-3 rounded-xl border border-stone-200 space-y-1">
+                  <span className="font-bold text-amber-900 block text-xs">
+                    {lang === 'hi' ? '१. फीस का भुगतान करें' : '1. Transfer the Fee'}
+                  </span>
+                  <p className="text-[11px] leading-relaxed">
+                    {lang === 'hi'
+                      ? 'ऊपर दिए गए किसी भी QR कोड को स्कैन करें या UPI ID / मोबाइल नंबर 9509593150 पर फीस भेजें।'
+                      : 'Scan any of the verified QR codes or send fee to the official UPI ID or number 9509593150.'}
+                  </p>
+                </div>
+                <div className="bg-white p-3 rounded-xl border border-stone-200 space-y-1">
+                  <span className="font-bold text-amber-900 block text-xs">
+                    {lang === 'hi' ? '२. रसीद का स्क्रीनशॉट लें' : '2. Save Transaction Proof'}
+                  </span>
+                  <p className="text-[11px] leading-relaxed">
+                    {lang === 'hi'
+                      ? 'भुगतान सफल होने पर UTR / Ref नंबर वाला स्क्रीनशॉट अपने फोन में सुरक्षित कर लें।'
+                      : 'Capture a screenshot of the completed transaction displaying the UTR or reference number.'}
+                  </p>
+                </div>
+                <div className="bg-white p-3 rounded-xl border border-stone-200 space-y-1">
+                  <span className="font-bold text-amber-900 block text-xs">
+                    {lang === 'hi' ? '३. व्हाट्सएप पर भेजें' : '3. Share on WhatsApp'}
+                  </span>
+                  <p className="text-[11px] leading-relaxed">
+                    {lang === 'hi'
+                      ? 'स्क्रीनशॉट, अपना पूरा नाम और जन्मतिथि (+91-9509593150) पर व्हाट्सएप करें।'
+                      : 'Share the screenshot along with your Full Name and Date of Birth on WhatsApp (+91-9509593150).'}
+                  </p>
+                </div>
+                <div className="bg-white p-3 rounded-xl border border-stone-200 space-y-1">
+                  <span className="font-bold text-amber-900 block text-xs">
+                    {lang === 'hi' ? '४. स्लॉट सुरक्षित करें' : '4. Instant Confirmation'}
+                  </span>
+                  <p className="text-[11px] leading-relaxed">
+                    {lang === 'hi'
+                      ? 'हमारी टीम तुरंत आपका अपॉइंटमेंट स्लॉट सुरक्षित कर कन्फर्मेशन समय भेज देगी।'
+                      : 'Our sanctuary desk will confirm your appointment timing and lock in your priority slot.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Direct WhatsApp Call-to-action */}
+            <div className="text-center">
+              <a
+                href="https://wa.me/919509593150?text=Namaste%20Randhir%20Ji%2C%20I%20have%20transferred%20the%20consultancy%20fee%20via%20UPI.%20Please%20find%20my%20details%20attached%3A%0A-%20Name%3A%20%0A-%20Date%20of%20Birth%3A%20%0A-%20Service%3A%20"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-700 via-emerald-800 to-emerald-900 hover:from-emerald-800 text-white font-bold py-3.5 px-6 rounded-xl text-xs sm:text-sm shadow-md transition-all cursor-pointer"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-200" />
+                <span>
+                  {lang === 'hi'
+                    ? 'व्हाट्सएप पर पेमेंट स्क्रीनशॉट भेजकर स्लॉट पक्का करें (+91-9509593150)'
+                    : 'Share Payment Receipt on WhatsApp to Confirm Slot (+91-9509593150)'}
+                </span>
+              </a>
             </div>
           </div>
         )}
@@ -813,6 +1149,53 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
           </div>
         )}
       </div>
+
+      {/* High-Resolution QR Zoom Modal */}
+      {zoomedQr && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs animate-in fade-in duration-150">
+          <div className="bg-white rounded-2xl p-5 sm:p-6 max-w-sm w-full text-center relative border-2 border-amber-300 shadow-2xl">
+            <button
+              onClick={() => setZoomedQr(null)}
+              className="absolute top-3 right-3 p-1.5 rounded-lg text-stone-500 hover:text-stone-900 hover:bg-stone-100 cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <h4 className="font-sacred text-base font-bold text-stone-900 mb-1">
+              {zoomedQr.title}
+            </h4>
+            <p className="text-[11px] text-stone-500 mb-3">
+              {lang === 'hi' ? 'किसी भी UPI ऐप से स्कैन करें' : 'Scan with any UPI application'}
+            </p>
+            <div className="bg-stone-50 border-2 border-stone-200 rounded-xl p-2 mb-3">
+              <img
+                src={zoomedQr.image}
+                alt={zoomedQr.title}
+                className="w-full h-64 object-contain mx-auto"
+              />
+            </div>
+            <div className="bg-stone-100 p-2.5 rounded-lg font-mono text-xs font-bold text-stone-800 mb-3 select-all break-all">
+              {zoomedQr.upiId}
+            </div>
+            <button
+              onClick={() => handleCopy(zoomedQr.upiId, 'zoomed')}
+              className="w-full inline-flex items-center justify-center gap-1.5 bg-amber-900 hover:bg-amber-950 text-white font-bold py-2 rounded-lg text-xs cursor-pointer shadow-xs"
+            >
+              {copiedUpi === 'zoomed' ? (
+                <>
+                  <Check className="w-4 h-4 text-emerald-300" />
+                  <span>{lang === 'hi' ? 'कॉपी हो गया!' : 'Copied!'}</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4" />
+                  <span>{lang === 'hi' ? 'UPI आईडी कॉपी करें' : 'Copy UPI ID'}</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

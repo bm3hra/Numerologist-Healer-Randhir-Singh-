@@ -76,8 +76,8 @@ export const FAQ_ITEMS: FaqItem[] = [
     categoryLabel: 'Booking & Consultations',
     questionEn: 'What is the payment procedure and how do I verify my booking?',
     questionHi: 'पेमेंट कैसे करें और बुकिंग कैसे पक्की (कन्फर्म) होगी?',
-    answerEn: 'You can transfer the applicable consultation fee directly via UPI (PhonePe, Google Pay, Paytm, BHIM) to our official number +91-9509593150 (Account Name: RANDHIR SINGH). Once transferred, please take a screenshot of the payment receipt and share it via WhatsApp (+91-9509593150) along with your Full Name and Date of Birth. Our team will promptly confirm your locked appointment timing.',
-    answerHi: 'आप तय फीस हमारे ऑफिशियल यूपीआई नंबर +91-9509593150 (नाम: RANDHIR SINGH) पर PhonePe, Google Pay या Paytm से भेज सकते हैं। इसके बाद पेमेंट का स्क्रीनशॉट अपने नाम और जन्मतिथि के साथ व्हाट्सएप पर भेज दें। हमारी टीम तुरंत आपका समय कन्फर्म कर देगी।'
+    answerEn: 'You can transfer the applicable consultation fee directly via UPI (PhonePe, Google Pay, Paytm, BHIM) to our official mobile number +91-9509593150 (Account Name: RANDHIR SINGH) or directly to any of our 3 official UPI IDs: Paytm (randhir.150@ptyes), Google Pay (randhirjpr-6@okicici), or PhonePe (9509593150-3@ybl). You can also scan our official QR codes in the Bank & UPI section. Once transferred, please take a screenshot of the payment receipt and share it via WhatsApp (+91-9509593150) along with your Full Name and Date of Birth. Our team will promptly confirm your locked appointment timing.',
+    answerHi: 'आप तय फीस हमारे ऑफिशियल यूपीआई नंबर +91-9509593150 (नाम: RANDHIR SINGH) पर अथवा सीधे हमारी 3 ऑफिशियल UPI आईडी: पेटीएम (randhir.150@ptyes), गूगल पे (randhirjpr-6@okicici), या फोनपे (9509593150-3@ybl) पर भेज सकते हैं। वेबसाइट के "बैंक और UPI" सेक्शन में दिए गए QR कोड्स को भी स्कैन कर सकते हैं। इसके बाद पेमेंट का स्क्रीनशॉट अपने नाम और जन्मतिथि के साथ व्हाट्सएप (+91-9509593150) पर भेज दें। हमारी टीम तुरंत आपका समय स्लॉट कन्फर्म कर देगी।'
   },
 
   // Numerology & Lo-Shu

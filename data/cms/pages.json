@@ -744,7 +744,7 @@
         "title": "घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श",
         "subtitle": "आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।",
         "imageUrl": "/assets/watches/victorinox-swiss-dive-watch-gold.svg",
-        "buttonText": "परामर्श बुक करें (₹1,800)",
+        "buttonText": "परामर्श बुक करें (₹2,100)",
         "buttonLink": "#tariff",
         "buttonStyle": "primary"
       },
@@ -759,7 +759,7 @@
         "type": "consultation",
         "title": "घड़ी विश्लेषण एवं चिकित्सीय घड़ी परामर्श",
         "subtitle": "आपकी कलाई पर बंधी घड़ी केवल समय देखने का साधन नहीं, बल्कि आपकी व्यक्तिगत पसंद, जीवनशैली और व्यक्तित्व की अभिव्यक्ति भी हो सकती है।",
-        "price": "₹1,800",
+        "price": "₹2,100",
         "duration": "45-60 मिनट",
         "buttonText": "अभी स्लॉट आरक्षित करें"
       }
@@ -836,7 +836,7 @@
         "title": "थेरेपी वॉचेस (औषधीय एवं भाग्यशाली घड़ियाँ)",
         "subtitle": "कलाई की नाड़ी के माध्यम से करियर उन्नति, लक्ष्मी आकर्षण एवं शांति हेतु सिद्ध प्रिस्क्रिप्शन घड़ियाँ।",
         "imageUrl": "/Randhir Singh.png",
-        "buttonText": "परामर्श बुक करें (₹11,000+)",
+        "buttonText": "परामर्श बुक करें (₹5,100+)",
         "buttonLink": "#tariff",
         "buttonStyle": "primary"
       },
@@ -851,7 +851,7 @@
         "type": "consultation",
         "title": "थेरेपी वॉचेस (औषधीय एवं भाग्यशाली घड़ियाँ)",
         "subtitle": "कलाई की नाड़ी के माध्यम से करियर उन्नति, लक्ष्मी आकर्षण एवं शांति हेतु सिद्ध प्रिस्क्रिप्शन घड़ियाँ।",
-        "price": "₹11,000+",
+        "price": "₹5,100+",
         "duration": "45-60 मिनट",
         "buttonText": "अभी स्लॉट आरक्षित करें"
       }
@@ -928,7 +928,7 @@
         "title": "मोबाइल नंबर विश्लेषण एवं लकी मोबाइल नंबर",
         "subtitle": "वर्तमान मोबाइल नंबर की सूक्ष्म जांच एवं व्यापार-करियर के अनुकूल लकी मोबाइल नंबर का चयन।",
         "imageUrl": "/Randhir Singh.png",
-        "buttonText": "परामर्श बुक करें (₹1,500)",
+        "buttonText": "परामर्श बुक करें (₹5,100)",
         "buttonLink": "#tariff",
         "buttonStyle": "primary"
       },
@@ -943,7 +943,7 @@
         "type": "consultation",
         "title": "मोबाइल नंबर विश्लेषण एवं लकी मोबाइल नंबर",
         "subtitle": "वर्तमान मोबाइल नंबर की सूक्ष्म जांच एवं व्यापार-करियर के अनुकूल लकी मोबाइल नंबर का चयन।",
-        "price": "₹1,500",
+        "price": "₹5,100",
         "duration": "45-60 मिनट",
         "buttonText": "अभी स्लॉट आरक्षित करें"
       }
@@ -1020,7 +1020,7 @@
         "title": "नाम विश्लेषण, सुझाव एवं नाम सुधार (Chaldean)",
         "subtitle": "काल्डियन एवं पाइथागोरियन पद्धति से नाम के अक्षरों का सूक्ष्म संशोधन ताकि भाग्य बने चुंबकीय।",
         "imageUrl": "/Randhir Singh.png",
-        "buttonText": "परामर्श बुक करें (₹3,500)",
+        "buttonText": "परामर्श बुक करें (₹11,000)",
         "buttonLink": "#tariff",
         "buttonStyle": "primary"
       },
@@ -1035,7 +1035,7 @@
         "type": "consultation",
         "title": "नाम विश्लेषण, सुझाव एवं नाम सुधार (Chaldean)",
         "subtitle": "काल्डियन एवं पाइथागोरियन पद्धति से नाम के अक्षरों का सूक्ष्म संशोधन ताकि भाग्य बने चुंबकीय।",
-        "price": "₹3,500",
+        "price": "₹11,000",
         "duration": "45-60 मिनट",
         "buttonText": "अभी स्लॉट आरक्षित करें"
       }
@@ -1342,7 +1342,7 @@
         "title": "विशेष यंत्र (पदोन्नति, मनोरथ सिद्धि, व्यापार वृद्धि)",
         "subtitle": "कुबेर महायंत्र (योग 72), श्री महालक्ष्मी यंत्र एवं व्यापार वृद्धि यंत्र द्वारा असाधारण सफलता।",
         "imageUrl": "/Randhir Singh.png",
-        "buttonText": "परामर्श बुक करें (₹7,100)",
+        "buttonText": "परामर्श बुक करें (₹5,100)",
         "buttonLink": "#tariff",
         "buttonStyle": "primary"
       },
@@ -1357,7 +1357,7 @@
         "type": "consultation",
         "title": "विशेष यंत्र (पदोन्नति, मनोरथ सिद्धि, व्यापार वृद्धि)",
         "subtitle": "कुबेर महायंत्र (योग 72), श्री महालक्ष्मी यंत्र एवं व्यापार वृद्धि यंत्र द्वारा असाधारण सफलता।",
-        "price": "₹7,100",
+        "price": "₹5,100",
         "duration": "45-60 मिनट",
         "buttonText": "अभी स्लॉट आरक्षित करें"
       }
@@ -1366,12 +1366,12 @@
   {
     "id": "page_service_16",
     "slug": "service-16",
-    "title": "Best Crystals for Your Profession & Growth",
-    "titleHi": "व्यवसाय व प्रगति हेतु सर्वश्रेष्ठ क्रिस्टल व रत्न",
+    "title": "Best Crystals for Your Profession & Growth its include Cleaning",
+    "titleHi": "व्यवसाय व प्रगति हेतु सर्वश्रेष्ठ क्रिस्टल व रत्न (क्लीनिंग सहित)",
     "category": "service",
     "isSystemPage": true,
     "status": "published",
-    "seoTitle": "Best Crystals for Your Profession & Growth | Randhir Singh Jaipur",
+    "seoTitle": "Best Crystals for Your Profession & Growth its include Cleaning | Randhir Singh Jaipur",
     "seoDescription": "Profession-matched gemstones and crystal bracelets (Pyrite, Citrine, Aventurine, Amethyst).",
     "ogImage": "/Randhir Singh.png",
     "featuredImage": "/Randhir Singh.png",
@@ -1385,10 +1385,10 @@
       {
         "id": "svc_hero_16",
         "type": "hero",
-        "title": "व्यवसाय व प्रगति हेतु सर्वश्रेष्ठ क्रिस्टल व रत्न",
+        "title": "व्यवसाय व प्रगति हेतु सर्वश्रेष्ठ क्रिस्टल व रत्न (क्लीनिंग सहित)",
         "subtitle": "आपके पेशे एवं जन्म तिथि के अनुकूल प्राकृतिक क्रिस्टल ब्रेसलेट (पायराइट, सिट्रीन, एवेंच्यूरिन)।",
         "imageUrl": "/Randhir Singh.png",
-        "buttonText": "परामर्श बुक करें (₹2,500)",
+        "buttonText": "परामर्श बुक करें (₹5,100)",
         "buttonLink": "#tariff",
         "buttonStyle": "primary"
       },
@@ -1401,9 +1401,9 @@
       {
         "id": "svc_card_16",
         "type": "consultation",
-        "title": "व्यवसाय व प्रगति हेतु सर्वश्रेष्ठ क्रिस्टल व रत्न",
+        "title": "व्यवसाय व प्रगति हेतु सर्वश्रेष्ठ क्रिस्टल व रत्न (क्लीनिंग सहित)",
         "subtitle": "आपके पेशे एवं जन्म तिथि के अनुकूल प्राकृतिक क्रिस्टल ब्रेसलेट (पायराइट, सिट्रीन, एवेंच्यूरिन)।",
-        "price": "₹2,500",
+        "price": "₹5,100",
         "duration": "45-60 मिनट",
         "buttonText": "अभी स्लॉट आरक्षित करें"
       }
