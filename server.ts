@@ -945,6 +945,7 @@ User-agent: *
 Allow: /
 Allow: /assets/
 Allow: /uploads/
+Allow: /google2a7641ce99aa2bbb.html
 Allow: /*.png$
 Allow: /*.jpg$
 Allow: /*.jpeg$
@@ -974,6 +975,12 @@ Allow: /
 
 Sitemap: ${host}/sitemap.xml
 `);
+});
+
+// GET /google2a7641ce99aa2bbb.html - Google Search Console HTML File Verification
+app.get('/google2a7641ce99aa2bbb.html', (req: Request, res: Response) => {
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.send('google-site-verification: google2a7641ce99aa2bbb.html');
 });
 
 // GET /sitemap.xml - Dynamic XML Sitemap with 17-Language Reciprocal Hreflang Annotations

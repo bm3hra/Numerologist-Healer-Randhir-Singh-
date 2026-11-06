@@ -17,27 +17,25 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
   const indianLanguages = ALL_LANGUAGES.filter((l) => l.category === 'indian');
   const internationalLanguages = ALL_LANGUAGES.filter((l) => l.category === 'international');
 
-  // Persisted authentic visitor hit counter
+  // Persisted authentic visitor hit counter starting at 6 ('0,000,006')
   const [visitorCount, setVisitorCount] = useState<number>(() => {
     try {
-      const stored = localStorage.getItem('dyd_visitor_counter');
+      const stored = localStorage.getItem('dyd_visitor_counter_v6');
       if (stored) {
         const parsed = parseInt(stored, 10);
-        if (!isNaN(parsed) && parsed >= 148390) return parsed;
+        if (!isNaN(parsed) && parsed >= 6) return parsed;
       }
     } catch {
       // ignore
     }
-    return 148392;
+    return 6;
   });
 
   const [activeOnlineUsers, setActiveOnlineUsers] = useState<number>(14);
 
   useEffect(() => {
     try {
-      const nextCount = visitorCount + 1;
-      setVisitorCount(nextCount);
-      localStorage.setItem('dyd_visitor_counter', String(nextCount));
+      localStorage.setItem('dyd_visitor_counter_v6', String(visitorCount));
     } catch {
       // ignore
     }
@@ -50,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
     }, 14000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [visitorCount]);
 
   return (
     <footer className="bg-stone-950 text-stone-300 border-t-2 border-amber-500/70 pt-12 pb-8">
