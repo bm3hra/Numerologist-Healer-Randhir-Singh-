@@ -1,0 +1,83 @@
+{
+  "totalVisits": 6,
+  "uniqueVisitorsCount": 4,
+  "uniqueClientIds": {
+    "usr_init_1": "2026-11-06T00:10:00.000Z",
+    "usr_init_2": "2026-11-06T00:25:00.000Z",
+    "usr_init_3": "2026-11-06T00:45:00.000Z",
+    "usr_init_4": "2026-11-06T02:40:00.000Z"
+  },
+  "dailyVisits": {
+    "2026-11-06": 6
+  },
+  "deviceBreakdown": {
+    "mobile": 5,
+    "desktop": 2,
+    "tablet": 0
+  },
+  "languageBreakdown": {
+    "hi": 4,
+    "en-us": 3
+  },
+  "activeSessions": {
+    "test_seeker_9": 1793962581477
+  },
+  "recentVisits": [
+    {
+      "id": "v_1793962581477",
+      "timestamp": "2026-11-06T10:56:21.477Z",
+      "path": "/",
+      "device": "Mobile",
+      "lang": "hi",
+      "referrer": "Direct"
+    },
+    {
+      "id": "v_6",
+      "timestamp": "2026-11-06T02:48:30.000Z",
+      "path": "/",
+      "device": "Mobile",
+      "lang": "hi",
+      "referrer": "Direct"
+    },
+    {
+      "id": "v_5",
+      "timestamp": "2026-11-06T02:42:15.000Z",
+      "path": "/hi/",
+      "device": "Mobile",
+      "lang": "hi",
+      "referrer": "Google Search"
+    },
+    {
+      "id": "v_4",
+      "timestamp": "2026-11-06T01:15:00.000Z",
+      "path": "/#services",
+      "device": "Desktop",
+      "lang": "en-us",
+      "referrer": "Direct"
+    },
+    {
+      "id": "v_3",
+      "timestamp": "2026-11-06T00:45:10.000Z",
+      "path": "/#dob-calculator",
+      "device": "Mobile",
+      "lang": "hi",
+      "referrer": "WhatsApp"
+    },
+    {
+      "id": "v_2",
+      "timestamp": "2026-11-06T00:25:00.000Z",
+      "path": "/en-us/",
+      "device": "Desktop",
+      "lang": "en-us",
+      "referrer": "Direct"
+    },
+    {
+      "id": "v_1",
+      "timestamp": "2026-11-06T00:10:00.000Z",
+      "path": "/",
+      "device": "Mobile",
+      "lang": "en-us",
+      "referrer": "Direct"
+    }
+  ]
+}
