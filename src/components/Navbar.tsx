@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkles, Phone, MessageCircle, Clock, Menu, X, Compass, ShieldCheck, ChevronDown, FileText, CreditCard } from 'lucide-react';
+import { Sparkles, Phone, MessageCircle, Clock, Menu, X, Compass, ShieldCheck, ChevronDown, FileText, CreditCard, Globe } from 'lucide-react';
 import { Language, CMSPage } from '../types';
 import { getPublishedPages } from '../lib/cmsService';
+import { ALL_LANGUAGES, LanguageOption } from '../i18n/languages';
 
 interface NavbarProps {
   currentTab: string;
@@ -22,8 +23,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [dynamicNavPages, setDynamicNavPages] = useState<CMSPage[]>([]);
   const moreDropdownRef = useRef<HTMLDivElement>(null);
+  const langDropdownRef = useRef<HTMLDivElement>(null);
 
   // Load published pages dynamically for navbar
   useEffect(() => {
@@ -44,10 +47,19 @@ export const Navbar: React.FC<NavbarProps> = ({
       if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target as Node)) {
         setMoreDropdownOpen(false);
       }
+      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target as Node)) {
+        setLangDropdownOpen(false);
+      }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const currentLangCode = (lang || 'en-us').toLowerCase();
+  const currentLangObj =
+    ALL_LANGUAGES.find(
+      (l) => l.code === currentLangCode || (l.code === 'en-us' && (currentLangCode === 'en' || currentLangCode === 'en-us'))
+    ) || ALL_LANGUAGES[0];
 
   // Primary navigation tabs shown on 1024px+ screens
   const primaryNavLinks = [
@@ -170,26 +182,100 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>Admin</span>
             </a>
 
-            {/* Language switch */}
-            <div className="flex items-center bg-black/30 rounded p-0.5 border border-amber-500/30 text-[10px] sm:text-[11px] shrink-0">
+            {/* Interactive 17-Language Dropdown & Selector */}
+            <div className="relative shrink-0" ref={langDropdownRef}>
               <button
-                onClick={() => setLang('en')}
-                className={`px-1.5 py-0.5 rounded transition-all font-bold ${
-                  lang === 'en' ? 'bg-amber-600 text-white' : 'text-amber-200 hover:text-white'
-                }`}
-                aria-label="Switch to English"
+                onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                className="inline-flex items-center gap-1.5 bg-black/40 hover:bg-black/60 text-amber-200 hover:text-white px-2 py-0.5 rounded border border-amber-400/40 text-[10px] sm:text-[11px] font-bold transition-all shadow-2xs cursor-pointer"
+                aria-label="Select Language (17 Languages)"
+                title="Select language / भाषा चुनें (17 Languages)"
               >
-                EN
+                <span>{currentLangObj.flag}</span>
+                <span className="font-medium hidden xs:inline">{currentLangObj.nativeName}</span>
+                <span className="font-bold uppercase xs:hidden">{currentLangObj.code.split('-')[0]}</span>
+                <ChevronDown className={`w-3 h-3 text-amber-300 transition-transform ${langDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
-              <button
-                onClick={() => setLang('hi')}
-                className={`px-1.5 py-0.5 rounded transition-all font-bold ${
-                  lang === 'hi' ? 'bg-amber-600 text-white' : 'text-amber-200 hover:text-white'
-                }`}
-                aria-label="Switch to Hindi"
-              >
-                हिन्दी
-              </button>
+
+              {langDropdownOpen && (
+                <div className="absolute right-0 top-full mt-1.5 w-72 sm:w-80 bg-stone-900/98 backdrop-blur-md rounded-xl border-2 border-amber-500/70 shadow-2xl p-3 z-50 animate-in fade-in zoom-in-95 duration-150 text-stone-200">
+                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-stone-800 text-[11px] font-bold text-amber-300">
+                    <span className="flex items-center gap-1.5">
+                      <Globe className="w-3.5 h-3.5 text-amber-400" />
+                      <span>{lang === 'hi' ? 'भाषा चुनें (17 भाषाएं)' : 'Select Language (17 Languages)'}</span>
+                    </span>
+                    <button
+                      onClick={() => setLangDropdownOpen(false)}
+                      className="text-stone-400 hover:text-white p-0.5 cursor-pointer"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                  <div className="max-h-72 overflow-y-auto space-y-3 pr-1 text-xs">
+                    {/* Indian Languages (9) */}
+                    <div>
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-amber-400 mb-1 flex items-center gap-1">
+                        <span>🇮🇳</span>
+                        <span>{lang === 'hi' ? 'भारतीय भाषाएं (9)' : 'Indian Languages (9)'}</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-1">
+                        {ALL_LANGUAGES.filter((l) => l.category === 'indian').map((l) => {
+                          const isSelected = currentLangCode === l.code || (l.code === 'hi' && currentLangCode === 'hi');
+                          return (
+                            <button
+                              key={l.code}
+                              onClick={() => {
+                                setLang(l.code as Language);
+                                setLangDropdownOpen(false);
+                              }}
+                              className={`text-left px-2 py-1 rounded text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                                isSelected
+                                  ? 'bg-amber-600 text-white font-bold'
+                                  : 'hover:bg-stone-800 text-stone-300 hover:text-white'
+                              }`}
+                            >
+                              <span className="truncate">{l.flag} {l.nativeName}</span>
+                              <span className="text-[9px] opacity-70 uppercase font-mono">{l.code}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* International Languages (8) */}
+                    <div>
+                      <div className="text-[10px] font-bold uppercase tracking-wider text-amber-400 mb-1 flex items-center gap-1">
+                        <span>🌍</span>
+                        <span>{lang === 'hi' ? 'अंतरराष्ट्रीय भाषाएं (8)' : 'International Languages (8)'}</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-1">
+                        {ALL_LANGUAGES.filter((l) => l.category === 'international').map((l) => {
+                          const isSelected =
+                            currentLangCode === l.code ||
+                            (l.code === 'en-us' && (currentLangCode === 'en' || currentLangCode === 'en-us'));
+                          return (
+                            <button
+                              key={l.code}
+                              onClick={() => {
+                                setLang(l.code as Language);
+                                setLangDropdownOpen(false);
+                              }}
+                              className={`text-left px-2 py-1 rounded text-xs flex items-center justify-between transition-colors cursor-pointer ${
+                                isSelected
+                                  ? 'bg-amber-600 text-white font-bold'
+                                  : 'hover:bg-stone-800 text-stone-300 hover:text-white'
+                              }`}
+                            >
+                              <span className="truncate">{l.flag} {l.nativeName}</span>
+                              <span className="text-[9px] opacity-70 uppercase font-mono">{l.code}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -33,12 +33,12 @@ const reviewsFile = path.join(cmsDir, 'reviews.json');
 const seoSettingsFile = path.join(cmsDir, 'seo_settings.json');
 
 const DEFAULT_SEO_SETTINGS = {
-  siteName: 'DecodeYourDestiny - Numerologist & Healer Randhir Singh',
-  siteTitle: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर -- A Numerologist and Healer · Randhir Singh Ji Jaipur',
-  metaDescription: 'अपनी जन्मतिथि को समझें। अपने जीवन के पैटर्न को पहचानें। आत्मविश्वास के साथ आगे बढ़ें। वैदिक अंक ज्योतिष, वॉच थेरेपी, टैरो, प्राणिक हीलिंग, सॉल्ट क्लींजिंग और क्रिस्टल थेरेपी।',
-  canonicalHost: 'https://decodeyourdestiny.in',
+  siteName: 'Numerologist & Healer – Randhir Singh',
+  siteTitle: 'Numerologist & Healer Randhir Singh | Jaipur, India',
+  metaDescription: 'Explore Vedic Numerology, Lo Shu Grid Analysis, Tarot Guidance, Chakra Healing and spiritual wellness services with Randhir Singh in Jaipur, Rajasthan. Online consultations available worldwide.',
+  canonicalHost: 'https://numerologist-randhir-singh.ai.studio',
   defaultOgImage: '/Randhir Singh.png',
-  googleVerificationCode: '',
+  googleVerificationCode: 'WkzCjX77KiYZosK1_LrMXODFi-Gf7wT_ecx-TqeUO9A',
   bingVerificationCode: '',
   ga4MeasurementId: '',
   gtmId: '',
@@ -937,9 +937,9 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 // GET /robots.txt - Dynamic robots.txt
 app.get('/robots.txt', (req: Request, res: Response) => {
   const seo = readJsonFile<any>(seoSettingsFile, DEFAULT_SEO_SETTINGS);
-  const host = seo.canonicalHost || 'https://decodeyourdestiny.in';
+  const host = (seo.canonicalHost || 'https://numerologist-randhir-singh.ai.studio').replace(/\/+$/, '');
   res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-  res.send(`# robots.txt for DecodeYourDestiny - Numerologist & Healer Randhir Singh Ji Jaipur
+  res.send(`# robots.txt for Numerologist & Healer Randhir Singh
 # Canonical Domain: ${host}
 User-agent: *
 Allow: /
@@ -947,6 +947,7 @@ Allow: /assets/
 Allow: /uploads/
 Allow: /*.png$
 Allow: /*.jpg$
+Allow: /*.jpeg$
 Allow: /*.svg$
 Allow: /*.webp$
 
@@ -975,43 +976,36 @@ Sitemap: ${host}/sitemap.xml
 `);
 });
 
-// GET /sitemap.xml - Dynamic XML Sitemap
+// GET /sitemap.xml - Dynamic XML Sitemap with 17-Language Reciprocal Hreflang Annotations
 app.get('/sitemap.xml', (req: Request, res: Response) => {
   try {
     const seo = readJsonFile<any>(seoSettingsFile, DEFAULT_SEO_SETTINGS);
-    const host = (seo.canonicalHost || 'https://decodeyourdestiny.in').replace(/\/+$/, '');
+    const host = (seo.canonicalHost || 'https://numerologist-randhir-singh.ai.studio').replace(/\/+$/, '');
     const pages = readJsonFile<any[]>(pagesFile, initialPages);
     const today = new Date().toISOString().split('T')[0];
 
-    const baseRoutes = [
-      { path: '', priority: '1.0', changefreq: 'daily', title: 'Home - Numerologist & Healer Randhir Singh' },
-      { path: '#dob-calculator', priority: '0.95', changefreq: 'weekly', title: 'Decode Date of Birth & Lo-Shu Grid' },
-      { path: '#watch-analysis', priority: '0.95', changefreq: 'weekly', title: 'Watch Analysis & Horological Therapy' },
-      { path: '#salt-therapy', priority: '0.85', changefreq: 'monthly', title: 'Salt Therapy & Aura Cleansing' },
-      { path: '#crystal-therapy', priority: '0.85', changefreq: 'monthly', title: 'Crystal Therapy & Gemstone Healing' },
-      { path: '#mobile-name', priority: '0.85', changefreq: 'weekly', title: 'Mobile & Name Numerology Analyzer' },
-      { path: '#grid-matching', priority: '0.85', changefreq: 'weekly', title: 'Vedic Kundli & Grid Compatibility Matching' },
-      { path: '#yantras-codes', priority: '0.80', changefreq: 'monthly', title: 'Sacred Yantras & Healing Codes' },
-      { path: '#all-services', priority: '0.90', changefreq: 'weekly', title: 'All Numerology & Spiritual Healing Services' },
-      { path: '#tariff-about', priority: '0.90', changefreq: 'weekly', title: 'Consultancy & Healing Services Fees' },
-      { path: '#reviews', priority: '0.90', changefreq: 'daily', title: 'Client Reviews & Transformational Stories' },
-      { path: '#about-randhir', priority: '0.85', changefreq: 'monthly', title: 'About Numerologist Randhir Singh' },
-      { path: '#awards-recognition', priority: '0.80', changefreq: 'monthly', title: 'Awards & Honors' },
-      { path: '#faq-section', priority: '0.85', changefreq: 'weekly', title: 'Frequently Asked Questions' },
-      { path: '#yantra-healings', priority: '0.80', changefreq: 'monthly', title: 'Yantra Healings Dedicated Guidance' },
-      { path: '#special-yantras', priority: '0.80', changefreq: 'monthly', title: 'Special Vedic Yantras' },
-      { path: '#dob-yantras', priority: '0.80', changefreq: 'monthly', title: 'Date of Birth Yantras' },
-      { path: '#kundli-milan', priority: '0.80', changefreq: 'monthly', title: 'Kundli Milan & 36 Guna Match' },
-      { path: '#and-more', priority: '0.75', changefreq: 'monthly', title: 'Remedies & Spiritual Guidance' }
+    const SITEMAP_LANGUAGES = [
+      'en-us', 'en-gb', 'hi', 'bn', 'gu', 'mr', 'pa', 'ta', 'te', 'kn', 'ml', 'es', 'fr', 'de', 'pt', 'ar', 'ja'
     ];
 
-    // Individual Services 1 to 16
+    // Core indexable canonical routes
+    const canonicalRoutes: Array<{ path: string; priority: string; changefreq: string }> = [
+      { path: '', priority: '1.0', changefreq: 'daily' },
+      { path: 'pages/yantra-healings', priority: '0.85', changefreq: 'monthly' },
+      { path: 'pages/special-yantras', priority: '0.85', changefreq: 'monthly' },
+      { path: 'pages/dob-yantras', priority: '0.85', changefreq: 'monthly' },
+      { path: 'pages/kundli-milan', priority: '0.85', changefreq: 'monthly' },
+      { path: 'pages/and-more', priority: '0.80', changefreq: 'monthly' },
+      { path: 'pages/about-randhir', priority: '0.85', changefreq: 'monthly' },
+      { path: 'pages/client-reviews-stories', priority: '0.90', changefreq: 'weekly' }
+    ];
+
+    // 16 Individual Divine Service Pages
     for (let i = 1; i <= 16; i++) {
-      baseRoutes.push({
-        path: `#service-${i}`,
-        priority: '0.75',
-        changefreq: 'monthly',
-        title: `Vedic Healing Service ${i}`
+      canonicalRoutes.push({
+        path: `pages/service-${i}`,
+        priority: '0.80',
+        changefreq: 'monthly'
       });
     }
 
@@ -1021,30 +1015,43 @@ app.get('/sitemap.xml', (req: Request, res: Response) => {
       .map((p) => ({
         path: `pages/${p.slug}`,
         priority: p.priority ? String(p.priority) : '0.80',
-        changefreq: p.changefreq || 'weekly',
-        lastmod: (p.updatedAt || p.createdAt || today).split('T')[0]
+        changefreq: p.changefreq || 'weekly'
       }));
 
+    const allRoutes = [...canonicalRoutes, ...cmsRoutes];
+
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
-    xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
+    xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
 
-    for (const r of baseRoutes) {
-      const fullUrl = r.path ? `${host}/${r.path}` : `${host}/`;
-      xml += `  <url>\n`;
-      xml += `    <loc>${fullUrl}</loc>\n`;
-      xml += `    <lastmod>${today}</lastmod>\n`;
-      xml += `    <changefreq>${r.changefreq}</changefreq>\n`;
-      xml += `    <priority>${r.priority}</priority>\n`;
-      xml += `  </url>\n`;
+    // 1. Root canonical entry
+    xml += `  <url>\n`;
+    xml += `    <loc>${host}/</loc>\n`;
+    xml += `    <lastmod>${today}</lastmod>\n`;
+    xml += `    <changefreq>daily</changefreq>\n`;
+    xml += `    <priority>1.0</priority>\n`;
+    xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${host}/en-us/" />\n`;
+    for (const l of SITEMAP_LANGUAGES) {
+      xml += `    <xhtml:link rel="alternate" hreflang="${l}" href="${host}/${l}/" />\n`;
     }
+    xml += `  </url>\n`;
 
-    for (const r of cmsRoutes) {
-      xml += `  <url>\n`;
-      xml += `    <loc>${host}/${r.path}</loc>\n`;
-      xml += `    <lastmod>${r.lastmod}</lastmod>\n`;
-      xml += `    <changefreq>${r.changefreq}</changefreq>\n`;
-      xml += `    <priority>${r.priority}</priority>\n`;
-      xml += `  </url>\n`;
+    // 2. Multilingual entries for each route and language
+    for (const route of allRoutes) {
+      const subpath = route.path ? `${route.path}` : '';
+      for (const lang of SITEMAP_LANGUAGES) {
+        const pageUrl = subpath ? `${host}/${lang}/${subpath}` : `${host}/${lang}/`;
+        xml += `  <url>\n`;
+        xml += `    <loc>${pageUrl}</loc>\n`;
+        xml += `    <lastmod>${today}</lastmod>\n`;
+        xml += `    <changefreq>${route.changefreq}</changefreq>\n`;
+        xml += `    <priority>${route.priority}</priority>\n`;
+        xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${subpath ? `${host}/en-us/${subpath}` : `${host}/en-us/`}" />\n`;
+        for (const altLang of SITEMAP_LANGUAGES) {
+          const altUrl = subpath ? `${host}/${altLang}/${subpath}` : `${host}/${altLang}/`;
+          xml += `    <xhtml:link rel="alternate" hreflang="${altLang}" href="${altUrl}" />\n`;
+        }
+        xml += `  </url>\n`;
+      }
     }
 
     xml += `</urlset>`;

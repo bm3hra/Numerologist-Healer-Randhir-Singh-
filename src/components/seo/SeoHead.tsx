@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CMSPage, SiteSeoConfig } from '../../types';
+import { ALL_LANGUAGES, getTranslation, isRtlLanguage } from '../../i18n/languages';
 
 interface SeoHeadProps {
   currentTab: string;
@@ -10,12 +11,12 @@ interface SeoHeadProps {
 }
 
 const DEFAULT_CONFIG: SiteSeoConfig = {
-  siteName: 'DecodeYourDestiny - Numerologist & Healer Randhir Singh',
-  siteTitle: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर -- A Numerologist and Healer · Randhir Singh Ji Jaipur',
-  metaDescription: 'अपनी जन्मतिथि को समझें। अपने जीवन के पैटर्न को पहचानें। आत्मविश्वास के साथ आगे बढ़ें। वैदिक अंक ज्योतिष, वॉच थेरेपी, टैरो, प्राणिक हीलिंग, सॉल्ट क्लींजिंग और क्रिस्टल थेरेपी।',
-  canonicalHost: 'https://decodeyourdestiny.in',
+  siteName: 'Numerologist & Healer Randhir Singh | Jaipur, India',
+  siteTitle: 'Numerologist & Healer Randhir Singh | Jaipur, India',
+  metaDescription: 'Explore Vedic Numerology, Lo Shu Grid Analysis, Tarot Guidance, Chakra Healing and spiritual wellness services with Randhir Singh in Jaipur, Rajasthan. Online consultations available worldwide.',
+  canonicalHost: 'https://numerologist-randhir-singh.ai.studio',
   defaultOgImage: '/Randhir Singh.png',
-  googleVerificationCode: '',
+  googleVerificationCode: 'WkzCjX77KiYZosK1_LrMXODFi-Gf7wT_ecx-TqeUO9A',
   bingVerificationCode: '',
   ga4MeasurementId: '',
   gtmId: '',
@@ -23,54 +24,82 @@ const DEFAULT_CONFIG: SiteSeoConfig = {
   indexNowKey: 'destiny-indexnow-key-2026'
 };
 
-// Route-specific metadata mapping for instant client-side SEO
+const LOCALE_MAP: Record<string, string> = {
+  'en-us': 'en_US',
+  en: 'en_US',
+  'en-gb': 'en_GB',
+  hi: 'hi_IN',
+  bn: 'bn_IN',
+  gu: 'gu_IN',
+  mr: 'mr_IN',
+  pa: 'pa_IN',
+  ta: 'ta_IN',
+  te: 'te_IN',
+  kn: 'kn_IN',
+  ml: 'ml_IN',
+  es: 'es_ES',
+  fr: 'fr_FR',
+  de: 'de_DE',
+  pt: 'pt_PT',
+  ar: 'ar_SA',
+  ja: 'ja_JP'
+};
+
+// Route-specific metadata mapping for client-side SEO
 const ROUTE_SEO: Record<string, { titleEn: string; titleHi: string; descEn: string; descHi: string; ogImage?: string }> = {
   home: {
-    titleEn: 'A Numerologist & Healer · Randhir Singh Ji Jaipur | Decode Your Destiny',
-    titleHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर -- अपनी जन्मतिथि के रहस्यों को जानें',
-    descEn: 'Recognize your life patterns and move forward with clarity. Authentic Vedic Numerology, Watch Therapy, Lo-Shu Grid, Salt Cleansing and Crystal Balancing in Jaipur & Worldwide Online.',
-    descHi: 'अपनी जन्मतिथि को समझें। अपने जीवन के पैटर्न को पहचानें। आत्मविश्वास के साथ आगे बढ़ें। वैदिक अंक ज्योतिष, वॉच थेरेपी, टैरो, प्राणिक हीलिंग, सॉल्ट क्लींजिंग और क्रिस्टल थेरेपी।',
+    titleEn: 'Numerologist & Healer Randhir Singh | Jaipur, India',
+    titleHi: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर',
+    descEn: 'Explore Vedic Numerology, Lo Shu Grid Analysis, Tarot Guidance, Chakra Healing and spiritual wellness services with Randhir Singh in Jaipur, Rajasthan. Online consultations available worldwide.',
+    descHi: 'जयपुर में वैदिक अंक ज्योतिष, लो-शू ग्रिड, रिस्ट वॉच थेरेपी, सॉल्ट क्लींजिंग और क्रिस्टल हीलिंग विशेषज्ञ रणधीर सिंह जी से व्यक्तिगत व ऑनलाइन परामर्श प्राप्त करें।',
     ogImage: '/Randhir Singh.png'
   },
   'dob-calculator': {
-    titleEn: 'DECODE YOUR DATE OF BIRTH · Driver, Conductor & Lo-Shu Grid Calculator | Randhir Singh',
+    titleEn: 'Decode Your Date of Birth · Lucky Number, Destiny Number & Lo-Shu Grid | Randhir Singh',
     titleHi: 'अपनी जन्मतिथि डिकोड करें · मूलांक, भाग्यांक, कुआ नंबर व 3×3 लो-शू व वैदिक ग्रिड कैलकुलेटर',
-    descEn: 'Decode your Date of Birth instantly. Calculate Driver (Mulank), Conductor (Bhagyank), Kua Number, 8 Planes of Destiny, and Authentic Vedic 3×3 Grid with century exclusion.',
+    descEn: 'Calculate your Lucky Number (Birth Number), Destiny Number, Kua Number, and authentic 3x3 Lo-Shu Grid instantly.',
     descHi: 'अपनी जन्मतिथि दर्ज करें और जानें अपना मूलांक, भाग्यांक, कुआ नंबर, 8 भाग्य तल तथा वैदिक अंक कुंडली। जीवन को नई दिशा दें।',
     ogImage: '/Randhir Singh.png'
   },
   'watch-analysis': {
-    titleEn: 'Wristwatch Analysis & Horological Therapy · Victorinox Signature Watch | Randhir Singh',
+    titleEn: 'Wristwatch Analysis & Horological Therapy | Randhir Singh Jaipur',
     titleHi: 'कलाई घड़ी विश्लेषण एवं वॉच थेरेपी · विक्टोरिनॉक्स सिग्नेचर थेरेपी वॉच | रणधीर सिंह',
-    descEn: 'Discover the profound vibrational connection between your wristwatch dial geometry, colors, and planetary energies. Explore the Randhir Singh Signature Victorinox Therapy Watch with consecrated Om mandala.',
-    descHi: 'आपकी कलाई पर बंधी घड़ी आपके अवचेतन मन और भाग्य की दिशा तय करती है। डायल आकार, धातु और रंग का वैदिक विश्लेषण एवं विक्टोरिनॉक्स सिग्नेचर वॉच।',
+    descEn: 'Discover the profound vibrational connection between your wristwatch dial geometry, colors, and planetary energies.',
+    descHi: 'आपकी कलाई पर बंधी घड़ी आपके अवचेतन मन और भाग्य की दिशा तय करती है। डायल आकार, धातु और रंग का वैदिक विश्लेषण।',
     ogImage: '/Luxury Gold Numerology Watch.png'
   },
   'salt-therapy': {
     titleEn: 'Negativity Removal & Traditional Salt Therapy · Sacred Aura Cleansing | Randhir Singh',
     titleHi: 'नकारात्मक ऊर्जा से मुक्ति एवं नमक चिकित्सा (सॉल्ट थेरेपी) | रणधीर सिंह जयपुर',
-    descEn: 'Authentic Himalayan and sea salt cleansing rituals to dissolve heavy energies, evil eye, and chronic stagnation from your aura and living space.',
+    descEn: 'Authentic Himalayan and sea salt cleansing rituals to dissolve heavy energies and stagnation from your aura and living space.',
     descHi: 'सेंधा नमक एवं समुद्री नमक द्वारा सूक्ष्म आभामंडल (Aura) की गहरी शुद्धि एवं घर-परिवार में सकारात्मक ऊर्जा का संचार।',
     ogImage: '/Card-Back.jpg'
   },
   'crystal-therapy': {
     titleEn: 'Vedic Crystal Therapy & Gemstone Healing Vibrations | Randhir Singh Jaipur',
     titleHi: 'क्रिस्टल थेरेपी एवं ऊर्जा चक्र संतुलन | रणधीर सिंह जयपुर',
-    descEn: 'Personalized crystal prescriptions matching your missing Lo-Shu numbers and chakra centers for emotional balance, abundance, and spiritual grounding.',
+    descEn: 'Personalized crystal prescriptions matching your birth chart numbers and chakras for career growth and abundance.',
     descHi: 'अपनी जन्मतिथि एवं मिसिंग नंबर्स के अनुसार सही क्रिस्टल, ब्रेसलेट व रत्नों की पहचान एवं चक्र संतुलन।',
     ogImage: '/Certificate Celebration Ceremony.png'
   },
-  'tariff-about': {
-    titleEn: 'Consultancy & Healing Services Fees | Transparent Tariff | Randhir Singh',
-    titleHi: 'परामर्श एवं हीलिंग सेवा शुल्क (Consultancy & Healing Fees) | रणधीर सिंह जयपुर',
-    descEn: 'Transparent tariff for 1-on-1 personal consultations, wristwatch analysis, and distance pranic healing sessions. Every Sunday first 5 consultations free.',
-    descHi: 'व्यक्तिगत अंक ज्योतिष परामर्श, कलाई घड़ी विश्लेषण व ऊर्जा उपचार हेतु पारदर्शी शुल्क सूची। प्रत्येक रविवार प्रथम 5 परामर्श निःशुल्क।',
+  'all-services': {
+    titleEn: 'ALL 16 DIVINE SERVICES & CONSULTANCY FEES | Randhir Singh Jaipur',
+    titleHi: 'सभी 16 पवित्र सेवाएँ एवं परामर्श फीस | रणधीर सिंह जयपुर',
+    descEn: 'Comprehensive catalog of all 16 divine services, horological watch therapy, Bhojpatra yantras, and transparent consultation fees.',
+    descHi: 'रणधीर सिंह जी की सभी 16 प्रमाणित दिव्य सेवाओं एवं परामर्श फीस का संपूर्ण विवरण। प्रत्येक रविवार प्रथम 5 परामर्श निःशुल्क।',
+    ogImage: '/Certificate Celebration Ceremony.png'
+  },
+  'specialized-services': {
+    titleEn: '11 Specialized Healing & Correction Services | Randhir Singh Jaipur',
+    titleHi: '11 विशिष्ट हीलिंग एवं सुधार सेवाएं | रणधीर सिंह जयपुर',
+    descEn: 'Targeted restorative sessions: Aura Cleaning (₹5,100), Chakra Alignment, Tibetan Sound Healing, and Chaldean Name Corrections.',
+    descHi: 'औरा शुद्धि (₹5,100), 7-दिवसीय चक्र संतुलन, तिब्बती ध्वनि ध्यान, काल्डियन नाम संशोधन व पीएलआर चिकित्सा।',
     ogImage: '/Certificate Celebration Ceremony.png'
   },
   reviews: {
     titleEn: 'Client Reviews & Transformational Stories | Numerologist & Healer Randhir Singh',
     titleHi: 'ग्राहकों के अनुभव एवं जीवन परिवर्तन की कहानियाँ (Client Reviews) | रणधीर सिंह',
-    descEn: 'Verified client reviews and testimonials from across India and worldwide on Vedic Numerology readings, Watch Therapy adjustments, and Pranic Healing.',
+    descEn: 'Verified client reviews and testimonials from across India and worldwide on Vedic Numerology, Watch Therapy, and Energy Healing.',
     descHi: 'जयपुर एवं विश्वभर से आए जातकों के वास्तविक अनुभव, समीक्षाएं एवं सफलता की प्रेरक कहानियाँ।',
     ogImage: '/Randhir Singh.png'
   },
@@ -128,55 +157,63 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
   const [seoConfig, setSeoConfig] = useState<SiteSeoConfig>(DEFAULT_CONFIG);
 
   useEffect(() => {
-    // Fetch latest configured SEO settings from server
     fetch('/api/seo/settings')
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (data) setSeoConfig((prev) => ({ ...prev, ...data }));
       })
-      .catch(() => {
-        // Fallback to defaults
-      });
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
-    const isHi = lang === 'hi';
-    const host = (seoConfig.canonicalHost || 'https://decodeyourdestiny.in').replace(/\/+$/, '');
+    const cleanLang = (lang || 'en-us').toLowerCase().trim();
+    const isRtl = isRtlLanguage(cleanLang);
+    const host = (seoConfig.canonicalHost || 'https://numerologist-randhir-singh.ai.studio').replace(/\/+$/, '');
     const cleanTab = currentTab.toLowerCase().trim().replace(/^pages\//, '').replace(/^#/, '');
 
+    // Set HTML lang and dir attributes
+    document.documentElement.lang = cleanLang;
+    document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+
     // 1. Determine Title & Description
-    let finalTitle = seoConfig.siteTitle;
-    let finalDesc = seoConfig.metaDescription;
+    const t = getTranslation(cleanLang);
+    let finalTitle = DEFAULT_CONFIG.siteTitle;
+    let finalDesc = DEFAULT_CONFIG.metaDescription;
     let ogImg = seoConfig.defaultOgImage || '/Randhir Singh.png';
-    let canonicalUrl = `${host}/`;
     let isNoIndex = false;
 
+    // Build URL subpath
+    let subpath = '';
     if (cleanTab === 'admin') {
-      finalTitle = 'Admin CMS & SEO Portal | Decode Your Destiny';
+      finalTitle = 'Admin CMS & SEO Portal | Numerologist Randhir Singh';
       finalDesc = 'Administrative control panel and technical SEO management.';
-      canonicalUrl = `${host}/admin`;
+      subpath = 'admin';
       isNoIndex = true;
     } else if (cmsPage) {
-      finalTitle = cmsPage.seoTitle || (isHi ? cmsPage.titleHi || cmsPage.title : cmsPage.title) || seoConfig.siteTitle;
-      finalDesc = cmsPage.seoDescription || cmsPage.description || seoConfig.metaDescription;
+      finalTitle = cmsPage.seoTitle || (cleanLang === 'hi' ? cmsPage.titleHi || cmsPage.title : cmsPage.title) || DEFAULT_CONFIG.siteTitle;
+      finalDesc = cmsPage.seoDescription || cmsPage.description || DEFAULT_CONFIG.metaDescription;
       ogImg = cmsPage.ogImage || cmsPage.featuredImage || ogImg;
-      canonicalUrl = cmsPage.canonicalUrl || `${host}/pages/${cmsPage.slug}`;
+      subpath = `pages/${cmsPage.slug}`;
       if (cmsPage.noIndex) isNoIndex = true;
     } else if (ROUTE_SEO[cleanTab]) {
       const r = ROUTE_SEO[cleanTab];
-      finalTitle = isHi ? r.titleHi : r.titleEn;
-      finalDesc = isHi ? r.descHi : r.descEn;
+      finalTitle = cleanLang === 'hi' ? r.titleHi : r.titleEn;
+      finalDesc = cleanLang === 'hi' ? r.descHi : r.descEn;
       if (r.ogImage) ogImg = r.ogImage;
-      canonicalUrl = cleanTab === 'home' ? `${host}/` : `${host}/#${cleanTab}`;
+      subpath = cleanTab === 'home' ? '' : `#${cleanTab}`;
     } else if (pageTitle) {
-      finalTitle = `${pageTitle} | ${seoConfig.siteName}`;
+      finalTitle = `${pageTitle} | Numerologist & Healer Randhir Singh`;
       if (pageDescription) finalDesc = pageDescription;
     }
 
-    // Ensure image has full URL if relative
+    const canonicalUrl = subpath
+      ? `${host}/${cleanLang}/${subpath}`
+      : `${host}/${cleanLang}/`;
+
+    // Ensure full image URL
     const fullOgImage = ogImg.startsWith('http') ? ogImg : `${host}${ogImg.startsWith('/') ? '' : '/'}${ogImg}`;
 
-    // 2. Set Browser Tab Title
+    // 2. Set Document Title
     document.title = finalTitle;
 
     // Helper to safely set or create meta tags
@@ -195,8 +232,9 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
     setMeta('name', 'title', finalTitle);
     setMeta('name', 'robots', isNoIndex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
     setMeta('name', 'author', 'Randhir Singh');
+    setMeta('name', 'keywords', 'Vedic Numerologist India, Numerologist in Jaipur, Numerology Consultation, Lucky Number Analysis, Destiny Number Analysis, Lo Shu Grid Numerology, Name Numerology, Tarot Guidance, Chakra Meditation, Spiritual Wellness, Wristwatch Analysis, Online Numerology Consultation');
 
-    // 4. Set Canonical Link Tag
+    // 4. Set Canonical Link
     let canonicalTag = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonicalTag) {
       canonicalTag = document.createElement('link');
@@ -211,8 +249,8 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
     setMeta('property', 'og:url', canonicalUrl);
     setMeta('property', 'og:image', fullOgImage);
     setMeta('property', 'og:type', 'website');
-    setMeta('property', 'og:site_name', seoConfig.siteName);
-    setMeta('property', 'og:locale', isHi ? 'hi_IN' : 'en_US');
+    setMeta('property', 'og:site_name', 'Numerologist & Healer Randhir Singh');
+    setMeta('property', 'og:locale', LOCALE_MAP[cleanLang] || 'en_US');
 
     // 6. Twitter / X Cards
     setMeta('name', 'twitter:card', 'summary_large_image');
@@ -220,7 +258,23 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
     setMeta('name', 'twitter:description', finalDesc);
     setMeta('name', 'twitter:image', fullOgImage);
 
-    // 7. Search Console & Webmaster Verification Tags
+    // 7. Inject Reciprocal hreflang tags for all 17 languages + x-default
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+    ALL_LANGUAGES.forEach((l) => {
+      const link = document.createElement('link');
+      link.rel = 'alternate';
+      link.hreflang = l.code;
+      link.href = subpath ? `${host}/${l.code}/${subpath}` : `${host}/${l.code}/`;
+      document.head.appendChild(link);
+    });
+    // Add x-default pointing to default master language root
+    const xDefaultLink = document.createElement('link');
+    xDefaultLink.rel = 'alternate';
+    xDefaultLink.hreflang = 'x-default';
+    xDefaultLink.href = subpath ? `${host}/${subpath}` : `${host}/`;
+    document.head.appendChild(xDefaultLink);
+
+    // 8. Search Console & Webmaster Verification
     if (seoConfig.googleVerificationCode) {
       setMeta('name', 'google-site-verification', seoConfig.googleVerificationCode);
     }
@@ -228,7 +282,7 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
       setMeta('name', 'msvalidate.01', seoConfig.bingVerificationCode);
     }
 
-    // 8. Dynamic BreadcrumbList & Page Schema.org Injection
+    // 9. Schema.org JSON-LD Structured Data
     const schemaId = 'dynamic-seo-schema-script';
     let scriptEl = document.getElementById(schemaId) as HTMLScriptElement | null;
     if (!scriptEl) {
@@ -243,18 +297,74 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
         '@type': 'WebSite',
         '@id': `${host}/#website`,
         url: host,
-        name: seoConfig.siteName,
-        description: seoConfig.metaDescription,
-        inLanguage: ['hi', 'en'],
-        publisher: {
-          '@type': 'Organization',
-          name: 'Numerology With Randhir Singh',
-          url: host,
-          logo: {
-            '@type': 'ImageObject',
-            url: `${host}/Randhir%20Singh.png`
-          }
+        name: 'Numerologist & Healer Randhir Singh',
+        description: DEFAULT_CONFIG.metaDescription,
+        inLanguage: ALL_LANGUAGES.map((l) => l.code),
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${host}/#dob-calculator`,
+          'query-input': 'required name=search_term_string'
         }
+      },
+      {
+        '@type': 'Person',
+        '@id': `${host}/#person`,
+        name: 'Randhir Singh',
+        jobTitle: 'Vedic Numerologist & Spiritual Healer',
+        telephone: '+91-9509593150',
+        email: 'randhirjpr@gmail.com',
+        image: `${host}/Randhir%20Singh.png`,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'H.No. 45, Mahadev Nagar, Ramnagaria Road, Jagatpura',
+          addressLocality: 'Jaipur',
+          addressRegion: 'Rajasthan',
+          postalCode: '302017',
+          addressCountry: 'IN'
+        },
+        award: [
+          'Keynote Speaker at 2nd Mega Convocation, Radisson Blu, Jaipur',
+          'Certificate of Excellence in Vedic Numerology',
+          'DDU-GKY Jyotish Skill Certification'
+        ]
+      },
+      {
+        '@type': 'ProfessionalService',
+        '@id': `${host}/#service`,
+        name: 'Numerologist & Healer Randhir Singh Sanctuary',
+        url: host,
+        telephone: '+91-9509593150',
+        email: 'randhirjpr@gmail.com',
+        priceRange: '₹₹',
+        image: `${host}/Randhir%20Singh.png`,
+        description: 'Vedic Numerology, Lo Shu Grid Analysis, Watch Therapy, Salt Cleansing, and Divine Yantras in Jaipur, Rajasthan.',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'H.No. 45, Mahadev Nagar, Ramnagaria Road, Jagatpura',
+          addressLocality: 'Jaipur',
+          addressRegion: 'Rajasthan',
+          postalCode: '302017',
+          addressCountry: 'IN'
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 26.9124,
+          longitude: 75.7873
+        },
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            opens: '09:00',
+            closes: '18:00'
+          },
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Sunday'],
+            opens: '09:00',
+            closes: '14:00'
+          }
+        ]
       },
       {
         '@type': 'BreadcrumbList',
@@ -263,10 +373,10 @@ export const SeoHead: React.FC<SeoHeadProps> = ({
           {
             '@type': 'ListItem',
             position: 1,
-            name: isHi ? 'मुख्य पृष्ठ (Home)' : 'Home',
-            item: `${host}/`
+            name: 'Home',
+            item: `${host}/${cleanLang}/`
           },
-          ...(cleanTab !== 'home'
+          ...(subpath
             ? [
                 {
                   '@type': 'ListItem',

@@ -109,61 +109,82 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Bilingual Base Language Switcher & 24 National/International Languages Bar */}
-        <div className="mb-6 p-3 sm:p-4 bg-white/90 backdrop-blur-md rounded-2xl border border-amber-300/80 shadow-xs">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
-            {/* Base Language Switcher: English & हिन्दी */}
-            <div className="flex items-center flex-wrap gap-2">
+        {/* 17 Languages Selector (Indian & International) */}
+        <div className="mb-6 p-3 sm:p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-amber-300/80 shadow-xs">
+          <div className="flex flex-col gap-2.5">
+            {/* Primary Bases: English US, English UK & हिन्दी */}
+            <div className="flex items-center justify-between flex-wrap gap-2 pb-2 border-b border-amber-100">
               <span className="text-xs font-bold text-amber-950 uppercase tracking-wider flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-amber-600 animate-pulse" />
-                Base Languages:
+                Language / भाषा:
               </span>
-              <div className="inline-flex items-center p-1 bg-amber-50 rounded-xl border border-amber-300">
-                <button
-                  onClick={() => setLang('en')}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                    lang === 'en'
-                      ? 'bg-gradient-to-r from-amber-700 to-amber-900 text-white shadow-xs scale-102'
-                      : 'text-stone-700 hover:text-amber-900 hover:bg-amber-100/60'
-                  }`}
-                >
-                  <span>🇬🇧</span>
-                  <span>English (Primary Base)</span>
-                </button>
-                <button
-                  onClick={() => setLang('hi')}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                    lang === 'hi'
-                      ? 'bg-gradient-to-r from-amber-700 to-amber-900 text-white shadow-xs scale-102'
-                      : 'text-stone-700 hover:text-amber-900 hover:bg-amber-100/60'
-                  }`}
-                >
-                  <span>🇮🇳</span>
-                  <span>हिन्दी (मुख्य आधार)</span>
-                </button>
+              <div className="flex items-center flex-wrap gap-1.5">
+                {[
+                  { code: 'en-us', flag: '🇺🇸', label: 'English (US)' },
+                  { code: 'en-gb', flag: '🇬🇧', label: 'English (UK)' },
+                  { code: 'hi', flag: '🇮🇳', label: 'हिन्दी' }
+                ].map((b) => (
+                  <button
+                    key={b.code}
+                    onClick={() => setLang(b.code)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                      lang === b.code || (b.code === 'en-us' && lang === 'en')
+                        ? 'bg-gradient-to-r from-amber-700 to-amber-900 text-white shadow-xs scale-102 ring-1 ring-amber-600'
+                        : 'bg-stone-50 text-stone-700 hover:text-amber-900 hover:bg-amber-100/60 border border-stone-200'
+                    }`}
+                  >
+                    <span>{b.flag}</span>
+                    <span>{b.label}</span>
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* National & International Language Pills */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 pt-0.5 scrollbar-thin">
-              <span className="text-[11px] font-semibold text-stone-500 shrink-0 hidden sm:inline">
-                National &amp; International:
-              </span>
-              {ALL_LANGUAGES.filter((l) => l.code !== 'en' && l.code !== 'hi').map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => setLang(l.code)}
-                  className={`shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] transition-all font-medium border ${
-                    lang === l.code
-                      ? 'bg-amber-800 text-white font-bold border-amber-800 shadow-2xs'
-                      : 'bg-stone-50 text-stone-700 border-stone-200 hover:bg-amber-50 hover:border-amber-300'
-                  }`}
-                  title={`${l.name} (${l.category === 'national' ? 'National / Indian' : 'International'})`}
-                >
-                  <span>{l.flag}</span>
-                  <span>{l.nativeName}</span>
-                </button>
-              ))}
+            {/* Indian & International Language Collections */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
+              {/* Indian Languages (9) */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-amber-900 shrink-0">
+                  🇮🇳 Indian Languages:
+                </span>
+                {ALL_LANGUAGES.filter((l) => l.category === 'indian' && l.code !== 'hi').map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => setLang(l.code)}
+                    className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] transition-all font-medium border cursor-pointer ${
+                      lang === l.code
+                        ? 'bg-amber-800 text-white font-bold border-amber-800 shadow-2xs'
+                        : 'bg-white text-stone-700 border-stone-200 hover:bg-amber-50 hover:border-amber-300'
+                    }`}
+                    title={l.name}
+                  >
+                    <span>{l.flag}</span>
+                    <span>{l.nativeName}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* International Languages (8) */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-amber-900 shrink-0">
+                  🌐 International:
+                </span>
+                {ALL_LANGUAGES.filter((l) => l.category === 'international' && l.code !== 'en-us' && l.code !== 'en-gb').map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => setLang(l.code)}
+                    className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] transition-all font-medium border cursor-pointer ${
+                      lang === l.code
+                        ? 'bg-amber-800 text-white font-bold border-amber-800 shadow-2xs'
+                        : 'bg-white text-stone-700 border-stone-200 hover:bg-amber-50 hover:border-amber-300'
+                    }`}
+                    title={l.name}
+                  >
+                    <span>{l.flag}</span>
+                    <span>{l.nativeName}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -177,18 +198,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-900 mt-3">
-            {lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'A Numerologist and Healer · Randhir Singh Ji Jaipur'}
+            {t.brandTitle}
           </h2>
         </div>
 
-        {/* Core Hero Headline */}
+        {/* Core Hero Headline - Exact Suggested H1 */}
         <div className="text-center max-w-4xl mx-auto mb-10">
           <h1 className="font-sacred text-3xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-[1.15]">
-            {headline}
+            {t.homepageH1 || headline}
           </h1>
 
           <p className="font-sacred text-base sm:text-xl font-bold text-amber-900 mt-3 tracking-wide">
-            {subHeadline}
+            {t.homepageH2 || subHeadline}
           </p>
 
           <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-4 max-w-3xl mx-auto leading-relaxed">

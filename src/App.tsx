@@ -54,6 +54,7 @@ import {
 } from 'lucide-react';
 import { Language, ServiceItem, NumerologyProfile } from './types';
 import { triggerFullSiteTranslation } from './i18n/translator';
+import { isRtlLanguage, ALL_LANGUAGES } from './i18n/languages';
 
 const DEDICATED_PAGES = [
   'yantra-healings',
@@ -66,44 +67,101 @@ const DEDICATED_PAGES = [
   ...Array.from({ length: 16 }, (_, i) => `service-${i + 1}`)
 ];
 
-function MainAppContent() {
-  const [lang, setLangState] = useState<string>(() => {
-    try {
-      return localStorage.getItem('dyd_lang') || 'en';
-    } catch {
-      return 'en';
+const VALID_LANG_CODES = new Set([
+  'en-us', 'en-gb', 'hi', 'bn', 'gu', 'mr', 'pa', 'ta', 'te', 'kn', 'ml', 'es', 'fr', 'de', 'pt', 'ar', 'ja'
+]);
+
+function parseUrlState() {
+  try {
+    const rawPath = window.location.pathname.toLowerCase().trim();
+    const segments = rawPath.split('/').filter(Boolean);
+    let detectedLang = '';
+    const remainderSegments = [...segments];
+
+    if (segments.length > 0) {
+      const first = segments[0];
+      if (first === 'en') {
+        detectedLang = 'en-us';
+        remainderSegments.shift();
+      } else if (VALID_LANG_CODES.has(first)) {
+        detectedLang = first;
+        remainderSegments.shift();
+      }
     }
-  });
+
+    if (!detectedLang) {
+      detectedLang = localStorage.getItem('dyd_lang') || 'en-us';
+    }
+
+    let tab = 'home';
+    if (remainderSegments.length > 0) {
+      if (remainderSegments[0] === 'admin') {
+        tab = 'admin';
+      } else if (remainderSegments[0] === 'pages' && remainderSegments[1]) {
+        tab = `pages/${remainderSegments[1]}`;
+      } else if (DEDICATED_PAGES.includes(remainderSegments[0])) {
+        tab = remainderSegments[0];
+      }
+    }
+
+    if (tab === 'home') {
+      const rawHash = window.location.hash.replace('#', '').trim().toLowerCase();
+      if (rawHash) tab = rawHash;
+    }
+
+    return { lang: detectedLang, tab };
+  } catch {
+    return { lang: 'en-us', tab: 'home' };
+  }
+}
+
+function MainAppContent() {
+  const initial = parseUrlState();
+  const [lang, setLangState] = useState<string>(initial.lang);
+  const [currentTab, setCurrentTab] = useState<string>(initial.tab);
 
   const setLang = (newLang: string) => {
-    setLangState(newLang);
-    triggerFullSiteTranslation(newLang);
+    let clean = (newLang || 'en-us').toLowerCase().trim();
+    if (clean === 'en') clean = 'en-us';
+    setLangState(clean);
+    try {
+      localStorage.setItem('dyd_lang', clean);
+      document.documentElement.lang = clean;
+      document.documentElement.dir = isRtlLanguage(clean) ? 'rtl' : 'ltr';
+    } catch {
+      // ignore
+    }
+    triggerFullSiteTranslation(clean);
+
+    // Update browser URL path cleanly
+    try {
+      const remainder = currentTab === 'home' 
+        ? '' 
+        : currentTab === 'admin' 
+        ? 'admin' 
+        : currentTab.startsWith('pages/') 
+        ? currentTab 
+        : DEDICATED_PAGES.includes(currentTab) 
+        ? `pages/${currentTab}` 
+        : `#${currentTab}`;
+      const newPath = remainder.startsWith('#') 
+        ? `/${clean}/${remainder}` 
+        : remainder 
+        ? `/${clean}/${remainder}` 
+        : `/${clean}/`;
+      window.history.pushState(null, '', newPath);
+    } catch {
+      // ignore
+    }
   };
 
   React.useEffect(() => {
     document.documentElement.lang = lang;
-    if (lang && lang !== 'en') {
+    document.documentElement.dir = isRtlLanguage(lang) ? 'rtl' : 'ltr';
+    if (lang && lang !== 'en' && lang !== 'en-us') {
       triggerFullSiteTranslation(lang);
     }
   }, [lang]);
-
-  const [currentTab, setCurrentTab] = useState<string>(() => {
-    try {
-      const pathname = window.location.pathname.toLowerCase().trim();
-      if (pathname === '/admin' || pathname === '/admin/') {
-        return 'admin';
-      }
-      if (pathname.startsWith('/pages/')) {
-        const slug = pathname.replace('/pages/', '').replace('/', '');
-        if (slug) return `pages/${slug}`;
-      }
-      const rawHash = window.location.hash.replace('#', '').trim().toLowerCase();
-      if (rawHash) return rawHash;
-    } catch {
-      // ignore
-    }
-    return 'home';
-  });
 
   const { getPageBySlug } = useCmsPages();
   const currentCmsPage = currentTab.startsWith('pages/')
@@ -192,11 +250,13 @@ function MainAppContent() {
 
     // Update browser URL so all links are real working, bookmarkable URLs
     if (updateUrl) {
-      let targetPath = cleanSection === 'home' ? '/' : `#${cleanSection}`;
+      let targetPath = cleanSection === 'home' ? `/${lang}/` : `/${lang}/#${cleanSection}`;
       if (cleanSection === 'admin') {
         targetPath = '/admin';
       } else if (cleanSection.startsWith('pages/')) {
-        targetPath = `/${cleanSection}`;
+        targetPath = `/${lang}/${cleanSection}`;
+      } else if (DEDICATED_PAGES.includes(cleanSection)) {
+        targetPath = `/${lang}/pages/${cleanSection}`;
       }
 
       try {
@@ -244,27 +304,13 @@ function MainAppContent() {
   // Synchronize browser URL on initial page load and on back/forward browser buttons
   React.useEffect(() => {
     const handleUrlChange = () => {
-      // 1. Check pathname
-      const pathname = window.location.pathname.toLowerCase().trim();
-      if (pathname === '/admin' || pathname === '/admin/') {
-        handleNavigate('admin', false);
-        return;
+      const state = parseUrlState();
+      if (state.lang && state.lang !== lang) {
+        setLangState(state.lang);
+        document.documentElement.lang = state.lang;
+        document.documentElement.dir = isRtlLanguage(state.lang) ? 'rtl' : 'ltr';
       }
-      if (pathname.startsWith('/pages/')) {
-        const slug = pathname.replace('/pages/', '').replace('/', '');
-        if (slug) {
-          handleNavigate(`pages/${slug}`, false);
-          return;
-        }
-      }
-
-      // 2. Check hash
-      const rawHash = window.location.hash.replace('#', '').trim().toLowerCase();
-      if (rawHash) {
-        handleNavigate(rawHash, false);
-      } else if (pathname === '/' || pathname === '') {
-        setCurrentTab('home');
-      }
+      handleNavigate(state.tab, false);
     };
 
     // Keyboard shortcut: Ctrl + Shift + A or Cmd + Shift + A to open Admin CMS
@@ -753,6 +799,7 @@ function MainAppContent() {
       {/* Footer with Jaipur address, timings, disclaimer, copyright */}
       <Footer
         lang={lang as Language}
+        setLang={setLang}
         onNavigate={handleNavigate}
         onOpenBooking={() => handleOpenBooking()}
       />
