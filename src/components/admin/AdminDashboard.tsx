@@ -6,7 +6,9 @@ import {
   getAllPages,
   deletePage,
   savePage,
-  getVisitorAnalytics
+  getVisitorAnalytics,
+  addManualVisitors,
+  updateVisitorCounters
 } from '../../lib/cmsService';
 import { PageBuilder } from './PageBuilder';
 import { MediaLibrary } from './MediaLibrary';
@@ -42,7 +44,10 @@ import {
   Monitor,
   BarChart3,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  UserPlus,
+  SlidersHorizontal,
+  X
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -84,6 +89,21 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [showVisitorDetails, setShowVisitorDetails] = useState(false);
   const [refreshingCounter, setRefreshingCounter] = useState(false);
 
+  // Manual Visitor Add / Counter Edit state
+  const [showCounterControl, setShowCounterControl] = useState(false);
+  const [counterControlTab, setCounterControlTab] = useState<'add' | 'edit'>('add');
+  const [manualCount, setManualCount] = useState<number>(1);
+  const [manualNote, setManualNote] = useState('Jaipur Clinic / Offline Consultation');
+  const [manualDevice, setManualDevice] = useState<'Mobile' | 'Desktop' | 'Tablet'>('Mobile');
+  const [manualLang, setManualLang] = useState('hi');
+  const [manualCountAsUnique, setManualCountAsUnique] = useState(true);
+  const [manualIncludeToday, setManualIncludeToday] = useState(true);
+  const [editTotalVisits, setEditTotalVisits] = useState<string>('1005');
+  const [editUniqueVisitors, setEditUniqueVisitors] = useState<string>('4');
+  const [editTodayVisits, setEditTodayVisits] = useState<string>('0');
+  const [counterSaving, setCounterSaving] = useState(false);
+  const [counterFeedback, setCounterFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
   const [pagesList, setPagesList] = useState<CMSPage[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -107,15 +127,76 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     return () => clearInterval(interval);
   }, []);
 
+  const syncEditCounterInputs = (data: VisitorAnalyticsStats) => {
+    setEditTotalVisits(String(data.totalVisits ?? 1005));
+    setEditUniqueVisitors(String(data.uniqueVisitors ?? 0));
+    setEditTodayVisits(String(data.todayVisits ?? 0));
+  };
+
   const refreshVisitorCounterOnly = async () => {
     setRefreshingCounter(true);
     try {
       const analytics = await getVisitorAnalytics();
       setVisitorStats(analytics);
+      if (!showCounterControl) {
+        syncEditCounterInputs(analytics);
+      }
     } catch {
       // silent background refresh error
     } finally {
       setRefreshingCounter(false);
+    }
+  };
+
+  const handleOpenCounterControl = () => {
+    const next = !showCounterControl;
+    setShowCounterControl(next);
+    if (next) {
+      syncEditCounterInputs(visitorStats);
+      setCounterFeedback(null);
+    }
+  };
+
+  const handleAddManualVisitorsSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCounterSaving(true);
+    setCounterFeedback(null);
+    try {
+      const res = await addManualVisitors({
+        count: manualCount,
+        visitorNote: manualNote,
+        device: manualDevice,
+        lang: manualLang,
+        countAsUnique: manualCountAsUnique,
+        includeInToday: manualIncludeToday
+      });
+      setVisitorStats(res.stats);
+      syncEditCounterInputs(res.stats);
+      setCounterFeedback({ type: 'success', message: res.message });
+    } catch (err: any) {
+      setCounterFeedback({ type: 'error', message: err.message || 'विज़िटर जोड़ने में त्रुटि।' });
+    } finally {
+      setCounterSaving(false);
+    }
+  };
+
+  const handleUpdateCountersSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCounterSaving(true);
+    setCounterFeedback(null);
+    try {
+      const res = await updateVisitorCounters({
+        totalVisits: Number(editTotalVisits),
+        uniqueVisitors: Number(editUniqueVisitors),
+        todayVisits: Number(editTodayVisits)
+      });
+      setVisitorStats(res.stats);
+      syncEditCounterInputs(res.stats);
+      setCounterFeedback({ type: 'success', message: res.message });
+    } catch (err: any) {
+      setCounterFeedback({ type: 'error', message: err.message || 'काउंटर अपडेट करने में त्रुटि।' });
+    } finally {
+      setCounterSaving(false);
     }
   };
 
@@ -582,7 +663,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 <div className="text-[10px] text-stone-400">अद्वितीय यूज़र</div>
               </div>
 
-              <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center gap-1.5">
                 <button
                   onClick={refreshVisitorCounterOnly}
                   disabled={refreshingCounter}
@@ -590,6 +671,17 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   title="काउंटर रिफ्रेश करें"
                 >
                   <RefreshCw className={`w-4 h-4 ${refreshingCounter ? 'animate-spin' : ''}`} />
+                </button>
+                <button
+                  onClick={handleOpenCounterControl}
+                  className={`inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer border ${
+                    showCounterControl
+                      ? 'bg-emerald-500 text-stone-950 border-emerald-400 shadow'
+                      : 'bg-emerald-950/70 hover:bg-emerald-900/70 border-emerald-500/40 text-emerald-300'
+                  }`}
+                >
+                  <UserPlus className="w-4 h-4" />
+                  <span>काउंटर अपडेट / विज़िटर जोड़ें</span>
                 </button>
                 <button
                   onClick={() => setShowVisitorDetails((prev) => !prev)}
@@ -602,6 +694,257 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </div>
             </div>
           </div>
+
+          {/* Manual Visitor Add & Direct Counter Update Panel */}
+          {showCounterControl && (
+            <div className="mt-5 pt-5 border-t border-amber-500/30 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCounterControlTab('add');
+                      setCounterFeedback(null);
+                    }}
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
+                      counterControlTab === 'add'
+                        ? 'bg-emerald-500 text-stone-950 shadow'
+                        : 'bg-stone-950 text-stone-300 border border-stone-800 hover:bg-stone-800'
+                    }`}
+                  >
+                    <UserPlus className="w-3.5 h-3.5" />
+                    <span>➕ ऑफ़लाइन / मैन्युअल विज़िटर जोड़ें</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCounterControlTab('edit');
+                      syncEditCounterInputs(visitorStats);
+                      setCounterFeedback(null);
+                    }}
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
+                      counterControlTab === 'edit'
+                        ? 'bg-amber-500 text-stone-950 shadow'
+                        : 'bg-stone-950 text-stone-300 border border-stone-800 hover:bg-stone-800'
+                    }`}
+                  >
+                    <SlidersHorizontal className="w-3.5 h-3.5" />
+                    <span>⚙️ काउंटर संख्या सीधे बदलें (Set Baseline)</span>
+                  </button>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setShowCounterControl(false)}
+                  className="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-400 hover:text-white cursor-pointer"
+                  title="बंद करें"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {counterFeedback && (
+                <div
+                  className={`p-3 rounded-xl border text-xs font-medium flex items-center justify-between gap-2 ${
+                    counterFeedback.type === 'success'
+                      ? 'bg-emerald-950/70 border-emerald-500/40 text-emerald-200'
+                      : 'bg-rose-950/70 border-rose-500/40 text-rose-200'
+                  }`}
+                >
+                  <span>{counterFeedback.message}</span>
+                  <button
+                    type="button"
+                    onClick={() => setCounterFeedback(null)}
+                    className="text-stone-400 hover:text-white cursor-pointer"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              )}
+
+              {counterControlTab === 'add' ? (
+                <form
+                  onSubmit={handleAddManualVisitorsSubmit}
+                  className="bg-stone-950/80 border border-stone-800 rounded-xl p-4 space-y-4 text-xs"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="font-bold text-emerald-300">
+                      क्लिनिक विज़िट, फ़ोन या ऑफ़लाइन परामर्श के विज़िटर सीधे डेटाबेस में जोड़ें:
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      {[1, 5, 10, 25, 50].map((preset) => (
+                        <button
+                          key={preset}
+                          type="button"
+                          onClick={() => setManualCount(preset)}
+                          className={`px-2.5 py-1 rounded-lg font-mono font-bold transition cursor-pointer ${
+                            manualCount === preset
+                              ? 'bg-emerald-500 text-stone-950'
+                              : 'bg-stone-900 text-amber-300 border border-stone-700 hover:bg-stone-800'
+                          }`}
+                        >
+                          +{preset}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                    <div>
+                      <label className="block text-[11px] font-semibold text-stone-400 mb-1">
+                        विज़िटर संख्या (Count) *
+                      </label>
+                      <input
+                        type="number"
+                        min={1}
+                        max={10000}
+                        required
+                        value={manualCount}
+                        onChange={(e) => setManualCount(Math.max(1, Number(e.target.value) || 1))}
+                        className="w-full px-3 py-2 rounded-lg bg-stone-900 border border-stone-700 text-stone-100 font-mono focus:border-emerald-500 outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-semibold text-stone-400 mb-1">
+                        स्रोत / विवरण (Note)
+                      </label>
+                      <input
+                        type="text"
+                        value={manualNote}
+                        onChange={(e) => setManualNote(e.target.value)}
+                        placeholder="Jaipur Clinic Walk-in"
+                        className="w-full px-3 py-2 rounded-lg bg-stone-900 border border-stone-700 text-stone-100 focus:border-emerald-500 outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-semibold text-stone-400 mb-1">
+                        डिवाइस (Device)
+                      </label>
+                      <select
+                        value={manualDevice}
+                        onChange={(e) => setManualDevice(e.target.value as 'Mobile' | 'Desktop' | 'Tablet')}
+                        className="w-full px-3 py-2 rounded-lg bg-stone-900 border border-stone-700 text-stone-100 focus:border-emerald-500 outline-none"
+                      >
+                        <option value="Mobile">Mobile</option>
+                        <option value="Desktop">Desktop</option>
+                        <option value="Tablet">Tablet</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-semibold text-stone-400 mb-1">
+                        भाषा (Language)
+                      </label>
+                      <select
+                        value={manualLang}
+                        onChange={(e) => setManualLang(e.target.value)}
+                        className="w-full px-3 py-2 rounded-lg bg-stone-900 border border-stone-700 text-stone-100 focus:border-emerald-500 outline-none"
+                      >
+                        <option value="hi">Hindi (hi)</option>
+                        <option value="en-us">English US (en-us)</option>
+                        <option value="en-gb">English UK (en-gb)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                    <div className="flex flex-wrap items-center gap-4 text-stone-300">
+                      <label className="inline-flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={manualCountAsUnique}
+                          onChange={(e) => setManualCountAsUnique(e.target.checked)}
+                          className="rounded accent-emerald-500"
+                        />
+                        <span>अद्वितीय यूज़र (Unique Visitors) में जोड़ें</span>
+                      </label>
+                      <label className="inline-flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={manualIncludeToday}
+                          onChange={(e) => setManualIncludeToday(e.target.checked)}
+                          className="rounded accent-emerald-500"
+                        />
+                        <span>आज की विज़िट्स में जोड़ें</span>
+                      </label>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={counterSaving}
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-stone-950 font-extrabold transition cursor-pointer disabled:opacity-50"
+                    >
+                      <Plus className="w-4 h-4" />
+                      <span>{counterSaving ? 'जोड़ रहा है...' : `+${manualCount} डेटाबेस में जोड़ें`}</span>
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <form
+                  onSubmit={handleUpdateCountersSubmit}
+                  className="bg-stone-950/80 border border-stone-800 rounded-xl p-4 space-y-4 text-xs"
+                >
+                  <p className="font-bold text-amber-300">
+                    यहाँ से आप डेटाबेस (`visitor_analytics.json`) के काउंटर नंबर सीधे अपडेट कर सकते हैं (न्यूनतम बेसलाइन 1005):
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                      <label className="block text-[11px] font-semibold text-stone-400 mb-1">
+                        कुल विज़िट्स (Total Visits, min 1005)
+                      </label>
+                      <input
+                        type="number"
+                        min={1005}
+                        required
+                        value={editTotalVisits}
+                        onChange={(e) => setEditTotalVisits(e.target.value)}
+                        className="w-full px-3 py-2 rounded-lg bg-stone-900 border border-stone-700 text-amber-300 font-mono font-bold focus:border-amber-500 outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-semibold text-stone-400 mb-1">
+                        अद्वितीय यूज़र (Unique Visitors)
+                      </label>
+                      <input
+                        type="number"
+                        min={0}
+                        required
+                        value={editUniqueVisitors}
+                        onChange={(e) => setEditUniqueVisitors(e.target.value)}
+                        className="w-full px-3 py-2 rounded-lg bg-stone-900 border border-stone-700 text-emerald-300 font-mono font-bold focus:border-amber-500 outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-semibold text-stone-400 mb-1">
+                        आज की विज़िट्स (Today&apos;s Visits)
+                      </label>
+                      <input
+                        type="number"
+                        min={0}
+                        required
+                        value={editTodayVisits}
+                        onChange={(e) => setEditTodayVisits(e.target.value)}
+                        className="w-full px-3 py-2 rounded-lg bg-stone-900 border border-stone-700 text-blue-300 font-mono font-bold focus:border-amber-500 outline-none"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex justify-end">
+                    <button
+                      type="submit"
+                      disabled={counterSaving}
+                      className="inline-flex items-center gap-1.5 px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-extrabold transition cursor-pointer disabled:opacity-50"
+                    >
+                      <CheckCircle className="w-4 h-4" />
+                      <span>{counterSaving ? 'सेव हो रहा है...' : 'काउंटर अपडेट सेव करें'}</span>
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          )}
 
           {/* Expandable Visitor Analytics Breakdown */}
           {showVisitorDetails && (

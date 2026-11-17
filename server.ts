@@ -1290,7 +1290,7 @@ app.get('/api/analytics/stats', (req: Request, res: Response) => {
     res.json({
       success: true,
       totalVisits: Math.max(1005, data.totalVisits ?? 1005),
-      uniqueVisitors: data.uniqueVisitorsCount || Object.keys(data.uniqueClientIds || {}).length || 0,
+      uniqueVisitors: data.uniqueVisitorsCount ?? Object.keys(data.uniqueClientIds || {}).length,
       todayVisits,
       activeNow: activeCount,
       deviceBreakdown: data.deviceBreakdown || { mobile: 0, desktop: 0, tablet: 0 },
@@ -1346,7 +1346,7 @@ app.post('/api/analytics/heartbeat', (req: Request, res: Response) => {
     res.json({
       success: true,
       totalVisits: Math.max(1005, data.totalVisits ?? 1005),
-      uniqueVisitors: data.uniqueVisitorsCount || Object.keys(data.uniqueClientIds || {}).length || 0,
+      uniqueVisitors: data.uniqueVisitorsCount ?? Object.keys(data.uniqueClientIds || {}).length,
       todayVisits: data.dailyVisits?.[todayStr] ?? 0,
       activeNow: activeCount,
       deviceBreakdown: data.deviceBreakdown || { mobile: 0, desktop: 0, tablet: 0 },
@@ -1399,8 +1399,13 @@ app.post('/api/analytics/track', (req: Request, res: Response) => {
     if (!data.uniqueClientIds) data.uniqueClientIds = {};
     if (!data.uniqueClientIds[safeClientId]) {
       data.uniqueClientIds[safeClientId] = isoNow;
+      data.uniqueVisitorsCount = Math.max(
+        Object.keys(data.uniqueClientIds).length,
+        (data.uniqueVisitorsCount || 0) + 1
+      );
+    } else if (data.uniqueVisitorsCount === undefined) {
+      data.uniqueVisitorsCount = Object.keys(data.uniqueClientIds).length;
     }
-    data.uniqueVisitorsCount = Object.keys(data.uniqueClientIds).length;
 
     if (!data.dailyVisits) data.dailyVisits = {};
     data.dailyVisits[todayStr] = (data.dailyVisits[todayStr] || 0) + 1;
@@ -1443,7 +1448,7 @@ app.post('/api/analytics/track', (req: Request, res: Response) => {
     res.json({
       success: true,
       totalVisits: data.totalVisits,
-      uniqueVisitors: data.uniqueVisitorsCount || Object.keys(data.uniqueClientIds).length,
+      uniqueVisitors: data.uniqueVisitorsCount ?? Object.keys(data.uniqueClientIds).length,
       todayVisits: data.dailyVisits[todayStr] ?? 0,
       activeNow: activeCount,
       deviceBreakdown: data.deviceBreakdown,
@@ -1454,6 +1459,159 @@ app.post('/api/analytics/track', (req: Request, res: Response) => {
   } catch (err: any) {
     console.error('Error tracking visit:', err);
     res.status(500).json({ error: 'Failed to record visit' });
+  }
+});
+
+// POST /api/admin/analytics/add - Admin: manually add offline/walk-in/consultation visitors
+app.post('/api/admin/analytics/add', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const {
+      count = 1,
+      visitorNote = 'Offline / Clinic Consultation',
+      device = 'Mobile',
+      lang = 'hi',
+      countAsUnique = true,
+      includeInToday = true
+    } = req.body || {};
+
+    const safeCount = Math.max(1, Math.min(10000, Math.round(Number(count) || 1)));
+    const safeDevice = device === 'Desktop' ? 'Desktop' : device === 'Tablet' ? 'Tablet' : 'Mobile';
+    const safeLang = (typeof lang === 'string' && lang.trim() ? lang.trim().toLowerCase() : 'hi').slice(0, 16);
+    const safeNote =
+      typeof visitorNote === 'string' && visitorNote.trim()
+        ? visitorNote.trim().slice(0, 80)
+        : 'Admin Manual Entry';
+
+    const data = readJsonFile<any>(visitorAnalyticsFile, {
+      totalVisits: 1005,
+      uniqueVisitorsCount: 4,
+      uniqueClientIds: {},
+      dailyVisits: {},
+      deviceBreakdown: { mobile: 4, desktop: 2, tablet: 0 },
+      languageBreakdown: { hi: 3, 'en-us': 3 },
+      activeSessions: {},
+      recentVisits: []
+    });
+
+    const isoNow = new Date().toISOString();
+    const todayStr = isoNow.split('T')[0];
+
+    data.totalVisits = Math.max(1005, data.totalVisits || 1005) + safeCount;
+
+    if (countAsUnique) {
+      data.uniqueVisitorsCount =
+        (data.uniqueVisitorsCount ?? Object.keys(data.uniqueClientIds || {}).length) + safeCount;
+    }
+
+    if (!data.dailyVisits) data.dailyVisits = {};
+    if (includeInToday) {
+      data.dailyVisits[todayStr] = (data.dailyVisits[todayStr] || 0) + safeCount;
+    }
+
+    if (!data.deviceBreakdown) data.deviceBreakdown = { mobile: 0, desktop: 0, tablet: 0 };
+    if (safeDevice === 'Mobile') data.deviceBreakdown.mobile = (data.deviceBreakdown.mobile || 0) + safeCount;
+    else if (safeDevice === 'Tablet') data.deviceBreakdown.tablet = (data.deviceBreakdown.tablet || 0) + safeCount;
+    else data.deviceBreakdown.desktop = (data.deviceBreakdown.desktop || 0) + safeCount;
+
+    if (!data.languageBreakdown) data.languageBreakdown = {};
+    data.languageBreakdown[safeLang] = (data.languageBreakdown[safeLang] || 0) + safeCount;
+
+    if (!Array.isArray(data.recentVisits)) data.recentVisits = [];
+    data.recentVisits.unshift({
+      id: `v_manual_${Date.now()}`,
+      timestamp: isoNow,
+      path: `/manual (+${safeCount}) · ${safeNote}`,
+      device: safeDevice,
+      lang: safeLang,
+      referrer: 'Admin Panel'
+    });
+    if (data.recentVisits.length > 30) {
+      data.recentVisits = data.recentVisits.slice(0, 30);
+    }
+
+    writeJsonFile(visitorAnalyticsFile, data);
+
+    const now = Date.now();
+    const activeThreshold = now - 10 * 60 * 1000;
+    const activeCount = Object.entries(data.activeSessions || {}).filter(
+      ([, ts]) => typeof ts === 'number' && ts > activeThreshold
+    ).length;
+
+    res.json({
+      success: true,
+      message: `डेटाबेस में +${safeCount} विज़िटर सफलतापूर्वक जोड़े गए (कुल विज़िट्स: ${data.totalVisits})।`,
+      stats: {
+        totalVisits: data.totalVisits,
+        uniqueVisitors: data.uniqueVisitorsCount ?? Object.keys(data.uniqueClientIds || {}).length,
+        todayVisits: data.dailyVisits[todayStr] ?? 0,
+        activeNow: activeCount,
+        deviceBreakdown: data.deviceBreakdown,
+        languageBreakdown: data.languageBreakdown,
+        lastVisitAt: isoNow,
+        recentVisits: data.recentVisits.slice(0, 15)
+      }
+    });
+  } catch (err: any) {
+    console.error('Error adding manual visitors:', err);
+    res.status(500).json({ error: 'मैन्युअल विज़िटर जोड़ने में त्रुटि।' });
+  }
+});
+
+// PATCH /api/admin/analytics/update - Admin: directly edit counter values
+app.patch('/api/admin/analytics/update', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const { totalVisits, uniqueVisitors, todayVisits } = req.body || {};
+
+    const data = readJsonFile<any>(visitorAnalyticsFile, {
+      totalVisits: 1005,
+      uniqueVisitorsCount: 4,
+      uniqueClientIds: {},
+      dailyVisits: {},
+      deviceBreakdown: { mobile: 4, desktop: 2, tablet: 0 },
+      languageBreakdown: { hi: 3, 'en-us': 3 },
+      activeSessions: {},
+      recentVisits: []
+    });
+
+    const isoNow = new Date().toISOString();
+    const todayStr = isoNow.split('T')[0];
+
+    if (totalVisits !== undefined && totalVisits !== null && !Number.isNaN(Number(totalVisits))) {
+      data.totalVisits = Math.max(1005, Math.round(Number(totalVisits)));
+    }
+    if (uniqueVisitors !== undefined && uniqueVisitors !== null && !Number.isNaN(Number(uniqueVisitors))) {
+      data.uniqueVisitorsCount = Math.max(0, Math.round(Number(uniqueVisitors)));
+    }
+    if (todayVisits !== undefined && todayVisits !== null && !Number.isNaN(Number(todayVisits))) {
+      if (!data.dailyVisits) data.dailyVisits = {};
+      data.dailyVisits[todayStr] = Math.max(0, Math.round(Number(todayVisits)));
+    }
+
+    writeJsonFile(visitorAnalyticsFile, data);
+
+    const now = Date.now();
+    const activeThreshold = now - 10 * 60 * 1000;
+    const activeCount = Object.entries(data.activeSessions || {}).filter(
+      ([, ts]) => typeof ts === 'number' && ts > activeThreshold
+    ).length;
+
+    res.json({
+      success: true,
+      message: `काउंटर डेटाबेस में अपडेट किया गया (कुल विज़िट्स: ${data.totalVisits})।`,
+      stats: {
+        totalVisits: Math.max(1005, data.totalVisits ?? 1005),
+        uniqueVisitors: data.uniqueVisitorsCount ?? Object.keys(data.uniqueClientIds || {}).length,
+        todayVisits: data.dailyVisits?.[todayStr] ?? 0,
+        activeNow: activeCount,
+        deviceBreakdown: data.deviceBreakdown || { mobile: 0, desktop: 0, tablet: 0 },
+        languageBreakdown: data.languageBreakdown || {},
+        lastVisitAt: data.recentVisits?.[0]?.timestamp || isoNow,
+        recentVisits: (data.recentVisits || []).slice(0, 15)
+      }
+    });
+  } catch (err: any) {
+    console.error('Error updating visitor counters:', err);
+    res.status(500).json({ error: 'काउंटर अपडेट करने में त्रुटि।' });
   }
 });
 

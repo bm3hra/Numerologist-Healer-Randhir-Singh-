@@ -131,6 +131,43 @@ export async function getVisitorAnalytics(): Promise<VisitorAnalyticsStats> {
   return res.json();
 }
 
+export async function addManualVisitors(payload: {
+  count: number;
+  visitorNote?: string;
+  device?: 'Mobile' | 'Desktop' | 'Tablet';
+  lang?: string;
+  countAsUnique?: boolean;
+  includeInToday?: boolean;
+}): Promise<{ success: boolean; message: string; stats: VisitorAnalyticsStats }> {
+  const res = await fetch('/api/admin/analytics/add', {
+    method: 'POST',
+    headers: getAuthHeaders(),
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.error || 'मैन्युअल विज़िटर जोड़ने में त्रुटि।');
+  }
+  return data;
+}
+
+export async function updateVisitorCounters(payload: {
+  totalVisits?: number;
+  uniqueVisitors?: number;
+  todayVisits?: number;
+}): Promise<{ success: boolean; message: string; stats: VisitorAnalyticsStats }> {
+  const res = await fetch('/api/admin/analytics/update', {
+    method: 'PATCH',
+    headers: getAuthHeaders(),
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.error || 'काउंटर अपडेट करने में त्रुटि।');
+  }
+  return data;
+}
+
 // Settings & Password Change
 export async function changeAdminPassword(payload: {
   currentPassword?: string;
