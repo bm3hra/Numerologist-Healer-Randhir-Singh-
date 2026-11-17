@@ -1082,7 +1082,7 @@ app.get('/api/seo/settings', (req: Request, res: Response) => {
 app.get('/api/analytics/stats', (req: Request, res: Response) => {
   try {
     const data = readJsonFile<any>(visitorAnalyticsFile, {
-      totalVisits: 6,
+      totalVisits: 1005,
       uniqueVisitorsCount: 4,
       uniqueClientIds: {},
       dailyVisits: {},
@@ -1094,37 +1094,84 @@ app.get('/api/analytics/stats', (req: Request, res: Response) => {
 
     const now = Date.now();
     const activeThreshold = now - 10 * 60 * 1000;
-    const activeCount = Math.max(
-      1,
-      Object.values(data.activeSessions || {}).filter((ts: any) => typeof ts === 'number' && ts > activeThreshold).length
+    const activeEntries = Object.entries(data.activeSessions || {}).filter(
+      ([, ts]) => typeof ts === 'number' && ts > activeThreshold
     );
+    const activeCount = activeEntries.length;
 
     const todayStr = new Date().toISOString().split('T')[0];
-    const todayVisits = data.dailyVisits?.[todayStr] || 0;
+    const todayVisits = data.dailyVisits?.[todayStr] ?? 0;
 
     res.json({
       success: true,
-      totalVisits: data.totalVisits || 6,
-      uniqueVisitors: data.uniqueVisitorsCount || Object.keys(data.uniqueClientIds || {}).length || 4,
-      todayVisits: todayVisits || data.totalVisits || 6,
+      totalVisits: Math.max(1005, data.totalVisits ?? 1005),
+      uniqueVisitors: data.uniqueVisitorsCount || Object.keys(data.uniqueClientIds || {}).length || 0,
+      todayVisits,
       activeNow: activeCount,
-      deviceBreakdown: data.deviceBreakdown || { mobile: 4, desktop: 2, tablet: 0 },
+      deviceBreakdown: data.deviceBreakdown || { mobile: 0, desktop: 0, tablet: 0 },
       languageBreakdown: data.languageBreakdown || {},
       lastVisitAt: data.recentVisits?.[0]?.timestamp || new Date().toISOString(),
-      recentVisits: (data.recentVisits || []).slice(0, 10)
+      recentVisits: (data.recentVisits || []).slice(0, 15)
     });
   } catch (err: any) {
     console.error('Error fetching visitor stats:', err);
-    res.json({
-      success: true,
-      totalVisits: 6,
-      uniqueVisitors: 4,
-      todayVisits: 6,
-      activeNow: 1,
+    res.status(500).json({ error: 'Failed to fetch visitor statistics' });
+  }
+});
+
+// POST /api/analytics/heartbeat - Keep active visitor session alive without incrementing totalVisits
+app.post('/api/analytics/heartbeat', (req: Request, res: Response) => {
+  try {
+    const { clientId } = req.body || {};
+    const safeClientId = typeof clientId === 'string' && clientId.trim() ? clientId.trim().slice(0, 80) : '';
+
+    const data = readJsonFile<any>(visitorAnalyticsFile, {
+      totalVisits: 1005,
+      uniqueVisitorsCount: 4,
+      uniqueClientIds: {},
+      dailyVisits: {},
       deviceBreakdown: { mobile: 4, desktop: 2, tablet: 0 },
       languageBreakdown: { hi: 3, 'en-us': 3 },
+      activeSessions: {},
       recentVisits: []
     });
+
+    const now = Date.now();
+    if (!data.activeSessions) data.activeSessions = {};
+    if (safeClientId) {
+      data.activeSessions[safeClientId] = now;
+    }
+
+    const cleanupThreshold = now - 10 * 60 * 1000;
+    let changed = Boolean(safeClientId);
+    for (const [id, ts] of Object.entries(data.activeSessions)) {
+      if (typeof ts !== 'number' || ts < cleanupThreshold) {
+        delete data.activeSessions[id];
+        changed = true;
+      }
+    }
+
+    if (changed) {
+      writeJsonFile(visitorAnalyticsFile, data);
+    }
+
+    const activeCount = Object.keys(data.activeSessions).length;
+    const todayStr = new Date().toISOString().split('T')[0];
+
+    res.json({
+      success: true,
+      totalVisits: Math.max(1005, data.totalVisits ?? 1005),
+      uniqueVisitors: data.uniqueVisitorsCount || Object.keys(data.uniqueClientIds || {}).length || 0,
+      todayVisits: data.dailyVisits?.[todayStr] ?? 0,
+      activeNow: activeCount,
+      deviceBreakdown: data.deviceBreakdown || { mobile: 0, desktop: 0, tablet: 0 },
+      languageBreakdown: data.languageBreakdown || {},
+      lastVisitAt: data.recentVisits?.[0]?.timestamp || new Date().toISOString(),
+      recentVisits: (data.recentVisits || []).slice(0, 15)
+    });
+  } catch (err: any) {
+    console.error('Error processing heartbeat:', err);
+    res.status(500).json({ error: 'Failed to process heartbeat' });
   }
 });
 
@@ -1132,13 +1179,23 @@ app.get('/api/analytics/stats', (req: Request, res: Response) => {
 app.post('/api/analytics/track', (req: Request, res: Response) => {
   try {
     const { clientId, path: visitPath, lang: visitLang, device, referrer } = req.body || {};
-    const safeClientId = (clientId || `anon_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`).trim();
-    const safePath = (visitPath || '/').trim();
-    const safeLang = (visitLang || 'hi').trim();
+    const safeClientId = (clientId || `anon_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`).trim().slice(0, 80);
+    const safePath = (visitPath || '/').trim().slice(0, 200);
+    const safeLang = (visitLang || 'en-us').toLowerCase().trim().slice(0, 16);
     const safeDevice = device === 'Mobile' ? 'Mobile' : device === 'Tablet' ? 'Tablet' : 'Desktop';
 
+    let safeReferrer = 'Direct';
+    if (typeof referrer === 'string' && referrer.trim() && referrer.trim() !== 'Direct') {
+      try {
+        const parsedRef = new URL(referrer.trim());
+        safeReferrer = parsedRef.hostname || 'Direct';
+      } catch {
+        safeReferrer = referrer.trim().slice(0, 60);
+      }
+    }
+
     const data = readJsonFile<any>(visitorAnalyticsFile, {
-      totalVisits: 6,
+      totalVisits: 1005,
       uniqueVisitorsCount: 4,
       uniqueClientIds: {},
       dailyVisits: {},
@@ -1152,7 +1209,7 @@ app.post('/api/analytics/track', (req: Request, res: Response) => {
     const isoNow = new Date().toISOString();
     const todayStr = isoNow.split('T')[0];
 
-    data.totalVisits = (data.totalVisits || 0) + 1;
+    data.totalVisits = Math.max(1005, data.totalVisits || 1005) + 1;
 
     if (!data.uniqueClientIds) data.uniqueClientIds = {};
     if (!data.uniqueClientIds[safeClientId]) {
@@ -1174,9 +1231,9 @@ app.post('/api/analytics/track', (req: Request, res: Response) => {
     if (!data.activeSessions) data.activeSessions = {};
     data.activeSessions[safeClientId] = now;
 
-    const cleanupThreshold = now - 15 * 60 * 1000;
+    const cleanupThreshold = now - 10 * 60 * 1000;
     for (const [id, ts] of Object.entries(data.activeSessions)) {
-      if (typeof ts === 'number' && ts < cleanupThreshold) {
+      if (typeof ts !== 'number' || ts < cleanupThreshold) {
         delete data.activeSessions[id];
       }
     }
@@ -1188,7 +1245,7 @@ app.post('/api/analytics/track', (req: Request, res: Response) => {
       path: safePath,
       device: safeDevice,
       lang: safeLang,
-      referrer: referrer || 'Direct'
+      referrer: safeReferrer
     });
     if (data.recentVisits.length > 30) {
       data.recentVisits = data.recentVisits.slice(0, 30);
@@ -1196,22 +1253,18 @@ app.post('/api/analytics/track', (req: Request, res: Response) => {
 
     writeJsonFile(visitorAnalyticsFile, data);
 
-    const activeThreshold = now - 10 * 60 * 1000;
-    const activeCount = Math.max(
-      1,
-      Object.values(data.activeSessions).filter((ts: any) => typeof ts === 'number' && ts > activeThreshold).length
-    );
+    const activeCount = Object.keys(data.activeSessions).length;
 
     res.json({
       success: true,
       totalVisits: data.totalVisits,
       uniqueVisitors: data.uniqueVisitorsCount || Object.keys(data.uniqueClientIds).length,
-      todayVisits: data.dailyVisits[todayStr],
+      todayVisits: data.dailyVisits[todayStr] ?? 0,
       activeNow: activeCount,
       deviceBreakdown: data.deviceBreakdown,
       languageBreakdown: data.languageBreakdown,
       lastVisitAt: isoNow,
-      recentVisits: data.recentVisits.slice(0, 10)
+      recentVisits: data.recentVisits.slice(0, 15)
     });
   } catch (err: any) {
     console.error('Error tracking visit:', err);

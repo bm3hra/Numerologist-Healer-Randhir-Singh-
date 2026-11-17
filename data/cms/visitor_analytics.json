@@ -1,5 +1,5 @@
 {
-  "totalVisits": 6,
+  "totalVisits": 1005,
   "uniqueVisitorsCount": 4,
   "uniqueClientIds": {
     "usr_init_1": "2026-11-06T00:10:00.000Z",
@@ -11,26 +11,18 @@
     "2026-11-06": 6
   },
   "deviceBreakdown": {
-    "mobile": 5,
+    "mobile": 4,
     "desktop": 2,
     "tablet": 0
   },
   "languageBreakdown": {
-    "hi": 4,
+    "hi": 3,
     "en-us": 3
   },
   "activeSessions": {
-    "test_seeker_9": 1793962581477
+    "usr_1793962653249_w7cy1m": 1794892342801
   },
   "recentVisits": [
-    {
-      "id": "v_1793962581477",
-      "timestamp": "2026-11-06T10:56:21.477Z",
-      "path": "/",
-      "device": "Mobile",
-      "lang": "hi",
-      "referrer": "Direct"
-    },
     {
       "id": "v_6",
       "timestamp": "2026-11-06T02:48:30.000Z",

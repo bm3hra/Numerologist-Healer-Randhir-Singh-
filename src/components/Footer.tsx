@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Compass,
   Phone,
@@ -21,7 +21,8 @@ import {
   Eye,
   X,
   CheckCircle2,
-  ChevronRight
+  ChevronRight,
+  RefreshCw
 } from 'lucide-react';
 import { Language } from '../types';
 import { getTranslation, ALL_LANGUAGES } from '../i18n/languages';
@@ -51,6 +52,22 @@ export interface ActualVisitorStats {
   }>;
 }
 
+// Module-level guard so SPA re-mounts (e.g. returning from /admin or switching language) do not inflate page visit count
+let hasTrackedCurrentPageLoad = false;
+
+function getOrCreateClientId(): string {
+  try {
+    let clientId = localStorage.getItem('dyd_analytics_client_id') || '';
+    if (!clientId) {
+      clientId = 'usr_' + Date.now() + '_' + Math.random().toString(36).substring(2, 8);
+      localStorage.setItem('dyd_analytics_client_id', clientId);
+    }
+    return clientId;
+  } catch {
+    return 'usr_guest';
+  }
+}
+
 export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpenBooking }) => {
   const t = getTranslation(lang);
   const currentLangCode = (lang || 'en-us').toLowerCase();
@@ -60,9 +77,9 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
 
   // Actual Server-Persisted Visitor Analytics
   const [stats, setStats] = useState<ActualVisitorStats>({
-    totalVisits: 6,
+    totalVisits: 1005,
     uniqueVisitors: 4,
-    todayVisits: 6,
+    todayVisits: 0,
     activeNow: 1,
     deviceBreakdown: { mobile: 4, desktop: 2, tablet: 0 },
     languageBreakdown: { hi: 3, 'en-us': 3 },
@@ -72,68 +89,22 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
   const [showAnalyticsModal, setShowAnalyticsModal] = useState<boolean>(false);
   const [isLoadingStats, setIsLoadingStats] = useState<boolean>(false);
 
-  useEffect(() => {
-    // 1. Get or create persistent anonymous client ID
-    let clientId = '';
+  const refreshLiveStats = useCallback(async () => {
     try {
-      clientId = localStorage.getItem('dyd_analytics_client_id') || '';
-      if (!clientId) {
-        clientId = 'usr_' + Date.now() + '_' + Math.random().toString(36).substring(2, 8);
-        localStorage.setItem('dyd_analytics_client_id', clientId);
+      setIsLoadingStats(true);
+      const clientId = getOrCreateClientId();
+      const res = await fetch('/api/analytics/heartbeat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ clientId })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data && typeof data.totalVisits === 'number') {
+          setStats(data);
+        }
       }
     } catch {
-      clientId = 'usr_guest';
-    }
-
-    // 2. Detect actual client device
-    const userAgent = typeof navigator !== 'undefined' ? navigator.userAgent || '' : '';
-    const isMobile = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-    const isTablet = /iPad|Tablet/i.test(userAgent);
-    const deviceType = isMobile ? 'Mobile' : isTablet ? 'Tablet' : 'Desktop';
-
-    // 3. Send actual tracking request to server
-    const trackVisit = async () => {
-      try {
-        setIsLoadingStats(true);
-        const res = await fetch('/api/analytics/track', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            clientId,
-            path: typeof window !== 'undefined' ? window.location.pathname || '/' : '/',
-            lang,
-            device: deviceType,
-            referrer: typeof document !== 'undefined' ? document.referrer || 'Direct' : 'Direct'
-          })
-        });
-        if (res.ok) {
-          const data = await res.json();
-          if (data && typeof data.totalVisits === 'number') {
-            setStats(data);
-          }
-        }
-      } catch (err) {
-        // Fallback to fetch current stats
-        try {
-          const res = await fetch('/api/analytics/stats');
-          if (res.ok) {
-            const data = await res.json();
-            if (data && typeof data.totalVisits === 'number') {
-              setStats(data);
-            }
-          }
-        } catch {
-          // ignore
-        }
-      } finally {
-        setIsLoadingStats(false);
-      }
-    };
-
-    trackVisit();
-
-    // 4. Poll stats every 25 seconds for live active sessions
-    const interval = setInterval(async () => {
       try {
         const res = await fetch('/api/analytics/stats');
         if (res.ok) {
@@ -145,10 +116,62 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
       } catch {
         // ignore
       }
+    } finally {
+      setIsLoadingStats(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const clientId = getOrCreateClientId();
+
+    const userAgent = typeof navigator !== 'undefined' ? navigator.userAgent || '' : '';
+    const isMobile = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+    const isTablet = /iPad|Tablet/i.test(userAgent);
+    const deviceType = isMobile ? 'Mobile' : isTablet ? 'Tablet' : 'Desktop';
+
+    const initTracking = async () => {
+      if (hasTrackedCurrentPageLoad) {
+        await refreshLiveStats();
+        return;
+      }
+      hasTrackedCurrentPageLoad = true;
+      try {
+        setIsLoadingStats(true);
+        const res = await fetch('/api/analytics/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            clientId,
+            path: typeof window !== 'undefined' ? `${window.location.pathname || '/'}${window.location.hash || ''}` : '/',
+            lang: currentLangCode,
+            device: deviceType,
+            referrer: typeof document !== 'undefined' ? document.referrer || 'Direct' : 'Direct'
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data && typeof data.totalVisits === 'number') {
+            setStats(data);
+          }
+        } else {
+          await refreshLiveStats();
+        }
+      } catch {
+        await refreshLiveStats();
+      } finally {
+        setIsLoadingStats(false);
+      }
+    };
+
+    initTracking();
+
+    // Poll heartbeat every 25 seconds to keep active session & counts synced live
+    const interval = setInterval(() => {
+      refreshLiveStats();
     }, 25000);
 
     return () => clearInterval(interval);
-  }, [lang]);
+  }, [refreshLiveStats]);
 
   return (
     <footer className="bg-stone-950 text-stone-300 border-t-2 border-amber-500/70 pt-12 pb-8">
@@ -494,7 +517,10 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
                 </p>
                 <div className="pt-1">
                   <button
-                    onClick={() => setShowAnalyticsModal(true)}
+                    onClick={() => {
+                      setShowAnalyticsModal(true);
+                      refreshLiveStats();
+                    }}
                     className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-bold underline underline-offset-4 cursor-pointer transition-colors"
                   >
                     <BarChart3 className="w-3.5 h-3.5 text-amber-400" />
@@ -515,15 +541,19 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
                       {index === 1 || index === 4 ? (
                         <span className="text-amber-500 font-bold text-base px-0.5 select-none">,</span>
                       ) : null}
-                      <span className="inline-flex items-center justify-center w-7 h-9 sm:w-8 sm:h-10 bg-gradient-to-b from-stone-850 to-stone-950 text-amber-300 font-mono text-lg sm:text-xl font-black rounded border border-amber-600/50 shadow-inner select-none">
+                      <span className="inline-flex items-center justify-center w-7 h-9 sm:w-8 sm:h-10 bg-gradient-to-b from-stone-800 to-stone-950 text-amber-300 font-mono text-lg sm:text-xl font-black rounded border border-amber-600/50 shadow-inner select-none">
                         {digit}
                       </span>
                     </React.Fragment>
                   ))}
                 </div>
                 <div className="text-[10px] text-stone-500 font-mono flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  <span>Server-Synced Real-Time · Active Since 2024</span>
+                  <span className={`w-1.5 h-1.5 rounded-full ${isLoadingStats ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
+                  <span>
+                    {isLoadingStats
+                      ? (lang === 'hi' ? 'सिंक हो रहा है...' : 'Syncing live data...')
+                      : 'Server-Synced Real-Time · Active Since 2024'}
+                  </span>
                 </div>
               </div>
 
@@ -575,12 +605,23 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
                     </p>
                   </div>
                 </div>
-                <button
-                  onClick={() => setShowAnalyticsModal(false)}
-                  className="p-1 rounded-lg text-stone-400 hover:text-white hover:bg-stone-800 transition cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={refreshLiveStats}
+                    disabled={isLoadingStats}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-800 hover:bg-stone-700 text-amber-300 text-[11px] font-medium border border-stone-700 transition cursor-pointer disabled:opacity-50"
+                    title={lang === 'hi' ? 'लाइव डेटा रीफ़्रेश करें' : 'Refresh Live Data'}
+                  >
+                    <RefreshCw className={`w-3.5 h-3.5 ${isLoadingStats ? 'animate-spin' : ''}`} />
+                    <span className="hidden sm:inline">{lang === 'hi' ? 'रीफ़्रेश' : 'Refresh'}</span>
+                  </button>
+                  <button
+                    onClick={() => setShowAnalyticsModal(false)}
+                    className="p-1 rounded-lg text-stone-400 hover:text-white hover:bg-stone-800 transition cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
               {/* Modal Content */}
@@ -634,6 +675,29 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
                   </div>
                 </div>
 
+                {/* Language Breakdown */}
+                {stats.languageBreakdown && Object.keys(stats.languageBreakdown).length > 0 && (
+                  <div className="bg-stone-950/60 border border-stone-800 rounded-xl p-4">
+                    <h4 className="font-bold text-amber-300 text-xs uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                      <Globe className="w-3.5 h-3.5 text-amber-400" />
+                      <span>{lang === 'hi' ? 'भाषा अनुसार विज़िटर (Language Breakdown)' : 'Language Breakdown'}</span>
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {Object.entries(stats.languageBreakdown)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([langKey, count]) => (
+                          <div
+                            key={langKey}
+                            className="inline-flex items-center gap-2 bg-stone-900 border border-stone-800 px-3 py-1.5 rounded-lg"
+                          >
+                            <span className="uppercase font-mono text-[11px] text-amber-300 font-bold">{langKey}</span>
+                            <span className="text-xs font-bold text-white">{count}</span>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Recent Visits Log */}
                 <div className="bg-stone-950/60 border border-stone-800 rounded-xl p-4">
                   <h4 className="font-bold text-amber-300 text-xs uppercase tracking-wider mb-2 flex items-center justify-between">
@@ -656,15 +720,25 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
                             ) : (
                               <Monitor className="w-3.5 h-3.5 text-blue-400 shrink-0" />
                             )}
-                            <span className="font-mono text-stone-300 truncate max-w-[140px] sm:max-w-[200px]">
+                            <span className="font-mono text-stone-300 truncate max-w-[110px] sm:max-w-[170px]">
                               {v.path}
                             </span>
-                            <span className="text-[9px] uppercase px-1.5 py-0.5 bg-stone-800 rounded text-stone-400">
+                            <span className="text-[9px] uppercase px-1.5 py-0.5 bg-stone-800 rounded text-stone-400 shrink-0">
                               {v.lang}
                             </span>
+                            {v.referrer && (
+                              <span className="hidden xs:inline text-[9px] px-1.5 py-0.5 bg-stone-800/70 rounded text-amber-300/80 truncate max-w-[90px]">
+                                {v.referrer}
+                              </span>
+                            )}
                           </div>
                           <div className="text-right shrink-0 text-stone-400 font-mono text-[10px]">
-                            {new Date(v.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+                            {new Date(v.timestamp).toLocaleString([], {
+                              month: 'short',
+                              day: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })}
                           </div>
                         </div>
                       ))}
@@ -677,7 +751,10 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
               <div className="p-3 bg-stone-950 border-t border-stone-800 flex items-center justify-between text-[11px] text-stone-400">
                 <span className="flex items-center gap-1 text-emerald-400">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Real-time persistence active</span>
+                  <span>
+                    Real-time persistence active · Last hit{' '}
+                    {stats.lastVisitAt ? new Date(stats.lastVisitAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'just now'}
+                  </span>
                 </span>
                 <button
                   onClick={() => setShowAnalyticsModal(false)}
