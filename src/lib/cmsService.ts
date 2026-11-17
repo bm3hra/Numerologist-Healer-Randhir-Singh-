@@ -1,4 +1,4 @@
-import { CMSPage, CMSMediaItem } from '../types';
+import { CMSPage, CMSMediaItem, ReviewItem, VisitorAnalyticsStats } from '../types';
 
 const ADMIN_TOKEN_KEY = 'dyd_admin_token';
 const ADMIN_EMAIL_KEY = 'dyd_admin_email';
@@ -104,12 +104,29 @@ export async function getAdminStats(): Promise<{
   totalMedia: number;
   totalImages: number;
   totalVideos: number;
+  pendingReviews?: number;
+  approvedReviews?: number;
+  rejectedReviews?: number;
+  totalReviews?: number;
+  totalVisits?: number;
+  uniqueVisitors?: number;
+  todayVisits?: number;
+  activeNow?: number;
   diskUsage?: { bytes: number; formatted: string };
   recentPages: CMSPage[];
 }> {
   const res = await fetch('/api/admin/stats', { headers: getAuthHeaders() });
   if (!res.ok) {
     throw new Error('Failed to load dashboard statistics');
+  }
+  return res.json();
+}
+
+// Live Visitor Analytics Stats
+export async function getVisitorAnalytics(): Promise<VisitorAnalyticsStats> {
+  const res = await fetch('/api/analytics/stats');
+  if (!res.ok) {
+    throw new Error('Failed to fetch live visitor analytics');
   }
   return res.json();
 }
@@ -247,3 +264,80 @@ export async function deleteMediaItem(id: string): Promise<void> {
     throw new Error(data.error || 'Failed to delete media asset');
   }
 }
+
+// 7. Client Reviews & Moderation (Admin Panel)
+export async function getAdminReviews(): Promise<{
+  reviews: ReviewItem[];
+  counts: { total: number; pending: number; approved: number; rejected: number };
+}> {
+  const res = await fetch('/api/admin/reviews', { headers: getAuthHeaders() });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error || 'समीक्षाएं प्राप्त करने में त्रुटि।');
+  }
+  return res.json();
+}
+
+export async function updateReviewStatus(
+  id: string,
+  status: 'approved' | 'rejected' | 'pending'
+): Promise<{ success: boolean; message: string; review: ReviewItem }> {
+  const res = await fetch(`/api/admin/reviews/${encodeURIComponent(id)}/status`, {
+    method: 'PATCH',
+    headers: getAuthHeaders(),
+    body: JSON.stringify({ status })
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.error || 'समीक्षा स्थिति अपडेट करने में त्रुटि।');
+  }
+  return data;
+}
+
+export async function updateAdminReview(
+  id: string,
+  payload: Partial<Pick<ReviewItem, 'name' | 'city' | 'serviceName' | 'rating' | 'reviewText'>>
+): Promise<{ success: boolean; message: string; review: ReviewItem }> {
+  const res = await fetch(`/api/admin/reviews/${encodeURIComponent(id)}`, {
+    method: 'PATCH',
+    headers: getAuthHeaders(),
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.error || 'समीक्षा संपादित करने में त्रुटि।');
+  }
+  return data;
+}
+
+export async function createAdminReview(payload: {
+  name: string;
+  city?: string;
+  serviceName: string;
+  rating: number;
+  reviewText: string;
+  status?: 'approved' | 'pending' | 'rejected';
+}): Promise<{ success: boolean; message: string; review: ReviewItem }> {
+  const res = await fetch('/api/admin/reviews', {
+    method: 'POST',
+    headers: getAuthHeaders(),
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.error || 'समीक्षा जोड़ने में त्रुटि।');
+  }
+  return data;
+}
+
+export async function deleteAdminReview(id: string): Promise<void> {
+  const res = await fetch(`/api/reviews/${encodeURIComponent(id)}`, {
+    method: 'DELETE',
+    headers: getAuthHeaders()
+  });
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    throw new Error(data.error || 'समीक्षा हटाने में त्रुटि।');
+  }
+}
+

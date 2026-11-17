@@ -561,10 +561,18 @@ app.post('/api/admin/change-password', requireAdmin, (req: Request, res: Respons
   res.json({ success: true, message: 'व्यवस्थापक पासवर्ड एवं प्रोफ़ाइल सफलतापूर्वक अपडेट हो गई।' });
 });
 
-// 5. Admin Dashboard Metrics (Includes Storage Disk Usage)
+// 5. Admin Dashboard Metrics (Includes Storage Disk Usage, Reviews & Live Visitors)
 app.get('/api/admin/stats', requireAdmin, (req: Request, res: Response) => {
   const pages = readJsonFile<any[]>(pagesFile, []);
   const media = readJsonFile<any[]>(mediaFile, []);
+  const reviews = readJsonFile<any[]>(reviewsFile, INITIAL_REVIEWS);
+  const analytics = readJsonFile<any>(visitorAnalyticsFile, {
+    totalVisits: 1005,
+    uniqueVisitorsCount: 4,
+    uniqueClientIds: {},
+    dailyVisits: {},
+    activeSessions: {}
+  });
 
   const totalPages = pages.length;
   const publishedPages = pages.filter((p) => p.status === 'published').length;
@@ -572,6 +580,18 @@ app.get('/api/admin/stats', requireAdmin, (req: Request, res: Response) => {
   const totalMedia = media.length;
   const totalImages = media.filter((m) => m.type === 'image').length;
   const totalVideos = media.filter((m) => m.type === 'video').length;
+
+  const pendingReviews = reviews.filter((r) => r.status === 'pending').length;
+  const approvedReviews = reviews.filter((r) => !r.status || r.status === 'approved').length;
+  const rejectedReviews = reviews.filter((r) => r.status === 'rejected').length;
+  const totalReviews = reviews.length;
+
+  const now = Date.now();
+  const activeThreshold = now - 10 * 60 * 1000;
+  const activeNow = Object.entries(analytics.activeSessions || {}).filter(
+    ([, ts]) => typeof ts === 'number' && ts > activeThreshold
+  ).length;
+  const todayStr = new Date().toISOString().split('T')[0];
 
   const diskUsage = calculateUploadsSize();
 
@@ -586,6 +606,14 @@ app.get('/api/admin/stats', requireAdmin, (req: Request, res: Response) => {
     totalMedia,
     totalImages,
     totalVideos,
+    pendingReviews,
+    approvedReviews,
+    rejectedReviews,
+    totalReviews,
+    totalVisits: Math.max(1005, analytics.totalVisits ?? 1005),
+    uniqueVisitors: analytics.uniqueVisitorsCount || Object.keys(analytics.uniqueClientIds || {}).length || 0,
+    todayVisits: analytics.dailyVisits?.[todayStr] ?? 0,
+    activeNow,
     diskUsage,
     recentPages
   });
@@ -596,6 +624,7 @@ app.get('/api/admin/backup', requireAdmin, (req: Request, res: Response) => {
   const pages = readJsonFile<any[]>(pagesFile, []);
   const media = readJsonFile<any[]>(mediaFile, []);
   const settings = readJsonFile<any>(settingsFile, {});
+  const reviews = readJsonFile<any[]>(reviewsFile, INITIAL_REVIEWS);
 
   const backupPayload = {
     backupDate: new Date().toISOString(),
@@ -603,7 +632,8 @@ app.get('/api/admin/backup', requireAdmin, (req: Request, res: Response) => {
     platform: 'Decode Your Destiny CMS',
     pages,
     media,
-    settings
+    settings,
+    reviews
   };
 
   res.setHeader('Content-Type', 'application/json');
@@ -616,7 +646,7 @@ app.get('/api/admin/backup', requireAdmin, (req: Request, res: Response) => {
 
 // 7. JSON Backup Restore
 app.post('/api/admin/restore', requireAdmin, (req: Request, res: Response) => {
-  const { pages, media, settings } = req.body;
+  const { pages, media, settings, reviews } = req.body;
   if (!Array.isArray(pages)) {
     return res.status(400).json({ error: 'अमान्य बैकअप फ़ाइल: पेजों की सूची नहीं मिली।' });
   }
@@ -624,6 +654,7 @@ app.post('/api/admin/restore', requireAdmin, (req: Request, res: Response) => {
   writeJsonFile(pagesFile, pages);
   if (Array.isArray(media)) writeJsonFile(mediaFile, media);
   if (settings) writeJsonFile(settingsFile, settings);
+  if (Array.isArray(reviews)) writeJsonFile(reviewsFile, reviews);
 
   res.json({ success: true, message: `सफलतापूर्वक ${pages.length} पेज पुनर्स्थापित (Restored) किए गए।` });
 });
@@ -838,20 +869,23 @@ app.delete('/api/media/:id', requireAdmin, (req: Request, res: Response) => {
 });
 
 // ==========================================
-// 15. CLIENT REVIEWS & STORIES API
+// 15. CLIENT REVIEWS & STORIES API (WITH ADMIN APPROVAL)
 // ==========================================
-// GET /api/reviews - Get all published client reviews
+// GET /api/reviews - Public: get approved client reviews only
 app.get('/api/reviews', (req: Request, res: Response) => {
   try {
     const reviews = readJsonFile<any[]>(reviewsFile, INITIAL_REVIEWS);
-    res.json(reviews);
+    const approved = reviews
+      .filter((r) => !r.status || r.status === 'approved')
+      .map((r) => ({ ...r, status: r.status || 'approved' }));
+    res.json(approved);
   } catch (err) {
     console.error('Error fetching reviews:', err);
     res.status(500).json({ error: 'समीक्षाएं प्राप्त करने में त्रुटि।' });
   }
 });
 
-// POST /api/reviews - Instant submit a new client review
+// POST /api/reviews - Public submit a new client review (queued for Admin Approval)
 app.post('/api/reviews', (req: Request, res: Response) => {
   try {
     const { name, city, serviceName, rating, reviewText } = req.body;
@@ -873,7 +907,8 @@ app.post('/api/reviews', (req: Request, res: Response) => {
       rating: Math.max(1, Math.min(5, Math.round(Number(rating) || 5))),
       reviewText: reviewText.trim().slice(0, 1200),
       date: new Date().toISOString().split('T')[0],
-      isVerified: true,
+      status: 'pending',
+      isVerified: false,
       helpfulCount: 1
     };
 
@@ -882,12 +917,162 @@ app.post('/api/reviews', (req: Request, res: Response) => {
 
     res.status(201).json({
       success: true,
-      message: 'आपकी समीक्षा सफलतापूर्वक दर्ज हो गई है और वेबसाइट पर प्रकाशित हो चुकी है!',
+      pendingApproval: true,
+      message: 'आपकी समीक्षा सफलतापूर्वक प्राप्त हो गई है! एडमिन पैनल द्वारा अनुमोदित (Approve) होने के बाद यह वेबसाइट पर प्रकाशित होगी।',
       review: newReview
     });
   } catch (err: any) {
     console.error('Error creating review:', err);
     res.status(500).json({ error: 'समीक्षा सबमिट करने में विफल रहे। कृपया पुनः प्रयास करें।' });
+  }
+});
+
+// GET /api/admin/reviews - Admin: get all reviews (pending, approved, rejected) + counts
+app.get('/api/admin/reviews', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const rawReviews = readJsonFile<any[]>(reviewsFile, INITIAL_REVIEWS);
+    const normalized = rawReviews.map((r) => ({
+      ...r,
+      status: r.status || 'approved'
+    }));
+
+    const counts = {
+      total: normalized.length,
+      pending: normalized.filter((r) => r.status === 'pending').length,
+      approved: normalized.filter((r) => r.status === 'approved').length,
+      rejected: normalized.filter((r) => r.status === 'rejected').length
+    };
+
+    res.json({ reviews: normalized, counts });
+  } catch (err) {
+    console.error('Error fetching admin reviews:', err);
+    res.status(500).json({ error: 'एडमिन समीक्षाएं प्राप्त करने में त्रुटि।' });
+  }
+});
+
+// POST /api/admin/reviews - Admin: create a review directly (auto-approved by default)
+app.post('/api/admin/reviews', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const session = (req as any).adminSession as SessionData;
+    const { name, city, serviceName, rating, reviewText, status } = req.body;
+
+    if (!name || typeof name !== 'string' || name.trim().length < 2) {
+      return res.status(400).json({ error: 'कृपया नाम दर्ज करें (कम से कम 2 अक्षर)।' });
+    }
+    if (!reviewText || typeof reviewText !== 'string' || reviewText.trim().length < 5) {
+      return res.status(400).json({ error: 'कृपया समीक्षा लिखें (कम से कम 5 अक्षर)।' });
+    }
+
+    const reviews = readJsonFile<any[]>(reviewsFile, INITIAL_REVIEWS);
+    const targetStatus: 'approved' | 'pending' | 'rejected' =
+      status === 'pending' || status === 'rejected' ? status : 'approved';
+
+    const newReview = {
+      id: `rev_${Date.now()}_${crypto.randomBytes(3).toString('hex')}`,
+      name: name.trim().slice(0, 80),
+      city: (city && typeof city === 'string' ? city.trim().slice(0, 80) : 'Jaipur, Rajasthan') || 'Jaipur, Rajasthan',
+      serviceName: (serviceName && typeof serviceName === 'string' ? serviceName.trim().slice(0, 100) : 'Vedic Numerology & DOB Lo-Shu Grid') || 'Vedic Numerology & DOB Lo-Shu Grid',
+      rating: Math.max(1, Math.min(5, Math.round(Number(rating) || 5))),
+      reviewText: reviewText.trim().slice(0, 1200),
+      date: new Date().toISOString().split('T')[0],
+      status: targetStatus,
+      isVerified: targetStatus === 'approved',
+      approvedAt: targetStatus === 'approved' ? new Date().toISOString() : undefined,
+      reviewedBy: session?.email || 'admin',
+      helpfulCount: 1
+    };
+
+    reviews.unshift(newReview);
+    writeJsonFile(reviewsFile, reviews);
+
+    res.status(201).json({
+      success: true,
+      message: 'समीक्षा सफलतापूर्वक जोड़ी और प्रकाशित की गई।',
+      review: newReview
+    });
+  } catch (err) {
+    console.error('Error creating admin review:', err);
+    res.status(500).json({ error: 'समीक्षा जोड़ने में त्रुटि।' });
+  }
+});
+
+// PATCH /api/admin/reviews/:id/status - Admin: approve, reject, or set pending
+app.patch('/api/admin/reviews/:id/status', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const session = (req as any).adminSession as SessionData;
+    const { id } = req.params;
+    const { status } = req.body || {};
+
+    if (!['approved', 'rejected', 'pending'].includes(status)) {
+      return res.status(400).json({ error: 'अमान्य स्थिति। केवल approved, rejected या pending मान्य है।' });
+    }
+
+    const reviews = readJsonFile<any[]>(reviewsFile, INITIAL_REVIEWS);
+    const idx = reviews.findIndex((r) => r.id === id);
+    if (idx === -1) {
+      return res.status(404).json({ error: 'समीक्षा नहीं मिली।' });
+    }
+
+    reviews[idx] = {
+      ...reviews[idx],
+      status,
+      isVerified: status === 'approved',
+      approvedAt: status === 'approved' ? new Date().toISOString() : reviews[idx].approvedAt,
+      reviewedBy: session?.email || 'admin'
+    };
+
+    writeJsonFile(reviewsFile, reviews);
+
+    const statusLabel =
+      status === 'approved'
+        ? 'समीक्षा अनुमोदित (Approved) कर दी गई और वेबसाइट पर लाइव हो गई।'
+        : status === 'rejected'
+        ? 'समीक्षा अस्वीकृत (Rejected) कर दी गई।'
+        : 'समीक्षा को लंबित (Pending) सूची में रखा गया।';
+
+    res.json({
+      success: true,
+      message: statusLabel,
+      review: reviews[idx]
+    });
+  } catch (err) {
+    console.error('Error updating review status:', err);
+    res.status(500).json({ error: 'समीक्षा स्थिति अपडेट करने में त्रुटि।' });
+  }
+});
+
+// PATCH /api/admin/reviews/:id - Admin: edit review text/details
+app.patch('/api/admin/reviews/:id', requireAdmin, (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { name, city, serviceName, rating, reviewText } = req.body || {};
+    const reviews = readJsonFile<any[]>(reviewsFile, INITIAL_REVIEWS);
+    const idx = reviews.findIndex((r) => r.id === id);
+    if (idx === -1) {
+      return res.status(404).json({ error: 'समीक्षा नहीं मिली।' });
+    }
+
+    if (typeof name === 'string' && name.trim().length >= 2) {
+      reviews[idx].name = name.trim().slice(0, 80);
+    }
+    if (typeof city === 'string') {
+      reviews[idx].city = city.trim().slice(0, 80) || 'India';
+    }
+    if (typeof serviceName === 'string' && serviceName.trim()) {
+      reviews[idx].serviceName = serviceName.trim().slice(0, 100);
+    }
+    if (rating !== undefined) {
+      reviews[idx].rating = Math.max(1, Math.min(5, Math.round(Number(rating) || 5)));
+    }
+    if (typeof reviewText === 'string' && reviewText.trim().length >= 5) {
+      reviews[idx].reviewText = reviewText.trim().slice(0, 1200);
+    }
+
+    writeJsonFile(reviewsFile, reviews);
+    res.json({ success: true, message: 'समीक्षा अपडेट की गई।', review: reviews[idx] });
+  } catch (err) {
+    console.error('Error editing review:', err);
+    res.status(500).json({ error: 'समीक्षा संपादित करने में त्रुटि।' });
   }
 });
 

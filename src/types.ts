@@ -256,8 +256,33 @@ export interface ReviewItem {
   rating: number; // 1 to 5
   reviewText: string;
   date: string;
+  status?: 'pending' | 'approved' | 'rejected';
+  approvedAt?: string;
+  reviewedBy?: string;
   isVerified?: boolean;
   avatarColor?: string;
   helpfulCount?: number;
+}
+
+export interface VisitorAnalyticsStats {
+  totalVisits: number;
+  uniqueVisitors: number;
+  todayVisits: number;
+  activeNow: number;
+  deviceBreakdown: {
+    mobile: number;
+    desktop: number;
+    tablet: number;
+  };
+  languageBreakdown: Record<string, number>;
+  lastVisitAt: string;
+  recentVisits: Array<{
+    id: string;
+    timestamp: string;
+    path: string;
+    device: string;
+    lang: string;
+    referrer: string;
+  }>;
 }
 

@@ -146,28 +146,27 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
         rating,
         reviewText: reviewText.trim(),
         date: new Date().toISOString().split('T')[0],
-        isVerified: true,
+        status: 'pending',
+        isVerified: false,
         helpfulCount: 1
       };
 
-      // Optimistic instant addition to top of review feed
-      setReviews((prev) => [createdReview, ...prev]);
+      // Only add directly to live public list if already approved; otherwise wait for Admin Panel approval
+      if (!resData.pendingApproval && createdReview.status === 'approved') {
+        setReviews((prev) => [createdReview, ...prev]);
+      }
+
       setSubmitSuccess(true);
       setAuthorName('');
       setCity('');
       setReviewText('');
       setRating(5);
 
-      // Auto close modal after brief visual feedback
+      // Auto close modal after brief confirmation message
       setTimeout(() => {
         setIsModalOpen(false);
         setSubmitSuccess(false);
-        // Scroll to the review feed
-        const el = document.getElementById('reviews-feed');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 1800);
+      }, 2800);
     } catch (err: any) {
       console.error('Submit review error:', err);
       setSubmitError(err.message || 'त्रुटि हुई। कृपया पुनः प्रयास करें।');
@@ -287,7 +286,7 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
                 </span>
                 <span className="flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5 text-amber-400" />
-                  {lang === 'hi' ? 'तत्काल लाइव समीक्षा' : 'Instant Live Submissions'}
+                  {lang === 'hi' ? 'एडमिन सत्यापित समीक्षा प्रणाली' : 'Admin-Verified Reviews'}
                 </span>
               </div>
             </div>
@@ -303,8 +302,8 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
               <MessageSquare className="w-4 h-4 text-stone-950" />
               <span>
                 {lang === 'hi'
-                  ? '✍️ समीक्षा लिखें (Write a Review)'
-                  : '✍️ Write a Review Instantly'}
+                  ? '✍️ समीक्षा लेख (एक समीक्षा लिखें)'
+                  : '✍️ Write a Review'}
               </span>
             </button>
 
@@ -335,8 +334,8 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
                 </h3>
                 <p className="text-xs text-stone-500 mt-0.5">
                   {lang === 'hi'
-                    ? 'आपकी समीक्षा तुरंत इसी पेज पर प्रकाशित होगी और अन्य जिज्ञासुओं को मार्गदर्शन देगी।'
-                    : 'Your review will be published instantly on this page to help others.'}
+                    ? 'आपकी समीक्षा एडमिन पैनल द्वारा अनुमोदित (Approve) होने के बाद वेबसाइट पर प्रकाशित होगी।'
+                    : 'Your review will be reviewed and approved by the Admin Panel before publishing.'}
                 </p>
               </div>
               <button
@@ -354,13 +353,13 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
                 <div>
                   <div className="font-bold text-sm">
                     {lang === 'hi'
-                      ? '॥ धन्यवाद ॥ आपकी समीक्षा सफलतापूर्वक दर्ज हो गई है!'
-                      : 'Thank you! Your review has been successfully submitted and published!'}
+                      ? '॥ धन्यवाद ॥ आपकी समीक्षा एडमिन पैनल में सफलतापूर्वक भेज दी गई है!'
+                      : 'Thank you! Your review has been submitted for Admin approval!'}
                   </div>
                   <p className="text-xs text-emerald-800 mt-0.5">
                     {lang === 'hi'
-                      ? 'आपकी समीक्षा अब नीचे सूची में सबसे ऊपर लाइव दिखाई दे रही है।'
-                      : 'Your story is now live at the top of the client reviews feed below.'}
+                      ? 'एडमिन द्वारा अनुमोदित (Approve) करते ही यह समीक्षा वेबसाइट पर लाइव दिखाई देगी।'
+                      : 'Once approved in the Admin Panel, your story will appear live in the client reviews feed.'}
                   </p>
                 </div>
               </div>
@@ -522,8 +521,8 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
                         ? 'सबमिट हो रहा है...'
                         : 'Submitting...'
                       : lang === 'hi'
-                      ? 'तुरंत समीक्षा प्रकाशित करें (Publish Live)'
-                      : 'Publish Review Instantly'}
+                      ? 'समीक्षा सबमिट करें (एडमिन अनुमोदन हेतु)'
+                      : 'Submit Review for Approval'}
                   </span>
                 </button>
               </div>
@@ -715,8 +714,8 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
                   </div>
                   <p className="text-[11px] text-amber-300/80">
                     {lang === 'hi'
-                      ? 'आपकी समीक्षा तुरंत वेबसाइट पर प्रकाशित होगी'
-                      : 'Your review will be published instantly on the website'}
+                      ? 'एडमिन अनुमोदन (Approval) के बाद आपकी समीक्षा लाइव प्रकाशित होगी'
+                      : 'Published on the website after Admin verification & approval'}
                   </p>
                 </div>
               </div>
@@ -743,11 +742,12 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
                   </h4>
                   <p className="text-sm text-stone-600 max-w-sm mx-auto">
                     {lang === 'hi'
-                      ? 'आपकी समीक्षा सफलतापूर्वक दर्ज हो गई है और वेबसाइट पर तुरंत प्रकाशित हो चुकी है!'
-                      : 'Your review has been successfully submitted and published live on the website!'}
+                      ? 'आपकी समीक्षा सफलतापूर्वक प्राप्त हो गई है। एडमिन पैनल द्वारा अनुमोदित (Approve) होने के बाद यह वेबसाइट पर लाइव प्रकाशित हो जाएगी!'
+                      : 'Your review has been received and sent to the Admin Panel. It will appear live once approved!'}
                   </p>
-                  <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 text-xs px-3 py-1 rounded-full font-bold">
-                    <span>✓ Live on page</span>
+                  <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-800 text-xs px-3 py-1 rounded-full font-bold">
+                    <Clock className="w-3.5 h-3.5 text-amber-600" />
+                    <span>{lang === 'hi' ? 'एडमिन अनुमोदन हेतु प्रतीक्षारत' : 'Pending Admin Approval'}</span>
                   </div>
                 </div>
               ) : (
@@ -909,8 +909,8 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
                             ? 'सबमिट हो रहा है...'
                             : 'Submitting...'
                           : lang === 'hi'
-                          ? 'तुरंत प्रकाशित करें (Publish Live)'
-                          : 'Publish Review Instantly'}
+                          ? 'समीक्षा भेजें (Submit Review)'
+                          : 'Submit Review'}
                       </span>
                     </button>
                   </div>

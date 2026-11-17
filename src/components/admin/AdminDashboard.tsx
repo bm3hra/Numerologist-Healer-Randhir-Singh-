@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useAdminAuth, PRIMARY_ADMIN_EMAIL } from '../../context/AdminAuthContext';
-import { CMSPage, CMSMediaItem } from '../../types';
+import { CMSPage, VisitorAnalyticsStats } from '../../types';
 import {
   getAdminStats,
   getAllPages,
   deletePage,
-  savePage
+  savePage,
+  getVisitorAnalytics
 } from '../../lib/cmsService';
 import { PageBuilder } from './PageBuilder';
 import { MediaLibrary } from './MediaLibrary';
 import { AdminSettings } from './AdminSettings';
 import { SeoDashboard } from './SeoDashboard';
 import { DuplicateCleaner } from './DuplicateCleaner';
+import { ReviewsManager } from './ReviewsManager';
 import { ConfirmDeleteModal } from './ConfirmDeleteModal';
 import {
   FileText,
@@ -25,7 +27,6 @@ import {
   Copy,
   Clock,
   CheckCircle,
-  Eye,
   ShieldCheck,
   Search,
   RefreshCw,
@@ -33,7 +34,15 @@ import {
   Settings,
   HardDrive,
   Sparkles,
-  Video
+  Video,
+  MessageSquare,
+  Activity,
+  Users,
+  Smartphone,
+  Monitor,
+  BarChart3,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -55,9 +64,26 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     totalMedia: 0,
     totalImages: 0,
     totalVideos: 0,
+    pendingReviews: 0,
+    approvedReviews: 0,
+    rejectedReviews: 0,
+    totalReviews: 0,
     diskUsage: { bytes: 0, formatted: '0.00 MB' },
     recentPages: [] as CMSPage[]
   });
+  const [visitorStats, setVisitorStats] = useState<VisitorAnalyticsStats>({
+    totalVisits: 1005,
+    uniqueVisitors: 4,
+    todayVisits: 0,
+    activeNow: 1,
+    deviceBreakdown: { mobile: 0, desktop: 0, tablet: 0 },
+    languageBreakdown: {},
+    lastVisitAt: new Date().toISOString(),
+    recentVisits: []
+  });
+  const [showVisitorDetails, setShowVisitorDetails] = useState(false);
+  const [refreshingCounter, setRefreshingCounter] = useState(false);
+
   const [pagesList, setPagesList] = useState<CMSPage[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -65,8 +91,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [filterCategory, setFilterCategory] = useState<'all' | 'homepage' | 'dedicated' | 'service' | 'custom'>('all');
   const [filterMediaType, setFilterMediaType] = useState<'all' | 'photos' | 'videos'>('all');
 
-  // Modes: dashboard | builder | media | settings | seo | duplicates
-  const [viewMode, setViewMode] = useState<'dashboard' | 'builder' | 'media' | 'settings' | 'seo' | 'duplicates'>('dashboard');
+  // Modes: dashboard | builder | media | settings | seo | duplicates | reviews
+  const [viewMode, setViewMode] = useState<'dashboard' | 'builder' | 'media' | 'settings' | 'seo' | 'duplicates' | 'reviews'>('dashboard');
   const [pageToEdit, setPageToEdit] = useState<CMSPage | null>(null);
 
   // Yes / No Delete Confirmation Modal state
@@ -75,16 +101,51 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
   useEffect(() => {
     loadDashboardData();
+    const interval = setInterval(() => {
+      refreshVisitorCounterOnly();
+    }, 30000);
+    return () => clearInterval(interval);
   }, []);
+
+  const refreshVisitorCounterOnly = async () => {
+    setRefreshingCounter(true);
+    try {
+      const analytics = await getVisitorAnalytics();
+      setVisitorStats(analytics);
+    } catch {
+      // silent background refresh error
+    } finally {
+      setRefreshingCounter(false);
+    }
+  };
 
   const loadDashboardData = async () => {
     setLoading(true);
     try {
-      const [statsData, pages] = await Promise.all([getAdminStats(), getAllPages()]);
+      const [statsData, pages, analytics] = await Promise.all([
+        getAdminStats(),
+        getAllPages(),
+        getVisitorAnalytics().catch(() => null)
+      ]);
       setStats({
         ...statsData,
+        pendingReviews: statsData.pendingReviews ?? 0,
+        approvedReviews: statsData.approvedReviews ?? 0,
+        rejectedReviews: statsData.rejectedReviews ?? 0,
+        totalReviews: statsData.totalReviews ?? 0,
         diskUsage: statsData.diskUsage || { bytes: 0, formatted: '0.77 MB' }
       });
+      if (analytics) {
+        setVisitorStats(analytics);
+      } else if (typeof statsData.totalVisits === 'number') {
+        setVisitorStats((prev) => ({
+          ...prev,
+          totalVisits: statsData.totalVisits || prev.totalVisits,
+          uniqueVisitors: statsData.uniqueVisitors ?? prev.uniqueVisitors,
+          todayVisits: statsData.todayVisits ?? prev.todayVisits,
+          activeNow: statsData.activeNow ?? prev.activeNow
+        }));
+      }
       setPagesList(pages);
     } catch (err) {
       console.error('Error fetching dashboard data:', err);
@@ -272,6 +333,19 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     );
   }
 
+  // Render ReviewsManager when in 'reviews' view
+  if (viewMode === 'reviews') {
+    return (
+      <ReviewsManager
+        onBack={() => {
+          setViewMode('dashboard');
+          loadDashboardData();
+        }}
+        onReviewsUpdated={loadDashboardData}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#0e0e11] text-stone-100 flex flex-col">
       {/* Top Navbar */}
@@ -295,14 +369,28 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+          <button
+            onClick={() => setViewMode('reviews')}
+            className="relative inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/70 hover:bg-emerald-900/70 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition cursor-pointer shadow-xs"
+            title="✍️ समीक्षा लेख व अनुमोदन (Approve Client Reviews)"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="hidden md:inline">समीक्षा अनुमोदन</span>
+            {stats.pendingReviews > 0 && (
+              <span className="px-1.5 py-0.2 rounded-full bg-amber-400 text-stone-950 font-extrabold text-[10px] animate-pulse">
+                {stats.pendingReviews}
+              </span>
+            )}
+          </button>
+
           <button
             onClick={() => setViewMode('duplicates')}
             className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/40 text-purple-300 text-xs font-bold transition cursor-pointer shadow-xs"
             title="प्रमाण-पत्र, फ़ोटो एवं डुप्लीकेट क्लीनर (Certificates & Duplicates Cleanup)"
           >
             <Copy className="w-3.5 h-3.5 text-purple-400" />
-            <span className="hidden md:inline">सर्टिफिकेट व डुप्लीकेट क्लीनर</span>
+            <span className="hidden md:inline">डुप्लीकेट क्लीनर</span>
           </button>
 
           <button
@@ -311,7 +399,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             title="SEO व गूगल इंडेक्सिंग पोर्टल (SEO & Google Indexing)"
           >
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span className="hidden md:inline">SEO &amp; गूगल इंडेक्सिंग</span>
+            <span className="hidden md:inline">SEO इंडेक्सिंग</span>
           </button>
 
           <button
@@ -320,7 +408,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             title="सेटिंग्स व बैकअप (Settings & Backup)"
           >
             <Settings className="w-3.5 h-3.5 text-amber-400" />
-            <span className="hidden md:inline">सेटिंग्स व बैकअप</span>
+            <span className="hidden lg:inline">सेटिंग्स व बैकअप</span>
           </button>
 
           <button
@@ -343,48 +431,78 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       </header>
 
       {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
-        {/* Metric Cards Banner (5 Cards including Storage) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
-          <div className="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 sm:p-5 shadow-sm">
+      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+        {/* Metric Cards Banner (6 Cards: Pages, Live, Reviews, Media, Visitors, Storage) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+          <div className="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 shadow-sm">
             <div className="flex items-center justify-between text-stone-400 mb-2">
-              <span className="text-xs font-semibold uppercase tracking-wider">कुल पेज (Total)</span>
+              <span className="text-[11px] font-semibold uppercase tracking-wider">कुल पेज (Total)</span>
               <FileText className="w-4 h-4 text-amber-400" />
             </div>
-            <p className="text-2xl sm:text-3xl font-serif font-bold text-stone-100">
+            <p className="text-2xl font-serif font-bold text-stone-100">
               {stats.totalPages}
             </p>
-            <p className="text-[11px] text-stone-500 mt-1">असीमित वेब पेज</p>
+            <p className="text-[11px] text-stone-500 mt-1">{stats.publishedPages} लाइव · {stats.draftPages} ड्राफ्ट</p>
           </div>
 
-          <div className="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 sm:p-5 shadow-sm">
+          <div className="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 shadow-sm">
             <div className="flex items-center justify-between text-stone-400 mb-2">
-              <span className="text-xs font-semibold uppercase tracking-wider">प्रकाशित (Live)</span>
+              <span className="text-[11px] font-semibold uppercase tracking-wider">प्रकाशित (Live)</span>
               <CheckCircle className="w-4 h-4 text-emerald-400" />
             </div>
-            <p className="text-2xl sm:text-3xl font-serif font-bold text-emerald-400">
+            <p className="text-2xl font-serif font-bold text-emerald-400">
               {stats.publishedPages}
             </p>
             <p className="text-[11px] text-stone-500 mt-1">सार्वजनिक URL पर लाइव</p>
           </div>
 
-          <div className="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 sm:p-5 shadow-sm">
-            <div className="flex items-center justify-between text-stone-400 mb-2">
-              <span className="text-xs font-semibold uppercase tracking-wider">ड्राफ्ट (Drafts)</span>
-              <Clock className="w-4 h-4 text-amber-500" />
+          <button
+            onClick={() => setViewMode('reviews')}
+            className={`text-left rounded-2xl p-4 shadow-sm border transition cursor-pointer ${
+              stats.pendingReviews > 0
+                ? 'bg-amber-950/50 border-amber-500/60 hover:border-amber-400'
+                : 'bg-stone-900/80 border-stone-800 hover:border-emerald-500/40'
+            }`}
+          >
+            <div className="flex items-center justify-between text-stone-300 mb-2">
+              <span className="text-[11px] font-semibold uppercase tracking-wider">समीक्षाएँ (Reviews)</span>
+              <MessageSquare className="w-4 h-4 text-emerald-400" />
             </div>
-            <p className="text-2xl sm:text-3xl font-serif font-bold text-amber-400">
-              {stats.draftPages}
+            <div className="flex items-baseline gap-2">
+              <p className="text-2xl font-serif font-bold text-stone-100">
+                {stats.totalReviews}
+              </p>
+              {stats.pendingReviews > 0 && (
+                <span className="px-1.5 py-0.5 rounded-full bg-amber-400 text-stone-950 text-[10px] font-extrabold animate-pulse">
+                  {stats.pendingReviews} नई लंबित
+                </span>
+              )}
+            </div>
+            <p className="text-[11px] text-amber-300/80 mt-1">
+              {stats.approvedReviews} स्वीकृत · क्लिक कर जाँचें →
             </p>
-            <p className="text-[11px] text-stone-500 mt-1">अप्रकाशित मसौदे</p>
+          </button>
+
+          <div className="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 shadow-sm">
+            <div className="flex items-center justify-between text-stone-400 mb-2">
+              <span className="text-[11px] font-semibold uppercase tracking-wider">लाइव विज़िट्स</span>
+              <Activity className="w-4 h-4 text-amber-400" />
+            </div>
+            <p className="text-2xl font-mono font-bold text-amber-300">
+              {visitorStats.totalVisits.toLocaleString()}
+            </p>
+            <p className="text-[11px] text-emerald-400 mt-1 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>{visitorStats.activeNow} सक्रिय अभी</span>
+            </p>
           </div>
 
-          <div className="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 sm:p-5 shadow-sm">
+          <div className="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 shadow-sm">
             <div className="flex items-center justify-between text-stone-400 mb-2">
-              <span className="text-xs font-semibold uppercase tracking-wider">मीडिया फ़ाइलें</span>
+              <span className="text-[11px] font-semibold uppercase tracking-wider">मीडिया फ़ाइलें</span>
               <ImageIcon className="w-4 h-4 text-purple-400" />
             </div>
-            <p className="text-2xl sm:text-3xl font-serif font-bold text-stone-100">
+            <p className="text-2xl font-serif font-bold text-stone-100">
               {stats.totalMedia}
             </p>
             <p className="text-[11px] text-stone-500 mt-1">
@@ -392,17 +510,204 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             </p>
           </div>
 
-          <div className="col-span-2 sm:col-span-1 bg-stone-900/80 border border-stone-800 rounded-2xl p-4 sm:p-5 shadow-sm">
+          <div className="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 shadow-sm">
             <div className="flex items-center justify-between text-stone-400 mb-2">
-              <span className="text-xs font-semibold uppercase tracking-wider">डिस्क स्टोरेज</span>
+              <span className="text-[11px] font-semibold uppercase tracking-wider">डिस्क स्टोरेज</span>
               <HardDrive className="w-4 h-4 text-cyan-400" />
             </div>
-            <p className="text-2xl sm:text-3xl font-serif font-bold text-cyan-400">
+            <p className="text-2xl font-serif font-bold text-cyan-400">
               {stats.diskUsage?.formatted || '0.77 MB'}
             </p>
             <p className="text-[11px] text-stone-500 mt-1">/public/uploads/</p>
           </div>
         </div>
+
+        {/* Live Visitors & Traffic Counter Panel inside Admin Panel */}
+        <div className="bg-gradient-to-br from-stone-900 via-[#161310] to-stone-900 border-2 border-amber-500/40 rounded-2xl p-5 shadow-lg">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+            {/* Left Info */}
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/90 border border-emerald-500/40 text-emerald-300 text-[11px] font-bold">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                  LIVE VISITOR & TRAFFIC COUNTER
+                </span>
+                <span className="text-[11px] font-mono text-amber-300/80">
+                  अद्यतन: {new Date(visitorStats.lastVisitAt).toLocaleTimeString()}
+                </span>
+              </div>
+              <h2 className="font-serif text-lg sm:text-xl font-bold text-amber-100">
+                वास्तविक आगंतुक एवं वेबसाइट ट्रैफ़िक काउंटर (Actual Live Counter)
+              </h2>
+              <p className="text-xs text-stone-400">
+                मुख्य वेबसाइट और फ़ुटर से सिंक किया गया वास्तविक सर्वर-रिकॉर्डेड विज़िटर डेटा
+              </p>
+            </div>
+
+            {/* Center Odometer Display matching Footer */}
+            <div className="flex flex-col items-start lg:items-center gap-1.5">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-bold">
+                Total Page Visits (Baseline 1,005+)
+              </span>
+              <div className="inline-flex items-center gap-1 bg-black p-2 rounded-xl border-2 border-amber-500/70 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+                {visitorStats.totalVisits
+                  .toString()
+                  .padStart(7, '0')
+                  .split('')
+                  .map((digit, index) => (
+                    <React.Fragment key={index}>
+                      {index === 1 || index === 4 ? (
+                        <span className="text-amber-500 font-bold text-sm px-0.5 select-none">,</span>
+                      ) : null}
+                      <span className="inline-flex items-center justify-center w-6 h-8 sm:w-7 sm:h-9 bg-gradient-to-b from-stone-800 to-stone-950 text-amber-300 font-mono text-base sm:text-lg font-black rounded border border-amber-600/50 shadow-inner select-none">
+                        {digit}
+                      </span>
+                    </React.Fragment>
+                  ))}
+              </div>
+            </div>
+
+            {/* Right Stats + Controls */}
+            <div className="flex flex-wrap items-center gap-2.5">
+              <div className="bg-stone-950/90 border border-stone-800 rounded-xl px-3.5 py-2 text-center min-w-[84px]">
+                <div className="text-base font-bold font-mono text-emerald-400">{visitorStats.activeNow}</div>
+                <div className="text-[10px] text-stone-400">सक्रिय अभी</div>
+              </div>
+              <div className="bg-stone-950/90 border border-stone-800 rounded-xl px-3.5 py-2 text-center min-w-[84px]">
+                <div className="text-base font-bold font-mono text-blue-400">{visitorStats.todayVisits}</div>
+                <div className="text-[10px] text-stone-400">आज की विज़िट्स</div>
+              </div>
+              <div className="bg-stone-950/90 border border-stone-800 rounded-xl px-3.5 py-2 text-center min-w-[84px]">
+                <div className="text-base font-bold font-mono text-amber-400">{visitorStats.uniqueVisitors}</div>
+                <div className="text-[10px] text-stone-400">अद्वितीय यूज़र</div>
+              </div>
+
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={refreshVisitorCounterOnly}
+                  disabled={refreshingCounter}
+                  className="p-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-amber-300 border border-stone-700 transition cursor-pointer disabled:opacity-50"
+                  title="काउंटर रिफ्रेश करें"
+                >
+                  <RefreshCw className={`w-4 h-4 ${refreshingCounter ? 'animate-spin' : ''}`} />
+                </button>
+                <button
+                  onClick={() => setShowVisitorDetails((prev) => !prev)}
+                  className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 text-xs font-bold transition cursor-pointer"
+                >
+                  <BarChart3 className="w-4 h-4" />
+                  <span>विस्तृत लॉग</span>
+                  {showVisitorDetails ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Expandable Visitor Analytics Breakdown */}
+          {showVisitorDetails && (
+            <div className="mt-5 pt-5 border-t border-stone-800 grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
+              {/* Device Breakdown */}
+              <div className="bg-stone-950/70 border border-stone-800 rounded-xl p-4 space-y-3">
+                <h3 className="font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <Users className="w-4 h-4" />
+                  <span>डिवाइस अनुसार विज़िट्स (Devices)</span>
+                </h3>
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div className="bg-stone-900 p-2.5 rounded-lg border border-stone-800">
+                    <Smartphone className="w-4 h-4 mx-auto text-amber-400 mb-1" />
+                    <div className="font-bold text-sm text-white">{visitorStats.deviceBreakdown.mobile}</div>
+                    <div className="text-[10px] text-stone-400">Mobile</div>
+                  </div>
+                  <div className="bg-stone-900 p-2.5 rounded-lg border border-stone-800">
+                    <Monitor className="w-4 h-4 mx-auto text-blue-400 mb-1" />
+                    <div className="font-bold text-sm text-white">{visitorStats.deviceBreakdown.desktop}</div>
+                    <div className="text-[10px] text-stone-400">Desktop</div>
+                  </div>
+                  <div className="bg-stone-900 p-2.5 rounded-lg border border-stone-800">
+                    <span className="text-sm block mb-0.5">📟</span>
+                    <div className="font-bold text-sm text-white">{visitorStats.deviceBreakdown.tablet}</div>
+                    <div className="text-[10px] text-stone-400">Tablet</div>
+                  </div>
+                </div>
+
+                {visitorStats.languageBreakdown && Object.keys(visitorStats.languageBreakdown).length > 0 && (
+                  <div className="pt-2 border-t border-stone-800">
+                    <div className="text-[11px] font-bold text-stone-400 mb-2">भाषा अनुसार ट्रैफ़िक:</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {Object.entries(visitorStats.languageBreakdown)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([langKey, count]) => (
+                          <span
+                            key={langKey}
+                            className="px-2 py-0.5 rounded bg-stone-900 border border-stone-800 text-stone-300 font-mono text-[11px]"
+                          >
+                            {langKey.toUpperCase()}: <strong className="text-amber-300">{count}</strong>
+                          </span>
+                        ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Recent Visits Log */}
+              <div className="lg:col-span-2 bg-stone-950/70 border border-stone-800 rounded-xl p-4 space-y-2.5">
+                <h3 className="font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <Activity className="w-4 h-4" />
+                  <span>हाल की वास्तविक विज़िट्स (Recent Live Hits)</span>
+                </h3>
+                {visitorStats.recentVisits && visitorStats.recentVisits.length > 0 ? (
+                  <div className="max-h-48 overflow-y-auto divide-y divide-stone-800/70 pr-1">
+                    {visitorStats.recentVisits.map((v) => (
+                      <div key={v.id} className="py-2 flex items-center justify-between gap-3 text-[11px]">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="px-1.5 py-0.5 rounded bg-stone-800 text-amber-300 font-mono shrink-0">
+                            {v.lang.toUpperCase()}
+                          </span>
+                          <span className="font-mono text-stone-200 truncate">{v.path || '/'}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-stone-400 shrink-0">
+                          <span>{v.device}</span>
+                          <span className="font-mono text-stone-500">
+                            {new Date(v.timestamp).toLocaleTimeString()}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-stone-500 text-xs py-4">अभी तक कोई हाल की विज़िट लॉग दर्ज नहीं है।</p>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Pending Reviews Alert Banner */}
+        {stats.pendingReviews > 0 && (
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-950/80 via-stone-900 to-emerald-950/50 border-2 border-amber-500/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center shrink-0">
+                <MessageSquare className="w-5 h-5 text-amber-400" />
+              </div>
+              <div>
+                <h3 className="font-serif font-bold text-sm sm:text-base text-amber-200">
+                  ⏳ {stats.pendingReviews} नई ग्राहक समीक्षा अनुमोदन (Approval) के लिए प्रतीक्षारत है!
+                </h3>
+                <p className="text-xs text-stone-300 mt-0.5">
+                  विज़िटर्स द्वारा "✍️ समीक्षा लेख" फॉर्म से भेजी गई समीक्षाएँ आपकी स्वीकृति के बाद वेबसाइट पर लाइव होंगी।
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setViewMode('reviews')}
+              className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-stone-950 font-extrabold text-xs transition shadow-md cursor-pointer"
+            >
+              <CheckCircle className="w-4 h-4" />
+              <span>जाँचें व अनुमोदित करें (Review & Approve)</span>
+            </button>
+          </div>
+        )}
 
         {/* Quick Action Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4 p-5 rounded-2xl bg-gradient-to-r from-stone-900 via-stone-900 to-amber-950/40 border border-stone-800">
@@ -411,11 +716,24 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               <span>त्वरित CMS कार्य (Quick Actions)</span>
             </h2>
             <p className="text-xs text-stone-400 mt-0.5">
-              तुरंत नया पेज बनाएं, फोटो/वीडियो अपलोड करें या डेटाबेस बैकअप डाउनलोड करें
+              समीक्षाएं अनुमोदित करें, नया पेज बनाएं, फोटो/वीडियो अपलोड करें या डेटाबेस बैकअप डाउनलोड करें
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5">
+            <button
+              onClick={() => setViewMode('reviews')}
+              className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-emerald-950/70 hover:bg-emerald-900/70 border border-emerald-500/40 text-emerald-300 font-bold text-xs transition cursor-pointer shadow-sm"
+            >
+              <MessageSquare className="w-4 h-4 text-emerald-400" />
+              <span>✍️ समीक्षा लेख व अनुमोदन</span>
+              {stats.pendingReviews > 0 && (
+                <span className="px-1.5 py-0.5 rounded-full bg-amber-400 text-stone-950 font-extrabold text-[10px]">
+                  {stats.pendingReviews}
+                </span>
+              )}
+            </button>
+
             <button
               onClick={() => setViewMode('duplicates')}
               className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/40 text-purple-300 font-bold text-xs transition cursor-pointer shadow-sm"
