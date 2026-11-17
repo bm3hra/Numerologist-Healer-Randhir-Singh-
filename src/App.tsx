@@ -176,12 +176,8 @@ function MainAppContent() {
   const [selectedPriceForBooking, setSelectedPriceForBooking] = useState<string | undefined>();
 
   const handleOpenBooking = (serviceName?: string, price?: string) => {
-    if (serviceName) {
-      setSelectedServiceForBooking(serviceName);
-    }
-    if (price) {
-      setSelectedPriceForBooking(price);
-    }
+    setSelectedServiceForBooking(serviceName || 'Personalized Spiritual Consultation');
+    setSelectedPriceForBooking(price);
     setIsBookingOpen(true);
   };
 
@@ -461,8 +457,8 @@ function MainAppContent() {
 
         {/* ROUTE 6: About Numerologist & Healer · Randhir Singh Dedicated Page */}
         {currentTab === 'about-randhir' && (
-          <div className="py-6">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="py-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <BreadcrumbNav
                 items={[{ label: lang === 'hi' ? 'रणधीर सिंह जी का परिचय' : 'About Randhir Singh', isCurrent: true }]}
                 lang={lang}
@@ -479,7 +475,7 @@ function MainAppContent() {
               lang={lang as Language}
               onOpenBooking={(svc) => handleOpenBooking(svc)}
             />
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
               <SocialShareBar
                 title={lang === 'hi' ? 'रणधीर सिंह जी का परिचय · सुप्रसिद्ध वैदिक अंक ज्योतिष विशेषज्ञ एवं हीलर' : 'About Randhir Singh · Renowned Vedic Numerologist & Spiritual Healer in Jaipur'}
                 lang={lang}
@@ -490,8 +486,8 @@ function MainAppContent() {
 
         {/* ROUTE 6B: Dedicated Page for Client Reviews & Stories */}
         {currentTab === 'client-reviews-stories' && (
-          <div className="py-6">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="py-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <BreadcrumbNav
                 items={[{ label: lang === 'hi' ? 'ग्राहकों के अनुभव एवं समीक्षाएं' : 'Client Reviews & Stories', isCurrent: true }]}
                 lang={lang}
@@ -508,7 +504,7 @@ function MainAppContent() {
               lang={lang as Language}
               onOpenBooking={(svc) => handleOpenBooking(svc)}
             />
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
               <SocialShareBar
                 title={lang === 'hi' ? 'ग्राहकों के अनुभव एवं जीवन परिवर्तन की कहानियाँ | रणधीर सिंह' : 'Client Reviews & Transformational Stories | Numerologist & Healer Randhir Singh'}
                 lang={lang}
@@ -558,8 +554,8 @@ function MainAppContent() {
               />
 
               {/* 5 Dedicated In-Depth Detailed Portals Showcase Banner */}
-              <div className="my-8 p-6 sm:p-8 bg-gradient-to-br from-[#fbf8f0] via-white to-amber-50/60 rounded-3xl border-2 border-amber-300 shadow-lg">
-                <div className="text-center max-w-3xl mx-auto mb-6">
+              <div className="my-4 sm:my-5 p-4 sm:p-5 bg-gradient-to-br from-[#fbf8f0] via-white to-amber-50/60 rounded-2xl border-2 border-amber-300 shadow-lg">
+                <div className="text-center max-w-3xl mx-auto mb-4">
                   <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-2 border border-amber-300">
                     <Sparkles className="w-3.5 h-3.5 text-amber-700" />
                     <span>{lang === 'hi' ? 'विशेष विस्तृत अनुभाग एवं पोर्टल' : 'Dedicated Specialized In-Depth Portals'}</span>

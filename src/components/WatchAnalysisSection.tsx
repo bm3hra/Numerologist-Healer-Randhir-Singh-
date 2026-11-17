@@ -46,12 +46,12 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
   };
 
   return (
-    <section id="watch-analysis" className="relative py-12 sm:py-16 bg-[#faf6ee] border-y border-amber-200/80">
+    <section id="watch-analysis" className="relative py-7 sm:py-9 bg-[#faf6ee] border-y border-amber-200/80">
       {/* Target anchor for direct #watch URL navigation */}
       <div id="watch" className="absolute -top-20 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-800 font-bold bg-amber-100/90 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Watch className="w-4 h-4 text-amber-700" />
             <span>{lang === 'hi' ? 'विशेषज्ञ सेवा' : 'Signature Specialty'} · Randhir Singh</span>
@@ -78,7 +78,7 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
         </div>
 
         {/* 4 Core Pillars of Watch Numerology */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           {WATCH_PRINCIPLES.map((principle, idx) => (
             <div
               key={idx}
@@ -99,8 +99,8 @@ export const WatchAnalysisSection: React.FC<WatchAnalysisSectionProps> = ({
 
 
         {/* Interactive Watch Diagnostic Studio */}
-        <div className="bg-white rounded-2xl border-2 border-amber-300/80 shadow-xl overflow-hidden mb-12">
-          <div className="bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 text-amber-100 p-6 sm:p-8">
+        <div className="bg-white rounded-2xl border-2 border-amber-300/80 shadow-xl overflow-hidden mb-6">
+          <div className="bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 text-amber-100 p-5 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <span className="text-xs uppercase tracking-widest text-amber-300 font-semibold">

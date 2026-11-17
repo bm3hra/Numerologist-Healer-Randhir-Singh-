@@ -10,7 +10,7 @@ interface SundaySpecialBannerProps {
 
 export const SundaySpecialBanner: React.FC<SundaySpecialBannerProps> = ({ lang, onClaim }) => {
   return (
-    <div className="relative overflow-hidden rounded-xl border-2 border-amber-400/80 bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-50 p-5 sm:p-7 shadow-lg my-6">
+    <div className="relative overflow-hidden rounded-xl border-2 border-amber-400/80 bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-50 p-4 sm:p-5 shadow-lg my-3 sm:my-4">
       {/* Decorative subtle background accents */}
       <div className="absolute -top-12 -right-12 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
       <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-amber-600/10 rounded-full blur-2xl pointer-events-none" />

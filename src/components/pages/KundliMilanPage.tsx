@@ -124,7 +124,7 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-[#faf6ee] text-stone-900 pb-20">
+    <div className="bg-[#faf6ee] text-stone-900 pb-6 sm:pb-8">
       {/* Top Breadcrumb & Page Switcher */}
       <div className="bg-white border-b border-amber-200/80 sticky top-14 sm:top-16 z-30 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3">
@@ -173,7 +173,7 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
       </div>
 
       {/* Hero Header */}
-      <section className="bg-gradient-to-b from-[#f7f2e5] via-[#faf6ee] to-[#fbf8f0] py-12 sm:py-16 border-b border-amber-200/80">
+      <section className="bg-gradient-to-b from-[#f7f2e5] via-[#faf6ee] to-[#fbf8f0] py-7 sm:py-9 border-b border-amber-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-amber-900/10 text-amber-950 px-4 py-1.5 rounded-full border border-amber-300 text-xs font-bold tracking-widest uppercase mb-4 shadow-2xs">
             <Heart className="w-3.5 h-3.5 text-rose-600" />
@@ -226,8 +226,8 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
       </section>
 
       {/* Inputs Section: Person A & Person B */}
-      <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <section className="py-7 sm:py-9 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {/* Card: Person A */}
           <div className="bg-white rounded-3xl border-2 border-amber-300 p-6 sm:p-8 shadow-xl">
             <div className="flex items-center justify-between border-b border-amber-100 pb-3 mb-5">
@@ -354,7 +354,7 @@ export const KundliMilanPage: React.FC<KundliMilanPageProps> = ({
         </div>
 
         {/* 36-Point Kundli Score Banner */}
-        <div className="bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 text-amber-100 rounded-3xl p-6 sm:p-8 shadow-2xl border border-amber-500/40 mb-12">
+        <div className="bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 text-amber-100 rounded-3xl p-5 sm:p-6 shadow-2xl border border-amber-500/40 mb-6">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-amber-300">

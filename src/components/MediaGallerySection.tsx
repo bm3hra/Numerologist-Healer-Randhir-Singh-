@@ -22,10 +22,10 @@ export const MediaGallerySection: React.FC<MediaGallerySectionProps> = ({
   });
 
   return (
-    <section id="media-gallery" className="py-12 sm:py-16 bg-[#fcfaf5] border-b border-amber-200/80">
+    <section id="media-gallery" className="py-7 sm:py-9 bg-[#fcfaf5] border-b border-amber-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Award className="w-3.5 h-3.5 text-amber-700" />
             <span>{lang === 'hi' ? 'आधिकारिक प्रमाण-पत्र एवं फोटो शोकेस' : 'Official Certificates & Photo Showcase'}</span>
@@ -47,7 +47,7 @@ export const MediaGallerySection: React.FC<MediaGallerySectionProps> = ({
         </div>
 
         {/* Categories Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-1.5 mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 mb-5">
           {[
             { id: 'all', label: lang === 'hi' ? 'सभी फोटो व सर्टिफिकेट्स' : 'All Photos & Certificates' },
             { id: 'convocation', label: lang === 'hi' ? 'कन्वोकेशन व सम्मान' : 'Convocation & Honors' },

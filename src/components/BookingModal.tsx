@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { X, MessageCircle, Phone, Calendar, Clock, Sparkles, CheckCircle2, ShieldCheck, MapPin, QrCode, Copy, Check } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { X, MessageCircle, Phone, Sparkles, ShieldCheck, QrCode, Copy, Check } from 'lucide-react';
 import { Language } from '../types';
 import { PaymentQrModal } from './PaymentQrModal';
+import { ALL_SERVICES } from '../data/servicesData';
+import { SERVICES_DETAIL_DATA } from '../data/servicesDetailData';
+import { SPECIALIZED_SERVICES_11 } from './AboutAndTariffSection';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -14,12 +17,10 @@ interface BookingModalProps {
 export const BookingModal: React.FC<BookingModalProps> = ({
   isOpen,
   onClose,
-  defaultService = 'Vedic Numerology & Lo-Shu Consultation',
+  defaultService = 'Personalized Spiritual Consultation',
   defaultPrice,
   lang
 }) => {
-  if (!isOpen) return null;
-
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [dob, setDob] = useState('');
@@ -29,6 +30,37 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [notes, setNotes] = useState('');
   const [showQrModal, setShowQrModal] = useState(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (isOpen && defaultService) {
+      setService(defaultService);
+    }
+  }, [isOpen, defaultService]);
+
+  const servicePriceMap = useMemo(() => {
+    const map: Record<string, string> = {
+      'Sunday Free Consultation': 'FREE',
+      'Personalized Spiritual Consultation': '₹5,100',
+      'Vedic Numerology & Lo-Shu Consultation': '₹5,100'
+    };
+    ALL_SERVICES.forEach((svc) => {
+      const fee = SERVICES_DETAIL_DATA[svc.id]?.suggestedTariff || '₹5,100';
+      map[svc.titleEn] = fee;
+    });
+    SPECIALIZED_SERVICES_11.forEach((svc) => {
+      map[svc.name] = svc.price;
+    });
+    return map;
+  }, []);
+
+  const allKnownValues = useMemo(() => new Set(Object.keys(servicePriceMap)), [servicePriceMap]);
+
+  if (!isOpen) return null;
+
+  const activePrice =
+    service === defaultService && defaultPrice
+      ? defaultPrice
+      : servicePriceMap[service] || defaultPrice;
 
   const handleCopy = (text: string, key: string) => {
     navigator.clipboard.writeText(text);
@@ -45,7 +77,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 - Name: ${name || 'Seeker'}
 - Date of Birth: ${dob || 'Not provided'}
 - Phone/WhatsApp: ${phone || 'Not provided'}
-- Selected Service: ${service}
+- Selected Service: ${service}${activePrice ? ` (${activePrice})` : ''}
 - Mode: ${mode === 'whatsapp_video' ? 'Virtual (WhatsApp Audio/Video)' : 'In-Person (Jaipur Clinic - Jagatpura)'}
 - Preferred Date: ${preferredDate || 'Earliest available'}
 ${notes ? `- Note: ${notes}` : ''}
@@ -63,10 +95,10 @@ Please confirm my appointment and let me know the available time slot.`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
-      <div className="bg-white rounded-2xl border-2 border-amber-300 max-w-lg w-full overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="bg-white rounded-2xl border-2 border-amber-300 max-w-lg w-full overflow-hidden shadow-2xl relative max-h-[92vh] flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-100 p-5 flex items-center justify-between shrink-0">
+        <div className="bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-100 px-5 py-4 flex items-center justify-between shrink-0">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-amber-300">
               {isSundayFree ? (lang === 'hi' ? 'रविवार फ्री ऑफर' : 'Special Sunday Offer') : (lang === 'hi' ? 'सीधी बुकिंग' : 'Direct Booking')}
@@ -77,16 +109,16 @@ Please confirm my appointment and let me know the available time slot.`;
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-amber-200 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-1.5 rounded-lg text-amber-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Form Body */}
-        <form onSubmit={handleSubmit} className="p-5 sm:p-6 space-y-4 overflow-y-auto">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-5 space-y-3 overflow-y-auto">
           {isSundayFree && (
-            <div className="bg-amber-50 border border-amber-300 rounded-xl p-3 text-xs text-amber-950 flex items-center gap-2">
+            <div className="bg-amber-50 border border-amber-300 rounded-xl p-2.5 text-xs text-amber-950 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-700 shrink-0" />
               <span>
                 <strong>{lang === 'hi' ? 'रविवार सेवा:' : 'Sunday Privilege:'}</strong> {lang === 'hi' ? 'पहले 5 कंसल्टेशन बिल्कुल फ्री हैं!' : 'First 5 consultations are FREE on appointment!'}
@@ -146,15 +178,43 @@ Please confirm my appointment and let me know the available time slot.`;
               onChange={(e) => setService(e.target.value)}
               className="w-full text-xs p-2.5 rounded-lg border border-stone-300 bg-stone-50 focus:ring-1 focus:ring-amber-500"
             >
-              <option value="Sunday Free Consultation">{lang === 'hi' ? 'रविवार फ्री कंसल्टेशन (पहले 5 स्लॉट)' : 'Sunday Free Consultation (First 5 Slots)'}</option>
-              <option value="Vedic Numerology & Lo-Shu Blueprint">{lang === 'hi' ? 'अंक ज्योतिष व जन्मतिथि ग्रिड विश्लेषण' : 'Comprehensive Vedic Numerology & Lo-Shu Grid'}</option>
-              <option value="Watch Analysis & Therapeutic Watch Consultation">{lang === 'hi' ? 'हाथ की घड़ी (वॉच थेरेपी गाइडेंस)' : 'Watch Analysis & Therapy Watch Guidance'}</option>
-              <option value="Negativity Removal & Salt Therapy">{lang === 'hi' ? 'सॉल्ट थेरेपी (सेंधा नमक से नेगेटिविटी दूर करें)' : 'Negativity Removal & Salt Therapy'}</option>
-              <option value="Personalized Crystal Guidance">{lang === 'hi' ? 'करियर व धन के लिए क्रिस्टल थेरेपी' : 'Crystal Therapy for Profession & Growth'}</option>
-              <option value="Lucky Mobile Number Analysis">{lang === 'hi' ? 'लकी मोबाइल नंबर की जांच व चयन' : 'Lucky Mobile Number Analysis & Selection'}</option>
-              <option value="Chaldean Name Correction">{lang === 'hi' ? 'नाम की सही स्पेलिंग सुधार' : 'Name Analysis & Spelling Correction'}</option>
-              <option value="Grid Matching (Marriage/Business)">{lang === 'hi' ? 'शादी व बिजनेस पार्टनर ग्रिड मिलान' : 'Grid Matching (Marriage / Business Partners)'}</option>
-              <option value="Divine Yantras & Healing Codes">{lang === 'hi' ? 'सिद्ध यंत्र व हीलिंग कोड' : 'Divine Yantras & Healing Codes'}</option>
+              {!allKnownValues.has(service) && service && (
+                <option value={service}>{service}</option>
+              )}
+
+              <optgroup label={lang === 'hi' ? '★ प्रमुख परामर्श (Featured Consultations)' : '★ Featured Consultations'}>
+                <option value="Sunday Free Consultation">
+                  {lang === 'hi' ? 'रविवार फ्री कंसल्टेशन (पहले 5 स्लॉट) — FREE' : 'Sunday Free Consultation (First 5 Slots) — FREE'}
+                </option>
+                <option value="Personalized Spiritual Consultation">
+                  {lang === 'hi' ? 'पर्सनल अंक ज्योतिष एवं लाइफ गाइडेंस — ₹5,100' : 'Personalized Spiritual & Numerology Consultation — ₹5,100'}
+                </option>
+              </optgroup>
+
+              <optgroup label={lang === 'hi' ? '★ सभी 16 पवित्र सेवाएँ एवं परामर्श फीस (All 16 Divine Services)' : '★ ALL 16 DIVINE SERVICES & CONSULTANCY FEES'}>
+                {ALL_SERVICES.map((svc) => {
+                  const fee = SERVICES_DETAIL_DATA[svc.id]?.suggestedTariff || '₹5,100';
+                  const num = svc.id < 10 ? `0${svc.id}` : `${svc.id}`;
+                  const label = lang === 'hi' ? svc.titleHi : svc.titleEn;
+                  return (
+                    <option key={`divine-${svc.id}`} value={svc.titleEn}>
+                      {num}. {label} — {fee}
+                    </option>
+                  );
+                })}
+              </optgroup>
+
+              <optgroup label={lang === 'hi' ? '★ 11 विशिष्ट हीलिंग एवं सुधार सेवाएं (11 Specialized Services)' : '★ 11 Specialized Healing & Correction Services'}>
+                {SPECIALIZED_SERVICES_11.map((svc) => {
+                  const num = svc.id < 10 ? `0${svc.id}` : `${svc.id}`;
+                  const label = lang === 'hi' ? svc.nameHi : svc.name;
+                  return (
+                    <option key={`specialized-${svc.id}`} value={svc.name}>
+                      {num}. {label} — {svc.price}
+                    </option>
+                  );
+                })}
+              </optgroup>
             </select>
           </div>
 
@@ -201,15 +261,15 @@ Please confirm my appointment and let me know the available time slot.`;
           </div>
 
           {/* Bank & UPI Quick Details */}
-          <div className="bg-amber-50/70 rounded-xl p-3.5 border border-amber-300 text-[11px] text-stone-700 space-y-2">
+          <div className="bg-amber-50/70 rounded-xl p-3 border border-amber-300 text-[11px] text-stone-700 space-y-2">
             <div className="flex items-center justify-between font-bold text-stone-900">
               <span className="flex items-center gap-1.5 text-amber-950">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 {lang === 'hi' ? 'ऑफिशियल बैंक व UPI पेमेंट:' : 'Official Bank & UPI Details:'}
               </span>
-              {defaultPrice && (
+              {activePrice && (
                 <span className="font-mono text-xs font-black text-amber-900 bg-amber-200/80 px-2 py-0.5 rounded border border-amber-400">
-                  {defaultPrice}
+                  {activePrice}
                 </span>
               )}
             </div>

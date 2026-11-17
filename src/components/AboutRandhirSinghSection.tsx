@@ -36,14 +36,14 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
     : 'Guiding clients across India and worldwide from his Jaipur center through authentic Lo-Shu numerology, precision therapy watches, salt aura cleansing, and consecrated yantras.');
 
   return (
-    <section id="about-randhir" className="relative py-14 sm:py-20 bg-[#fdfbf7] border-b border-amber-200/80">
+    <section id="about-randhir" className="relative py-7 sm:py-9 bg-[#fdfbf7] border-b border-amber-200/80">
       {/* Anchor targets for direct URL hash jumps */}
       <div id="about" className="absolute -top-20 left-0 pointer-events-none" />
       <div id="randhir-singh" className="absolute -top-20 left-0 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-7">
           <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-300 text-amber-900 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-3 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-amber-700" />
             <span>{lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'A Numerologist and Healer · Randhir Singh Ji Jaipur'}</span>
@@ -89,7 +89,7 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
             </div>
           </div>
 
-          <div className="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="p-5 sm:p-7 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             {/* Left: Formal Portrait Card */}
             <div className="lg:col-span-4 flex flex-col items-center">
               <div className="relative w-64 sm:w-72 aspect-4/5 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-lg group bg-stone-900">

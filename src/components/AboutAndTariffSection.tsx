@@ -324,7 +324,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
   ];
 
   return (
-    <section id="tariff-about" className="relative py-12 sm:py-16 bg-[#faf7f0] border-b border-amber-200/80">
+    <section id="tariff-about" className="relative py-7 sm:py-9 bg-[#faf7f0] border-b border-amber-200/80">
       {/* Anchor targets for direct URL jumps */}
       <div id="specialized-services" className="absolute -top-20 left-0 pointer-events-none" />
       <div id="11-specialized-healing-services" className="absolute -top-20 left-0 pointer-events-none" />
@@ -333,7 +333,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
       <div id="payment" className="absolute -top-20 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-5 sm:mb-6">
           {[
             { id: 'specialized', label: lang === 'hi' ? '11 विशिष्ट हीलिंग एवं सुधार सेवाएं' : '11 Specialized Healing & Correction Services', icon: Sparkles },
             { id: 'about', label: lang === 'hi' ? 'रणधीर सिंह जी के बारे में' : 'About Randhir Singh Ji', icon: Award },
@@ -360,7 +360,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
 
         {/* TAB 1: 11 SPECIALIZED HEALING & CORRECTION SERVICES */}
         {activeTab === 'specialized' && (
-          <div className="space-y-8 animate-in fade-in duration-200">
+          <div className="space-y-5 animate-in fade-in duration-200">
             {/* Header */}
             <div className="text-center max-w-3xl mx-auto">
               <span className="text-xs font-bold uppercase tracking-widest text-amber-900 bg-amber-100 px-3 py-1 rounded-md border border-amber-300">
@@ -575,8 +575,8 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
         {activeTab === 'bank' && (
           <div className="bg-white rounded-2xl border-2 border-amber-300 p-6 sm:p-10 shadow-lg max-w-4xl mx-auto animate-in fade-in duration-200">
             {/* Header */}
-            <div className="text-center max-w-xl mx-auto mb-8">
-              <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center mx-auto mb-3 shadow-xs">
+            <div className="text-center max-w-xl mx-auto mb-5">
+              <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center mx-auto mb-2.5 shadow-xs">
                 <QrCode className="w-6 h-6 text-amber-800" />
               </div>
               <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-300 mb-2">
@@ -594,7 +594,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
             </div>
 
             {/* Primary Verified Account Banner */}
-            <div className="bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-100 rounded-2xl p-6 sm:p-8 border border-amber-400/50 mb-8 shadow-md">
+            <div className="bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 text-amber-100 rounded-2xl p-5 sm:p-6 border border-amber-400/50 mb-5 shadow-md">
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
@@ -660,7 +660,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
             </div>
 
             {/* 3 UPI IDs Section */}
-            <div className="mb-8">
+            <div className="mb-5">
               <div className="flex items-center justify-between mb-3">
                 <h4 className="font-sacred text-base sm:text-lg font-bold text-stone-900">
                   {lang === 'hi' ? 'तीनों अधिकृत UPI आईडी (One-Click Copy)' : 'Official 3 UPI IDs (Click to Copy)'}
@@ -797,7 +797,7 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
             </div>
 
             {/* Authentic QR Codes Showcase */}
-            <div className="mb-8">
+            <div className="mb-5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
                 <div>
                   <h4 className="font-sacred text-base sm:text-lg font-bold text-stone-900">

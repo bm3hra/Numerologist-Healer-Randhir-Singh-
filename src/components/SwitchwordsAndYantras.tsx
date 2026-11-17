@@ -40,12 +40,12 @@ export const SwitchwordsAndYantras: React.FC<SwitchwordsAndYantrasProps> = ({
   };
 
   return (
-    <section id="yantras-codes" className="relative py-12 sm:py-16 bg-[#faf6ee] border-b border-amber-200/80">
+    <section id="yantras-codes" className="relative py-7 sm:py-9 bg-[#faf6ee] border-b border-amber-200/80">
       {/* Target anchor for direct #remedies URL navigation */}
       <div id="remedies" className="absolute -top-20 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Grid className="w-3.5 h-3.5 text-amber-700" />
             <span>{lang === 'hi' ? 'सेवा संख्या #11, 13, 14, 15 · पावन ऊर्जा तरंगें' : 'Services #11, 13, 14, 15 · Divine Frequencies'}</span>
@@ -67,7 +67,7 @@ export const SwitchwordsAndYantras: React.FC<SwitchwordsAndYantrasProps> = ({
         </div>
 
         {/* Section Switcher */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-5">
           <div className="bg-stone-200/70 p-1 rounded-xl flex items-center gap-1 border border-stone-300">
             <button
               onClick={() => setActiveSection('switchwords')}

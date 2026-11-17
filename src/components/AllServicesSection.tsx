@@ -87,7 +87,7 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
   };
 
   return (
-    <section id="all-services" className="relative py-12 sm:py-16 bg-[#fbf9f4] border-b border-amber-200/80">
+    <section id="all-services" className="relative py-7 sm:py-9 bg-[#fbf9f4] border-b border-amber-200/80">
       {/* Target anchors for unified navigation */}
       <div id="services" className="absolute -top-20 left-0 pointer-events-none" />
       <div id="tariff" className="absolute -top-20 left-0 pointer-events-none" />
@@ -97,7 +97,7 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header - Unified All 16 Divine Services & Consultancy Fees */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Sparkles className="w-3.5 h-3.5 text-amber-700" />
             <span>{lang === 'hi' ? 'रणधीर सिंह जी का संपूर्ण 16 प्रमाणित सेवा पोर्टफोलियो एवं फीस' : 'Complete Visiting Card Portfolio · Randhir Singh'}</span>
@@ -155,7 +155,7 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
         </div>
 
         {/* Top 2 Primary Offerings: Sunday Free + Flagship Consultation */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch mb-7">
           {/* 1. Sunday Free Consultation */}
           <div className="lg:col-span-5 bg-gradient-to-br from-amber-950 via-stone-900 to-amber-950 text-amber-100 rounded-2xl p-6 sm:p-7 border-2 border-amber-400/90 shadow-xl flex flex-col justify-between">
             <div>
@@ -288,7 +288,7 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
         </div>
 
         {/* Section Heading for All 16 Services Grid */}
-        <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
               {lang === 'hi' ? 'विजिटिंग कार्ड पोर्टफोलियो' : 'Complete 16 Services Portfolio'}
@@ -303,7 +303,7 @@ export const AllServicesSection: React.FC<AllServicesSectionProps> = ({
         </div>
 
         {/* Filter bar & Search */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-5">
           <div className="flex flex-wrap items-center gap-1.5">
             {[
               { id: 'all', labelEn: 'All 16 Services', labelHi: 'सभी 16 सेवाएँ' },

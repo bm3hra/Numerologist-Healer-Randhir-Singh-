@@ -76,12 +76,12 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
   };
 
   return (
-    <section id="dob-calculator" className="relative py-12 sm:py-16 bg-[#fbf9f4] border-b border-amber-200/80">
+    <section id="dob-calculator" className="relative py-7 sm:py-9 bg-[#fbf9f4] border-b border-amber-200/80">
       {/* Target anchor for direct #dob URL navigation */}
       <div id="dob" className="absolute -top-20 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100/90 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Compass className="w-3.5 h-3.5 text-amber-700" />
             <span>{lang === 'hi' ? 'इंटरएक्टिव वैदिक व लो-शू मैजिक ग्रिड' : 'Interactive Vedic & Lo-Shu Magic Grid Engine'}</span>
@@ -236,7 +236,7 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
         </div>
 
         {/* Input Form Card */}
-        <div className="bg-white rounded-2xl border-2 border-amber-300 p-6 sm:p-8 shadow-md max-w-4xl mx-auto mb-12">
+        <div className="bg-white rounded-2xl border-2 border-amber-300 p-5 sm:p-6 shadow-md max-w-4xl mx-auto mb-6">
           <form onSubmit={handleCalculate} className="grid grid-cols-2 sm:grid-cols-5 gap-3 items-end">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">
@@ -316,7 +316,7 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
         </div>
 
         {/* Results Container */}
-        <div className="space-y-8">
+        <div className="space-y-5">
           {/* Top 3 Core Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* Lucky Number (Birth Number) / Mulank */}
@@ -664,9 +664,9 @@ export const DobCalculator: React.FC<DobCalculatorProps> = ({
           {/* ============================================================== */}
           {/* YOUR 3x3 VEDIC GRID & CALCULATION & PREDICTIONS (वैदिक अंक कुंडली) */}
           {/* ============================================================== */}
-          <div id="vedic-grid" className="mt-12 pt-10 border-t-2 border-amber-300/80">
+          <div id="vedic-grid" className="mt-7 pt-6 border-t-2 border-amber-300/80">
             {/* Vedic Grid Header */}
-            <div className="text-center max-w-3xl mx-auto mb-8">
+            <div className="text-center max-w-3xl mx-auto mb-5">
               <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-950 font-bold bg-gradient-to-r from-amber-200 via-amber-100 to-amber-200 px-3.5 py-1.5 rounded-full mb-3 border border-amber-400 shadow-2xs">
                 <ShieldCheck className="w-4 h-4 text-amber-800" />
                 <span>

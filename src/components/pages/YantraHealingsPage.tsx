@@ -234,7 +234,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
   const [selectedYantra, setSelectedYantra] = useState<HealingYantra>(HEALING_YANTRAS[0]);
 
   return (
-    <div className="min-h-screen bg-[#faf6ee] text-stone-900 pb-20">
+    <div className="bg-[#faf6ee] text-stone-900 pb-6 sm:pb-8">
       {/* Top Breadcrumb & Navigation Bar */}
       <div className="bg-white border-b border-amber-200/80 sticky top-14 sm:top-16 z-30 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3">
@@ -283,7 +283,7 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
       </div>
 
       {/* Hero Banner with Divine Geometry Visual */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f7f2e5] via-[#faf6ee] to-[#fbf8f0] py-12 sm:py-16 border-b border-amber-200/80">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f7f2e5] via-[#faf6ee] to-[#fbf8f0] py-7 sm:py-9 border-b border-amber-200/80">
         {/* Divine Geometry Background Rings */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none opacity-20 select-none overflow-hidden">
           <svg viewBox="0 0 800 800" className="w-full h-full animate-spin-slow">
@@ -350,9 +350,9 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
       </section>
 
       {/* 4 Pillars of Yantra Science */}
-      <section className="py-12 border-b border-amber-200/80 bg-white">
+      <section className="py-7 sm:py-9 border-b border-amber-200/80 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="text-center max-w-2xl mx-auto mb-6">
             <h2 className="font-sacred text-xl sm:text-3xl font-bold text-stone-900">
               {lang === 'hi' ? 'यंत्र हीलिंग कैसे कार्य करती है?' : 'How Yantra Energy Healing Works'}
             </h2>
@@ -422,8 +422,8 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
       </section>
 
       {/* Interactive Yantra Explorer Studio */}
-      <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+      <section className="py-7 sm:py-9 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-6">
           <span className="text-xs uppercase tracking-widest text-amber-800 font-bold bg-amber-100 px-3 py-1 rounded-md mb-2 inline-block border border-amber-300">
             {lang === 'hi' ? '6 प्रमुख वैदिक हीलिंग यंत्र' : 'The 6 Major Vedic Healing Yantras'}
           </span>
@@ -650,9 +650,9 @@ export const YantraHealingsPage: React.FC<YantraHealingsPageProps> = ({
       </section>
 
       {/* Materials & Consecration Authenticity FAQ */}
-      <section className="py-12 bg-white border-t border-amber-200/80">
+      <section className="py-7 sm:py-9 bg-white border-t border-amber-200/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
+          <div className="text-center mb-5">
             <h2 className="font-sacred text-2xl font-bold text-stone-900">
               {lang === 'hi' ? 'यंत्र सामग्री एवं प्रामाणिकता निर्देश' : 'Materials, Consecration & Authenticity'}
             </h2>

@@ -78,10 +78,10 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
   const mobileEval = getMobileEvaluation(mobileRoot, mobileSum);
 
   return (
-    <section id="mobile-name" className="py-12 sm:py-16 bg-[#fbf9f4] border-b border-amber-200/80">
+    <section id="mobile-name" className="py-7 sm:py-9 bg-[#fbf9f4] border-b border-amber-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Sparkles className="w-3.5 h-3.5 text-amber-700" />
             <span>Digital &amp; Phonetic Resonance</span>
@@ -96,7 +96,7 @@ export const MobileAndNameAnalyzer: React.FC<MobileAndNameAnalyzerProps> = ({
         </div>
 
         {/* Tab switch */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-5">
           <div className="bg-stone-200/70 p-1 rounded-xl flex items-center gap-1 border border-stone-300">
             <button
               onClick={() => setActiveTab('mobile')}

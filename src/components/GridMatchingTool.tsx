@@ -195,10 +195,10 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
   ];
 
   return (
-    <section id="grid-matching" className="py-12 sm:py-16 bg-[#faf7f0] border-b border-amber-200/80">
+    <section id="grid-matching" className="py-7 sm:py-9 bg-[#faf7f0] border-b border-amber-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Users className="w-3.5 h-3.5 text-amber-700" />
             <span>
@@ -249,7 +249,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
         </div>
 
         {/* Dual Input Form */}
-        <div className="bg-white rounded-2xl border-2 border-amber-300 p-6 sm:p-8 shadow-md max-w-4xl mx-auto mb-8">
+        <div className="bg-white rounded-2xl border-2 border-amber-300 p-5 sm:p-6 shadow-md max-w-4xl mx-auto mb-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-stone-200">
             {/* Person A */}
             <div className="space-y-4 md:pr-4">
@@ -396,7 +396,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
         </div>
 
         {/* Matrix View Filter / Switcher */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-5">
           <span className="text-xs font-bold text-stone-600 uppercase tracking-wider mr-2">
             {lang === 'hi' ? 'ग्रिड विन्यास चुनें:' : 'Select Matrix View:'}
           </span>
@@ -421,8 +421,8 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
 
         {/* VEDIC GRID MATCHING SECTION */}
         {(gridMode === 'both' || gridMode === 'vedic') && (
-          <div className="bg-white rounded-2xl border-2 border-amber-400 p-6 sm:p-8 shadow-md max-w-5xl mx-auto mb-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-200 pb-3 mb-6 gap-2">
+          <div className="bg-white rounded-2xl border-2 border-amber-400 p-5 sm:p-6 shadow-md max-w-5xl mx-auto mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-200 pb-3 mb-4 gap-2">
               <div>
                 <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded border border-amber-300">
                   <Flame className="w-3.5 h-3.5 text-amber-700" />
@@ -445,7 +445,7 @@ export const GridMatchingTool: React.FC<GridMatchingToolProps> = ({
             </div>
 
             {/* Dual Vedic Grids */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mb-5">
               {/* Partner A Vedic Grid */}
               <div className="bg-gradient-to-br from-amber-50/90 to-orange-50/50 p-5 rounded-2xl border-2 border-amber-300 shadow-xs">
                 <div className="flex items-center justify-between mb-3">

@@ -127,7 +127,7 @@ export const DynamicPageViewer: React.FC<DynamicPageViewerProps> = ({
   }
 
   return (
-    <article className="min-h-screen bg-[#fdfbf7] text-stone-900 pb-20">
+    <article className="bg-[#fdfbf7] text-stone-900 pb-8">
       {/* Breadcrumbs Header */}
       <div className="bg-amber-50/80 border-b border-amber-200/50 py-3 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -167,7 +167,7 @@ export const DynamicPageViewer: React.FC<DynamicPageViewerProps> = ({
       </div>
 
       {/* Blocks Rendering Container */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-7">
         {blocksList && blocksList.length > 0 ? (
           blocksList.map((block) => (
             <div key={block.id} className="transition-all">

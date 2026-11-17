@@ -216,10 +216,10 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
   });
 
   return (
-    <section id="faq-section" className="py-12 sm:py-16 bg-[#fcfaf5] border-b border-amber-200/80">
+    <section id="faq-section" className="py-7 sm:py-9 bg-[#fcfaf5] border-b border-amber-200/80">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <HelpCircle className="w-3.5 h-3.5 text-amber-700" />
             <span>{lang === 'hi' ? 'सवाल और जवाब' : 'Clarifications & Questions'}</span>
@@ -239,7 +239,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
         </div>
 
         {/* Filter Tabs & Search Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-5">
           <div className="flex flex-wrap items-center gap-1.5">
             {[
               { id: 'all', label: lang === 'hi' ? 'सभी सवाल' : 'All FAQs' },
@@ -276,7 +276,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenBooking }) =
         </div>
 
         {/* Accordion FAQ Items */}
-        <div className="space-y-3 mb-12">
+        <div className="space-y-3 mb-6">
           {filteredFaqs.length === 0 ? (
             <div className="bg-white rounded-xl p-8 text-center border border-stone-200 text-stone-500 text-xs">
               {lang === 'hi' ? 'कोई सवाल नहीं मिला। कृपया दूसरा शब्द खोजें या हमें व्हाट्सएप पर पूछें।' : 'No matching questions found. Please try another search term or ask us directly on WhatsApp.'}

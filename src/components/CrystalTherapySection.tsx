@@ -33,12 +33,12 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
   });
 
   return (
-    <section id="crystal-therapy" className="relative py-12 sm:py-16 bg-[#faf7f0] border-b border-amber-200/80">
+    <section id="crystal-therapy" className="relative py-7 sm:py-9 bg-[#faf7f0] border-b border-amber-200/80">
       {/* Target anchor for direct #crystal URL navigation */}
       <div id="crystal" className="absolute -top-20 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100/90 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Gem className="w-3.5 h-3.5 text-amber-700" />
             <span>{lang === 'hi' ? 'पवित्र खनिज ऊर्जा · रणधीर सिंह' : 'Divine Mineral Energies · Randhir Singh'}</span>
@@ -58,7 +58,7 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
         </div>
 
         {/* Filter Pills / Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-5">
           {[
             { id: 'all', label: lang === 'hi' ? 'सभी क्रिस्टल्स' : 'All Crystals' },
             { id: 'wealth', label: lang === 'hi' ? 'धन एवं व्यापार (पायराइट/सिट्रीन)' : 'Wealth & Business (Pyrite/Citrine)' },
@@ -82,7 +82,7 @@ export const CrystalTherapySection: React.FC<CrystalTherapySectionProps> = ({
         </div>
 
         {/* Crystal Grid & Interactive Detail */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-6">
           {/* Left Cards Grid */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {filteredCrystals.map((crystal) => {

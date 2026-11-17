@@ -25,10 +25,10 @@ export const LunarNumerologySection: React.FC<LunarNumerologySectionProps> = ({
   const isFull = selectedPhase.id === 'full_moon';
 
   return (
-    <section id="lunar-numerology" className="py-12 sm:py-16 bg-[#faf6ee] border-b border-amber-200/80">
+    <section id="lunar-numerology" className="py-7 sm:py-9 bg-[#faf6ee] border-b border-amber-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Moon className="w-3.5 h-3.5 text-amber-700" />
             <span>Cosmic Biorhythms &amp; Chandra Frequencies</span>
@@ -48,7 +48,7 @@ export const LunarNumerologySection: React.FC<LunarNumerologySectionProps> = ({
         </div>
 
         {/* Live Real-Time Today's Moon Phase Banner */}
-        <div className="bg-gradient-to-r from-stone-950 via-amber-950 to-stone-950 text-amber-100 rounded-2xl p-6 sm:p-8 border-2 border-amber-400/70 shadow-xl mb-12 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-stone-950 via-amber-950 to-stone-950 text-amber-100 rounded-2xl p-5 sm:p-6 border-2 border-amber-400/70 shadow-xl mb-6 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -97,7 +97,7 @@ export const LunarNumerologySection: React.FC<LunarNumerologySectionProps> = ({
         </div>
 
         {/* 8 Moon Phases Visual Selector Strip */}
-        <div className="mb-10">
+        <div className="mb-6">
           <div className="flex items-center justify-between mb-3 px-1">
             <span className="text-xs font-bold uppercase tracking-wider text-stone-700">
               Explore the 8 Lunar Cycle Phases (चंद्रकलाएँ):

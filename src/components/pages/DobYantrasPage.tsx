@@ -219,7 +219,7 @@ export const DobYantrasPage: React.FC<DobYantrasPageProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-[#faf6ee] text-stone-900 pb-20">
+    <div className="bg-[#faf6ee] text-stone-900 pb-6 sm:pb-8">
       {/* Top Breadcrumb & Page Switcher */}
       <div className="bg-white border-b border-amber-200/80 sticky top-14 sm:top-16 z-30 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3">
@@ -268,7 +268,7 @@ export const DobYantrasPage: React.FC<DobYantrasPageProps> = ({
       </div>
 
       {/* Hero Header */}
-      <section className="bg-gradient-to-b from-[#f7f2e5] via-[#faf6ee] to-[#fbf8f0] py-12 sm:py-16 border-b border-amber-200/80">
+      <section className="bg-gradient-to-b from-[#f7f2e5] via-[#faf6ee] to-[#fbf8f0] py-7 sm:py-9 border-b border-amber-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-amber-900/10 text-amber-950 px-4 py-1.5 rounded-full border border-amber-300 text-xs font-bold tracking-widest uppercase mb-4 shadow-2xs">
             <Calendar className="w-3.5 h-3.5 text-amber-700" />
@@ -294,9 +294,9 @@ export const DobYantrasPage: React.FC<DobYantrasPageProps> = ({
       </section>
 
       {/* Interactive Calculation Studio */}
-      <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-7 sm:py-9 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* DOB Input Form Card */}
-        <div className="bg-white rounded-3xl border-2 border-amber-300 p-6 sm:p-8 shadow-xl mb-12">
+        <div className="bg-white rounded-3xl border-2 border-amber-300 p-5 sm:p-6 shadow-xl mb-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-amber-100 pb-5 mb-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-amber-800">

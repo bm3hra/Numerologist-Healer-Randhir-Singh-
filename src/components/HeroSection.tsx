@@ -33,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     : 'Understand your Date of Birth. Recognize your life patterns. Move forward with confidence.');
 
   return (
-    <section id="home" className="relative overflow-hidden scroll-mt-20 bg-gradient-to-b from-[#faf6ee] via-[#f7f2e5] to-[#faf6ee] pt-8 pb-14 border-b border-amber-200/80">
+    <section id="home" className="relative overflow-hidden scroll-mt-20 bg-gradient-to-b from-[#faf6ee] via-[#f7f2e5] to-[#faf6ee] pt-4 pb-6 sm:pt-5 sm:pb-8 border-b border-amber-200/80">
       {/* Divine Rotating Vedic Mandala & Celestial Geometry Graphic with 9 Navagraha Cosmic Spheres */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] sm:w-[980px] sm:h-[980px] pointer-events-none opacity-[0.24] select-none overflow-hidden">
         {/* Outer Rotating 12-Ray Solar Sun Wheel & Lotus Circle */}
@@ -110,7 +110,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* 17 Languages Selector (Indian & International) */}
-        <div className="mb-6 p-3 sm:p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-amber-300/80 shadow-xs">
+        <div className="mb-4 p-2.5 sm:p-3 bg-white/95 backdrop-blur-md rounded-2xl border border-amber-300/80 shadow-xs">
           <div className="flex flex-col gap-2.5">
             {/* Primary Bases: English US, English UK & हिन्दी */}
             <div className="flex items-center justify-between flex-wrap gap-2 pb-2 border-b border-amber-100">
@@ -190,34 +190,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Divine Header Invocation (Om Shri Ganeshay Namh) */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-900/10 via-amber-700/20 to-amber-900/10 text-amber-950 px-4 py-1.5 rounded-full border border-amber-300/80 text-xs font-sacred font-bold tracking-widest shadow-2xs">
+        <div className="text-center mb-3.5">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-900/10 via-amber-700/20 to-amber-900/10 text-amber-950 px-4 py-1 rounded-full border border-amber-300/80 text-xs font-sacred font-bold tracking-widest shadow-2xs">
             <span>卐</span>
             <span>{t.divineHeader}</span>
             <span>卐</span>
           </div>
 
-          <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-900 mt-3">
+          <h2 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-900 mt-2">
             {t.brandTitle}
           </h2>
         </div>
 
         {/* Core Hero Headline - Exact Suggested H1 */}
-        <div className="text-center max-w-4xl mx-auto mb-10">
+        <div className="text-center max-w-4xl mx-auto mb-5">
           <h1 className="font-sacred text-3xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-[1.15]">
             {t.homepageH1 || headline}
           </h1>
 
-          <p className="font-sacred text-base sm:text-xl font-bold text-amber-900 mt-3 tracking-wide">
+          <p className="font-sacred text-base sm:text-xl font-bold text-amber-900 mt-2 tracking-wide">
             {t.homepageH2 || subHeadline}
           </p>
 
-          <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-4 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-2.5 max-w-3xl mx-auto leading-relaxed">
             {cmsHero?.description || t.subMotto}
           </p>
 
           {/* Location & Quick Credentials Pill */}
-          <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-4 mt-6 text-xs text-stone-700 font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-4 mt-3.5 text-xs text-stone-700 font-medium">
             <span className="flex items-center gap-1.5 font-bold text-amber-900 bg-amber-100/90 px-3 py-1 rounded-full border border-amber-300/80 shadow-2xs">
               <MapPin className="w-3.5 h-3.5 text-amber-700" />
               <span>{lang === 'hi' ? 'रणधीर सिंह · जयपुर, राजस्थान · ऑनलाइन परामर्श उपलब्ध' : 'Randhir Singh · Jaipur, Rajasthan · Online Consultations Available'}</span>
@@ -235,10 +235,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Primary Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 w-full max-w-md sm:max-w-none mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4.5 w-full max-w-md sm:max-w-none mx-auto">
             <button
               onClick={() => onNavigate('dob')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 hover:to-amber-950 text-white font-bold py-3.5 px-6 rounded-xl text-sm shadow-md transition-all hover:shadow-lg transform hover:-translate-y-0.5 shrink-0"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 hover:to-amber-950 text-white font-bold py-3 px-6 rounded-xl text-sm shadow-md transition-all hover:shadow-lg transform hover:-translate-y-0.5 shrink-0"
             >
               <Compass className="w-4 h-4 text-amber-300 shrink-0" />
               <span>{t.calculateButton}</span>
@@ -247,7 +247,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             <button
               onClick={() => onOpenBooking()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-900 font-bold py-3.5 px-6 rounded-xl text-sm border-2 border-stone-300 hover:border-amber-400 shadow-2xs transition-all shrink-0"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-900 font-bold py-3 px-6 rounded-xl text-sm border-2 border-stone-300 hover:border-amber-400 shadow-2xs transition-all shrink-0"
             >
               <MessageCircle className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>{t.bookConsultation}</span>
@@ -255,7 +255,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             <button
               onClick={() => onNavigate('tariff')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-100/90 hover:bg-amber-200 text-amber-950 font-bold py-3.5 px-5 rounded-xl text-sm border-2 border-amber-300 hover:border-amber-400 shadow-2xs transition-all shrink-0"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-100/90 hover:bg-amber-200 text-amber-950 font-bold py-3 px-5 rounded-xl text-sm border-2 border-amber-300 hover:border-amber-400 shadow-2xs transition-all shrink-0"
               title={lang === 'hi' ? 'परामर्श एवं हीलिंग सेवाएं फीस' : 'Consultancy & Healing Services Fees'}
             >
               <CreditCard className="w-4 h-4 text-amber-700 shrink-0" />
@@ -265,7 +265,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* 4 Quick Specialty Launchpads */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-5">
           {/* Card 1: Watch Analysis */}
           <div
             onClick={() => onNavigate('watch')}

@@ -25,12 +25,12 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
     : 'Unprocessed mineral salts have been revered across Vedic, Vastu, and esoteric traditions as extraordinary bio-energetic absorbers of psychic fatigue, static stress, and heavy environmental impressions.');
 
   return (
-    <section id="salt-therapy" className="relative py-12 sm:py-16 bg-[#fbf8f2] border-b border-amber-200/80">
+    <section id="salt-therapy" className="relative py-7 sm:py-9 bg-[#fbf8f2] border-b border-amber-200/80">
       {/* Target anchor for direct #salt URL navigation */}
       <div id="salt" className="absolute -top-20 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100/90 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Sparkles className="w-3.5 h-3.5 text-amber-700" />
             <span>{lang === 'hi' ? 'नमक द्वारा ऊर्जा शुद्धि के पारंपरिक उपाय' : 'Traditional Holistic Cleansing'}</span>
@@ -50,7 +50,7 @@ export const SaltTherapySection: React.FC<SaltTherapySectionProps> = ({
         </div>
 
         {/* Ethical / Traditional Guidance Notice */}
-        <div className="bg-amber-50/80 border border-amber-200/90 rounded-xl p-4 mb-10 max-w-4xl mx-auto flex items-start gap-3 text-xs text-amber-950">
+        <div className="bg-amber-50/80 border border-amber-200/90 rounded-xl p-3.5 mb-5 max-w-4xl mx-auto flex items-start gap-3 text-xs text-amber-950">
           <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
           <p className="leading-relaxed">
             <strong>{lang === 'hi' ? 'पारंपरिक उपाय निर्देश व जानकारी:' : 'Traditional Practice Note:'}</strong> {SALT_THERAPY_PHILOSOPHY.disclaimer}

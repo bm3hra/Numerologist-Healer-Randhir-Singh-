@@ -221,7 +221,7 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
   return (
     <section
       id="reviews"
-      className="relative py-16 sm:py-20 bg-gradient-to-b from-[#faf6ee] via-[#fffdf9] to-[#faf6ee] border-b border-amber-200/80 scroll-mt-20"
+      className="relative py-7 sm:py-9 bg-gradient-to-b from-[#faf6ee] via-[#fffdf9] to-[#faf6ee] border-b border-amber-200/80 scroll-mt-20"
     >
       {/* Target anchor for direct jumps */}
       <div id="client-reviews-stories" className="absolute -top-20 left-0 pointer-events-none" />
@@ -229,7 +229,7 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-300 text-amber-900 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-3 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-amber-700" />
             <span>
@@ -255,7 +255,7 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
         </div>
 
         {/* Aggregate Rating Banner & Instant Submit Review Trigger */}
-        <div className="bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 rounded-3xl p-6 sm:p-8 text-amber-100 shadow-xl border border-amber-500/30 mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 rounded-3xl p-5 sm:p-6 text-amber-100 shadow-xl border border-amber-500/30 mb-6 flex flex-col md:flex-row items-center justify-between gap-5">
           <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
             <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex flex-col items-center justify-center text-stone-950 font-black shadow-lg shrink-0">
               <span className="text-3xl leading-none">4.9</span>
@@ -532,7 +532,7 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
         )}
 
         {/* Filter Badges */}
-        <div id="reviews-feed" className="flex flex-wrap items-center justify-between gap-3 mb-8 scroll-mt-24">
+        <div id="reviews-feed" className="flex flex-wrap items-center justify-between gap-3 mb-5 scroll-mt-24">
           <div className="flex flex-wrap items-center gap-2">
             {[
               { id: 'all', labelEn: 'All Reviews', labelHi: 'सभी समीक्षाएँ', count: reviews.length },
@@ -656,7 +656,7 @@ export const ClientReviewsSection: React.FC<ClientReviewsSectionProps> = ({
         )}
 
         {/* Bottom Banner with Consultation CTA & Write a Review Button */}
-        <div className="mt-12 p-6 sm:p-8 bg-amber-50/80 rounded-2xl border-2 border-dashed border-amber-300 text-center max-w-3xl mx-auto">
+        <div className="mt-6 p-5 sm:p-6 bg-amber-50/80 rounded-2xl border-2 border-dashed border-amber-300 text-center max-w-3xl mx-auto">
           <Sparkles className="w-6 h-6 text-amber-700 mx-auto mb-2" />
           <h3 className="font-sacred text-lg sm:text-xl font-bold text-stone-900">
             {lang === 'hi'

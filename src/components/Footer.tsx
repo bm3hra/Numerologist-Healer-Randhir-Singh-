@@ -174,10 +174,10 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
   }, [refreshLiveStats]);
 
   return (
-    <footer className="bg-stone-950 text-stone-300 border-t-2 border-amber-500/70 pt-12 pb-8">
+    <footer className="bg-stone-950 text-stone-300 border-t-2 border-amber-500/70 pt-7 pb-16 lg:pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Divine Strip */}
-        <div className="text-center pb-8 border-b border-stone-800">
+        <div className="text-center pb-5 border-b border-stone-800">
           <div className="inline-flex items-center gap-2 text-amber-400 font-sacred text-sm font-bold tracking-widest">
             <span>卐</span>
             <span>॥ ॐ श्री गणेशाय नमः ॥</span>
@@ -189,7 +189,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
         </div>
 
         {/* Main Footer Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-6">
           {/* Brand & Identity */}
           <div className="space-y-3">
             <div className="flex items-center gap-2.5">
@@ -407,7 +407,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
         </div>
 
         {/* Global Multilingual Selector: 17 Target Languages (9 Indian + 8 International) */}
-        <div className="border-t border-stone-800/90 pt-8 pb-6">
+        <div className="border-t border-stone-800/90 pt-5 pb-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
@@ -493,7 +493,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
         </div>
 
         {/* Actual Live Visitor & Traffic Analytics Counter */}
-        <div className="border-t border-stone-800/90 pt-8 pb-6">
+        <div className="border-t border-stone-800/90 pt-5 pb-4">
           <div className="bg-gradient-to-r from-stone-900 via-stone-950 to-stone-900 border-2 border-amber-500/50 rounded-2xl p-4 sm:p-6 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
@@ -768,7 +768,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
         )}
 
         {/* Disclaimer as instructed */}
-        <div className="border-t border-stone-800/80 pt-6 pb-4">
+        <div className="border-t border-stone-800/80 pt-4 pb-3">
           <p className="text-[11px] text-stone-500 leading-relaxed text-center max-w-4xl mx-auto">
             {t.disclaimer}
           </p>

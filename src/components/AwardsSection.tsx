@@ -298,12 +298,12 @@ export const AwardsSection: React.FC<AwardsSectionProps> = ({ lang, onOpenBookin
   });
 
   return (
-    <section id="awards-recognition" className="relative py-12 sm:py-16 bg-[#faf6ee] border-b border-amber-200/80">
+    <section id="awards-recognition" className="relative py-7 sm:py-9 bg-[#faf6ee] border-b border-amber-200/80">
       {/* Target anchor for direct #awards URL navigation */}
       <div id="awards" className="absolute -top-20 left-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6">
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-900 font-bold bg-amber-100 px-3 py-1 rounded-md mb-3 border border-amber-300">
             <Trophy className="w-3.5 h-3.5 text-amber-700" />
             <span>{lang === 'hi' ? 'प्रतिष्ठित राष्ट्रीय सम्मान व अलंकरण' : 'Prestigious Honors & Felicitations'}</span>
@@ -516,7 +516,7 @@ export const AwardsSection: React.FC<AwardsSectionProps> = ({ lang, onOpenBookin
         </div>
 
         {/* Honors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
           {filteredHonors.map((honor) => {
             const Icon = honor.icon;
             return (

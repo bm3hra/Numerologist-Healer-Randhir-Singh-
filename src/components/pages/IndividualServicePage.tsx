@@ -147,7 +147,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
   };
 
   return (
-    <div className="py-6 sm:py-10 bg-[#fdfbf7] min-h-screen">
+    <div className="py-4 sm:py-6 bg-[#fdfbf7]">
       {/* Top Breadcrumb & Quick Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
         <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-stone-600 bg-white p-3 rounded-2xl border border-stone-200 shadow-2xs">
@@ -208,7 +208,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Hero Header for This Specific Service */}
-        <div className="relative bg-gradient-to-br from-stone-950 via-amber-950 to-stone-900 text-white rounded-3xl p-6 sm:p-10 border-2 border-amber-400 shadow-2xl overflow-hidden mb-10">
+        <div className="relative bg-gradient-to-br from-stone-950 via-amber-950 to-stone-900 text-white rounded-3xl p-5 sm:p-7 border-2 border-amber-400 shadow-2xl overflow-hidden mb-6">
           <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -771,7 +771,7 @@ export const IndividualServicePage: React.FC<IndividualServicePageProps> = ({
         </div>
 
         {/* Previous & Next Service Footer Navigation */}
-        <div className="mt-12 pt-8 border-t border-amber-200/80">
+        <div className="mt-6 pt-5 border-t border-amber-200/80">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <button
               onClick={() => onNavigateToService(prevId)}
