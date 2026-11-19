@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import { Language } from '../types';
 import { getTranslation, ALL_LANGUAGES } from '../i18n/languages';
+import { ExternalVisitorCounter } from './ExternalVisitorCounter';
 
 interface FooterProps {
   lang: Language;
@@ -529,31 +530,23 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
                 </div>
               </div>
 
-              {/* Middle: Odometer Plaque with Actual Persistent Count */}
+              {/* Middle: External Live Visitor Counter Widget */}
               <div className="flex flex-col items-center gap-2">
                 <div className="text-[11px] font-mono uppercase tracking-widest text-amber-400 font-bold flex items-center gap-1.5">
                   <Activity className="w-3.5 h-3.5 text-amber-400" />
-                  <span>{lang === 'hi' ? 'वास्तविक विज़िट संख्या (Actual Total Visits)' : 'Actual Total Page Visits'}</span>
+                  <span>{lang === 'hi' ? 'लाइव विज़िटर काउंटर (Live Visitor Counter)' : 'Live Visitor Counter'}</span>
                 </div>
-                <div className="inline-flex items-center gap-1 bg-black p-2.5 rounded-xl border-2 border-amber-500/70 shadow-[0_0_20px_rgba(245,158,11,0.25)]">
-                  {stats.totalVisits.toString().padStart(7, '0').split('').map((digit, index) => (
-                    <React.Fragment key={index}>
-                      {index === 1 || index === 4 ? (
-                        <span className="text-amber-500 font-bold text-base px-0.5 select-none">,</span>
-                      ) : null}
-                      <span className="inline-flex items-center justify-center w-7 h-9 sm:w-8 sm:h-10 bg-gradient-to-b from-stone-800 to-stone-950 text-amber-300 font-mono text-lg sm:text-xl font-black rounded border border-amber-600/50 shadow-inner select-none">
-                        {digit}
-                      </span>
-                    </React.Fragment>
-                  ))}
-                </div>
+                <ExternalVisitorCounter />
                 <div className="text-[10px] text-stone-500 font-mono flex items-center gap-1.5">
                   <span className={`w-1.5 h-1.5 rounded-full ${isLoadingStats ? 'bg-amber-400 animate-pulse' : 'bg-emerald-400'}`} />
-                  <span>
-                    {isLoadingStats
-                      ? (lang === 'hi' ? 'सिंक हो रहा है...' : 'Syncing live data...')
-                      : 'Server-Synced Real-Time · Active Since 2024'}
-                  </span>
+                  <a
+                    href="https://www.freevisitorcounters.com/en/home/stats/id/1709263"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-amber-400 transition-colors"
+                  >
+                    {lang === 'hi' ? 'लाइव काउंटर आँकड़े देखें · Counter #1709263' : 'Live Counter Stats · Counter #1709263'}
+                  </a>
                 </div>
               </div>
 
@@ -778,9 +771,6 @@ export const Footer: React.FC<FooterProps> = ({ lang, setLang, onNavigate, onOpe
         <div className="border-t border-stone-900 pt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-2">
           <span>{t.copyright}</span>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[11px] text-amber-500/80">
-              numerologywithrandhirsingh.vercel.app
-            </span>
             <button
               onClick={() => onNavigate('admin')}
               className="inline-flex items-center gap-1 text-[11px] text-stone-500 hover:text-amber-400 transition cursor-pointer"

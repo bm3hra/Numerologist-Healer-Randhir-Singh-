@@ -1169,6 +1169,65 @@ app.get('/google2a7641ce99aa2bbb.html', (req: Request, res: Response) => {
   res.send('google-site-verification: google2a7641ce99aa2bbb.html');
 });
 
+// GET /visitor-counter-widget.html - Isolated iframe page for synchronous FreeVisitorCounters script
+app.get('/visitor-counter-widget.html', (req: Request, res: Response) => {
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+  res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <base target="_blank" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+    a {
+      color: #d6d3d1;
+      font-size: 11px;
+      line-height: 1.2;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    a:hover {
+      opacity: 1;
+      color: #fbbf24;
+      text-decoration: underline;
+    }
+    br {
+      display: none;
+    }
+    img.counterimg {
+      display: block;
+      margin: 6px auto 0;
+      height: 30px;
+      width: auto;
+      border: 0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <a href='https://www.versicherungen.at/pflegevorsorge/'>Pflegevorsorge privat</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=6ef3a8cce86b59d2ced1b4d4b94aed0e10a61e09'></script>
+  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1709263/t/9"></script>
+</body>
+</html>`);
+});
+
 // GET /sitemap.xml - Dynamic XML Sitemap with 17-Language Reciprocal Hreflang Annotations
 app.get('/sitemap.xml', (req: Request, res: Response) => {
   try {

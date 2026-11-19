@@ -17,6 +17,7 @@ import { SeoDashboard } from './SeoDashboard';
 import { DuplicateCleaner } from './DuplicateCleaner';
 import { ReviewsManager } from './ReviewsManager';
 import { ConfirmDeleteModal } from './ConfirmDeleteModal';
+import { ExternalVisitorCounter } from '../ExternalVisitorCounter';
 import {
   FileText,
   Globe,
@@ -88,6 +89,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   });
   const [showVisitorDetails, setShowVisitorDetails] = useState(false);
   const [refreshingCounter, setRefreshingCounter] = useState(false);
+  const [counterWidgetKey, setCounterWidgetKey] = useState(0);
 
   // Manual Visitor Add / Counter Edit state
   const [showCounterControl, setShowCounterControl] = useState(false);
@@ -133,8 +135,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     setEditTodayVisits(String(data.todayVisits ?? 0));
   };
 
-  const refreshVisitorCounterOnly = async () => {
+  const refreshVisitorCounterOnly = async (reloadWidget = false) => {
     setRefreshingCounter(true);
+    if (reloadWidget) {
+      setCounterWidgetKey((prev) => prev + 1);
+    }
     try {
       const analytics = await getVisitorAnalytics();
       setVisitorStats(analytics);
@@ -625,27 +630,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </p>
             </div>
 
-            {/* Center Odometer Display matching Footer */}
+            {/* Center External Live Visitor Counter Widget */}
             <div className="flex flex-col items-start lg:items-center gap-1.5">
               <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-bold">
-                Total Page Visits (Baseline 1,005+)
+                Live Visitor Counter (#1709263)
               </span>
-              <div className="inline-flex items-center gap-1 bg-black p-2 rounded-xl border-2 border-amber-500/70 shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                {visitorStats.totalVisits
-                  .toString()
-                  .padStart(7, '0')
-                  .split('')
-                  .map((digit, index) => (
-                    <React.Fragment key={index}>
-                      {index === 1 || index === 4 ? (
-                        <span className="text-amber-500 font-bold text-sm px-0.5 select-none">,</span>
-                      ) : null}
-                      <span className="inline-flex items-center justify-center w-6 h-8 sm:w-7 sm:h-9 bg-gradient-to-b from-stone-800 to-stone-950 text-amber-300 font-mono text-base sm:text-lg font-black rounded border border-amber-600/50 shadow-inner select-none">
-                        {digit}
-                      </span>
-                    </React.Fragment>
-                  ))}
-              </div>
+              <ExternalVisitorCounter refreshKey={counterWidgetKey} />
             </div>
 
             {/* Right Stats + Controls */}
@@ -665,7 +655,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
               <div className="flex flex-wrap items-center gap-1.5">
                 <button
-                  onClick={refreshVisitorCounterOnly}
+                  onClick={() => refreshVisitorCounterOnly(true)}
                   disabled={refreshingCounter}
                   className="p-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-amber-300 border border-stone-700 transition cursor-pointer disabled:opacity-50"
                   title="काउंटर रिफ्रेश करें"

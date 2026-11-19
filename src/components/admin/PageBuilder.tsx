@@ -1679,7 +1679,7 @@ export const PageBuilder: React.FC<PageBuilderProps> = ({
                 Google Search Result पूर्वावलोकन (Live Snippet Preview)
               </span>
               <p className="text-[12px] text-stone-400 font-mono truncate">
-                https://numerologywithrandhirsingh.vercel.app › pages › {slug || 'your-slug'}
+                https://numerologist-randhir-singh.ai.studio › pages › {slug || 'your-slug'}
               </p>
               <h4 className="text-base text-blue-400 font-medium hover:underline cursor-pointer truncate">
                 {seoTitle || title || 'Untitled Vedic Guidance Page'} | Randhir Singh Jaipur
