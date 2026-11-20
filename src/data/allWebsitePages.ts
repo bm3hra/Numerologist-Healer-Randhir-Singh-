@@ -357,7 +357,7 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
     isSystemPage: true,
     status: 'published',
     seoTitle: 'About Randhir Singh | Numerologist & Healer Jaipur Rajasthan',
-    seoDescription: 'रणधीर सिंह जी का जीवन परिचय, शोध, अंतरराष्ट्रीय मान्यताएँ एवं जयपुर क्लिनिक।',
+    seoDescription: 'रणधीर सिंह जी का जीवन परिचय, श्रीविद्या साधक, शांभवी साधक और प्रति-प्रसव साधना साधक, शोध, अंतरराष्ट्रीय मान्यताएँ एवं जयपुर क्लिनिक।',
     ogImage: '/Randhir Singh.png',
     featuredImage: '/Randhir Singh.png',
     showInNav: true,
@@ -371,7 +371,7 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
         id: 'abt_blk_1',
         type: 'hero',
         title: 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर',
-        subtitle: 'वैदिक ज्ञान, वैज्ञानिक विश्लेषण और निस्वार्थ सेवा का अनूठा संगम',
+        subtitle: 'श्रीविद्या साधक, शांभवी साधक और प्रति-प्रसव साधना साधक — वैदिक ज्ञान, वैज्ञानिक विश्लेषण और निस्वार्थ सेवा का अनूठा संगम',
         imageUrl: '/Randhir Singh.png',
         imageAlt: 'Randhir Singh Jaipur'
       },
@@ -379,7 +379,7 @@ export const INITIAL_ALL_WEBSITE_PAGES: CMSPage[] = [
         id: 'abt_blk_2',
         type: 'text',
         title: 'आध्यात्मिक यात्रा एवं सिद्धांत',
-        content: 'रणधीर सिंह जी ने वर्षों के गहन अनुसंधान, हजारों कुंडलियों एवं कलाई घड़ियों के व्यावहारिक अध्ययन के आधार पर वैदिक अंक ज्योतिष को आधुनिक जीवनशैली के साथ जोड़ा है।'
+        content: 'रणधीर सिंह जी एक समर्पित श्रीविद्या साधक, शांभवी साधक और प्रति-प्रसव साधना साधक हैं। उन्होंने वर्षों के गहन अनुसंधान, आध्यात्मिक साधना, हजारों कुंडलियों एवं कलाई घड़ियों के व्यावहारिक अध्ययन के आधार पर वैदिक अंक ज्योतिष को आधुनिक जीवनशैली के साथ जोड़ा है।'
       }
     ]
   },

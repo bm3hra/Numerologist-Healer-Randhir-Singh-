@@ -75,8 +75,10 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
                 <h3 className="font-sacred text-2xl sm:text-3xl font-extrabold text-white mt-1">
                   Numerologist & Healer · Randhir Singh (रणधीर सिंह)
                 </h3>
-                <p className="text-xs sm:text-sm text-amber-200/80 mt-1">
-                  Vedic Numerologist · Watch Analysis Consultant · Pranic &amp; Crystal Healer
+                <p className="text-xs sm:text-sm text-amber-200/85 mt-1">
+                  {lang === 'hi'
+                    ? 'वैदिक अंक ज्योतिषी · कलाई घड़ी विशेषज्ञ · श्रीविद्या साधक · शांभवी साधक · प्रति-प्रसव साधना साधक'
+                    : 'Vedic Numerologist · Watch Analysis Consultant · Sri Vidya Sadhak · Shambhavi Sadhak · Prati-Prasav Sadhana Sadhak'}
                 </p>
               </div>
 
@@ -114,11 +116,11 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
                 <p>
                   {lang === 'hi' ? (
                     <>
-                      <strong>न्यूमेरोलॉजिस्ट और हीलर · रणधीर सिंह</strong> जयपुर (राजस्थान) के जाने-माने वैदिक अंक ज्योतिषी (न्यूमेरोलॉजिस्ट) और आध्यात्मिक हीलर हैं। कई वर्षों से वे देश-विदेश के हजारों लोगों, बिजनेसमैन और परिवारों को जन्मतिथि विश्लेषण, करियर में तरक्की, शादी और पैसों की स्थिरता के लिए सही और सरल मार्गदर्शन दे रहे हैं।
+                      <strong>न्यूमेरोलॉजिस्ट और हीलर · रणधीर सिंह</strong> जयपुर (राजस्थान) के जाने-माने वैदिक अंक ज्योतिषी (न्यूमेरोलॉजिस्ट), आध्यात्मिक हीलर तथा एक समर्पित <strong>श्रीविद्या साधक, शांभवी साधक और प्रति-प्रसव साधना साधक</strong> हैं। कई वर्षों से वे देश-विदेश के हजारों लोगों, बिजनेसमैन और परिवारों को जन्मतिथि विश्लेषण, करियर में तरक्की, शादी और पैसों की स्थिरता के लिए सही और सरल मार्गदर्शन दे रहे हैं।
                     </>
                   ) : (
                     <>
-                      <strong>Numerologist & Healer · Randhir Singh</strong> is a celebrated Vedic Numerologist, Pulse Horology Expert, and Spiritual Healer based in Jaipur, Rajasthan. Serving seekers, business founders, and families worldwide, his practice synthesizes authentic 3x3 Lo-Shu magic square vibrations with modern subconscious science.
+                      <strong>Numerologist &amp; Healer · Randhir Singh</strong> is a celebrated Vedic Numerologist, Pulse Horology Expert, Spiritual Healer, and a devoted <strong>Sri Vidya Sadhak, Shambhavi Sadhak, and Prati-Prasav Sadhana Sadhak</strong> based in Jaipur, Rajasthan. Serving seekers, business founders, and families worldwide, his practice synthesizes authentic 3x3 Lo-Shu magic square vibrations with deep traditional sadhana and subconscious science.
                     </>
                   )}
                 </p>
@@ -126,14 +128,40 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
                 <p>
                   {lang === 'hi' ? (
                     <>
-                      रॉयल स्किल्स एकेडमी (पंजीकरण सं. 10115) से सम्मानित रणधीर सिंह जी विशेष रूप से <strong>थेरेपी वॉच (कलाई घड़ी और नब्ज का विश्लेषण)</strong> और <strong>सेंधा नमक द्वारा नेगेटिविटी हटाने</strong> में माहिर हैं। उनके सिद्ध यंत्र और हीलिंग कोड्स जीवन में तरक्की के नए रास्ते खोलते हैं।
+                      रॉयल स्किल्स एकेडमी (पंजीकरण सं. 10115) से सम्मानित रणधीर सिंह जी विशेष रूप से <strong>थेरेपी वॉच (कलाई घड़ी और नब्ज का विश्लेषण)</strong> और <strong>सेंधा नमक द्वारा नेगेटिविटी हटाने</strong> में माहिर हैं। उनकी गहन साधना, सिद्ध यंत्र और हीलिंग कोड्स जीवन में शांति, स्पष्टता और तरक्की के नए रास्ते खोलते हैं।
                     </>
                   ) : (
                     <>
-                      Honored with the prestigious Royal Skills Academy convocation regalia (Regd. No. 10115) and keynote speaker recognition at the 2nd Mega Convocation at Radisson Blu, Numerologist & Healer · Randhir Singh is internationally renowned for his pioneer breakthroughs in <strong>Horological Pulse Resonance (Wristwatch Therapy)</strong> and <strong>Sendha Rock Salt Aura Shielding</strong>.
+                      Honored with the prestigious Royal Skills Academy convocation regalia (Regd. No. 10115) and keynote speaker recognition at the 2nd Mega Convocation at Radisson Blu, Numerologist &amp; Healer · Randhir Singh is internationally renowned for his pioneer breakthroughs in <strong>Horological Pulse Resonance (Wristwatch Therapy)</strong> and <strong>Sendha Rock Salt Aura Shielding</strong>.
                     </>
                   )}
                 </p>
+              </div>
+
+              {/* Spiritual Sadhana Identity Strip */}
+              <div className="bg-gradient-to-r from-amber-950/5 via-amber-50/90 to-amber-950/5 border border-amber-300/80 rounded-2xl p-3.5 sm:p-4">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-amber-900 mb-2 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                  <span>
+                    {lang === 'hi'
+                      ? 'आध्यात्मिक साधना एवं दर्शन (Spiritual Sadhana & Philosophy)'
+                      : 'Spiritual Sadhana & Philosophy (आध्यात्मिक साधना)'}
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-amber-300 text-amber-950 text-xs font-bold shadow-2xs">
+                    <span className="text-amber-600">✦</span>
+                    <span>{lang === 'hi' ? 'श्रीविद्या साधक' : 'श्रीविद्या साधक (Sri Vidya Sadhak)'}</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-amber-300 text-amber-950 text-xs font-bold shadow-2xs">
+                    <span className="text-amber-600">✦</span>
+                    <span>{lang === 'hi' ? 'शांभवी साधक' : 'शांभवी साधक (Shambhavi Sadhak)'}</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-amber-300 text-amber-950 text-xs font-bold shadow-2xs">
+                    <span className="text-amber-600">✦</span>
+                    <span>{lang === 'hi' ? 'प्रति-प्रसव साधना साधक' : 'प्रति-प्रसव साधना साधक (Prati-Prasav Sadhana Sadhak)'}</span>
+                  </span>
+                </div>
               </div>
 
               {/* 3 Key Pillars Badges */}

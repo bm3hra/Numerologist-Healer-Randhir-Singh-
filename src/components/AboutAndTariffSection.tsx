@@ -516,9 +516,20 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
                 </p>
                 <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
                   {lang === 'hi'
-                    ? 'जयपुर (राजस्थान) के जाने-माने अंक ज्योतिषी और हीलर। जन्मतिथि (लो-शू ग्रिड), कलाई की घड़ी (थेरेपी वॉच), सॉल्ट थेरेपी (नमक के उपाय) और सिद्ध यंत्रों के माध्यम से लोगों को सरल, सटीक और सच्चा मार्गदर्शन प्रदान करते हैं।'
-                    : 'Experienced numerologist and energetic healer based in Jaipur, Rajasthan. Serving seekers across languages with practical Date of Birth Lo-Shu analysis, Therapy Watches, Traditional Salt Cleansing, and Divine Yantras.'}
+                    ? 'जयपुर (राजस्थान) के जाने-माने अंक ज्योतिषी, हीलर तथा श्रीविद्या साधक, शांभवी साधक और प्रति-प्रसव साधना साधक। जन्मतिथि (लो-शू ग्रिड), कलाई की घड़ी (थेरेपी वॉच), सॉल्ट थेरेपी (नमक के उपाय) और सिद्ध यंत्रों के माध्यम से लोगों को सरल, सटीक और सच्चा मार्गदर्शन प्रदान करते हैं।'
+                    : 'Experienced numerologist, energetic healer, and devoted Sri Vidya Sadhak, Shambhavi Sadhak, and Prati-Prasav Sadhana Sadhak based in Jaipur, Rajasthan. Serving seekers across languages with practical Date of Birth Lo-Shu analysis, Therapy Watches, Traditional Salt Cleansing, and Divine Yantras.'}
                 </p>
+                <div className="flex flex-wrap items-center gap-2 pt-1">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-amber-50 border border-amber-300 text-amber-950 text-[11px] font-bold">
+                    ✦ {lang === 'hi' ? 'श्रीविद्या साधक' : 'श्रीविद्या साधक (Sri Vidya Sadhak)'}
+                  </span>
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-amber-50 border border-amber-300 text-amber-950 text-[11px] font-bold">
+                    ✦ {lang === 'hi' ? 'शांभवी साधक' : 'शांभवी साधक (Shambhavi Sadhak)'}
+                  </span>
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-amber-50 border border-amber-300 text-amber-950 text-[11px] font-bold">
+                    ✦ {lang === 'hi' ? 'प्रति-प्रसव साधना साधक' : 'प्रति-प्रसव साधना साधक (Prati-Prasav Sadhana Sadhak)'}
+                  </span>
+                </div>
               </div>
             </div>
 
