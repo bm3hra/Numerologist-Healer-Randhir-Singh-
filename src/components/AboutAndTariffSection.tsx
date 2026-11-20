@@ -506,28 +506,28 @@ export const AboutAndTariffSection: React.FC<AboutAndTariffSectionProps> = ({
               <div className="space-y-3 text-left">
                 <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-amber-800 font-bold bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">
                   <Award className="w-3.5 h-3.5 text-amber-700" />
-                  <span>{lang === 'hi' ? 'अंक ज्योतिष विशेषज्ञ एवं हीलर · रणधीर सिंह | जयपुर' : 'A Numerologist and Healer · Randhir Singh Ji Jaipur'}</span>
+                  <span>{lang === 'hi' ? 'न्यूमरोलॉजिस्ट एवं हीलर · रणधीर सिंह | जयपुर' : 'Numerologist & Healer · Randhir Singh | Jaipur'}</span>
                 </div>
                 <h3 className="font-sacred text-2xl sm:text-3xl font-extrabold text-stone-900">
-                  {lang === 'hi' ? 'रणधीर सिंह जी' : 'Randhir Singh Ji'}
+                  {lang === 'hi' ? 'न्यूमरोलॉजिस्ट एवं हीलर · रणधीर सिंह' : 'Numerologist & Healer · Randhir Singh'}
                 </h3>
                 <p className="text-amber-900 font-medium text-sm">
                   {lang === 'hi' ? '“अपनी जन्मतिथि को समझें, अपनी ज़िंदगी और भविष्य को बेहतर बनाएँ।”' : '“DECODE YOUR DATE OF BIRTH. CHANGE YOUR LIFE AND DESTINY.”'}
                 </p>
                 <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
                   {lang === 'hi'
-                    ? 'जयपुर (राजस्थान) के जाने-माने अंक ज्योतिषी, हीलर तथा श्रीविद्या साधक, शांभवी साधक और प्रति-प्रसव साधना साधक। जन्मतिथि (लो-शू ग्रिड), कलाई की घड़ी (थेरेपी वॉच), सॉल्ट थेरेपी (नमक के उपाय) और सिद्ध यंत्रों के माध्यम से लोगों को सरल, सटीक और सच्चा मार्गदर्शन प्रदान करते हैं।'
-                    : 'Experienced numerologist, energetic healer, and devoted Sri Vidya Sadhak, Shambhavi Sadhak, and Prati-Prasav Sadhana Sadhak based in Jaipur, Rajasthan. Serving seekers across languages with practical Date of Birth Lo-Shu analysis, Therapy Watches, Traditional Salt Cleansing, and Divine Yantras.'}
+                    ? 'रणधीर सिंह जयपुर, राजस्थान के प्रतिष्ठित वैदिक अंक ज्योतिष विशेषज्ञ, नाड़ी एवं घड़ी विज्ञान के अध्येता, आध्यात्मिक हीलर तथा समर्पित श्रीविद्या साधक, शांभवी साधक और प्रति-प्रसव साधना साधक हैं। वे 3×3 लो-शू मैजिक स्क्वायर (अंक वर्ग), हॉरोलॉजिकल पल्स रेज़ोनेंस (Wristwatch Therapy) और सेंधा नमक आभामंडल संरक्षण के माध्यम से देश-विदेश के साधकों, उद्यमियों व परिवारों को मार्गदर्शन प्रदान करते हैं।'
+                    : 'Randhir Singh is a distinguished Vedic Numerologist, Pulse Horology Expert, Spiritual Healer, and dedicated Sri Vidya Sadhak, Shambhavi Sadhak, and Prati-Prasav Sadhana Sadhak, based in Jaipur, Rajasthan, India. Serving spiritual seekers, entrepreneurs, business founders, and families worldwide through the authentic 3×3 Lo-Shu Magic Square, Horological Pulse Resonance (Wristwatch Therapy), and Sendha Rock Salt Aura Shielding.'}
                 </p>
                 <div className="flex flex-wrap items-center gap-2 pt-1">
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-amber-50 border border-amber-300 text-amber-950 text-[11px] font-bold">
-                    ✦ {lang === 'hi' ? 'श्रीविद्या साधक' : 'श्रीविद्या साधक (Sri Vidya Sadhak)'}
+                    ✦ {lang === 'hi' ? 'श्रीविद्या साधक' : 'Sri Vidya Sadhak'}
                   </span>
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-amber-50 border border-amber-300 text-amber-950 text-[11px] font-bold">
-                    ✦ {lang === 'hi' ? 'शांभवी साधक' : 'शांभवी साधक (Shambhavi Sadhak)'}
+                    ✦ {lang === 'hi' ? 'शांभवी साधक' : 'Shambhavi Sadhak'}
                   </span>
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-amber-50 border border-amber-300 text-amber-950 text-[11px] font-bold">
-                    ✦ {lang === 'hi' ? 'प्रति-प्रसव साधना साधक' : 'प्रति-प्रसव साधना साधक (Prati-Prasav Sadhana Sadhak)'}
+                    ✦ {lang === 'hi' ? 'प्रति-प्रसव साधना साधक' : 'Prati-Prasav Sadhana Sadhak'}
                   </span>
                 </div>
               </div>

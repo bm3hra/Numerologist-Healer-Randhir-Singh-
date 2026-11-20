@@ -73,12 +73,14 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
                   {lang === 'hi' ? 'जयपुर सेंटर' : 'Jaipur Center'}
                 </span>
                 <h3 className="font-sacred text-2xl sm:text-3xl font-extrabold text-white mt-1">
-                  Numerologist & Healer · Randhir Singh (रणधीर सिंह)
+                  {lang === 'hi'
+                    ? 'न्यूमरोलॉजिस्ट एवं हीलर · रणधीर सिंह'
+                    : 'Numerologist & Healer · Randhir Singh'}
                 </h3>
                 <p className="text-xs sm:text-sm text-amber-200/85 mt-1">
                   {lang === 'hi'
-                    ? 'वैदिक अंक ज्योतिषी · कलाई घड़ी विशेषज्ञ · श्रीविद्या साधक · शांभवी साधक · प्रति-प्रसव साधना साधक'
-                    : 'Vedic Numerologist · Watch Analysis Consultant · Sri Vidya Sadhak · Shambhavi Sadhak · Prati-Prasav Sadhana Sadhak'}
+                    ? 'वैदिक अंक ज्योतिष विशेषज्ञ · नाड़ी एवं घड़ी विज्ञान के अध्येता · श्रीविद्या साधक · शांभवी साधक · प्रति-प्रसव साधना साधक'
+                    : 'Vedic Numerologist · Pulse Horology Expert · Spiritual Healer · Sri Vidya Sadhak · Shambhavi Sadhak · Prati-Prasav Sadhana Sadhak'}
                 </p>
               </div>
 
@@ -112,30 +114,38 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
 
             {/* Right: Detailed Biography & Pillars */}
             <div className="lg:col-span-8 space-y-4">
-              <div className="prose prose-stone max-w-none text-xs sm:text-sm text-stone-700 leading-relaxed space-y-3">
-                <p>
-                  {lang === 'hi' ? (
-                    <>
-                      <strong>न्यूमेरोलॉजिस्ट और हीलर · रणधीर सिंह</strong> जयपुर (राजस्थान) के जाने-माने वैदिक अंक ज्योतिषी (न्यूमेरोलॉजिस्ट), आध्यात्मिक हीलर तथा एक समर्पित <strong>श्रीविद्या साधक, शांभवी साधक और प्रति-प्रसव साधना साधक</strong> हैं। कई वर्षों से वे देश-विदेश के हजारों लोगों, बिजनेसमैन और परिवारों को जन्मतिथि विश्लेषण, करियर में तरक्की, शादी और पैसों की स्थिरता के लिए सही और सरल मार्गदर्शन दे रहे हैं।
-                    </>
-                  ) : (
-                    <>
-                      <strong>Numerologist &amp; Healer · Randhir Singh</strong> is a celebrated Vedic Numerologist, Pulse Horology Expert, Spiritual Healer, and a devoted <strong>Sri Vidya Sadhak, Shambhavi Sadhak, and Prati-Prasav Sadhana Sadhak</strong> based in Jaipur, Rajasthan. Serving seekers, business founders, and families worldwide, his practice synthesizes authentic 3x3 Lo-Shu magic square vibrations with deep traditional sadhana and subconscious science.
-                    </>
-                  )}
-                </p>
-
-                <p>
-                  {lang === 'hi' ? (
-                    <>
-                      रॉयल स्किल्स एकेडमी (पंजीकरण सं. 10115) से सम्मानित रणधीर सिंह जी विशेष रूप से <strong>थेरेपी वॉच (कलाई घड़ी और नब्ज का विश्लेषण)</strong> और <strong>सेंधा नमक द्वारा नेगेटिविटी हटाने</strong> में माहिर हैं। उनकी गहन साधना, सिद्ध यंत्र और हीलिंग कोड्स जीवन में शांति, स्पष्टता और तरक्की के नए रास्ते खोलते हैं।
-                    </>
-                  ) : (
-                    <>
-                      Honored with the prestigious Royal Skills Academy convocation regalia (Regd. No. 10115) and keynote speaker recognition at the 2nd Mega Convocation at Radisson Blu, Numerologist &amp; Healer · Randhir Singh is internationally renowned for his pioneer breakthroughs in <strong>Horological Pulse Resonance (Wristwatch Therapy)</strong> and <strong>Sendha Rock Salt Aura Shielding</strong>.
-                    </>
-                  )}
-                </p>
+              <div className="prose prose-stone max-w-none text-xs sm:text-sm text-stone-700 leading-relaxed space-y-2.5">
+                {lang === 'hi' ? (
+                  <>
+                    <p>
+                      <strong>रणधीर सिंह</strong> जयपुर, राजस्थान के प्रतिष्ठित वैदिक अंक ज्योतिष विशेषज्ञ, नाड़ी एवं घड़ी विज्ञान के अध्येता, आध्यात्मिक हीलर तथा समर्पित <strong>श्रीविद्या साधक, शांभवी साधक और प्रति-प्रसव साधना साधक</strong> हैं। वे देश-विदेश के साधकों, उद्यमियों, व्यवसायियों और परिवारों को अपनी सेवाएँ एवं मार्गदर्शन प्रदान करते हैं।
+                    </p>
+                    <p>
+                      उनकी कार्यशैली में प्रामाणिक <strong>3×3 लो-शू मैजिक स्क्वायर (अंक वर्ग)</strong> के सिद्धांतों, पारंपरिक आध्यात्मिक साधनाओं और अवचेतन मन के अध्ययन का समन्वय देखने को मिलता है।
+                    </p>
+                    <p>
+                      <strong>रॉयल स्किल्स अकादमी</strong> द्वारा आयोजित दीक्षांत समारोह में उन्हें प्रतिष्ठित दीक्षांत सम्मान एवं शैक्षणिक परिधान (Convocation Regalia) से सम्मानित किया गया। इसके अतिरिक्त, रेडिसन ब्लू में आयोजित <strong>द्वितीय मेगा दीक्षांत समारोह (2nd Mega Convocation)</strong> में उन्हें मुख्य वक्ता के रूप में भी सम्मान प्राप्त हुआ। इस सम्मान का पंजीकरण क्रमांक <strong>10115</strong> है।
+                    </p>
+                    <p>
+                      रणधीर सिंह विशेष रूप से अपनी विशिष्ट कार्य-पद्धतियों <strong>हॉरोलॉजिकल पल्स रेज़ोनेंस (Wristwatch Therapy – कलाई घड़ी एवं नाड़ी विश्लेषण आधारित पद्धति)</strong> और <strong>सेंधा नमक आभामंडल संरक्षण (Sendha Rock Salt Aura Shielding)</strong> के लिए पहचाने जाते हैं।
+                    </p>
+                    <p>
+                      उनका उद्देश्य वैदिक अंक ज्योतिष, पारंपरिक साधना, आध्यात्मिक चिंतन और विशिष्ट हीलिंग पद्धतियों के माध्यम से लोगों को आत्म-जागरूकता, सकारात्मक सोच, मानसिक शांति और जीवन में संतुलन की दिशा में प्रेरित करना है।
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      <strong>Randhir Singh</strong> is a distinguished Vedic Numerologist, Pulse Horology Expert, Spiritual Healer, and dedicated <strong>Sri Vidya Sadhak, Shambhavi Sadhak, and Prati-Prasav Sadhana Sadhak</strong>, based in Jaipur, Rajasthan, India. Serving spiritual seekers, entrepreneurs, business founders, and families worldwide, his approach brings together the traditional principles of the authentic <strong>3×3 Lo-Shu Magic Square</strong>, ancient spiritual sadhana, and the study of subconscious science.
+                    </p>
+                    <p>
+                      Honored with the prestigious <strong>Royal Skills Academy Convocation Regalia (Registration No. 10115)</strong> and recognized as a <strong>Keynote Speaker at the 2nd Mega Convocation held at Radisson Blu</strong>, Randhir Singh continues to explore the intersection of numerology, spirituality, and holistic wellness.
+                    </p>
+                    <p>
+                      He is particularly associated with his specialized approaches, <strong>Horological Pulse Resonance (Wristwatch Therapy)</strong> and <strong>Sendha Rock Salt Aura Shielding</strong>, which reflect his distinctive interest in the relationship between timekeeping, pulse analysis, traditional practices, and energetic well-being.
+                    </p>
+                  </>
+                )}
               </div>
 
               {/* Spiritual Sadhana Identity Strip */}
@@ -235,6 +245,149 @@ export const AboutRandhirSinghSection: React.FC<AboutRandhirSinghSectionProps> =
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Complete Spiritual Sadhana & Philosophy Block */}
+          <div className="border-t-2 border-amber-200/90 bg-gradient-to-b from-[#fffdf8] via-[#fdf7eb] to-[#faf2e1] p-5 sm:p-7 space-y-5">
+            {/* Block Heading & Intro */}
+            <div className="max-w-4xl space-y-2">
+              <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-900 bg-amber-100/90 border border-amber-300 px-3 py-1 rounded-full">
+                <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+                <span>
+                  {lang === 'hi'
+                    ? 'आध्यात्मिक साधना एवं दर्शन (Spiritual Sadhana & Philosophy)'
+                    : 'Spiritual Sadhana & Philosophy (आध्यात्मिक साधना एवं दर्शन)'}
+                </span>
+              </div>
+
+              <h3 className="font-sacred text-xl sm:text-2xl font-extrabold text-stone-900">
+                {lang === 'hi'
+                  ? 'आध्यात्मिक साधना एवं दर्शन (Spiritual Sadhana & Philosophy)'
+                  : 'Spiritual Sadhana & Philosophy'}
+              </h3>
+
+              <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                {lang === 'hi' ? (
+                  <>
+                    <strong>न्यूमरोलॉजिस्ट एवं हीलर · रणधीर सिंह (Randhir Singh)</strong> एक समर्पित आध्यात्मिक साधक हैं, जो भारतीय सनातन परंपरा, वैदिक दर्शन, योग, तंत्र एवं चेतना-विज्ञान के गहन अध्ययन और साधना से जुड़े हुए हैं। उनकी आध्यात्मिक यात्रा में <strong>श्रीविद्या साधना</strong>, <strong>शांभवी साधना</strong> और <strong>प्रति-प्रसव साधना</strong> का विशेष स्थान है।
+                  </>
+                ) : (
+                  <>
+                    His spiritual journey encompasses three profound traditions:
+                  </>
+                )}
+              </p>
+            </div>
+
+            {/* 3 Sadhana Traditions Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* 1. Sri Vidya Sadhana */}
+              <div className="bg-white rounded-2xl border border-amber-300/80 p-4 sm:p-5 shadow-xs flex flex-col justify-between space-y-2.5">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-amber-900 text-amber-200 font-bold text-xs flex items-center justify-center shrink-0">
+                      1
+                    </span>
+                    <h4 className="font-sacred font-bold text-sm sm:text-base text-amber-950 leading-snug">
+                      {lang === 'hi'
+                        ? 'श्रीविद्या साधना (Sri Vidya Sadhana)'
+                        : 'Sri Vidya Sadhana'}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-stone-700 leading-relaxed">
+                    {lang === 'hi'
+                      ? 'श्रीविद्या साधना शक्ति उपासना की एक अत्यंत गहन एवं प्राचीन तांत्रिक परंपरा है। इसका केंद्रबिंदु आदिशक्ति माँ ललिता त्रिपुरसुंदरी की आराधना और शिव-शक्ति के अद्वैत स्वरूप का अनुभव करना है। श्रीचक्र, मंत्र, ध्यान, उपासना और गुरु-परंपरा इस साधना के महत्वपूर्ण अंग हैं। इसका आध्यात्मिक उद्देश्य साधक को बाहरी जगत से आगे बढ़ाकर अपने भीतर विद्यमान दिव्य चेतना और शक्ति के बोध की ओर ले जाना है।'
+                      : 'A traditional Shakta path devoted to the Divine Mother, Sri Chakra, and the understanding of Shiva–Shakti consciousness.'}
+                  </p>
+                </div>
+              </div>
+
+              {/* 2. Shambhavi Sadhana */}
+              <div className="bg-white rounded-2xl border border-amber-300/80 p-4 sm:p-5 shadow-xs flex flex-col justify-between space-y-2.5">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-amber-900 text-amber-200 font-bold text-xs flex items-center justify-center shrink-0">
+                      2
+                    </span>
+                    <h4 className="font-sacred font-bold text-sm sm:text-base text-amber-950 leading-snug">
+                      {lang === 'hi'
+                        ? 'शांभवी साधना (Shambhavi Sadhana)'
+                        : 'Shambhavi Sadhana'}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-stone-700 leading-relaxed">
+                    {lang === 'hi'
+                      ? 'शांभवी साधना का संबंध ध्यान, एकाग्रता, अंतर्मुखी जागरूकता और साक्षीभाव से है। इसमें साधक मन के विचारों और भावनाओं को बिना उनसे प्रभावित हुए देखने का अभ्यास करता है। इसका मूल भाव अपनी चेतना के वास्तविक स्वरूप को पहचानना और आंतरिक शांति, स्थिरता एवं जागरूकता विकसित करना है।'
+                      : 'A path of meditation, inner awareness, witnessing, and the exploration of pure consciousness.'}
+                  </p>
+                </div>
+              </div>
+
+              {/* 3. Prati-Prasav Sadhana */}
+              <div className="bg-white rounded-2xl border border-amber-300/80 p-4 sm:p-5 shadow-xs flex flex-col justify-between space-y-2.5">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-7 h-7 rounded-lg bg-amber-900 text-amber-200 font-bold text-xs flex items-center justify-center shrink-0">
+                      3
+                    </span>
+                    <h4 className="font-sacred font-bold text-sm sm:text-base text-amber-950 leading-snug">
+                      {lang === 'hi'
+                        ? 'प्रति-प्रसव साधना (Prati-Prasav Sadhana)'
+                        : 'Prati-Prasav Sadhana'}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-stone-700 leading-relaxed">
+                    {lang === 'hi'
+                      ? 'प्रति-प्रसव की अवधारणा महर्षि पतंजलि के योगदर्शन से संबंधित है। योगसूत्र के अनुसार, प्रति-प्रसव का अर्थ है विकारों और क्लेशों को उनके मूल कारणों तक समझते हुए उनके प्रभाव से मुक्त होना। अविद्या, अस्मिता, राग, द्वेष और अभिनिवेश जैसे मानसिक क्लेशों की जड़ों को पहचानना इस प्रक्रिया का महत्वपूर्ण भाग है। इसका उद्देश्य चित्त की अशुद्धियों और बंधनों से मुक्ति तथा विवेकख्याति की प्राप्ति की दिशा में आगे बढ़ना है।'
+                      : 'A yogic approach rooted in Patanjali\'s philosophy, focused on understanding the subtle roots of mental afflictions and moving towards inner freedom.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Philosophy & Purpose of Life Synthesis */}
+            <div className="bg-white rounded-2xl border border-amber-300/90 p-4 sm:p-6 shadow-xs space-y-3.5">
+              {lang === 'hi' ? (
+                <>
+                  <h4 className="font-sacred text-base sm:text-lg font-extrabold text-amber-950 flex items-center gap-2">
+                    <Crown className="w-4 h-4 text-amber-700 shrink-0" />
+                    <span>आध्यात्मिक दर्शन एवं जीवन का उद्देश्य</span>
+                  </h4>
+
+                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                    इन तीनों साधना परंपराओं का अध्ययन और अभ्यास आध्यात्मिक विकास के अलग-अलग आयामों को समझने का अवसर प्रदान करता है:
+                  </p>
+
+                  <ul className="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs text-stone-800">
+                    <li className="bg-amber-50/80 border border-amber-200/80 rounded-xl p-3 leading-relaxed">
+                      <strong className="text-amber-950 block mb-0.5">✦ श्रीविद्या:</strong>
+                      <span>शक्ति उपासना, भक्ति, समर्पण और शिव-शक्ति के अद्वैत का बोध।</span>
+                    </li>
+                    <li className="bg-amber-50/80 border border-amber-200/80 rounded-xl p-3 leading-relaxed">
+                      <strong className="text-amber-950 block mb-0.5">✦ शांभवी:</strong>
+                      <span>ध्यान, साक्षीभाव, जागरूकता और आत्मचेतना का अनुभव।</span>
+                    </li>
+                    <li className="bg-amber-50/80 border border-amber-200/80 rounded-xl p-3 leading-relaxed">
+                      <strong className="text-amber-950 block mb-0.5">✦ प्रति-प्रसव:</strong>
+                      <span>मन के मूल संस्कारों, क्लेशों और बंधनों को समझकर उनसे मुक्ति की दिशा में अग्रसर होना।</span>
+                    </li>
+                  </ul>
+
+                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                    इन साधनाओं का मूल संदेश है कि वास्तविक परिवर्तन केवल बाहरी परिस्थितियों को बदलने से नहीं, बल्कि स्वयं के भीतर जागरूकता, संतुलन, आत्मचिंतन और सकारात्मक चेतना विकसित करने से आता है।
+                  </p>
+
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 border border-amber-500/40 text-amber-100 text-xs sm:text-sm leading-relaxed">
+                    <strong className="text-amber-300">उनका आध्यात्मिक दृष्टिकोण: </strong>
+                    <span>आत्मज्ञान, आंतरिक शांति, चेतना का विकास और जीवन में संतुलन की स्थापना।</span>
+                  </div>
+                </>
+              ) : (
+                <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-stone-900 via-amber-950 to-stone-900 border border-amber-500/40 text-amber-100 text-xs sm:text-sm leading-relaxed">
+                  Through his work, Randhir Singh aims to inspire self-awareness, inner balance, spiritual growth, clarity, and a more harmonious approach to life.
+                </div>
+              )}
             </div>
           </div>
         </div>
